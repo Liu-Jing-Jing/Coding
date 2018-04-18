@@ -18,8 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    HomeController *home = [[HomeController alloc] init];
-    [self addChildViewController:home title:@"首页" image:@"tab_home_24x24_" selImage:@"tab_home_selected_24x24_"];
+    HomeController *home1 = [[HomeController alloc] init];
+    [self addChildViewController:home1 title:@"首页" image:@"tab_home_24x24_" selImage:@"tab_home_selected_24x24_"];
+    HomeController *home2 = [[HomeController alloc] init];
+    [self addChildViewController:home2 title:@"首页" image:@"tab_home_24x24_" selImage:@"tab_home_selected_24x24_"];
+    HomeController *home3 = [[HomeController alloc] init];
+    [self addChildViewController:home3 title:@"首页" image:@"tab_home_24x24_" selImage:@"tab_home_selected_24x24_"];
     
 //    [self setSelectedIndex:3];
 }

@@ -21,6 +21,7 @@
     [super viewDidLoad];
     _allowPanBack = YES;
     self.navigationController.jz_navigationBarTransitionStyle = JZNavigationBarTransitionStyleSystem;
+    self.navigationController.jz_navigationBarSize = CGSizeMake(ScreenWidth, 100);
 }
 - (void)setNavTitle:(NSString *)navTitle {
     _navTitle = navTitle;

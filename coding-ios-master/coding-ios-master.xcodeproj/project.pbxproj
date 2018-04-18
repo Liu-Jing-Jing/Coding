@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0478AA192086CBA900213353 /* HomeCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA182086CBA900213353 /* HomeCollectionLayout.m */; };
+		0478AA1C2086CC2700213353 /* HomeCollectionSectionBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA1B2086CC2700213353 /* HomeCollectionSectionBgView.m */; };
+		0478AA1F2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA1D2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m */; };
+		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
 		4BD2B1D820863A8A00E31A21 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1D720863A8A00E31A21 /* AppManager.m */; };
 		4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1E920863DC100E31A21 /* UITableViewCell+Extension.m */; };
 		4BD2B1F120863EEA00E31A21 /* UICollectionViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1F020863EEA00E31A21 /* UICollectionViewCell+Extension.m */; };
@@ -16,7 +20,7 @@
 		4BD2B20D208647C900E31A21 /* HomeCollectionOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B20A208647C900E31A21 /* HomeCollectionOtherCell.m */; };
 		4BD2B20E208647C900E31A21 /* HomeCollectionCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B20C208647C900E31A21 /* HomeCollectionCategoryCell.m */; };
 		4BD2B21220864BA300E31A21 /* HomeSectionFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B21120864BA300E31A21 /* HomeSectionFooter.m */; };
-		4BD2B21520864CEC00E31A21 /* HomeCollectionNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B21420864CEC00E31A21 /* HomeCollectionNewsCell.m */; };
+		4BD2B21520864CEC00E31A21 /* HomeCollectionHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B21420864CEC00E31A21 /* HomeCollectionHotCell.m */; };
 		4BE9FD0620862FCA0020B755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BE9FD0420862FCA0020B755 /* Main.storyboard */; };
 		4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE9FD0720862FCA0020B755 /* Assets.xcassets */; };
 		4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BE9FD0920862FCA0020B755 /* LaunchScreen.storyboard */; };
@@ -54,6 +58,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0478AA172086CBA900213353 /* HomeCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionLayout.h; sourceTree = "<group>"; };
+		0478AA182086CBA900213353 /* HomeCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionLayout.m; sourceTree = "<group>"; };
+		0478AA1A2086CC2700213353 /* HomeCollectionSectionBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionSectionBgView.h; sourceTree = "<group>"; };
+		0478AA1B2086CC2700213353 /* HomeCollectionSectionBgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionSectionBgView.m; sourceTree = "<group>"; };
+		0478AA1D2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		0478AA1E2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
+		0478B2BE2087588100213353 /* UIViewController+LLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLAdd.m"; sourceTree = "<group>"; };
+		0478B2BF2087588100213353 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
 		17D8745DF5456539CEBD9B92 /* Pods-coding-ios-master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coding-ios-master.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coding-ios-master/Pods-coding-ios-master.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD2B1D620863A8A00E31A21 /* AppManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
 		4BD2B1D720863A8A00E31A21 /* AppManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
@@ -78,8 +91,8 @@
 		4BD2B20C208647C900E31A21 /* HomeCollectionCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionCategoryCell.m; sourceTree = "<group>"; };
 		4BD2B21020864BA300E31A21 /* HomeSectionFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSectionFooter.h; sourceTree = "<group>"; };
 		4BD2B21120864BA300E31A21 /* HomeSectionFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSectionFooter.m; sourceTree = "<group>"; };
-		4BD2B21320864CEC00E31A21 /* HomeCollectionNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionNewsCell.h; sourceTree = "<group>"; };
-		4BD2B21420864CEC00E31A21 /* HomeCollectionNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionNewsCell.m; sourceTree = "<group>"; };
+		4BD2B21320864CEC00E31A21 /* HomeCollectionHotCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionHotCell.h; sourceTree = "<group>"; };
+		4BD2B21420864CEC00E31A21 /* HomeCollectionHotCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionHotCell.m; sourceTree = "<group>"; };
 		4BE9FCFB20862FCA0020B755 /* coding-ios-master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coding-ios-master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE9FD0520862FCA0020B755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BE9FD0720862FCA0020B755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +176,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0478AA162086CBA900213353 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				0478AA172086CBA900213353 /* HomeCollectionLayout.h */,
+				0478AA182086CBA900213353 /* HomeCollectionLayout.m */,
+				0478AA1E2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.h */,
+				0478AA1D2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m */,
+				0478AA1A2086CC2700213353 /* HomeCollectionSectionBgView.h */,
+				0478AA1B2086CC2700213353 /* HomeCollectionSectionBgView.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		0478B2BC2087588100213353 /* LLNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				0478B2BD2087588100213353 /* UIViewController+LLAdd.h */,
+				0478B2BE2087588100213353 /* UIViewController+LLAdd.m */,
+				0478B2BF2087588100213353 /* YYKitMacro.h */,
+			);
+			path = LLNavigationBar;
+			sourceTree = "<group>";
+		};
 		4B48658C2086338000C2A120 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,8 +265,8 @@
 				4BD2B20A208647C900E31A21 /* HomeCollectionOtherCell.m */,
 				4BD2B209208647C900E31A21 /* HomeCollectionCategoryCell.h */,
 				4BD2B20C208647C900E31A21 /* HomeCollectionCategoryCell.m */,
-				4BD2B21320864CEC00E31A21 /* HomeCollectionNewsCell.h */,
-				4BD2B21420864CEC00E31A21 /* HomeCollectionNewsCell.m */,
+				4BD2B21320864CEC00E31A21 /* HomeCollectionHotCell.h */,
+				4BD2B21420864CEC00E31A21 /* HomeCollectionHotCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -453,6 +489,7 @@
 			children = (
 				4BE9FD64208630070020B755 /* HomeView.h */,
 				4BE9FD65208630070020B755 /* HomeView.m */,
+				0478AA162086CBA900213353 /* Layout */,
 				4BD2B208208647C900E31A21 /* Cell */,
 				4BD2B201208647C500E31A21 /* Header */,
 				4BD2B20F20864B8900E31A21 /* Footer */,
@@ -480,6 +517,7 @@
 		4BE9FDD5208630070020B755 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0478B2BC2087588100213353 /* LLNavigationBar */,
 				4BE9FDD6208630070020B755 /* YLButton */,
 			);
 			path = ThirdParty;
@@ -696,7 +734,10 @@
 				4BE9FDF1208630070020B755 /* UIImageView+SDWebImage.m in Sources */,
 				4BE9FDF0208630070020B755 /* UIView+Extension.m in Sources */,
 				4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */,
+				0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */,
+				0478AA1C2086CC2700213353 /* HomeCollectionSectionBgView.m in Sources */,
 				4BE9FE2F208630070020B755 /* BaseTabBarController.m in Sources */,
+				0478AA1F2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m in Sources */,
 				4BE9FDF8208630070020B755 /* ImageUtils.m in Sources */,
 				4BE9FDED208630070020B755 /* UIView+Border.m in Sources */,
 				4BD2B1D820863A8A00E31A21 /* AppManager.m in Sources */,
@@ -713,8 +754,9 @@
 				4BD2B207208647C500E31A21 /* HomeHeader.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,
 				4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */,
-				4BD2B21520864CEC00E31A21 /* HomeCollectionNewsCell.m in Sources */,
+				4BD2B21520864CEC00E31A21 /* HomeCollectionHotCell.m in Sources */,
 				4BE9FDF3208630070020B755 /* NSString+Extension.m in Sources */,
+				0478AA192086CBA900213353 /* HomeCollectionLayout.m in Sources */,
 				4BD2B21220864BA300E31A21 /* HomeSectionFooter.m in Sources */,
 				4BD2B20E208647C900E31A21 /* HomeCollectionCategoryCell.m in Sources */,
 				4BE9FDEA208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
@@ -867,13 +909,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JKKDL65VRL;
+				DEVELOPMENT_TEAM = 62X8TB2D49;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/coding-ios-master/Classes/KKPrefixHeader.pch";
 				INFOPLIST_FILE = "coding-ios-master/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kk.coding-ios-master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -883,13 +926,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JKKDL65VRL;
+				DEVELOPMENT_TEAM = 62X8TB2D49;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/coding-ios-master/Classes/KKPrefixHeader.pch";
 				INFOPLIST_FILE = "coding-ios-master/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kk.coding-ios-master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

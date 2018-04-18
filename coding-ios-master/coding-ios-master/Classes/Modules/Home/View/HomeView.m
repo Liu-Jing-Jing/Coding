@@ -12,7 +12,8 @@
 #import "HomeSectionFooter.h"
 #import "HomeCollectionOtherCell.h"
 #import "HomeCollectionCategoryCell.h"
-#import "HomeCollectionNewsCell.h"
+#import "HomeCollectionHotCell.h"
+#import "HomeCollectionLayout.h"
 
 #pragma mark - 声明
 @interface HomeView()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -42,7 +43,7 @@
 - (UICollectionView *)collection {
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:({
-            UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+            HomeCollectionLayout *flow = [[HomeCollectionLayout alloc] init];
             flow;
         })];
         _collection.delegate = self;
@@ -54,7 +55,7 @@
         [_collection registerClass:[HomeSectionFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"HomeSectionFooter"];
         [_collection registerClass:[HomeCollectionOtherCell class] forCellWithReuseIdentifier:@"HomeCollectionOtherCell"];
         [_collection registerClass:[HomeCollectionCategoryCell class] forCellWithReuseIdentifier:@"HomeCollectionCategoryCell"];
-        [_collection registerClass:[HomeCollectionNewsCell class] forCellWithReuseIdentifier:@"HomeCollectionNewsCell"];
+        [_collection registerClass:[HomeCollectionHotCell class] forCellWithReuseIdentifier:@"HomeCollectionHotCell"];
         [self addSubview:_collection];
     }
     return _collection;
@@ -62,7 +63,7 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 3;
+    return 4;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
@@ -73,6 +74,9 @@
     }
     else if (section == 2) {
         return 3;
+    }
+    else if (section == 3) {
+        return 4;
     }
     return 0;
 }
@@ -86,25 +90,29 @@
         return cell;
     }
     else if (indexPath.section == 2) {
-        HomeCollectionNewsCell *cell = [HomeCollectionNewsCell initWithCollection:collectionView index:indexPath];
+        HomeCollectionCategoryCell *cell = [HomeCollectionCategoryCell initWithCollection:collectionView index:indexPath];
         return cell;
     }
-    HomeCollectionOtherCell *cell = [HomeCollectionOtherCell initWithCollection:collectionView index:indexPath];
-    return cell;
+    else if (indexPath.section == 3) {
+        HomeCollectionHotCell *cell = [HomeCollectionHotCell initWithCollection:collectionView index:indexPath];
+        return cell;
+    }
+    return nil;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        // 空
         if (indexPath.section == 0) {
             return nil;
         }
-        // 产品类别
         else if (indexPath.section == 1) {
             HomeSectionCategoryHeader *header = [HomeSectionCategoryHeader initWithCollection:collectionView kind:kind index:indexPath];
             return header;
         }
-        // 产品类别
         else if (indexPath.section == 2) {
+            HomeSectionCategoryHeader *header = [HomeSectionCategoryHeader initWithCollection:collectionView kind:kind index:indexPath];
+            return header;
+        }
+        else if (indexPath.section == 3) {
             HomeSectionCategoryHeader *header = [HomeSectionCategoryHeader initWithCollection:collectionView kind:kind index:indexPath];
             return header;
         }
@@ -115,6 +123,7 @@
     }
     return nil;
 }
+// Header
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return CGSizeZero;
@@ -125,20 +134,28 @@
     else if (section == 2) {
         return CGSizeMake(ScreenWidth, countcoordinatesY(40));
     }
+    else if (section == 3) {
+        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
+    }
     return CGSizeZero;
 }
+// Footer
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     if (section == 0) {
         return CGSizeZero;
     }
     else if (section == 1) {
-        return CGSizeMake(ScreenWidth, countcoordinatesY(45));
+        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
     }
     else if (section == 2) {
         return CGSizeZero;
     }
+    else if (section == 3) {
+        return CGSizeZero;
+    }
     return CGSizeZero;
 }
+// Section内间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
         return UIEdgeInsetsMake(0, 0, countcoordinatesY(10), 0);
@@ -147,12 +164,16 @@
         return UIEdgeInsetsMake(countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10));
     }
     else if (section == 2) {
-        return UIEdgeInsetsMake(countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10));
+        return UIEdgeInsetsMake(0, countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10));
+    }
+    else if (section == 3) {
+        return UIEdgeInsetsMake(0, 0, countcoordinatesY(10), 0);
     }
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
+// Cell尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 2);
@@ -177,11 +198,30 @@
             return CGSizeMake(width, height);
         }
     }
+    else if (indexPath.section == 3) {
+        CGFloat width  = ScreenWidth;
+        CGFloat height = width / 3;
+        return CGSizeMake(width, height);
+    }
     return CGSizeZero;
 }
+// Cell间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return countcoordinatesY(10);
+    if (section == 0) {
+        return countcoordinatesY(10);
+    }
+    else if (section == 1) {
+        return countcoordinatesY(10);
+    }
+    else if (section == 2) {
+        return countcoordinatesY(10);
+    }
+    else if (section == 3) {
+        return 0;
+    }
+    return 0;
 }
+// Section间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }

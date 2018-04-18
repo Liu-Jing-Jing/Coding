@@ -6,18 +6,18 @@
 //  Copyright © 2018年 kk. All rights reserved.
 //
 
-#import "HomeCollectionNewsCell.h"
+#import "HomeCollectionHotCell.h"
 
 #pragma mark - 声明
-@interface HomeCollectionNewsCell()
+@interface HomeCollectionHotCell()
 
 @end
 
 #pragma mark - 实现
-@implementation HomeCollectionNewsCell
+@implementation HomeCollectionHotCell
 
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
-    HomeCollectionNewsCell *cell = [HomeCollectionNewsCell loadCode:collection index:index];
+    HomeCollectionHotCell *cell = [HomeCollectionHotCell loadCode:collection index:index];
     cell.backgroundColor = MediumColor;
     return cell;
 }

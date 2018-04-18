@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeCollectionNewsCell : UICollectionViewCell
+@interface HomeCollectionHotCell : UICollectionViewCell
 
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index;
 
