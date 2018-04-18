@@ -127,7 +127,7 @@ YYSYNTH_DYNAMIC_PROPERTY_CTYPE(isHidden, setIsHidden, BOOL)
 
 - (void)ll_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
     if (!self.statusView) {
-        self.statusView = [[UIView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
+        self.statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, ScreenWidth, 20)];
         self.statusView.alpha = 0;
         self.statusView.backgroundColor = self.navigationController.navigationBar.barTintColor;
         [self.navigationController.navigationBar addSubview:self.statusView];
@@ -135,7 +135,7 @@ YYSYNTH_DYNAMIC_PROPERTY_CTYPE(isHidden, setIsHidden, BOOL)
     }
     if (hidden) {
         CGRect frame = self.navigationController.navigationBar.frame;
-        frame.origin.y = -24; // 20 - kNavigationBarHeight
+        frame.origin.y = -44; // 20 - kNavigationBarHeight
         if (animated) {
             [UIView animateWithDuration:kDuration animations:^{
                 self.navigationController.navigationBar.frame = frame;

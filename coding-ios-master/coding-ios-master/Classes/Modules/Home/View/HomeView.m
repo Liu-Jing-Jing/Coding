@@ -43,14 +43,22 @@
 - (UICollectionView *)collection {
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:({
-            HomeCollectionLayout *flow = [[HomeCollectionLayout alloc] init];
-            flow;
+            [[HomeCollectionLayout alloc] init];
         })];
-        _collection.delegate = self;
-        _collection.dataSource = self;
-        _collection.backgroundColor = ThinColor;
-        _collection.contentInset = UIEdgeInsetsMake(ScreenWidth / 2, 0, 0, 0);
-        _collection.showsVerticalScrollIndicator = NO;
+        _collection.mj_header = ({
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [_collection.mj_header endRefreshing];
+                });
+            }];
+            header.ignoredScrollViewContentInsetTop = ScreenWidth / 2;
+            header;
+        });
+        [_collection setDelegate:self];
+        [_collection setDataSource:self];
+        [_collection setBackgroundColor:ThinColor];
+        [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 2, 0, 0, 0)];
+        [_collection setShowsVerticalScrollIndicator:NO];
         [_collection registerClass:[HomeSectionCategoryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionCategoryHeader"];
         [_collection registerClass:[HomeSectionFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"HomeSectionFooter"];
         [_collection registerClass:[HomeCollectionOtherCell class] forCellWithReuseIdentifier:@"HomeCollectionOtherCell"];
@@ -225,6 +233,8 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }
+
+
 
 
 

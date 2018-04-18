@@ -20,4 +20,7 @@
 - (void)setRightClick:(NSArray<NSArray *> *)datas;
 - (void)rightItemPressed:(NSInteger)index;
 
+- (void)hideNavigationBarLine;
+- (void)showNavigationBarLine;
+
 @end

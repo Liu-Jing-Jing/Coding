@@ -30,6 +30,10 @@
 #import "UITableViewCell+Extension.h"
 #import "UICollectionViewCell+Extension.h"
 #import "UICollectionReusableView+Extension.h"
+#import "UIViewController+LLAdd.h"
+#import "MJRefreshNormalHeader+Extension.h"
+#import "MJRefreshAutoNormalFooter+Extension.h"
+#import "UIFont+Extension.h"
 
 #pragma mark - Manager
 
@@ -44,6 +48,10 @@
 #pragma mark - Modules
 #import "WelcomeController.h"
 #import "HomeController.h"
+#import "ArticleController.h"
+#import "PushController.h"
+#import "DiscoveryController.h"
+#import "MineController.h"
 
 #endif
 

@@ -28,7 +28,7 @@ DEPENDENCIES:
   - JZNavigationExtension (~> 1.5.0)
   - Masonry (~> 1.0.2)
   - MJExtension (~> 3.0.0)
-  - MJRefresh (~> 3.1.12)
+  - MJRefresh (~> 3.1.0)
   - pop (~> 1.0.10)
   - SDWebImage (~> 4.0.0)
 
@@ -41,6 +41,6 @@ SPEC CHECKSUMS:
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 0877565f48565364e3291e57d14664489a339a69
+PODFILE CHECKSUM: 4b768eafdd6f525c743c3e77d423911ff804ce9e
 
 COCOAPODS: 1.4.0

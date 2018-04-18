@@ -8,10 +8,11 @@
 
 #import "UIFont+Extension.h"
 
-#define IS_IPHONE_5 ([[UIScreen mainScreen] bounds].size.height == 568.0f)
-#define IS_IPHONE_6 ([[UIScreen mainScreen] bounds].size.height == 667.0f)
-#define IS_IPHONE_6_PLUS ([[UIScreen mainScreen] bounds].size.height == 736.0f)
-#define IS_IPHONE_6_PLUS_UP ([[UIScreen mainScreen] bounds].size.height > 736.0f)
+#define IS_IPHONE_5 (ScreenHeight == 568.0f)
+#define IS_IPHONE_6 (ScreenHeight == 667.0f)
+#define IS_IPHONE_6_PLUS (ScreenHeight == 736.0f)
+#define IS_IPHONE_6_PLUS_UP (ScreenHeight > 736.0f)
+#define iPhoneX     (ScreenWidth == 375.f && ScreenHeight == 812.f ? YES : NO)
 
 #define IPHONE6_INCREMENT 2
 #define IPHONE6PLUS_INCREMENT 3
@@ -35,20 +36,6 @@
     return newFont;
 }
 
-
-+ (UIFont *)adjustFont:(UIFont *)font {
-    UIFont *newFont = nil;
-    if (IS_IPHONE_6) {
-        newFont = [UIFont fontWithName:font.fontName size:font.pointSize+IPHONE6_INCREMENT];
-    } else if (IS_IPHONE_6_PLUS) {
-        newFont = [UIFont fontWithName:font.fontName size:font.pointSize+IPHONE6PLUS_INCREMENT];
-    } else if (IS_IPHONE_6_PLUS_UP) {
-        newFont = [UIFont fontWithName:font.fontName size:font.pointSize+IPHONE6PLUS_UP_INCREMENT];
-    } else {
-        newFont = font;
-    }
-    return newFont;
-}
 
 
 @end

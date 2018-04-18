@@ -25,8 +25,7 @@
 }
 - (void)setNavTitle:(NSString *)navTitle {
     _navTitle = navTitle;
-    NSInteger fontSize = 14;
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:fontSize];
+    UIFont *font = [UIFont boldSystemFontOfSize:adjustFont(18)];
     CGSize maxSize = [navTitle sizeWithMaxSize:CGSizeMake(MAXFLOAT, 0) font:font];
     UIButton *btn = ({
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -154,7 +153,11 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        if ([self isKindOfClass:[HomeController class]]) {
+        if ([self isKindOfClass:[HomeController class]] ||
+            [self isKindOfClass:[ArticleController class]] ||
+            [self isKindOfClass:[PushController class]] ||
+            [self isKindOfClass:[DiscoveryController class]] ||
+            [self isKindOfClass:[MineController class]]) {
             self.hidesBottomBarWhenPushed = NO;
         } else {
             self.hidesBottomBarWhenPushed = YES;
@@ -162,6 +165,38 @@
     }
     return self;
 }
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self hideNavigationBarLine];
+}
+
+
+- (void)hideNavigationBarLine {
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+- (void)showNavigationBarLine {
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+}
+
+// 找到导航栏最下面黑线视图
+- (UIImageView *)getLineViewInNavigationBar:(UIView *)view {
+    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
+        return (UIImageView *)view;
+    }
+    for (UIView *subview in view.subviews) {
+        UIImageView *imageView = [self getLineViewInNavigationBar:subview];
+        if (imageView) {
+            return imageView;
+        }
+    }
+    return nil;
+}
+
+
 
 
 @end

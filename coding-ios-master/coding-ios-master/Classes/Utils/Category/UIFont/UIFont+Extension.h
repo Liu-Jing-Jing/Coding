@@ -13,6 +13,4 @@
 /// 自适应字体大小
 + (CGFloat)adjustFontSize:(CGFloat)fontsize;
 
-+ (UIFont *)adjustFont:(UIFont *)font;
-
 @end

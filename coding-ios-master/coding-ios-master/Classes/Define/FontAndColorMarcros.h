@@ -6,7 +6,7 @@
 //  Copyright © 2018年 kk. All rights reserved.
 //
 
-
+#define adjustFont(A) [UIFont adjustFontSize:A]
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
 #define HeavyColor  [UIColor colorWithRed:0.040 green:0.154 blue:0.278 alpha:1.0]
 #define BoldColor   [UIColor colorWithRed:0.201 green:0.437 blue:0.694 alpha:1.0]

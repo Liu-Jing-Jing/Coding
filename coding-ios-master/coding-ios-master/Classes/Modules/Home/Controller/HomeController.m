@@ -8,7 +8,6 @@
 
 #import "HomeController.h"
 #import "HomeView.h"
-#import "UIViewController+LLAdd.h"
 
 #pragma mark - 声明
 @interface HomeController ()
@@ -24,17 +23,15 @@
     [super viewDidLoad];
     [self setNavTitle:@"首页"];
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self ll_setNavigationBarHidden:YES animated:YES];
+- (void)loadView {
+    self.view = [self homeView];
 }
-//- (void)loadView {
-//    self.view = [self homeView];
-//}
-//- (HomeView *)homeView {
-//    if (!_homeView) {
-//        _homeView = [HomeView init];
-//    }
-//    return _homeView;
-//}
+- (HomeView *)homeView {
+    if (!_homeView) {
+        _homeView = [HomeView init];
+    }
+    return _homeView;
+}
+
 
 @end
