@@ -11,9 +11,6 @@
 #pragma mark - 声明
 @interface HomeCollectionOtherCell()
 
-@property (nonatomic, strong) UIImageView *icon;
-@property (nonatomic, strong) UILabel *name;
-
 @end
 
 #pragma mark - 实现
@@ -45,6 +42,8 @@
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
         _icon.backgroundColor = BoldColor;
+        _icon.layer.cornerRadius = 1;
+        _icon.layer.masksToBounds = YES;
         [self.contentView addSubview:_icon];
     }
     return _icon;
@@ -53,6 +52,8 @@
     if (!_name) {
         _name = [[UILabel alloc] init];
         _name.backgroundColor = BoldColor;
+        _name.layer.cornerRadius = 1;
+        _name.layer.masksToBounds = YES;
         [self.contentView addSubview:_name];
     }
     return _name;

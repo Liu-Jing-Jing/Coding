@@ -7,14 +7,11 @@
 //
 
 #import "ContentController.h"
-#import "ContentView.h"
 #import "ItemTransition.h"
 #import "KKPercentDrivenInteractiveTransition.h"
 
 #pragma mark - 声明
 @interface ContentController ()<UIViewControllerTransitioningDelegate>
-
-@property (nonatomic, strong) ContentView *contentView;
 
 @end
 
@@ -34,15 +31,22 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-//- (void)loadView {
-//    self.view = [self contentView];
-//}
-//- (ContentView *)contentView {
-//    if (!_contentView) {
-//        _contentView = [ContentView init];
-//    }
-//    return _contentView;
-//}
+- (void)loadView {
+    self.view = [self contentView];
+}
+- (ContentView *)contentView {
+    if (!_contentView) {
+        _contentView = [ContentView init];
+    }
+    return _contentView;
+}
+
+- (void)transitionDidFinish {
+    [_contentView transitionDidAppear];
+}
+- (void)transitionDidDisappear {
+    [_contentView transitionDidDisappear];
+}
 
 #pragma mark - UIViewControllerTransitioningDelegate
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {

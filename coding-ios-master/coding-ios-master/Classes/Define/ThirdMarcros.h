@@ -17,3 +17,4 @@
 #import <pop/POP.h>
 #import <JZNavigationExtension/JZNavigationExtension.h>
 #import "YLButton.h"
+#import <SDCycleScrollView/SDCycleScrollView.h>

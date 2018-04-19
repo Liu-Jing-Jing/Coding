@@ -9,6 +9,7 @@
 #import "HomeView.h"
 #import "HomeHeader.h"
 #import "HomeSectionCategoryHeader.h"
+#import "HomeSectionNextHeader.h"
 #import "HomeSectionFooter.h"
 #import "HomeCollectionOtherCell.h"
 #import "HomeCollectionCategoryCell.h"
@@ -66,6 +67,7 @@
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 2, 0, 0, 0)];
         [_collection setShowsVerticalScrollIndicator:NO];
         [_collection registerClass:[HomeSectionCategoryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionCategoryHeader"];
+        [_collection registerClass:[HomeSectionNextHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionNextHeader"];
         [_collection registerClass:[HomeSectionFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"HomeSectionFooter"];
         [_collection registerClass:[HomeCollectionOtherCell class] forCellWithReuseIdentifier:@"HomeCollectionOtherCell"];
         [_collection registerClass:[HomeCollectionCategoryCell class] forCellWithReuseIdentifier:@"HomeCollectionCategoryCell"];
@@ -130,11 +132,11 @@
             return header;
         }
         else if (indexPath.section == 2) {
-            HomeSectionCategoryHeader *header = [HomeSectionCategoryHeader initWithCollection:collectionView kind:kind index:indexPath];
+            HomeSectionNextHeader *header = [HomeSectionNextHeader initWithCollection:collectionView kind:kind index:indexPath];
             return header;
         }
         else if (indexPath.section == 3) {
-            HomeSectionCategoryHeader *header = [HomeSectionCategoryHeader initWithCollection:collectionView kind:kind index:indexPath];
+            HomeSectionNextHeader *header = [HomeSectionNextHeader initWithCollection:collectionView kind:kind index:indexPath];
             return header;
         }
     }

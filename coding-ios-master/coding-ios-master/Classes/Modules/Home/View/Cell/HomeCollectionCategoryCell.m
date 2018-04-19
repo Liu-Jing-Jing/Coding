@@ -11,12 +11,6 @@
 #pragma mark - 声明
 @interface HomeCollectionCategoryCell ()
 
-@property (nonatomic, strong) UIImageView *icon;
-@property (nonatomic, strong) UIImageView *eye;
-@property (nonatomic, strong) UIView *eyeBg;
-@property (nonatomic, strong) UILabel *number;
-@property (nonatomic, strong) UILabel *desc;
-
 @end
 
 #pragma mark - 实现
@@ -68,6 +62,7 @@
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
+        _icon.backgroundColor = LightColor;
         [self addSubview:_icon];
     }
     return _icon;

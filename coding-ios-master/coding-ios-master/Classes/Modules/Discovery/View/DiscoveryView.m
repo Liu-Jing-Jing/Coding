@@ -53,6 +53,14 @@
             header.ignoredScrollViewContentInsetTop = ScreenWidth / 3;
             header;
         });
+        _collection.mj_footer = ({
+            MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithNormalRefreshing:^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [_collection.mj_footer endRefreshing];
+                });
+            }];
+            footer;
+        });
         [_collection setDelegate:self];
         [_collection setDataSource:self];
         [_collection setBackgroundColor:ThinColor];

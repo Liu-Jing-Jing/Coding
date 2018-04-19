@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTitle:@"我的"];
+    [self setJz_wantsNavigationBarVisible:NO];
 }
 - (void)loadView {
     self.view = [self mineView];

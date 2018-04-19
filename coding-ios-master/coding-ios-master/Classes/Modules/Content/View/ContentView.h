@@ -10,6 +10,10 @@
 
 @interface ContentView : BaseView
 
+@property (nonatomic, strong) UIImageView *icon;
+
 + (instancetype)init;
+- (void)transitionDidAppear;
+- (void)transitionDidDisappear;
 
 @end

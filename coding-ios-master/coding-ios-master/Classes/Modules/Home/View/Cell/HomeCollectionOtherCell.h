@@ -11,6 +11,9 @@
 #pragma mark - 声明
 @interface HomeCollectionOtherCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *icon;
+@property (nonatomic, strong) UILabel *name;
+
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index;
 
 @end

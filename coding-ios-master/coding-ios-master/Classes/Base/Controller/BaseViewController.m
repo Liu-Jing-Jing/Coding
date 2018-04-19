@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _allowPanBack = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.jz_navigationBarTransitionStyle = JZNavigationBarTransitionStyleSystem;
     self.navigationController.jz_navigationBarSize = CGSizeMake(ScreenWidth, 100);
 }

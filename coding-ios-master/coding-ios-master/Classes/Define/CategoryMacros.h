@@ -26,7 +26,8 @@
 #import "UICollectionReusableView+Extension.h"
 #import "UIViewController+LLAdd.h"
 #import "UIFont+Extension.h"
+#import "WatchView.h"
 
 #import "MJRefreshNormalHeader+Extension.h"
 #import "MJRefreshBackNormalFooter+Extension.h"
-#import "UIView+POPManager.h"
+#import "POPAnimation+Extension.h"

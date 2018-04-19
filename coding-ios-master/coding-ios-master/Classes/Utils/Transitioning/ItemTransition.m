@@ -7,6 +7,8 @@
 //
 
 #import "ItemTransition.h"
+#import "HomeCollectionOtherCell.h"
+#import "HomeCollectionCategoryCell.h"
 
 #pragma mark - 声明
 @interface ItemTransition ()
@@ -48,20 +50,21 @@
 }
 // 实现present动画逻辑代码
 - (void)presentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
-    // 通过viewControllerForKey取出转场前后的两个控制器，这里toVC就是vc1、fromVC就是vc2
     BaseTabBarController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     HomeController *homeVC = [(BaseNavigationController *)fromVC.viewControllers[0] viewControllers][0];
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    HomeCollectionCategoryCell *cell = (HomeCollectionCategoryCell *)homeVC.currentItem;
+    ContentController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    CGRect rect = [homeVC.currentItem convertRect:homeVC.currentItem.bounds toView:window];
+    CGRect rect = [cell convertRect:homeVC.currentItem.bounds toView:window];
     
-    UIView *item = [homeVC.currentItem snapshotViewAfterScreenUpdates:NO];
+    UIView *item = [cell.icon snapshotViewAfterScreenUpdates:NO];
+    cell.eyeBg.alpha = 1;
     item.frame = rect;
     item.backgroundColor = [UIColor redColor];
     homeVC.currentItem.hidden = YES;
     toVC.view.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
-    toVC.view.alpha = 0;
+    toVC.view.alpha = 1;
     // 存放转场控件
     UIView *containerView = [transitionContext containerView];
     [containerView addSubview:toVC.view];
@@ -69,138 +72,100 @@
     
     
     
-    // 开始动画
-    [UIView animateWithDuration:1.f animations:^{
-        item.frame = CGRectMake(0, 0, ScreenWidth, ScreenWidth / 3);
-        toVC.view.alpha = 1;
-        toVC.view.frame = CGRectMake(0, ScreenWidth / 3, ScreenWidth, ScreenHeight);
-    } completion:^(BOOL finished) {
-        // 标记是否完成
-        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        // 转场失败
-        if ([transitionContext transitionWasCancelled]) {
-            homeVC.currentItem.hidden = NO;
-//            [item removeFromSuperview];
+    __block NSInteger count = 0;
+    void (^completion)(void) = ^() {
+        if (count == 3) {
+            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            // 转场失败
+            if ([transitionContext transitionWasCancelled]) {
+                homeVC.currentItem.hidden = NO;
+                [item removeFromSuperview];
+            }
+            // 转场成功
+            else {
+                homeVC.currentItem.hidden = NO;
+                [toVC transitionDidFinish];
+                [item removeFromSuperview];
+            }
         }
-        // 转场成功
-        else {
-            homeVC.currentItem.hidden = NO;
-//            [item removeFromSuperview];
-        }
+    };
+    POPSpringAnimation *alpha1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewAlpha];
+    [alpha1 setToValue:[NSValue valueWithCGRect:CGRectMake(0, 0, ScreenWidth, ScreenWidth / 2)]];
+    [alpha1 setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        count += 1;
+        completion();
     }];
+    [item pop_addAnimation:alpha1 forKey:@"size"];
     
+    POPSpringAnimation *anim1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    [anim1 setToValue:[NSValue valueWithCGRect:CGRectMake(0, 0, ScreenWidth, ScreenWidth / 2)]];
+    [anim1 setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        count += 1;
+        completion();
+    }];
+    [item pop_addAnimation:anim1 forKey:@"size"];
     
+    POPSpringAnimation *anim2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    [anim2 setToValue:[NSValue valueWithCGRect:CGRectMake(0, ScreenWidth / 2, ScreenWidth, ScreenHeight)]];
+    [anim2 setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        toVC.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+        count += 1;
+        completion();
+    }];
+    [toVC.view pop_addAnimation:anim2 forKey:@"size"];
     
-    
-//    // 开始动画
-//    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.55 initialSpringVelocity:1.0 / 0.55 options:0 animations:^{
-//        item.frame = CGRectMake(0, 0, ScreenWidth, ScreenWidth / 3);
-//        toVC.view.frame = CGRectMake(0, 0, containerView.width, containerView.height);
-//        //首先我们让vc2向上移动
-////        toVC.view.transform = CGAffineTransformMakeTranslation(0, containerView.height);
-//        //然后让截图视图缩小一点即可
-////        tempView.transform = CGAffineTransformMakeScale(0.85, 0.85);
-//    } completion:^(BOOL finished) {
-//        // 标记是否完成
-//        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-//        // 转场失败
-//        if ([transitionContext transitionWasCancelled]) {
-//            homeVC.currentItem.hidden = NO;
-//            [item removeFromSuperview];
-//        }
-//        // 转场成功
-//        else {
-//            homeVC.currentItem.hidden = NO;
-//            [item removeFromSuperview];
-//        }
-//    }];
-    
-    
-    // snapshotViewAfterScreenUpdates可以对某个视图截图，我们采用对这个截图做动画代替直接对vc1做动画，因为在手势过渡中直接使用vc1动画会和手势有冲突， 如果不需要实现手势的话，就可以不是用截图视图了，大家可以自行尝试一下
-//    UIView *tempView = [fromVC.view snapshotViewAfterScreenUpdates:NO];
-//    tempView.frame = fromVC.view.frame;
-    // 因为对截图做动画，vc1就可以隐藏了
-//    fromVC.view.hidden = YES;
-    // 这里有个重要的概念containerView，如果要对视图做转场动画，视图就必须要加入containerView中才能进行，可以理解containerView管理着所有做转场动画的视图
-    
-    // 将截图视图和vc2的view都加入ContainerView中
-//    [containerView addSubview:tempView];
-//    [containerView addSubview:item];
-//    [containerView addSubview:toVC.view];
-    // 设置vc2的frame，因为这里vc2present出来不是全屏，且初始的时候在底部，如果不设置frame的话默认就是整个屏幕咯，这里containerView的frame就是整个屏幕
-//    toVC.view.frame = CGRectMake(0, containerView.height, containerView.width, 400);
-    // 开始动画吧，使用产生弹簧效果的动画API
-//    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.55 initialSpringVelocity:1.0 / 0.55 options:0 animations:^{
-//        //首先我们让vc2向上移动
-//        toVC.view.transform = CGAffineTransformMakeTranslation(0, -400);
-//        //然后让截图视图缩小一点即可
-////        tempView.transform = CGAffineTransformMakeScale(0.85, 0.85);
-//    } completion:^(BOOL finished) {
-//        // 使用如下代码标记整个转场过程是否正常完成[transitionContext transitionWasCancelled]代表手势是否取消了，如果取消了就传NO表示转场失败，反之亦然，如果不用手势present的话直接传YES也是可以的，但是无论如何我们都必须标记转场的状态，系统才知道处理转场后的操作，否者认为你一直还在转场中，会出现无法交互的情况，切记！
-//        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-//        // 转场失败
-//        if ([transitionContext transitionWasCancelled]) {
-//            homeVC.currentItem.hidden = NO;
-//            [item removeFromSuperview];
-//        }
-//    }];
-    
-    
-    
-//    // snapshotViewAfterScreenUpdates可以对某个视图截图，我们采用对这个截图做动画代替直接对vc1做动画，因为在手势过渡中直接使用vc1动画会和手势有冲突， 如果不需要实现手势的话，就可以不是用截图视图了，大家可以自行尝试一下
-//    UIView *tempView = [fromVC.view snapshotViewAfterScreenUpdates:NO];
-//    tempView.frame = fromVC.view.frame;
-//    // 因为对截图做动画，vc1就可以隐藏了
-//    fromVC.view.hidden = YES;
-//    // 这里有个重要的概念containerView，如果要对视图做转场动画，视图就必须要加入containerView中才能进行，可以理解containerView管理着所有做转场动画的视图
-//    UIView *containerView = [transitionContext containerView];
-//    // 将截图视图和vc2的view都加入ContainerView中
-//    [containerView addSubview:tempView];
-//    [containerView addSubview:toVC.view];
-//    // 设置vc2的frame，因为这里vc2present出来不是全屏，且初始的时候在底部，如果不设置frame的话默认就是整个屏幕咯，这里containerView的frame就是整个屏幕
-//    toVC.view.frame = CGRectMake(0, containerView.height, containerView.width, 400);
-//    // 开始动画吧，使用产生弹簧效果的动画API
-//    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.55 initialSpringVelocity:1.0 / 0.55 options:0 animations:^{
-//        //首先我们让vc2向上移动
-//        toVC.view.transform = CGAffineTransformMakeTranslation(0, -400);
-//        //然后让截图视图缩小一点即可
-//        tempView.transform = CGAffineTransformMakeScale(0.85, 0.85);
-//    } completion:^(BOOL finished) {
-//        // 使用如下代码标记整个转场过程是否正常完成[transitionContext transitionWasCancelled]代表手势是否取消了，如果取消了就传NO表示转场失败，反之亦然，如果不用手势present的话直接传YES也是可以的，但是无论如何我们都必须标记转场的状态，系统才知道处理转场后的操作，否者认为你一直还在转场中，会出现无法交互的情况，切记！
-//        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-//        // 转场失败后的处理
-//        if ([transitionContext transitionWasCancelled]) {
-//            //失败后，我们要把vc1显示出来
-//            fromVC.view.hidden = NO;
-//            //然后移除截图视图，因为下次触发present会重新截图
-//            [tempView removeFromSuperview];
-//        }
-//    }];
     
 }
 // 实现dismiss动画逻辑代码
 - (void)dismissAnimation:(id<UIViewControllerContextTransitioning>)transitionContext{
-    //注意在dismiss的时候fromVC就是vc2了，toVC才是VC1了，注意这个关系
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    //参照present动画的逻辑，present成功后，containerView的最后一个子视图就是截图视图，我们将其取出准备动画
-    UIView *tempView = [transitionContext containerView].subviews[0];
-    //动画吧
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        //因为present的时候都是使用的transform，这里的动画只需要将transform恢复就可以了
-        fromVC.view.transform = CGAffineTransformIdentity;
-        tempView.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        if ([transitionContext transitionWasCancelled]) {
-            //失败了标记失败
-            [transitionContext completeTransition:NO];
-        }else{
-            //如果成功了，我们需要标记成功，同时让vc1显示出来，然后移除截图视图，
-            [transitionContext completeTransition:YES];
-            toVC.view.hidden = NO;
-            [tempView removeFromSuperview];
+    ContentController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    BaseTabBarController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    HomeController *homeVC = [(BaseNavigationController *)toVC.viewControllers[0] viewControllers][0];
+    HomeCollectionCategoryCell *cell = (HomeCollectionCategoryCell *)homeVC.currentItem;
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    CGRect rect = [cell convertRect:homeVC.currentItem.bounds toView:window];
+    UIView *item = [fromVC.contentView.icon snapshotViewAfterScreenUpdates:NO];
+    item.frame = CGRectMake(0, 0, ScreenWidth, ScreenWidth / 2);
+    item.backgroundColor = [UIColor redColor];
+    UIView *containerView = [transitionContext containerView];
+    [containerView addSubview:item];
+    [containerView bringSubviewToFront:item];
+    
+    [fromVC transitionDidDisappear];
+    [fromVC.view setFrame:CGRectMake(0, ScreenWidth / 2, ScreenWidth, ScreenHeight)];
+    
+    
+    __block NSInteger count = 0;
+    void (^completion)(void) = ^() {
+        if (count == 2) {
+            // 转场失败
+            if ([transitionContext transitionWasCancelled]) {
+                [transitionContext completeTransition:NO];
+            }
+            // 转场成功
+            else {
+                [transitionContext completeTransition:YES];
+                toVC.view.hidden = NO;
+                [item removeFromSuperview];
+            }
         }
+    };
+    POPSpringAnimation *anim1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    [anim1 setToValue:[NSValue valueWithCGRect:CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight)]];
+    [anim1 setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        count += 1;
+        completion();
     }];
+    [fromVC.view pop_addAnimation:anim1 forKey:@"anim1"];
+    
+    POPSpringAnimation *anim2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    [anim2 setToValue:[NSValue valueWithCGRect:rect]];
+    [anim2 setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        count += 1;
+        completion();
+    }];
+    [item pop_addAnimation:anim2 forKey:@"anim1"];
+    
 }
 
 @end
