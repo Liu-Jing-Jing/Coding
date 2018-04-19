@@ -8,8 +8,8 @@
 
 #import <MJRefresh/MJRefresh.h>
 
-@interface MJRefreshAutoNormalFooter (Extension)
+@interface MJRefreshBackNormalFooter (Extension)
 
-+ (MJRefreshAutoNormalFooter *)footerWithNormalRefreshing:(MJRefreshComponentRefreshingBlock)refreshingBlock;
++ (MJRefreshBackNormalFooter *)footerWithNormalRefreshing:(MJRefreshComponentRefreshingBlock)refreshingBlock;
 
 @end

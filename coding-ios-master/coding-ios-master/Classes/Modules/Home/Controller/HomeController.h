@@ -10,4 +10,6 @@
 
 @interface HomeController : BaseViewController
 
+@property (nonatomic, strong) UICollectionViewCell *currentItem;
+
 @end

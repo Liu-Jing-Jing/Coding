@@ -16,10 +16,11 @@
 #import "HomeCollectionLayout.h"
 
 #pragma mark - 声明
-@interface HomeView()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HomeView()<UICollectionViewDataSource, HomeCollectionLayoutDelegate>
 
 @property (nonatomic, strong) HomeHeader *header;
 @property (nonatomic, strong) UICollectionView *collection;
+@property (nonatomic, strong) HomeCollectionLayout *layout;
 
 @end
 
@@ -40,11 +41,16 @@
     }
     return _header;
 }
+- (HomeCollectionLayout *)layout {
+    if (!_layout) {
+        _layout = [[HomeCollectionLayout alloc] init];
+        _layout.delegate = self;
+    }
+    return _layout;
+}
 - (UICollectionView *)collection {
     if (!_collection) {
-        _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:({
-            [[HomeCollectionLayout alloc] init];
-        })];
+        _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:self.layout];
         _collection.mj_header = ({
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -54,7 +60,7 @@
             header.ignoredScrollViewContentInsetTop = ScreenWidth / 2;
             header;
         });
-        [_collection setDelegate:self];
+        [_collection setDelegate:self.layout];
         [_collection setDataSource:self];
         [_collection setBackgroundColor:ThinColor];
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 2, 0, 0, 0)];
@@ -67,6 +73,13 @@
         [self addSubview:_collection];
     }
     return _collection;
+}
+
+#pragma mark - HomeCollectionLayoutDelegate
+- (void)homeCollection:(UICollectionView *)collection didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeCollection:didSelectItemAtIndexPath:)]) {
+        [self.delegate homeCollection:collection didSelectItemAtIndexPath:indexPath];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -131,108 +144,9 @@
     }
     return nil;
 }
-// Header
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return CGSizeZero;
-    }
-    else if (section == 1) {
-        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
-    }
-    else if (section == 2) {
-        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
-    }
-    else if (section == 3) {
-        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
-    }
-    return CGSizeZero;
-}
-// Footer
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    if (section == 0) {
-        return CGSizeZero;
-    }
-    else if (section == 1) {
-        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
-    }
-    else if (section == 2) {
-        return CGSizeZero;
-    }
-    else if (section == 3) {
-        return CGSizeZero;
-    }
-    return CGSizeZero;
-}
-// Section内间距
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if (section == 0) {
-        return UIEdgeInsetsMake(0, 0, countcoordinatesY(10), 0);
-    }
-    else if (section == 1) {
-        return UIEdgeInsetsMake(countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10));
-    }
-    else if (section == 2) {
-        return UIEdgeInsetsMake(0, countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10));
-    }
-    else if (section == 3) {
-        return UIEdgeInsetsMake(0, 0, countcoordinatesY(10), 0);
-    }
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-// Cell尺寸
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 2);
-    }
-    else if (indexPath.section == 1) {
-        CGFloat padding = countcoordinatesX(10);
-        NSInteger row = 2;
-        CGFloat width = (ScreenWidth - (row + 1) * padding) / row;
-        CGFloat height = width / 3 * 2;
-        return CGSizeMake(width, height);
-    }
-    else if (indexPath.section == 2) {
-        CGFloat padding = countcoordinatesX(10);
-        if (indexPath.row == 0) {
-            CGFloat width = ScreenWidth - padding * 2;
-            CGFloat height = width / 3;
-            return CGSizeMake(width, height);
-        } else {
-            NSInteger row = 2;
-            CGFloat width = (ScreenWidth - (row + 1) * padding) / row;
-            CGFloat height = width / 3 * 2;
-            return CGSizeMake(width, height);
-        }
-    }
-    else if (indexPath.section == 3) {
-        CGFloat width  = ScreenWidth;
-        CGFloat height = width / 3;
-        return CGSizeMake(width, height);
-    }
-    return CGSizeZero;
-}
-// Cell间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    if (section == 0) {
-        return countcoordinatesY(10);
-    }
-    else if (section == 1) {
-        return countcoordinatesY(10);
-    }
-    else if (section == 2) {
-        return countcoordinatesY(10);
-    }
-    else if (section == 3) {
-        return 0;
-    }
-    return 0;
-}
-// Section间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
-}
+
+
 
 
 

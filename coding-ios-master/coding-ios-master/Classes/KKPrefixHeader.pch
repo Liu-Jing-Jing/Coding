@@ -13,6 +13,8 @@
 #import "FontAndColorMarcros.h"
 #import "UtilsMacros.h"
 #import "ThirdMarcros.h"
+#import "CategoryMacros.h"
+#import "ModulesMacros.h"
 
 #import "Common.h"
 

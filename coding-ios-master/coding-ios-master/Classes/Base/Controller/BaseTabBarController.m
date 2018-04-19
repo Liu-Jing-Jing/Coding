@@ -41,6 +41,8 @@
     
     [self setValue:tabBar forKey:@"tabBar"];
     
+//    [self setSelectedIndex:1];
+    
     
 //    UIColor *color = [UIColor whiteColor];
 //    CGMutablePathRef path = CGPathCreateMutable();

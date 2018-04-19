@@ -8,7 +8,18 @@
 
 #import "BaseView.h"
 
+#pragma mark - 代理
+@protocol HomeViewDelegate<NSObject>
+
+@optional
+- (void)homeCollection:(UICollectionView *)collection didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+#pragma mark - 声明
 @interface HomeView : BaseView
+
+@property (nonatomic, weak  ) id<HomeViewDelegate> delegate;
 
 + (instancetype)init;
 

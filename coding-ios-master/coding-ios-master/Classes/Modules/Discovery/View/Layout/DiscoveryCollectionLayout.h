@@ -2,7 +2,7 @@
 //  DiscoveryCollectionLayout.h
 //  coding-ios-master
 //
-//  Created by 郑业强 on 2018/4/18.
+//  Created by MAC on 2018/4/19.
 //  Copyright © 2018年 kk. All rights reserved.
 //
 

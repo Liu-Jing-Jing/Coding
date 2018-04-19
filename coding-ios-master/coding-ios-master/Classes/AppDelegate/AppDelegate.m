@@ -28,7 +28,7 @@
 
 - (void)setRootWindow {
     [self setWindow:[[UIWindow alloc] initWithFrame:ScreenBounds]];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window setBackgroundColor:[UIColor blackColor]];
     [self.window setRootViewController:({
         BaseTabBarController *tab = [[BaseTabBarController alloc] init];
         tab;

@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeCollectionLayout : UICollectionViewFlowLayout
+#pragma mark - Protocol
+@protocol HomeCollectionLayoutDelegate<NSObject>
 
+@optional
+- (void)homeCollection:(UICollectionView *)collection didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+#pragma mark - 声明
+@interface HomeCollectionLayout : UICollectionViewFlowLayout<UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, weak  ) id<HomeCollectionLayoutDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *decorationViewAttrs;
-
-+ (instancetype)init;
 
 @end
