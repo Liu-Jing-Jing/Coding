@@ -9,21 +9,16 @@
 #import "BaseViewController.h"
 #import "ContentView.h"
 
-@protocol XWPresentedOneControllerDelegate <NSObject>
-
-- (void)presentedOneControllerPressedDissmiss;
-- (id<UIViewControllerInteractiveTransitioning>)interactiveTransitionForPresent;
-
-@end
+//@protocol XWPresentedOneControllerDelegate <NSObject>
+//
+//- (void)presentedOneControllerPressedDissmiss;
+//- (id<UIViewControllerInteractiveTransitioning>)interactiveTransitionForPresent;
+//
+//@end
 
 
 @interface ContentController : BaseViewController
 
 @property (nonatomic, strong) ContentView *contentView;
-
-//@property (nonatomic, assign) id<XWPresentedOneControllerDelegate> delegate;
-
-- (void)transitionDidFinish;
-- (void)transitionDidDisappear;
 
 @end

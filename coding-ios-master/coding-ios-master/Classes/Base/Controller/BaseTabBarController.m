@@ -74,4 +74,24 @@
 }
 
 
+- (void)hideTabbar:(BOOL)hidden {
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        for (UIView *view in self.view.subviews) {
+            if ([view isKindOfClass:[UITabBar class]]) {
+                if (hidden) {
+                    CGRect frame = view.frame;
+                    frame.origin.y = ScreenHeight;
+                    view.frame = frame;
+                } else {
+                    CGRect frame = view.frame;
+                    frame.origin.y = ScreenHeight - TabbarHeight;
+                    view.frame = frame;
+                }
+            }
+        }
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
 @end

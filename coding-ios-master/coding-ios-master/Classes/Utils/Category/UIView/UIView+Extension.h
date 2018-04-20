@@ -50,17 +50,13 @@
  * Finds the first ancestor view (including this view) that is a member of a particular class.
  */
 - (UIView *)ancestorOrSelfWithClass:(Class)cls;
-
-/**
- * Removes all subviews.
- */
+/// 删除所有子控件
 - (void)removeAllSubviews;
-
-/**
- * The view controller whose view contains this view.
- */
+/// 当前控制器
 - (UIViewController *)viewController;
-
+/// 控件截图
 - (UIImage *)imageFromView;
+/// 控件在window上的rect
+- (CGRect)convertRectWithWindow;
 
 @end

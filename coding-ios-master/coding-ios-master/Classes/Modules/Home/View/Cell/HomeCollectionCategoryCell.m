@@ -79,7 +79,7 @@
     if (!_eye) {
         _eye = [[UIImageView alloc] init];
         _eye.backgroundColor = HeavyColor;
-        [self addSubview:_eye];
+        [self.eyeBg addSubview:_eye];
     }
     return _eye;
 }
@@ -87,13 +87,14 @@
     if (!_number) {
         _number = [[UILabel alloc] init];
         _number.backgroundColor = HeavyColor;
-        [self addSubview:_number];
+        [self.eyeBg addSubview:_number];
     }
     return _number;
 }
 - (UILabel *)desc {
     if (!_desc) {
         _desc = [[UILabel alloc] init];
+        _desc.backgroundColor = LightColor;
         [self addSubview:_desc];
     }
     return _desc;

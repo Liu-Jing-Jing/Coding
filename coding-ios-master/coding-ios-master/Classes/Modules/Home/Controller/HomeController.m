@@ -8,7 +8,6 @@
 
 #import "HomeController.h"
 #import "HomeView.h"
-#import "ItemTransition.h"
 
 #pragma mark - 声明
 @interface HomeController ()<HomeViewDelegate>
@@ -23,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTitle:@"首页"];
+    [self setJz_wantsNavigationBarVisible:YES];
+    [self setJz_navigationBarTintColor:[UIColor whiteColor]];
 }
 - (void)loadView {
     self.view = [self homeView];
@@ -40,20 +41,10 @@
     _currentItem = [collection cellForItemAtIndexPath:indexPath];
     
     ContentController *vc = [[ContentController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
-#pragma mark - UINavigationControllerDelegate
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
-    // 这里我们初始化presentType
-    return [ItemTransition transitionWithTransitionType:ItemTransitionTypePresent];
-}
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
-    // 这里我们初始化dismissType
-    return [ItemTransition transitionWithTransitionType:ItemTransitionTypeDismiss];
-}
 
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "WatchView.h"
+#import "UIView+Watch.h"
 
 #pragma mark - 声明
 @interface WatchView()

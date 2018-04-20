@@ -7,29 +7,23 @@
 //
 
 #import "ContentController.h"
-#import "ItemTransition.h"
-#import "KKPercentDrivenInteractiveTransition.h"
 
 #pragma mark - 声明
-@interface ContentController ()<UIViewControllerTransitioningDelegate>
+@interface ContentController ()
 
 @end
 
 #pragma mark - 实现
 @implementation ContentController
 
-- (instancetype)init {
-    if (self = [super init]) {
-        self.transitioningDelegate = self;
-        self.modalPresentationStyle = UIModalPresentationCustom;
-    }
-    return self;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setLeftClick:@[@[@"back",@""]]];
+    [self setJz_wantsNavigationBarVisible:NO];
+//    [self setJz_navigationBarTintColor:[UIColor clearColor]];
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)leftItemPressed:(NSInteger)index {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)loadView {
     self.view = [self contentView];
@@ -41,21 +35,8 @@
     return _contentView;
 }
 
-- (void)transitionDidFinish {
-    [_contentView transitionDidAppear];
-}
-- (void)transitionDidDisappear {
-    [_contentView transitionDidDisappear];
-}
 
-#pragma mark - UIViewControllerTransitioningDelegate
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    return [ItemTransition transitionWithTransitionType:ItemTransitionTypePresent];
-}
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
-    return [ItemTransition transitionWithTransitionType:ItemTransitionTypeDismiss];
-}
 
 
 

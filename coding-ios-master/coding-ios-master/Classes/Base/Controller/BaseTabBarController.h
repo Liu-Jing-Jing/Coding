@@ -10,4 +10,6 @@
 
 @interface BaseTabBarController : UITabBarController
 
+- (void)hideTabbar:(BOOL)hidden;
+
 @end

@@ -270,4 +270,20 @@
     return image;
 }
 
+- (CGRect)convertRectWithWindow {
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    CGRect rect = [self convertRect:self.bounds toView:window];
+    return rect;
+}
+
+
 @end
+
+
+
+
+
+
+
+
+

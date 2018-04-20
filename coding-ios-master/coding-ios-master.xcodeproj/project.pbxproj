@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
 		0478AA192086CBA900213353 /* HomeCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA182086CBA900213353 /* HomeCollectionLayout.m */; };
 		0478AA1C2086CC2700213353 /* HomeCollectionSectionBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA1B2086CC2700213353 /* HomeCollectionSectionBgView.m */; };
 		0478AA1F2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA1D2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
+		04A3B22F2089E3E50011DDA5 /* UIView+Watch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */; };
 		04C14C3C208816D9000A7951 /* PushCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C3B208816D9000A7951 /* PushCollectionLayout.m */; };
 		04C14C3F20881709000A7951 /* PushCollectionHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C3E20881709000A7951 /* PushCollectionHotCell.m */; };
 		04C14C4220881723000A7951 /* PushCollectionRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C4120881723000A7951 /* PushCollectionRecommendCell.m */; };
@@ -29,8 +31,6 @@
 		04C14C7820881B4D000A7951 /* DiscoveryCollectionHotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C7720881B4D000A7951 /* DiscoveryCollectionHotView.m */; };
 		04C14C7B20881DB9000A7951 /* DiscoveryCollectionRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C7A20881DB9000A7951 /* DiscoveryCollectionRecommendView.m */; };
 		04C14C7E20881E19000A7951 /* DiscoveryCollectionThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C7D20881E19000A7951 /* DiscoveryCollectionThemeView.m */; };
-		04DF10162088756400462250 /* ItemTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF10152088756400462250 /* ItemTransition.m */; };
-		04DF10192088766100462250 /* KKPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF10182088766100462250 /* KKPercentDrivenInteractiveTransition.m */; };
 		04DF10202088790C00462250 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF101F2088790C00462250 /* ContentController.m */; };
 		04DF10232088792400462250 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF10222088792400462250 /* ContentView.m */; };
 		4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */; };
@@ -97,6 +97,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04554F432089B1C800BEC435 /* KKEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKEmptyView.h; sourceTree = "<group>"; };
+		04554F442089B1C800BEC435 /* KKEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKEmptyView.m; sourceTree = "<group>"; };
 		0478AA172086CBA900213353 /* HomeCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionLayout.h; sourceTree = "<group>"; };
 		0478AA182086CBA900213353 /* HomeCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionLayout.m; sourceTree = "<group>"; };
 		0478AA1A2086CC2700213353 /* HomeCollectionSectionBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionSectionBgView.h; sourceTree = "<group>"; };
@@ -106,6 +108,8 @@
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
 		0478B2BE2087588100213353 /* UIViewController+LLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLAdd.m"; sourceTree = "<group>"; };
 		0478B2BF2087588100213353 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
+		04A3B22D2089E3E50011DDA5 /* UIView+Watch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Watch.h"; sourceTree = "<group>"; };
+		04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Watch.m"; sourceTree = "<group>"; };
 		04C14C35208815F0000A7951 /* CategoryMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryMacros.h; sourceTree = "<group>"; };
 		04C14C362088163F000A7951 /* ModulesMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModulesMacros.h; sourceTree = "<group>"; };
 		04C14C3A208816D9000A7951 /* PushCollectionLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushCollectionLayout.h; sourceTree = "<group>"; };
@@ -144,10 +148,6 @@
 		04C14C7A20881DB9000A7951 /* DiscoveryCollectionRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCollectionRecommendView.m; sourceTree = "<group>"; };
 		04C14C7C20881E19000A7951 /* DiscoveryCollectionThemeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryCollectionThemeView.h; sourceTree = "<group>"; };
 		04C14C7D20881E19000A7951 /* DiscoveryCollectionThemeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCollectionThemeView.m; sourceTree = "<group>"; };
-		04DF10142088756400462250 /* ItemTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemTransition.h; sourceTree = "<group>"; };
-		04DF10152088756400462250 /* ItemTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemTransition.m; sourceTree = "<group>"; };
-		04DF10172088766100462250 /* KKPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
-		04DF10182088766100462250 /* KKPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
 		04DF101E2088790C00462250 /* ContentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentController.h; sourceTree = "<group>"; };
 		04DF101F2088790C00462250 /* ContentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = "<group>"; };
 		04DF10212088792400462250 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
@@ -295,6 +295,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04554F422089B1B200BEC435 /* KKEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				04554F432089B1C800BEC435 /* KKEmptyView.h */,
+				04554F442089B1C800BEC435 /* KKEmptyView.m */,
+			);
+			path = KKEmptyView;
+			sourceTree = "<group>";
+		};
 		045724BB20888CC0004E7450 /* POP */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,17 +419,6 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		04DF10132088752C00462250 /* Transitioning */ = {
-			isa = PBXGroup;
-			children = (
-				04DF10172088766100462250 /* KKPercentDrivenInteractiveTransition.h */,
-				04DF10182088766100462250 /* KKPercentDrivenInteractiveTransition.m */,
-				04DF10142088756400462250 /* ItemTransition.h */,
-				04DF10152088756400462250 /* ItemTransition.m */,
-			);
-			path = Transitioning;
-			sourceTree = "<group>";
-		};
 		04DF101A208878FA00462250 /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +489,8 @@
 			children = (
 				4B7D6D432088D99B00F7DC2B /* WatchView.h */,
 				4B7D6D442088D99B00F7DC2B /* WatchView.m */,
+				04A3B22D2089E3E50011DDA5 /* UIView+Watch.h */,
+				04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
@@ -782,8 +782,8 @@
 		4BE9FD16208630070020B755 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04554F422089B1B200BEC435 /* KKEmptyView */,
 				4B7D6D422088D99000F7DC2B /* Watch */,
-				04DF10132088752C00462250 /* Transitioning */,
 				045724BB20888CC0004E7450 /* POP */,
 				4BDE172420877F110001472F /* MJRefresh */,
 				4BE9FD17208630070020B755 /* Category */,
@@ -833,16 +833,16 @@
 		4BE9FD1F208630070020B755 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				4BE9FD25208630070020B755 /* UIView+Snapshot.h */,
 				4BE9FD20208630070020B755 /* UIView+Snapshot.m */,
+				4BE9FD27208630070020B755 /* UIView+Border.h */,
 				4BE9FD21208630070020B755 /* UIView+Border.m */,
+				4BE9FD26208630070020B755 /* UIView+KKCore.h */,
 				4BE9FD22208630070020B755 /* UIView+KKCore.m */,
 				4BE9FD23208630070020B755 /* UIView+Extension.h */,
-				4BE9FD24208630070020B755 /* UIView+XWAddForRoundedCorner.h */,
-				4BE9FD25208630070020B755 /* UIView+Snapshot.h */,
-				4BE9FD26208630070020B755 /* UIView+KKCore.h */,
-				4BE9FD27208630070020B755 /* UIView+Border.h */,
-				4BE9FD28208630070020B755 /* UIView+XWAddForRoundedCorner.m */,
 				4BE9FD29208630070020B755 /* UIView+Extension.m */,
+				4BE9FD24208630070020B755 /* UIView+XWAddForRoundedCorner.h */,
+				4BE9FD28208630070020B755 /* UIView+XWAddForRoundedCorner.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1182,6 +1182,7 @@
 				4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */,
 				4BE9FDFE208630070020B755 /* AppDelegate.m in Sources */,
 				4BB1E424208795110066B80A /* DiscoveryController.m in Sources */,
+				04A3B22F2089E3E50011DDA5 /* UIView+Watch.m in Sources */,
 				04C14C7320881994000A7951 /* DiscoveryCollectionListCell.m in Sources */,
 				4B7D6D412088CD5E00F7DC2B /* HomeSectionNextHeader.m in Sources */,
 				4BE9FDF1208630070020B755 /* UIImageView+SDWebImage.m in Sources */,
@@ -1203,7 +1204,6 @@
 				4BD2B20D208647C900E31A21 /* HomeCollectionOtherCell.m in Sources */,
 				4BB1E408208785600066B80A /* ArticleController.m in Sources */,
 				4BE9FE31208630070020B755 /* BaseView.m in Sources */,
-				04DF10162088756400462250 /* ItemTransition.m in Sources */,
 				4BB1E4112087863E0066B80A /* ArticleCollectionLayout.m in Sources */,
 				4BD2B1F120863EEA00E31A21 /* UICollectionViewCell+Extension.m in Sources */,
 				4BE9FDEB208630070020B755 /* UITextField+Extension.m in Sources */,
@@ -1224,7 +1224,6 @@
 				4BE9FDF3208630070020B755 /* NSString+Extension.m in Sources */,
 				0478AA192086CBA900213353 /* HomeCollectionLayout.m in Sources */,
 				04C14C4820881747000A7951 /* PushCollectionListCell.m in Sources */,
-				04DF10192088766100462250 /* KKPercentDrivenInteractiveTransition.m in Sources */,
 				04C14C6220881946000A7951 /* DiscoveryView.m in Sources */,
 				4BB1E42E208796AC0066B80A /* MineController.m in Sources */,
 				4BD2B21220864BA300E31A21 /* HomeSectionFooter.m in Sources */,
@@ -1259,6 +1258,7 @@
 				4BE9FDEF208630070020B755 /* UIView+XWAddForRoundedCorner.m in Sources */,
 				4BE9FDEE208630070020B755 /* UIView+KKCore.m in Sources */,
 				4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */,
+				04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */,
 				04C14C4E20881769000A7951 /* PushSectionHeader.m in Sources */,
 				04C14C7B20881DB9000A7951 /* DiscoveryCollectionRecommendView.m in Sources */,
 				04C14C4B20881758000A7951 /* PushHeader.m in Sources */,
