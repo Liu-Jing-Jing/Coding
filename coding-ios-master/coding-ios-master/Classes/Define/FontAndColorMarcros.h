@@ -14,4 +14,12 @@
 #define LightColor  [UIColor colorWithRed:0.585 green:0.783 blue:1.000 alpha:1.0]
 #define ThinColor   [UIColor colorWithRed:0.733 green:0.860 blue:1.000 alpha:1.0]
 
+#define ColorTextHeavy  [UIColor colorWithRed:83/255.f  green:83/255.f  blue:83/255.f alpha:1.0]
+#define ColorTextBold   [UIColor colorWithRed:115/255.f green:115/255.f blue:115/255.f alpha:1.0]
+#define ColorTextMedium [UIColor colorWithRed:181/255.f green:181/255.f blue:181/255.f alpha:1.0]
+#define ColorTextLight  [UIColor colorWithRed:197/255.f green:197/255.f blue:197/255.f alpha:1.0]
+#define ColorTextThin   [UIColor colorWithRed:215/255.f green:215/255.f blue:215/255.f alpha:1.0]
+
+#define FontName(A) [UIFont systemFontOfSize:adjustFont(A)]
+
 

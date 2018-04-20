@@ -25,6 +25,18 @@
 #pragma mark - 实现
 @implementation KKEmptyView
 
+#pragma mark - 操作
+- (void)show {
+    [UIView animateWithDuration:.3f animations:^{
+        self.alpha = 1;
+    }];
+}
+- (void)hide {
+    [UIView animateWithDuration:.3f animations:^{
+        self.alpha = 0;
+    }];
+}
+
 #pragma mark - 初始化
 + (instancetype)initWithFrame:(CGRect)frame {
     KKEmptyView *view = [[KKEmptyView alloc] initWithFrame:frame];
@@ -41,31 +53,28 @@
 }
 - (void)createContent {
     CGFloat maxHeight = CGRectGetMaxY(_link.frame) + countcoordinatesY(10);
-    int i = 0;
+    int count = 0;
     while (maxHeight < ScreenHeight) {
-        // 内容
-        UIView *view = [[UIView alloc] initWithFrame:({
-            CGFloat height = countcoordinatesY(10);
-            CGFloat left =  i % 4 == 0 ? countcoordinatesX(50) : countcoordinatesX(10);
-            CGFloat top = maxHeight;
-            CGFloat width = ScreenWidth - left - countcoordinatesX(10);
-            CGRectMake(left, top, width, height);
-        })];
-        [view setBackgroundColor:ThinColor];
-        [view cornerClipRadius:1];
-        [self addSubview:view];
-        maxHeight = CGRectGetMaxY(view.frame) + countcoordinatesY(10);
-        // 横线
-        if (i % 4 == 0 && i != 0) {
-            UIView *line = [[UIView alloc] initWithFrame:({
-                CGRectMake(countcoordinatesX(10), maxHeight, ScreenWidth - countcoordinatesX(10) * 2, 1);
-            })];
-            [line setBackgroundColor:ThinColor];
+        if (count % 4 == 0) {
+            UIView *line = [self createView:maxHeight left:countcoordinatesX(10) height:1];
             [self addSubview:line];
             maxHeight = CGRectGetMaxY(line.frame) + countcoordinatesY(10);
         }
-        i += 1;
+        CGFloat left = count % 4 == 0 ? countcoordinatesX(50) : countcoordinatesX(10);
+        UIView *view = [self createView:maxHeight left:left height:countcoordinatesY(10)];
+        [view cornerClipRadius:1];
+        [self addSubview:view];
+        maxHeight = CGRectGetMaxY(view.frame) + countcoordinatesY(10);
+        
+        count += 1;
     }
+}
+- (UIView *)createView:(CGFloat)maxHeight left:(CGFloat)left height:(CGFloat)height {
+    UIView *line = [[UIView alloc] initWithFrame:({
+        CGRectMake(left, maxHeight, ScreenWidth - left - countcoordinatesX(10), height);
+    })];
+    [line setBackgroundColor:ThinColor];
+    return line;
 }
 
 - (UIView *)icon {
@@ -78,7 +87,8 @@
 }
 - (UIView *)title {
     if (!_title) {
-        _title = [[UIView alloc] initWithFrame:CGRectMake(countcoordinatesX(10), ScreenWidth / 2 + countcoordinatesY(10), ScreenWidth - countcoordinatesX(10) * 2, 10)];
+        _title = [[UIView alloc] initWithFrame:CGRectMake(countcoordinatesX(10), ScreenWidth / 2 + countcoordinatesY(10), ScreenWidth - countcoordinatesX(10) * 2, 0)];
+        _title.height = [@"123" sizeWithMaxSize:CGSizeMake(MAXFLOAT, 0) font:FontName(15)].height;
         _title.backgroundColor = ThinColor;
         [_title cornerClipRadius:1];
         [self addSubview:_title];

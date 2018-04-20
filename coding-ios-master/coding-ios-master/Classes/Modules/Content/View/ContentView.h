@@ -10,9 +10,6 @@
 
 @interface ContentView : BaseView
 
-@property (nonatomic, strong) UIImageView *icon;
-@property (nonatomic, strong) UILabel *title;
-
 + (instancetype)init;
 
 @end

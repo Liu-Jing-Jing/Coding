@@ -11,5 +11,7 @@
 @interface KKEmptyView : BaseView
 
 + (instancetype)initWithFrame:(CGRect)frame;
+- (void)show;
+- (void)hide;
 
 @end

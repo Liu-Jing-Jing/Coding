@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setLeftClick:@[@[@"back",@""]]];
-    [self setJz_wantsNavigationBarVisible:NO];
+//    [self setJz_wantsNavigationBarVisible:NO];
 //    [self setJz_navigationBarTintColor:[UIColor clearColor]];
 }
 - (void)leftItemPressed:(NSInteger)index {
