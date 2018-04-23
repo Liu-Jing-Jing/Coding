@@ -108,10 +108,10 @@
         return 3;
     }
     else if (section == 1) {
-        return 4;
+        return _model.sort.count;
     }
     else if (section == 2) {
-        return 3;
+        return _model.recommend.count;
     }
     else if (section == 3) {
         return 4;
@@ -126,10 +126,12 @@
     }
     else if (indexPath.section == 1) {
         HomeCollectionCategoryCell *cell = [HomeCollectionCategoryCell initWithCollection:collectionView index:indexPath];
+        cell.sortModel = _model.sort[indexPath.row];
         return cell;
     }
     else if (indexPath.section == 2) {
         HomeCollectionCategoryCell *cell = [HomeCollectionCategoryCell initWithCollection:collectionView index:indexPath];
+        cell.recommendModel = _model.recommend[indexPath.row];
         return cell;
     }
     else if (indexPath.section == 3) {
@@ -149,10 +151,12 @@
         }
         else if (indexPath.section == 2) {
             HomeSectionNextHeader *header = [HomeSectionNextHeader initWithCollection:collectionView kind:kind index:indexPath];
+            header.headerStr = _model.sectionHeader[0];
             return header;
         }
         else if (indexPath.section == 3) {
             HomeSectionNextHeader *header = [HomeSectionNextHeader initWithCollection:collectionView kind:kind index:indexPath];
+            header.headerStr = _model.sectionHeader[1];
             return header;
         }
     }
@@ -162,8 +166,6 @@
     }
     return nil;
 }
-
-
 
 
 

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeModel.h"
 
 @interface HomeSectionNextHeader : UICollectionReusableView
+
+@property (nonatomic, copy  ) NSString *headerStr;
 
 + (instancetype)initWithCollection:(UICollectionView *)collection kind:(NSString *)kind index:(NSIndexPath *)index;
 

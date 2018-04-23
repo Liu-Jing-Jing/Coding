@@ -13,6 +13,7 @@
 		0478AA1F2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478AA1D2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
 		04A3B22F2089E3E50011DDA5 /* UIView+Watch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */; };
+		04BBD348208DBCC900968BF8 /* UILabel+Commonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BBD347208DBCC900968BF8 /* UILabel+Commonly.m */; };
 		04C03CFE208AD00700BD0995 /* AFNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C03CFD208AD00700BD0995 /* AFNManager.m */; };
 		04C03D01208AD2B400BD0995 /* NSString+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C03D00208AD2B400BD0995 /* NSString+API.m */; };
 		04C03D05208ADA3E00BD0995 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C03D04208ADA3E00BD0995 /* HomeModel.m */; };
@@ -112,6 +113,8 @@
 		0478B2BF2087588100213353 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
 		04A3B22D2089E3E50011DDA5 /* UIView+Watch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Watch.h"; sourceTree = "<group>"; };
 		04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Watch.m"; sourceTree = "<group>"; };
+		04BBD346208DBCC900968BF8 /* UILabel+Commonly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Commonly.h"; sourceTree = "<group>"; };
+		04BBD347208DBCC900968BF8 /* UILabel+Commonly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Commonly.m"; sourceTree = "<group>"; };
 		04C03CFC208AD00700BD0995 /* AFNManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNManager.h; sourceTree = "<group>"; };
 		04C03CFD208AD00700BD0995 /* AFNManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNManager.m; sourceTree = "<group>"; };
 		04C03CFF208AD2B400BD0995 /* NSString+API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+API.h"; sourceTree = "<group>"; };
@@ -822,14 +825,14 @@
 		4BE9FD17208630070020B755 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4BE9FD34208630070020B755 /* UITextField+Extension.h */,
+				4BE9FD1E208630070020B755 /* UITextField+Extension.m */,
+				4BE9FD38208630070020B755 /* UIImageView+SDWebImage.h */,
+				4BE9FD2A208630070020B755 /* UIImageView+SDWebImage.m */,
 				4BD2B1EB20863EB700E31A21 /* UICollectionView */,
 				4BE9FD18208630070020B755 /* UIImage */,
 				4BE9FD1B208630070020B755 /* UILabel */,
-				4BE9FD34208630070020B755 /* UITextField+Extension.h */,
-				4BE9FD1E208630070020B755 /* UITextField+Extension.m */,
 				4BE9FD1F208630070020B755 /* UIView */,
-				4BE9FD38208630070020B755 /* UIImageView+SDWebImage.h */,
-				4BE9FD2A208630070020B755 /* UIImageView+SDWebImage.m */,
 				4BD2B1E720863DAD00E31A21 /* UITableViewCell */,
 				4BE9FD2B208630070020B755 /* UIFont */,
 				4BE9FD2E208630070020B755 /* NSString */,
@@ -853,6 +856,8 @@
 			children = (
 				4BE9FD1D208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.h */,
 				4BE9FD1C208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.m */,
+				04BBD346208DBCC900968BF8 /* UILabel+Commonly.h */,
+				04BBD347208DBCC900968BF8 /* UILabel+Commonly.m */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -1248,6 +1253,7 @@
 				04C14C4220881723000A7951 /* PushCollectionRecommendCell.m in Sources */,
 				04C03D05208ADA3E00BD0995 /* HomeModel.m in Sources */,
 				4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */,
+				04BBD348208DBCC900968BF8 /* UILabel+Commonly.m in Sources */,
 				04C14C6920881946000A7951 /* DiscoverySectionHeader.m in Sources */,
 				4BD2B21520864CEC00E31A21 /* HomeCollectionHotCell.m in Sources */,
 				4BE9FDF3208630070020B755 /* NSString+Extension.m in Sources */,

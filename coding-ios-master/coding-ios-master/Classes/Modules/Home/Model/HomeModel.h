@@ -10,41 +10,80 @@
 
 /// 轮播图
 @interface HomeAdModel : BaseModel
-
 @property (nonatomic, copy  ) NSString *image;
 @property (nonatomic, copy  ) NSString *url;
-
 @end
 
 /// 技术点
 @interface HomeTechnicalModel : BaseModel
-
 @property (nonatomic, copy  ) NSString *image;
 @property (nonatomic, copy  ) NSString *name;
-
 @end
 
 
+/// Tag
+@interface HomeTagModel : BaseModel
+@property (nonatomic, copy  ) NSString *ID;
+@property (nonatomic, copy  ) NSString *title;
+@end
+
+
+/// Category
+@interface HomeCategoryModel : BaseModel
+@property (nonatomic, copy  ) NSString *ID;
+@property (nonatomic, copy  ) NSString *name;
+@end
+
+
+/// 分类
+@interface HomeSortModel : BaseModel
+@property (nonatomic, copy  ) NSString *objectId;   // id
+@property (nonatomic, copy  ) NSString *title;      // 标题
+@property (nonatomic, copy  ) NSString *image;      // 图片
+@property (nonatomic, assign) NSInteger number;     // 查看人数
+@end
+
 /// 推荐
 @interface HomeRecommendModel : BaseModel
+@property (nonatomic, copy  ) NSString *objectId;   // id
+@property (nonatomic, copy  ) NSString *title;      // 标题
+@property (nonatomic, copy  ) NSString *image;      // 图片
+@property (nonatomic, assign) NSInteger number;     // 查看人数
+@end
 
+/// 热门
+@interface HomeHotModel : BaseModel
+/// id
 @property (nonatomic, copy  ) NSString *objectId;
-@property (nonatomic, copy  ) NSString *buildTime;
-@property (nonatomic, strong) NSArray *tags;
-
+/// 标题
+@property (nonatomic, copy  ) NSString *title;
+/// 图片
+@property (nonatomic, copy  ) NSString *image;
+/// 人数
+@property (nonatomic, assign) NSInteger number;
+/// tag
+@property (nonatomic, strong) NSArray<HomeTagModel *> *tag;
+/// 分类
+@property (nonatomic, strong) NSArray<HomeCategoryModel *> *category;
 @end
 
 
 /// 首页Model
 @interface HomeModel : BaseModel
-
 /// 轮播图
 @property (nonatomic, strong) NSArray<HomeAdModel *> *ad;
-/// 技术点
-@property (nonatomic, strong) NSArray<HomeTechnicalModel *> *technical;
 /// 头条
 @property (nonatomic, strong) NSArray<NSString *> *headlines;
+/// 技术点
+@property (nonatomic, strong) NSArray<HomeTechnicalModel *> *technical;
+/// 分类
+@property (nonatomic, strong) NSArray<HomeSortModel *> *sort;
 /// 推荐
 @property (nonatomic, strong) NSArray<HomeRecommendModel *> *recommend;
-
+/// 推荐
+@property (nonatomic, strong) NSArray<HomeHotModel *> *hot;
+/// 组头试图
+@property (nonatomic, strong) NSArray<NSString *> *sectionHeader;
 @end
+
+

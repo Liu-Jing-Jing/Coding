@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeModel.h"
 
 @interface HomeCollectionHotCell : UICollectionViewCell
+
+@property (nonatomic, strong) HomeHotModel *model;
 
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index;
 

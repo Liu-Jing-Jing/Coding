@@ -33,7 +33,7 @@
         make.centerX.mas_equalTo(self.mas_centerX);
         make.top.mas_equalTo(self.mas_top).mas_equalTo(8);
         make.width.mas_equalTo(self.mas_width).multipliedBy(0.4);
-        make.height.mas_equalTo(self.mas_height).multipliedBy(0.4);
+        make.height.mas_equalTo(self.mas_height).multipliedBy(0.5);
     }];
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);

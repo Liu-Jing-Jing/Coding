@@ -23,25 +23,25 @@
 // Cell尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 2);
+        return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 5 * 3);
     }
     else if (indexPath.section == 1) {
         CGFloat padding = countcoordinatesX(10);
         NSInteger row = 2;
         CGFloat width = (ScreenWidth - (row + 1) * padding) / row;
-        CGFloat height = width / 3 * 2;
+        CGFloat height = ScreenWidth / 700.f * 300.f;
         return CGSizeMake(width, height);
     }
     else if (indexPath.section == 2) {
         CGFloat padding = countcoordinatesX(10);
         if (indexPath.row == 0) {
             CGFloat width = ScreenWidth - padding * 2;
-            CGFloat height = width / 3;
+            CGFloat height = width / 700.f * 300.f;
             return CGSizeMake(width, height);
         } else {
             NSInteger row = 2;
             CGFloat width = (ScreenWidth - (row + 1) * padding) / row;
-            CGFloat height = width / 3 * 2;
+            CGFloat height = ScreenWidth / 700.f * 300.f;
             return CGSizeMake(width, height);
         }
     }

@@ -8,12 +8,38 @@
 
 #import "HomeSectionFooter.h"
 
+#pragma mark - 声明
+@interface HomeSectionFooter ()
+
+@property (nonatomic, strong) UIButton *more;
+
+@end
+
+#pragma mark - 实现
 @implementation HomeSectionFooter
 
 + (instancetype)initWithCollection:(UICollectionView *)collection kind:(NSString *)kind index:(NSIndexPath *)index {
     HomeSectionFooter *view = [HomeSectionFooter loadCode:collection kind:kind index:index];
-    view.backgroundColor = LightColor;
+    [view setBackgroundColor:LightColor];
+    [view more];
     return view;
+}
+- (UIButton *)more {
+    if (!_more) {
+        _more = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_more setFrame:CGRectMake(0, 0, 50, 20)];
+        [_more setCenter:CGPointMake(self.width / 2, self.height / 2)];
+        [_more.titleLabel setFont:[UIFont systemFontOfSize:10]];
+        [_more setTitleColor:ColorTextMedium forState:UIControlStateNormal];
+        [_more setTitle:@"更多" forState:UIControlStateNormal];
+        [_more setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_more.layer setCornerRadius:10];
+        [_more.layer setMasksToBounds:YES];
+        [_more.layer setBorderWidth:1];
+        [_more.layer setBorderColor:ColorTextMedium.CGColor];
+        [self addSubview:_more];
+    }
+    return _more;
 }
 
 @end

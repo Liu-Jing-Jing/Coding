@@ -25,7 +25,6 @@
     [self setNavTitle:@"首页"];
     [self setJz_wantsNavigationBarVisible:YES];
     [self setJz_navigationBarTintColor:[UIColor whiteColor]];
-    
     [self getHomeList];
 }
 - (void)loadView {
