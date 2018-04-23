@@ -7,7 +7,10 @@
 //
 
 #import "BaseView.h"
+#import "ArticleModel.h"
 
 @interface ArticleView : BaseView
+
+@property (nonatomic, strong) ArticleModel *model;
 
 @end

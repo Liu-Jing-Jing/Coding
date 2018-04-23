@@ -24,6 +24,13 @@
 #pragma mark - 实现
 @implementation ArticleView
 
+#pragma mark - 设置
+- (void)setModel:(ArticleModel *)model {
+    _model = model;
+    [_collection reloadData];
+    _header.models = model.ad;
+}
+
 #pragma mark - 初始化
 + (instancetype)init {
     ArticleView *view = [ArticleView loadCode:ScreenBounds];
@@ -75,11 +82,11 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return _model ? 2 : 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
-        return 3;
+        return _model.ad.count;
     }
     else if (section == 1) {
         return 5;
@@ -89,6 +96,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         HomeCollectionTechnicalCell *cell = [HomeCollectionTechnicalCell initWithCollection:collectionView index:indexPath];
+        cell.model = _model.technical[indexPath.row];
         return cell;
     } else if (indexPath.section == 1) {
         ArticleCollectionCell *cell = [ArticleCollectionCell initWithCollection:collectionView index:indexPath];
@@ -149,7 +157,7 @@
 // Cell尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 2);
+        return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 5 * 3);
     }
     else if (indexPath.section == 1) {
         CGFloat width = ScreenWidth;

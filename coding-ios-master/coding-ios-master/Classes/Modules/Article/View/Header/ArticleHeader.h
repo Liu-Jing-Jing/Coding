@@ -7,8 +7,11 @@
 //
 
 #import "BaseView.h"
+#import "ArticleModel.h"
 
 @interface ArticleHeader : BaseView
+
+@property (nonatomic, strong) NSArray<ArticleAdModel *> *models;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

@@ -10,6 +10,8 @@
 
 @interface ArticleCollectionCell : UICollectionViewCell
 
+@property (nonatomic, strong) ArticleArticleModel *model;
+
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index;
 
 @end

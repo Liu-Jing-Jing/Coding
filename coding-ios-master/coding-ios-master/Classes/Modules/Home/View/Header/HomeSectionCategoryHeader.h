@@ -11,5 +11,6 @@
 @interface HomeSectionCategoryHeader : UICollectionReusableView
 
 + (instancetype)initWithCollection:(UICollectionView *)collection kind:(NSString *)kind index:(NSIndexPath *)index;
+- (void)createSubView:(NSArray *)titles;
 
 @end

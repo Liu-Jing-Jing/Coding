@@ -38,7 +38,6 @@
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
         make.top.mas_equalTo(self.icon.mas_bottom).mas_equalTo(3);
-        make.width.mas_equalTo(self.mas_width).multipliedBy(0.4);
         make.bottom.mas_equalTo(-8);
     }];
 }
@@ -60,15 +59,14 @@
         _name.layer.cornerRadius = 1;
         _name.layer.masksToBounds = YES;
         _name.textAlignment = NSTextAlignmentCenter;
-        _name.textColor = ColorTextHeavy;
-        _name.font = FontName(10);
+        [_name titleFontAndColor];
         [self.contentView addSubview:_name];
     }
     return _name;
 }
 
 #pragma mark - 设置
-- (void)setModel:(HomeTechnicalModel *)model {
+- (void)setModel:(TechnicalModel *)model {
     _model = model;
     _icon.image = [UIImage imageNamed:model.image];
     _name.text = model.name;

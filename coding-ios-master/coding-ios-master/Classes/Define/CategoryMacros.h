@@ -28,6 +28,8 @@
 #import "UIFont+Extension.h"
 #import "WatchView.h"
 #import "KKEmptyView.h"
+#import "UIView+BlockGesture.h"
+#import "SDCycleScrollView+Manager.h"
 
 #import "MJRefreshNormalHeader+Extension.h"
 #import "MJRefreshBackNormalFooter+Extension.h"

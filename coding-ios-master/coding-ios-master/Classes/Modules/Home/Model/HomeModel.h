@@ -14,27 +14,6 @@
 @property (nonatomic, copy  ) NSString *url;
 @end
 
-/// 技术点
-@interface HomeTechnicalModel : BaseModel
-@property (nonatomic, copy  ) NSString *image;
-@property (nonatomic, copy  ) NSString *name;
-@end
-
-
-/// Tag
-@interface HomeTagModel : BaseModel
-@property (nonatomic, copy  ) NSString *ID;
-@property (nonatomic, copy  ) NSString *title;
-@end
-
-
-/// Category
-@interface HomeCategoryModel : BaseModel
-@property (nonatomic, copy  ) NSString *ID;
-@property (nonatomic, copy  ) NSString *name;
-@end
-
-
 /// 分类
 @interface HomeSortModel : BaseModel
 @property (nonatomic, copy  ) NSString *objectId;   // id
@@ -62,9 +41,7 @@
 /// 人数
 @property (nonatomic, assign) NSInteger number;
 /// tag
-@property (nonatomic, strong) NSArray<HomeTagModel *> *tag;
-/// 分类
-@property (nonatomic, strong) NSArray<HomeCategoryModel *> *category;
+@property (nonatomic, strong) NSArray<TagModel *> *tag;
 @end
 
 
@@ -75,7 +52,7 @@
 /// 头条
 @property (nonatomic, strong) NSArray<NSString *> *headlines;
 /// 技术点
-@property (nonatomic, strong) NSArray<HomeTechnicalModel *> *technical;
+@property (nonatomic, strong) NSArray<TechnicalModel *> *technical;
 /// 分类
 @property (nonatomic, strong) NSArray<HomeSortModel *> *sort;
 /// 推荐

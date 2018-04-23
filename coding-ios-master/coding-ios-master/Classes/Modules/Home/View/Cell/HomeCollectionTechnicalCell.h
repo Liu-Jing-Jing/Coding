@@ -11,7 +11,7 @@
 #pragma mark - 声明
 @interface HomeCollectionTechnicalCell : UICollectionViewCell
 
-@property (nonatomic, strong) HomeTechnicalModel *model;
+@property (nonatomic, strong) TechnicalModel *model;
 
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index;
 

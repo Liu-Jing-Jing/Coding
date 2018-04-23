@@ -12,3 +12,33 @@
 @implementation BaseModel
 
 @end
+
+
+/// Tag
+@implementation TagModel
+
++ (NSDictionary *)replacedKeyFromPropertyName {
+    return @{
+             @"ID" : @"id",
+             };
+}
+
+@end
+
+
+/// 分类
+@implementation CategoryModel
+
++ (NSDictionary *)replacedKeyFromPropertyName {
+    return @{
+             @"ID" : @"id",
+             };
+}
+
+@end
+
+
+/// 技术点
+@implementation TechnicalModel
+
+@end

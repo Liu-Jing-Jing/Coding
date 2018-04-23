@@ -10,6 +10,9 @@
 
 @interface NSString (API)
 
+/// 首页列表
 + (NSString *)getHomeList;
+/// 文章列表
++ (NSString *)getArticleList;
 
 @end

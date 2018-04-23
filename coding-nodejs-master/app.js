@@ -6,11 +6,13 @@ var eventproxy = require('eventproxy')
 const myajax = require('./utils/axios_render')
 
 const home_list = require('./routes/api/myapp/home_list');
-const home_recommend = require('./routes/api/juejin/home_recommend');
+const article_list = require('./routes/api/myapp/article_list');
+// const home_recommend = require('./routes/api/juejin/home_recommend');
 
 app.use(express.static('public'));
 app.get('/home_list', home_list);
-app.get('/home_recommend', home_recommend);
+app.get('/article_list', article_list);
+// app.get('/home_recommend', home_recommend);
 
  
 app.get('/', (req, res) => {

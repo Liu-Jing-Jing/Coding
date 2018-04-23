@@ -26,6 +26,7 @@
 #pragma mark - 设置
 - (void)setModel:(HomeHotModel *)model {
     _model = model;
+    [_name setText:model.title];
     [_icon sd_setImageWithURL:[NSURL URLWithString:model.image]];
 }
 
@@ -46,12 +47,34 @@
 }
 - (void)createLayout {
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make
+        make.left.mas_equalTo(countcoordinatesX(10));
+        make.centerY.mas_equalTo(self.mas_centerY);
+        make.top.mas_equalTo(countcoordinatesY(10));
+        make.width.mas_equalTo(self.icon.mas_height).multipliedBy(1.7);
+    }];
+    [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.icon.mas_right).mas_equalTo(countcoordinatesX(10));
+        make.top.mas_equalTo(self.icon.mas_top).mas_equalTo(countcoordinatesY(5));
+        make.right.mas_equalTo(self.mas_right).mas_equalTo(countcoordinatesX(-10));
+    }];
+    [self.eye mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.name.mas_left);
+        make.top.mas_equalTo(self.name.mas_bottom).mas_equalTo(countcoordinatesY(20));
+        make.width.and.height.mas_equalTo(countcoordinatesX(10));
+    }];
+    [self.number mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.eye.mas_right).mas_equalTo(countcoordinatesX(5));
+        make.centerY.mas_equalTo(self.eye.mas_centerY);
+    }];
+    [self.tags mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self.mas_right).mas_equalTo(countcoordinatesX(-10));
+        make.centerY.mas_equalTo(self.eye.mas_centerY);
     }];
 }
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
+        _icon.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:_icon];
     }
     return _icon;
@@ -59,6 +82,8 @@
 - (UILabel *)name {
     if (!_name) {
         _name = [[UILabel alloc] init];
+        _name.numberOfLines = 0;
+        [_name titleFontAndColor];
         [self.contentView addSubview:_name];
     }
     return _name;
@@ -66,6 +91,7 @@
 - (UIImageView *)eye {
     if (!_eye) {
         _eye = [[UIImageView alloc] init];
+        _eye.image = [UIImage imageNamed:@"eye"];
         [self.contentView addSubview:_eye];
     }
     return _eye;
@@ -73,6 +99,8 @@
 - (UILabel *)number {
     if (!_number) {
         _number = [[UILabel alloc] init];
+        _number.text = @"658";
+        [_number eyeFontAndColor];
         [self.contentView addSubview:_number];
     }
     return _number;
@@ -80,6 +108,8 @@
 - (UILabel *)tags {
     if (!_tags) {
         _tags = [[UILabel alloc] init];
+        _tags.text = @"# 其他";
+        [_tags eyeFontAndColor];
         [self.contentView addSubview:_tags];
     }
     return _tags;

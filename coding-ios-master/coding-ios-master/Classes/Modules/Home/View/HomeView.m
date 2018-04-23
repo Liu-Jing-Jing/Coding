@@ -114,7 +114,7 @@
         return _model.recommend.count;
     }
     else if (section == 3) {
-        return 4;
+        return _model.hot.count;
     }
     return 0;
 }
@@ -136,6 +136,7 @@
     }
     else if (indexPath.section == 3) {
         HomeCollectionHotCell *cell = [HomeCollectionHotCell initWithCollection:collectionView index:indexPath];
+        cell.model = _model.hot[indexPath.row];
         return cell;
     }
     return nil;
@@ -147,6 +148,7 @@
         }
         else if (indexPath.section == 1) {
             HomeSectionCategoryHeader *header = [HomeSectionCategoryHeader initWithCollection:collectionView kind:kind index:indexPath];
+            [header createSubView:@[@"最新", @"Web前端", @"iOS", @"Android"]];
             return header;
         }
         else if (indexPath.section == 2) {
@@ -166,7 +168,6 @@
     }
     return nil;
 }
-
 
 
 

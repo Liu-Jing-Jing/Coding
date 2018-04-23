@@ -14,35 +14,6 @@
 
 @end
 
-/// 技术点
-@implementation HomeTechnicalModel
-
-@end
-
-
-/// Tag
-@implementation HomeTagModel
-
-+ (NSDictionary *)replacedKeyFromPropertyName {
-    return @{
-             @"ID" : @"id",
-             };
-}
-
-@end
-
-
-/// 分类
-@implementation HomeCategoryModel
-
-+ (NSDictionary *)replacedKeyFromPropertyName {
-    return @{
-             @"ID" : @"id",
-             };
-}
-
-@end
-
 
 /// 类别
 @implementation HomeSortModel
@@ -62,8 +33,7 @@
 
 + (NSDictionary *)objectClassInArray {
     return @{
-             @"tag" : [HomeTagModel class],
-             @"category" : [HomeCategoryModel class]
+             @"tag" : [TagModel class],
              };
 }
 
@@ -76,7 +46,7 @@
 + (NSDictionary *)objectClassInArray {
     return @{
                  @"ad"        : [HomeAdModel class],
-                 @"technical" : [HomeTechnicalModel class],
+                 @"technical" : [TechnicalModel class],
                  @"sort"      : [HomeSortModel class],
                  @"recommend" : [HomeRecommendModel class],
                  @"hot"       : [HomeHotModel class],

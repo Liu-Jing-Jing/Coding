@@ -109,35 +109,73 @@ app.get('/home_list', async (req, res)=>{
     'hot': [
       {
         'objectId': '59a795baf265da2476424dfd',
-        'title': '中兴的自毁与自救: 封杀7年, 禁用Android, 76岁创始人奔走前线!',
+        'title': '你想知道我在看什么书吗?',
         'image': 'http://localhost:3003/images/recommend1.png',
         'number': 111,
-        'category': [
-          {
-            'id': '5562b415e4b00c57d9b94ac8',
-            'name': '前端',
-          }
-        ],
         'tag': [
           {
             'id': '559a4c13e4b08a686d209b5b',
-            'title': '设计'
-          },
+            'title': '其他'
+          }
+        ]
+      },
+      {
+        'objectId': '59a795baf265da2476424dfd',
+        'title': '你想知道我在看什么书吗?',
+        'image': 'http://localhost:3003/images/recommend1.png',
+        'number': 111,
+        'tag': [
           {
             'id': '559a4c13e4b08a686d209b5b',
-            'title': 'JavaScript'
+            'title': '其他'
+          }
+        ]
+      },
+      {
+        'objectId': '59a795baf265da2476424dfd',
+        'title': '你想知道我在看什么书吗?',
+        'image': 'http://localhost:3003/images/recommend1.png',
+        'number': 111,
+        'tag': [
+          {
+            'id': '559a4c13e4b08a686d209b5b',
+            'title': '其他'
+          }
+        ]
+      },
+      {
+        'objectId': '59a795baf265da2476424dfd',
+        'title': '你想知道我在看什么书吗?',
+        'image': 'http://localhost:3003/images/recommend1.png',
+        'number': 111,
+        'tag': [
+          {
+            'id': '559a4c13e4b08a686d209b5b',
+            'title': '其他'
+          }
+        ]
+      },
+      {
+        'objectId': '59a795baf265da2476424dfd',
+        'title': '你想知道我在看什么书吗?',
+        'image': 'http://localhost:3003/images/recommend1.png',
+        'number': 111,
+        'tag': [
+          {
+            'id': '559a4c13e4b08a686d209b5b',
+            'title': '其他'
           }
         ]
       }
     ],
     // 组头试图
     'sectionHeader': [
-      '热门推荐',
-      '最新资讯'
+      '最新资讯',
+      '热门推荐'
     ]
   }
   
-  // await Ut.sleep(2000);  
+  // await Ut.sleep(4000);  
   res.send(params);
 })
 

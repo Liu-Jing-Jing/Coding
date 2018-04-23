@@ -99,6 +99,7 @@
         _next.textAlignment = NSTextAlignmentRight;
         _next.text = @"更多";
         _next.font = [UIFont systemFontOfSize:adjustFont(12)];
+        _next.textColor = ColorTextHeavy;
         [self addSubview:_next];
     }
     return _next;

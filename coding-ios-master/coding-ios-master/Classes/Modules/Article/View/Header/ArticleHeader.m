@@ -11,6 +11,8 @@
 #pragma mark - 声明
 @interface ArticleHeader()
 
+@property (nonatomic, strong) SDCycleScrollView *scroll;
+
 @end
 
 #pragma mark - 实现
@@ -18,8 +20,26 @@
 
 + (instancetype)initWithFrame:(CGRect)frame {
     ArticleHeader *view = [ArticleHeader loadCode:frame];
-    view.backgroundColor = LightColor;
+    [view setBackgroundColor:LightColor];
+    [view scroll];
     return view;
+}
+- (SDCycleScrollView *)scroll {
+    if (!_scroll) {
+        _scroll = [SDCycleScrollView initWithFrame:self.bounds];
+        [self addSubview:_scroll];
+    }
+    return _scroll;
+}
+
+#pragma mark - 设置
+- (void)setModels:(NSArray<ArticleAdModel *> *)models {
+    _models = models;
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (ArticleAdModel *model in models) {
+        [arr addObject:model.image];
+    }
+    _scroll.imageURLStringsGroup = arr;
 }
 
 @end

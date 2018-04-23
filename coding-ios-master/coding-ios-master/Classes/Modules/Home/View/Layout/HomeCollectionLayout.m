@@ -47,7 +47,7 @@
     }
     else if (indexPath.section == 3) {
         CGFloat width  = ScreenWidth;
-        CGFloat height = width / 3;
+        CGFloat height = width / 4;
         return CGSizeMake(width, height);
     }
     return CGSizeZero;

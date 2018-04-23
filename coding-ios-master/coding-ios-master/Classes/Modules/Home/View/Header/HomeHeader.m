@@ -27,9 +27,7 @@
 }
 - (SDCycleScrollView *)scroll {
     if (!_scroll) {
-        _scroll = [SDCycleScrollView cycleScrollViewWithFrame:self.bounds imageNamesGroup:@[]];
-        _scroll.currentPageDotColor = LightColor;
-        _scroll.pageDotColor = ThinColor;
+        _scroll = [SDCycleScrollView initWithFrame:self.bounds];
         [self addSubview:_scroll];
     }
     return _scroll;

@@ -37,6 +37,9 @@
 		04C14C7E20881E19000A7951 /* DiscoveryCollectionThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C14C7D20881E19000A7951 /* DiscoveryCollectionThemeView.m */; };
 		04DF10202088790C00462250 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF101F2088790C00462250 /* ContentController.m */; };
 		04DF10232088792400462250 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF10222088792400462250 /* ContentView.m */; };
+		4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */; };
+		4B6594F0208E1E1C005CF75C /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EF208E1E1C005CF75C /* ArticleModel.m */; };
+		4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */; };
 		4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */; };
 		4B7D6D412088CD5E00F7DC2B /* HomeSectionNextHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D402088CD5E00F7DC2B /* HomeSectionNextHeader.m */; };
 		4B7D6D452088D99B00F7DC2B /* WatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D442088D99B00F7DC2B /* WatchView.m */; };
@@ -164,6 +167,12 @@
 		04DF10212088792400462250 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		04DF10222088792400462250 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		17D8745DF5456539CEBD9B92 /* Pods-coding-ios-master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coding-ios-master.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coding-ios-master/Pods-coding-ios-master.debug.xcconfig"; sourceTree = "<group>"; };
+		4B6594EA208E189F005CF75C /* UIView+BlockGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlockGesture.h"; sourceTree = "<group>"; };
+		4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BlockGesture.m"; sourceTree = "<group>"; };
+		4B6594EE208E1E1C005CF75C /* ArticleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleModel.h; sourceTree = "<group>"; };
+		4B6594EF208E1E1C005CF75C /* ArticleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleModel.m; sourceTree = "<group>"; };
+		4B6594F2208E24C4005CF75C /* SDCycleScrollView+Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDCycleScrollView+Manager.h"; sourceTree = "<group>"; };
+		4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SDCycleScrollView+Manager.m"; sourceTree = "<group>"; };
 		4B7D6D3C2088B84C00F7DC2B /* POPAnimation+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POPAnimation+Extension.h"; sourceTree = "<group>"; };
 		4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "POPAnimation+Extension.m"; sourceTree = "<group>"; };
 		4B7D6D3F2088CD5E00F7DC2B /* HomeSectionNextHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSectionNextHeader.h; sourceTree = "<group>"; };
@@ -514,6 +523,24 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		4B6594ED208E1E0F005CF75C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B6594EE208E1E1C005CF75C /* ArticleModel.h */,
+				4B6594EF208E1E1C005CF75C /* ArticleModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B6594F1208E24A9005CF75C /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4B6594F2208E24C4005CF75C /* SDCycleScrollView+Manager.h */,
+				4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
 		4B7D6D422088D99000F7DC2B /* Watch */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB1E4042087854A0066B80A /* Controller */,
+				4B6594ED208E1E0F005CF75C /* Model */,
 				4BB1E4052087854A0066B80A /* View */,
 			);
 			path = Article;
@@ -549,8 +577,8 @@
 				4BB1E409208785850066B80A /* ArticleView.h */,
 				4BB1E40A208785850066B80A /* ArticleView.m */,
 				4BB1E40E2087861A0066B80A /* Layout */,
-				4BB1E40D2087861A0066B80A /* Cell */,
 				4BB1E40C2087861A0066B80A /* Header */,
+				4BB1E40D2087861A0066B80A /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -811,6 +839,7 @@
 		4BE9FD16208630070020B755 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4B6594F1208E24A9005CF75C /* SDCycleScrollView */,
 				04C03CFB208ACFF900BD0995 /* NetWork */,
 				04554F422089B1B200BEC435 /* KKEmptyView */,
 				4B7D6D422088D99000F7DC2B /* Watch */,
@@ -865,6 +894,8 @@
 		4BE9FD1F208630070020B755 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				4B6594EA208E189F005CF75C /* UIView+BlockGesture.h */,
+				4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */,
 				4BE9FD25208630070020B755 /* UIView+Snapshot.h */,
 				4BE9FD20208630070020B755 /* UIView+Snapshot.m */,
 				4BE9FD27208630070020B755 /* UIView+Border.h */,
@@ -1052,8 +1083,8 @@
 		4BE9FDE1208630070020B755 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4BE9FDE2208630070020B755 /* BaseModel.m */,
 				4BE9FDE3208630070020B755 /* BaseModel.h */,
+				4BE9FDE2208630070020B755 /* BaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1228,6 +1259,7 @@
 				4BE9FE2F208630070020B755 /* BaseTabBarController.m in Sources */,
 				0478AA1F2086CD4D00213353 /* HomeCollectionViewLayoutAttributes.m in Sources */,
 				4BE9FDF8208630070020B755 /* ImageUtils.m in Sources */,
+				4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */,
 				4BE9FDED208630070020B755 /* UIView+Border.m in Sources */,
 				4BD2B1D820863A8A00E31A21 /* AppManager.m in Sources */,
 				4BE9FD0E20862FCA0020B755 /* main.m in Sources */,
@@ -1249,6 +1281,7 @@
 				4BD2B207208647C500E31A21 /* HomeHeader.m in Sources */,
 				4B7D6D452088D99B00F7DC2B /* WatchView.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,
+				4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */,
 				04C14C6320881946000A7951 /* DiscoveryCollectionLayout.m in Sources */,
 				04C14C4220881723000A7951 /* PushCollectionRecommendCell.m in Sources */,
 				04C03D05208ADA3E00BD0995 /* HomeModel.m in Sources */,
@@ -1280,6 +1313,7 @@
 				04C14C7220881994000A7951 /* DiscoveryCollectionRecommendCell.m in Sources */,
 				04DF10232088792400462250 /* ContentView.m in Sources */,
 				4BE9FDF9208630070020B755 /* DataUtil.m in Sources */,
+				4B6594F0208E1E1C005CF75C /* ArticleModel.m in Sources */,
 				04C14C6820881946000A7951 /* DiscoveryHeader.m in Sources */,
 				4BB1E40B208785850066B80A /* ArticleView.m in Sources */,
 				4BB1E43B2087988F0066B80A /* PushView.m in Sources */,
