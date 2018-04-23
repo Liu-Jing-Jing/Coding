@@ -10,6 +10,8 @@
 
 @interface HomeHeader : BaseView
 
+@property (nonatomic, strong) NSArray<HomeAdModel *> *models;
+
 + (instancetype)initWithFrame:(CGRect)frame;
 
 @end

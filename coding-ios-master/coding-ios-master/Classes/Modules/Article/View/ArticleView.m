@@ -10,7 +10,7 @@
 #import "ArticleHeader.h"
 #import "ArticleSectionHeader.h"
 #import "ArticleCollectionLayout.h"
-#import "HomeCollectionOtherCell.h"
+#import "HomeCollectionTechnicalCell.h"
 #import "ArticleCollectionCell.h"
 
 #pragma mark - 声明
@@ -65,7 +65,7 @@
         [_collection setBackgroundColor:ThinColor];
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 3, 0, 0, 0)];
         [_collection setShowsVerticalScrollIndicator:NO];
-        [_collection registerClass:[HomeCollectionOtherCell class] forCellWithReuseIdentifier:@"HomeCollectionOtherCell"];
+        [_collection registerClass:[HomeCollectionTechnicalCell class] forCellWithReuseIdentifier:@"HomeCollectionTechnicalCell"];
         [_collection registerClass:[ArticleSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ArticleSectionHeader"];
         [_collection registerClass:[ArticleCollectionCell class] forCellWithReuseIdentifier:@"ArticleCollectionCell"];
         [self addSubview:_collection];
@@ -88,7 +88,7 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        HomeCollectionOtherCell *cell = [HomeCollectionOtherCell initWithCollection:collectionView index:indexPath];
+        HomeCollectionTechnicalCell *cell = [HomeCollectionTechnicalCell initWithCollection:collectionView index:indexPath];
         return cell;
     } else if (indexPath.section == 1) {
         ArticleCollectionCell *cell = [ArticleCollectionCell initWithCollection:collectionView index:indexPath];

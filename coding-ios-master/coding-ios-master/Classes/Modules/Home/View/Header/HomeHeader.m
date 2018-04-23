@@ -18,6 +18,7 @@
 #pragma mark - 实现
 @implementation HomeHeader
 
+#pragma mark - 初始化
 + (instancetype)initWithFrame:(CGRect)frame {
     HomeHeader *view = [HomeHeader loadCode:frame];
     view.backgroundColor = LightColor;
@@ -26,16 +27,22 @@
 }
 - (SDCycleScrollView *)scroll {
     if (!_scroll) {
-        UIImage *image2 = [UIImage createImageWithColor:MediumColor];
-        UIImage *image3 = [UIImage createImageWithColor:BoldColor];
-        UIImage *image4 = [UIImage createImageWithColor:HeavyColor];
-        
-        _scroll = [SDCycleScrollView cycleScrollViewWithFrame:self.bounds imageNamesGroup:@[image2,image3,image4]];
+        _scroll = [SDCycleScrollView cycleScrollViewWithFrame:self.bounds imageNamesGroup:@[]];
         _scroll.currentPageDotColor = LightColor;
         _scroll.pageDotColor = ThinColor;
         [self addSubview:_scroll];
     }
     return _scroll;
+}
+
+#pragma mark - 设置
+- (void)setModels:(NSArray<HomeAdModel *> *)models {
+    _models = models;
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (HomeAdModel *model in models) {
+        [arr addObject:model.image];
+    }
+    _scroll.imageURLStringsGroup = arr;
 }
 
 @end

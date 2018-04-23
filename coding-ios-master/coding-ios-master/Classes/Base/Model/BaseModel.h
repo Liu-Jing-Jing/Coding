@@ -10,4 +10,7 @@
 
 @interface BaseModel : NSObject
 
+@property (nonatomic, assign) NSInteger retCode;
+@property (nonatomic, strong) NSString *retMessage;
+
 @end

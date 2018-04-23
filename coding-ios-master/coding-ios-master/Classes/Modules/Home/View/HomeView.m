@@ -11,7 +11,7 @@
 #import "HomeSectionCategoryHeader.h"
 #import "HomeSectionNextHeader.h"
 #import "HomeSectionFooter.h"
-#import "HomeCollectionOtherCell.h"
+#import "HomeCollectionTechnicalCell.h"
 #import "HomeCollectionCategoryCell.h"
 #import "HomeCollectionHotCell.h"
 #import "HomeCollectionLayout.h"
@@ -54,9 +54,11 @@
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:self.layout];
         _collection.mj_header = ({
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeaderRefreshing)]) {
+                    [self.delegate homeHeaderRefreshing];
+                } else {
                     [_collection.mj_header endRefreshing];
-                });
+                }
             }];
             header.ignoredScrollViewContentInsetTop = ScreenWidth / 2;
             header;
@@ -69,12 +71,25 @@
         [_collection registerClass:[HomeSectionCategoryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionCategoryHeader"];
         [_collection registerClass:[HomeSectionNextHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionNextHeader"];
         [_collection registerClass:[HomeSectionFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"HomeSectionFooter"];
-        [_collection registerClass:[HomeCollectionOtherCell class] forCellWithReuseIdentifier:@"HomeCollectionOtherCell"];
+        [_collection registerClass:[HomeCollectionTechnicalCell class] forCellWithReuseIdentifier:@"HomeCollectionTechnicalCell"];
         [_collection registerClass:[HomeCollectionCategoryCell class] forCellWithReuseIdentifier:@"HomeCollectionCategoryCell"];
         [_collection registerClass:[HomeCollectionHotCell class] forCellWithReuseIdentifier:@"HomeCollectionHotCell"];
         [self addSubview:_collection];
     }
     return _collection;
+}
+- (void)endHeaderRefreshing {
+    [_collection.mj_header endRefreshing];
+}
+- (void)endFooterRefreshing {
+    [_collection.mj_footer endRefreshing];
+}
+
+#pragma mark - 设置
+- (void)setModel:(HomeModel *)model {
+    _model = model;
+    [_collection reloadData];
+    _header.models = model.ad;
 }
 
 #pragma mark - HomeCollectionLayoutDelegate
@@ -86,7 +101,7 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 4;
+    return _model ? 4 : 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
@@ -105,7 +120,8 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        HomeCollectionOtherCell *cell = [HomeCollectionOtherCell initWithCollection:collectionView index:indexPath];
+        HomeCollectionTechnicalCell *cell = [HomeCollectionTechnicalCell initWithCollection:collectionView index:indexPath];
+        cell.model = _model.technical[indexPath.row];
         return cell;
     }
     else if (indexPath.section == 1) {

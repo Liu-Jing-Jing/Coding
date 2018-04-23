@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import <MJExtension/MJExtension.h>
 
 @implementation BaseModel
 
