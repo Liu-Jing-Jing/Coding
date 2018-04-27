@@ -41,7 +41,7 @@
 #pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
     HomeCollectionCategoryCell *cell = [HomeCollectionCategoryCell loadCode:collection index:index];
-    [cell setBackgroundColor:MediumColor];
+    [cell setBackgroundColor:WhiteColor];
     [cell icon];
     [cell eyeBg];
     [cell eye];

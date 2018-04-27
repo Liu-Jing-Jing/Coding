@@ -24,7 +24,7 @@
 #pragma mark - 初始化
 + (instancetype)init {
     MineView *view = [MineView loadCode:ScreenBounds];
-    [view setBackgroundColor:ThinColor];
+    [view setBackgroundColor:WhiteColor];
     [view name];
     [view icon];
     [view login];
@@ -39,7 +39,7 @@
     }];
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self.name.mas_left).mas_equalTo(countcoordinatesY(-10));
-        make.width.and.height.mas_equalTo(countcoordinatesX(30));
+        make.width.and.height.mas_equalTo(countcoordinatesX(40));
         make.centerY.mas_equalTo(self.name.mas_centerY);
     }];
     [self.login mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,7 +49,7 @@
     }];
     [self.desc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.login.mas_bottom).mas_equalTo(countcoordinatesY(30));
-        make.width.mas_equalTo(self.mas_width).multipliedBy(0.4);
+        make.width.mas_equalTo(self.mas_width);
         make.centerX.mas_equalTo(self.mas_centerX);
     }];
 }
@@ -57,6 +57,9 @@
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
         _icon.backgroundColor = LightColor;
+        _icon.layer.cornerRadius = 5;
+        _icon.layer.masksToBounds = YES;
+        [_icon shadowWithColor:ColorTextBold offset:CGSizeMake(1, 1) opacity:0.2 radius:1];
         [self addSubview:_icon];
     }
     return _icon;
@@ -82,9 +85,9 @@
 - (UILabel *)desc {
     if (!_desc) {
         _desc = [[UILabel alloc] init];
-        _desc.text = @"asdfeasdfthfdgcvfbgffvbghg";
         _desc.numberOfLines = 0;
         _desc.textAlignment = NSTextAlignmentCenter;
+        _desc.attributedText = [NSAttributedString attributedWithLineSpacing:5 color:ColorTextMedium font:[UIFont systemFontOfSize:adjustFont(12) weight:UIFontWeightLight] str:@"在这个互联网泛滥的时代\n安心如此简单"];
         [self addSubview:_desc];
     }
     return _desc;

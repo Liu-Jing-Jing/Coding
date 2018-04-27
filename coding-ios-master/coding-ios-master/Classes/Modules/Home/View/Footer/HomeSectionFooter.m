@@ -20,7 +20,7 @@
 
 + (instancetype)initWithCollection:(UICollectionView *)collection kind:(NSString *)kind index:(NSIndexPath *)index {
     HomeSectionFooter *view = [HomeSectionFooter loadCode:collection kind:kind index:index];
-    [view setBackgroundColor:LightColor];
+    [view setBackgroundColor:WhiteColor];
     [view more];
     return view;
 }

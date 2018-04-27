@@ -21,7 +21,7 @@
 
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
     DiscoveryCollectionHotCell *cell = [DiscoveryCollectionHotCell loadCode:collection index:index];
-    [cell setBackgroundColor:LightColor];
+    [cell setBackgroundColor:WhiteColor];
     [cell scroll];
     return cell;
 }

@@ -76,7 +76,7 @@
     return view;
 }
 - (void)createView {
-    [self setBackgroundColor:LightColor];
+    [self setBackgroundColor:WhiteColor];
     [self icon];
     [self scroll];
 }

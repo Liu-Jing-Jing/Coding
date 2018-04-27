@@ -29,7 +29,7 @@
 #pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
     DiscoveryCollectionRecommendCell *cell = [DiscoveryCollectionRecommendCell loadCode:collection index:index];
-    [cell setBackgroundColor:LightColor];
+    [cell setBackgroundColor:ColorBg];
     [cell scroll];
     return cell;
 }

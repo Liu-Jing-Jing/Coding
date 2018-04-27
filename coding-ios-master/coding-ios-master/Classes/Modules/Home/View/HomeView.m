@@ -15,6 +15,7 @@
 #import "HomeCollectionCategoryCell.h"
 #import "HomeCollectionHotCell.h"
 #import "HomeCollectionLayout.h"
+#import "HomeService.h"
 
 #pragma mark - 声明
 @interface HomeView()<UICollectionViewDataSource, HomeCollectionLayoutDelegate>
@@ -33,6 +34,7 @@
     HomeView *view = [HomeView loadCode:ScreenBounds];
     [view collection];
     [view header];
+    [view.collection.mj_header beginRefreshing];
     return view;
 }
 - (HomeHeader *)header {
@@ -53,23 +55,18 @@
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:self.layout];
         _collection.mj_header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingBlock:^{
-                if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeaderRefreshing)]) {
-                    [self.delegate homeHeaderRefreshing];
-                } else {
-                    [_collection.mj_header endRefreshing];
-                }
-            }];
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingSEL:self refreshingAction:@selector(headerRefreshing)];
             header.ignoredScrollViewContentInsetTop = ScreenWidth / 2;
             header;
         });
         [_collection setDelegate:self.layout];
         [_collection setDataSource:self];
-        [_collection setBackgroundColor:ThinColor];
+        [_collection setBackgroundColor:ColorBg];
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 2, 0, 0, 0)];
         [_collection setShowsVerticalScrollIndicator:NO];
         [_collection registerClass:[HomeSectionCategoryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionCategoryHeader"];
         [_collection registerClass:[HomeSectionNextHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionNextHeader"];
+        [_collection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView"];
         [_collection registerClass:[HomeSectionFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"HomeSectionFooter"];
         [_collection registerClass:[HomeCollectionTechnicalCell class] forCellWithReuseIdentifier:@"HomeCollectionTechnicalCell"];
         [_collection registerClass:[HomeCollectionCategoryCell class] forCellWithReuseIdentifier:@"HomeCollectionCategoryCell"];
@@ -78,11 +75,27 @@
     }
     return _collection;
 }
-- (void)endHeaderRefreshing {
-    [_collection.mj_header endRefreshing];
+
+
+- (void)headerRefreshing {
+    MJWeakSelf
+    [HomeService serviceRequest:^(HomeModel *model) {
+        [weakSelf setModel:model];
+        [weakSelf.collection.mj_header endRefreshing];
+        [weakSelf.collection.mj_footer endRefreshing];
+    } error:^(NSError *error) {
+        
+    }];
 }
-- (void)endFooterRefreshing {
-    [_collection.mj_footer endRefreshing];
+- (void)footerRefreshing {
+    MJWeakSelf
+    [HomeService serviceRequest:^(HomeModel *model) {
+        [weakSelf setModel:model];
+        [weakSelf.collection.mj_header endRefreshing];
+        [weakSelf.collection.mj_footer endRefreshing];
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - 设置
@@ -163,8 +176,13 @@
         }
     }
     else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        HomeSectionFooter *footer = [HomeSectionFooter initWithCollection:collectionView kind:kind index:indexPath];
-        return footer;
+        if (indexPath.section == 1) {
+            HomeSectionFooter *footer = [HomeSectionFooter initWithCollection:collectionView kind:kind index:indexPath];
+            return footer;
+        } else {
+            UICollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView" forIndexPath:indexPath];
+            return footer;
+        }
     }
     return nil;
 }

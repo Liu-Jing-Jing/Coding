@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel *number;
 @property (nonatomic, strong) UILabel *tags;
 @property (nonatomic, strong) WatchView *watch;
+@property (nonatomic, strong) UIView *line;
 
 @end
 
@@ -33,7 +34,7 @@
 #pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
     HomeCollectionHotCell *cell = [HomeCollectionHotCell loadCode:collection index:index];
-    [cell setBackgroundColor:MediumColor];
+    [cell setBackgroundColor:WhiteColor];
     [cell createView];
     [cell createLayout];
     return cell;
@@ -44,6 +45,7 @@
     [self eye];
     [self number];
     [self tags];
+    [self line];
 }
 - (void)createLayout {
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,6 +71,12 @@
     [self.tags mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self.mas_right).mas_equalTo(countcoordinatesX(-10));
         make.centerY.mas_equalTo(self.eye.mas_centerY);
+    }];
+    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.icon.mas_left);
+        make.right.mas_equalTo(self.name.mas_right);
+        make.bottom.mas_equalTo(-1);
+        make.height.mas_equalTo(1);
     }];
 }
 - (UIImageView *)icon {
@@ -113,6 +121,14 @@
         [self.contentView addSubview:_tags];
     }
     return _tags;
+}
+- (UIView *)line {
+    if (!_line) {
+        _line = [[UIView alloc] init];
+        _line.backgroundColor = ColorBg;
+        [self addSubview:_line];
+    }
+    return _line;
 }
 
 @end

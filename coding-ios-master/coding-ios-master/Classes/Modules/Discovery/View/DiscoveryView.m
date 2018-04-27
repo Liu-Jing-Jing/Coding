@@ -17,7 +17,7 @@
 #import "DiscoveryService.h"
 
 #pragma mark - 声明
-@interface DiscoveryView()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface DiscoveryView()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) DiscoveryHeader *header;
 @property (nonatomic, strong) UICollectionView *collection;
@@ -31,6 +31,7 @@
     DiscoveryView *view = [DiscoveryView loadCode:ScreenBounds];
     [view header];
     [view collection];
+    [view.collection.mj_header beginRefreshing];
     return view;
 }
 - (DiscoveryHeader *)header {
@@ -53,7 +54,7 @@
         _collection.mj_footer = [MJRefreshBackNormalFooter footerWithNormalRefreshingSEL:self refreshingAction:@selector(footerRefreshing)];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
-        [_collection setBackgroundColor:ThinColor];
+        [_collection setBackgroundColor:ColorBg];
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 3, 0, 0, 0)];
         [_collection setShowsVerticalScrollIndicator:NO];
         [_collection registerClass:[DiscoveryCollectionHotCell class] forCellWithReuseIdentifier:@"DiscoveryCollectionHotCell"];
@@ -62,6 +63,7 @@
         [_collection registerNib:[UINib nibWithNibName:@"ArticleCollectionIconCell" bundle:nil] forCellWithReuseIdentifier:@"ArticleCollectionIconCell"];
         [_collection registerClass:[HomeSectionNextHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionNextHeader"];
         [_collection registerClass:[SectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SectionHeader"];
+        [_collection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView"];
         [self addSubview:_collection];
     }
     return _collection;
@@ -96,7 +98,7 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 4;
+    return _model ? 4 : 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
@@ -155,6 +157,11 @@
             SectionHeader *header = [SectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
             return header;
         }
+    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        if (indexPath.section == 2) {
+            UICollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView" forIndexPath:indexPath];
+            return footer;
+        }
     }
     return nil;
 }
@@ -171,6 +178,12 @@
     }
     else if (section == 3) {
         return CGSizeMake(ScreenWidth, countcoordinatesY(40));
+    }
+    return CGSizeZero;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (section == 2) {
+        return CGSizeMake(ScreenWidth, countcoordinatesY(10));
     }
     return CGSizeZero;
 }

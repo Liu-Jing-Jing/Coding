@@ -38,6 +38,7 @@
     ArticleView *view = [ArticleView loadCode:ScreenBounds];
     [view header];
     [view collection];
+    [view.collection.mj_header beginRefreshing];
     return view;
 }
 - (ArticleHeader *)header {
@@ -60,7 +61,7 @@
         _collection.mj_footer = [MJRefreshBackNormalFooter footerWithNormalRefreshingSEL:self refreshingAction:@selector(footerRefreshing)];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
-        [_collection setBackgroundColor:ThinColor];
+        [_collection setBackgroundColor:ColorBg];
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 3, 0, 0, 0)];
         [_collection setShowsVerticalScrollIndicator:NO];
         [_collection registerClass:[HomeCollectionTechnicalCell class] forCellWithReuseIdentifier:@"HomeCollectionTechnicalCell"];

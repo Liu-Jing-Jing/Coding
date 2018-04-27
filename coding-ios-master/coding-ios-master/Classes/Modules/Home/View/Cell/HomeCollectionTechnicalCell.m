@@ -22,7 +22,7 @@
 #pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
     HomeCollectionTechnicalCell *cell = [HomeCollectionTechnicalCell loadCode:collection index:index];
-    [cell setBackgroundColor:MediumColor];
+    [cell setBackgroundColor:WhiteColor];
     [cell icon];
     [cell name];
     [cell createLayout];
@@ -33,7 +33,7 @@
         make.centerX.mas_equalTo(self.mas_centerX);
         make.top.mas_equalTo(self.mas_top).mas_equalTo(8);
         make.width.mas_equalTo(self.mas_width).multipliedBy(0.4);
-        make.height.mas_equalTo(self.mas_height).multipliedBy(0.5);
+        make.height.mas_equalTo(self.mas_height).multipliedBy(0.35);
     }];
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
@@ -57,7 +57,7 @@
         _name.layer.cornerRadius = 1;
         _name.layer.masksToBounds = YES;
         _name.textAlignment = NSTextAlignmentCenter;
-        [_name titleFontAndColor];
+        [_name changeFont:[UIFont systemFontOfSize:adjustFont(10)] color:ColorTextHeavy];
         [self.contentView addSubview:_name];
     }
     return _name;

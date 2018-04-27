@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTitle:@"文章"];
-    [self getArticleList];
 }
 - (void)loadView {
     self.view = [self articleView];
@@ -35,15 +34,6 @@
         _articleView = [ArticleView init];
     }
     return _articleView;
-}
-
-#pragma mark - 请求
-- (void)getArticleList {
-    [ArticleService serviceRequestWithPage:1 success:^(ArticleModel *model) {
-        _articleView.model = model;
-    } error:^(NSError *error) {
-        NSLog(@"请求失败");
-    }];
 }
 
 

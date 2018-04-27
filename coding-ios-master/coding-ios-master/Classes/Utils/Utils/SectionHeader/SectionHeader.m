@@ -20,7 +20,7 @@
 
 + (instancetype)initWithCollection:(UICollectionView *)collection kind:(NSString *)kind index:(NSIndexPath *)index {
     SectionHeader *view = [SectionHeader loadCode:collection kind:kind index:index];
-    [view setBackgroundColor:LightColor];
+    [view setBackgroundColor:WhiteColor];
     [view first];
     return view;
 }
@@ -30,7 +30,7 @@
             CGRectMake(0, 0, ScreenWidth, self.height);
         })];
         _first.textAlignment = NSTextAlignmentCenter;
-        _first.backgroundColor = MediumColor;
+        _first.backgroundColor = WhiteColor;
         [self addSubview:_first];
         
         NSString *text = @"「The Lastest」";

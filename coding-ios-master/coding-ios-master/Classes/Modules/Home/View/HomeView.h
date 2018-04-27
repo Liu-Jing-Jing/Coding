@@ -13,8 +13,6 @@
 
 @optional
 - (void)homeCollection:(UICollectionView *)collection didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)homeHeaderRefreshing;
-- (void)homeFooterRefreshing;
 
 @end
 
@@ -25,7 +23,5 @@
 @property (nonatomic, strong) HomeModel *model;
 
 + (instancetype)init;
-- (void)endHeaderRefreshing;
-- (void)endFooterRefreshing;
 
 @end

@@ -25,7 +25,7 @@
 #pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection kind:(NSString *)kind index:(NSIndexPath *)index {
     HomeSectionNextHeader *view = [HomeSectionNextHeader loadCode:collection kind:kind index:index];
-    [view setBackgroundColor:LightColor];
+    [view setBackgroundColor:WhiteColor];
     [view line];
     [view name];
     [view icon];

@@ -14,7 +14,7 @@
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
     if ([layoutAttributes isKindOfClass:[HomeCollectionViewLayoutAttributes class]]) {
-//        self.backgroundColor = LightColor;
+        self.backgroundColor = WhiteColor;
         self.clipsToBounds = YES;
     }
 }

@@ -18,7 +18,6 @@
 #import "CALayer+Extension.h"
 #import "UITextField+Extension.h"
 #import "UIView+XWAddForRoundedCorner.h"
-#import "UIImageView+SDWebImage.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "UIView+KKCore.h"
 #import "UITableViewCell+Extension.h"
@@ -32,6 +31,8 @@
 #import "SDCycleScrollView+Manager.h"
 #import "UIImageView+SDWebManager.h"
 #import "SectionHeader.h"
+#import "UIView+Visuals.h"
+#import "NSAttributedString+Size.h"
 
 #import "MJRefreshNormalHeader+Extension.h"
 #import "MJRefreshBackNormalFooter+Extension.h"

@@ -71,23 +71,23 @@
 // Footer
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeZero;
+        return CGSizeMake(ScreenWidth, countcoordinatesY(10));
     }
     else if (section == 1) {
         return CGSizeMake(ScreenWidth, countcoordinatesY(40));
     }
     else if (section == 2) {
-        return CGSizeZero;
+        return CGSizeMake(ScreenWidth, countcoordinatesY(10));
     }
     else if (section == 3) {
-        return CGSizeZero;
+        return CGSizeMake(ScreenWidth, countcoordinatesY(10));
     }
     return CGSizeZero;
 }
 // Section内间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
-        return UIEdgeInsetsMake(0, 0, countcoordinatesY(10), 0);
+        return UIEdgeInsetsMake(0, 0, 0, 0);
     }
     else if (section == 1) {
         return UIEdgeInsetsMake(countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10), countcoordinatesY(10));

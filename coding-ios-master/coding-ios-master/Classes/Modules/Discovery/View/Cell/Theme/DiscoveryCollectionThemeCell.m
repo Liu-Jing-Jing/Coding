@@ -28,7 +28,7 @@
 #pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection index:(NSIndexPath *)index {
     DiscoveryCollectionThemeCell *cell = [DiscoveryCollectionThemeCell loadCode:collection index:index];
-    [cell setBackgroundColor:LightColor];
+    [cell setBackgroundColor:WhiteColor];
     [cell scroll];
     return cell;
 }
