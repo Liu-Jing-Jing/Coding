@@ -33,15 +33,15 @@ app.get('/home_list', async (req, res)=>{
     // 技术点
     'technical': [
       {
-        'image': 'home_finish',
+        'image': 'document_16x18_',
         'name': '文档社区'
       },
       {
-        'image': 'home_practice',
+        'image': 'code_prodoct_20x17_',
         'name': '极客周边'
       },
       {
-        'image': 'home_shopping',
+        'image': 'shop_19x17_',
         'name': '奇币商城'
       }
     ],
@@ -172,6 +172,61 @@ app.get('/home_list', async (req, res)=>{
     'sectionHeader': [
       '最新资讯',
       '热门推荐'
+    ],
+    // 栏目
+    'column': [
+      {
+        'id': 0,
+        'name': '全部',
+      },
+      {
+        'id': 1,
+        'name': '前端',
+      },
+      {
+        'id': 2,
+        'name': 'iOS',
+      },
+      {
+        'id': 3,
+        'name': 'Android',
+      },
+      {
+        'id': 4,
+        'name': '工具资源',
+      },
+      {
+        'id': 5,
+        'name': '产品经理',
+      },
+      {
+        'id': 6,
+        'name': '设计',
+      },
+      {
+        'id': 7,
+        'name': 'PHP',
+      },
+      {
+        'id': 8,
+        'name': '小程序',
+      },
+      {
+        'id': 9,
+        'name': '其他',
+      },
+      {
+        'id': 10,
+        'name': '运营推广',
+      },
+      {
+        'id': 11,
+        'name': 'Java',
+      },
+      {
+        'id': 12,
+        'name': '架构',
+      }
     ]
   }
   

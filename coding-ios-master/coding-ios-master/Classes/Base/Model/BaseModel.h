@@ -32,6 +32,13 @@
 @property (nonatomic, copy  ) NSString *name;
 @end
 
+/// 栏目
+@interface ColumnModel : NSObject
+@property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, copy  ) NSString *name;
+@end
+
+
 /// 文章
 @interface EssayModel : NSObject
 @property (nonatomic, copy  ) NSString *icon;   // 头像

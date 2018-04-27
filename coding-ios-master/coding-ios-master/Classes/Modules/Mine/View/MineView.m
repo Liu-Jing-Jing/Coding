@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic, strong) UIButton *login;
 @property (nonatomic, strong) UILabel *desc;
+@property (nonatomic, strong) UIImageView *bg;
 
 @end
 
@@ -25,12 +26,21 @@
 + (instancetype)init {
     MineView *view = [MineView loadCode:ScreenBounds];
     [view setBackgroundColor:WhiteColor];
-    [view name];
-    [view icon];
-    [view login];
-    [view desc];
-    [view createLayout];
+//    [view name];
+//    [view icon];
+//    [view login];
+//    [view desc];
+//    [view createLayout];
+    [view bg];
     return view;
+}
+- (UIImageView *)bg {
+    if (!_bg) {
+        _bg = [[UIImageView alloc] initWithFrame:self.bounds];
+        _bg.image = [UIImage imageNamed:@"my_bg_414x736_"];
+        [self addSubview:_bg];
+    }
+    return _bg;
 }
 - (void)createLayout {
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {

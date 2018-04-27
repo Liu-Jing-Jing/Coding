@@ -19,16 +19,16 @@ app.get('/article_list', async (req, res)=>{
     // 技术点
     'technical': [
       {
-        'image': 'home_finish',
-        'name': '文档社区'
+        'image': 'hot_discuss_17x22_',
+        'name': '本周最热'
       },
       {
-        'image': 'home_practice',
-        'name': '极客周边'
+        'image': 'article_contribute_18x21_',
+        'name': '贡献榜'
       },
       {
-        'image': 'home_shopping',
-        'name': '奇币商城'
+        'image': 'article_rank_22x20_',
+        'name': '文章榜'
       }
     ],
     // 文章 

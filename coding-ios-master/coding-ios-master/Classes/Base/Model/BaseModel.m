@@ -41,11 +41,21 @@
 
 @end
 
-// 文章
+/// 栏目
+@implementation ColumnModel
+
++ (NSDictionary *)replacedKeyFromPropertyName {
+    return @{
+             @"ID" : @"id",
+             };
+}
+@end
+
+
+/// 文章
 @implementation EssayModel
 
 @end
-
 
 @implementation BaseModel
 
