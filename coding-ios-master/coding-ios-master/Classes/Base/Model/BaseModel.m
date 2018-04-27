@@ -9,10 +9,10 @@
 #import "BaseModel.h"
 #import <MJExtension/MJExtension.h>
 
-@implementation BaseModel
+/// Tag
+@implementation AdModel
 
 @end
-
 
 /// Tag
 @implementation TagModel
@@ -25,7 +25,6 @@
 
 @end
 
-
 /// 分类
 @implementation CategoryModel
 
@@ -37,8 +36,17 @@
 
 @end
 
-
 /// 技术点
 @implementation TechnicalModel
+
+@end
+
+// 文章
+@implementation EssayModel
+
+@end
+
+
+@implementation BaseModel
 
 @end

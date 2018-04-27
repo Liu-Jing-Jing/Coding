@@ -11,5 +11,6 @@
 @interface MJRefreshBackNormalFooter (Extension)
 
 + (MJRefreshBackNormalFooter *)footerWithNormalRefreshing:(MJRefreshComponentRefreshingBlock)refreshingBlock;
++ (MJRefreshBackNormalFooter *)footerWithNormalRefreshingSEL:(id)target refreshingAction:(SEL)action;
 
 @end

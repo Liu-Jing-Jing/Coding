@@ -8,13 +8,6 @@
 
 #import "HomeModel.h"
 
-
-/// 轮播图
-@implementation HomeAdModel
-
-@end
-
-
 /// 类别
 @implementation HomeSortModel
 
@@ -27,7 +20,6 @@
 
 @end
 
-
 /// 热门
 @implementation HomeHotModel
 
@@ -39,13 +31,12 @@
 
 @end
 
-
 /// 首页Model
 @implementation HomeModel
 
 + (NSDictionary *)objectClassInArray {
     return @{
-                 @"ad"        : [HomeAdModel class],
+                 @"ad"        : [AdModel class],
                  @"technical" : [TechnicalModel class],
                  @"sort"      : [HomeSortModel class],
                  @"recommend" : [HomeRecommendModel class],

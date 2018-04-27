@@ -8,14 +8,8 @@
 
 #import "BaseModel.h"
 
-/// 轮播图
-@interface HomeAdModel : BaseModel
-@property (nonatomic, copy  ) NSString *image;
-@property (nonatomic, copy  ) NSString *url;
-@end
-
 /// 分类
-@interface HomeSortModel : BaseModel
+@interface HomeSortModel : NSObject
 @property (nonatomic, copy  ) NSString *objectId;   // id
 @property (nonatomic, copy  ) NSString *title;      // 标题
 @property (nonatomic, copy  ) NSString *image;      // 图片
@@ -23,7 +17,7 @@
 @end
 
 /// 推荐
-@interface HomeRecommendModel : BaseModel
+@interface HomeRecommendModel : NSObject
 @property (nonatomic, copy  ) NSString *objectId;   // id
 @property (nonatomic, copy  ) NSString *title;      // 标题
 @property (nonatomic, copy  ) NSString *image;      // 图片
@@ -31,7 +25,7 @@
 @end
 
 /// 热门
-@interface HomeHotModel : BaseModel
+@interface HomeHotModel : NSObject
 /// id
 @property (nonatomic, copy  ) NSString *objectId;
 /// 标题
@@ -48,7 +42,7 @@
 /// 首页Model
 @interface HomeModel : BaseModel
 /// 轮播图
-@property (nonatomic, strong) NSArray<HomeAdModel *> *ad;
+@property (nonatomic, strong) NSArray<AdModel *> *ad;
 /// 头条
 @property (nonatomic, strong) NSArray<NSString *> *headlines;
 /// 技术点

@@ -16,5 +16,7 @@
 - (void)descFontAndColor;
 /// 小字
 - (void)eyeFontAndColor;
+///
+- (void)changeFont:(UIFont *)font color:(UIColor *)color;
 
 @end

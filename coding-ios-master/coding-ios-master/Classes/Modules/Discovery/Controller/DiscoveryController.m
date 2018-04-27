@@ -8,6 +8,7 @@
 
 #import "DiscoveryController.h"
 #import "DiscoveryView.h"
+#import "DiscoveryService.h"
 
 #pragma mark - 声明
 @interface DiscoveryController()
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTitle:@"发现"];
+    [self getArticleList];
 }
 - (void)loadView {
     self.view = [self discoveryView];
@@ -31,6 +33,15 @@
         _discoveryView = [DiscoveryView init];
     }
     return _discoveryView;
+}
+
+#pragma mark - 请求
+- (void)getArticleList {
+    [DiscoveryService serviceRequestWithPage:1 success:^(DiscoveryModel *model) {
+        _discoveryView.model = model;
+    } error:^(NSError *error) {
+        NSLog(@"请求失败");
+    }];
 }
 
 @end

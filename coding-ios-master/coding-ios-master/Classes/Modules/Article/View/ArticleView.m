@@ -8,10 +8,12 @@
 
 #import "ArticleView.h"
 #import "ArticleHeader.h"
-#import "ArticleSectionHeader.h"
+#import "SectionHeader.h"
 #import "ArticleCollectionLayout.h"
 #import "HomeCollectionTechnicalCell.h"
-#import "ArticleCollectionCell.h"
+#import "ArticleCollectionNameCell.h"
+#import "ArticleCollectionIconCell.h"
+#import "ArticleService.h"
 
 #pragma mark - 声明
 @interface ArticleView()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -51,34 +53,47 @@
             [[ArticleCollectionLayout alloc] init];
         })];
         _collection.mj_header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [_collection.mj_header endRefreshing];
-                });
-            }];
-            header.ignoredScrollViewContentInsetTop = ScreenWidth / 3;
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingSEL:self refreshingAction:@selector(headerRefreshing)];
+            header.ignoredScrollViewContentInsetTop = self.header.height;
             header;
         });
-        _collection.mj_footer = ({
-            MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithNormalRefreshing:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [_collection.mj_footer endRefreshing];
-                });
-            }];
-            footer;
-        });
+        _collection.mj_footer = [MJRefreshBackNormalFooter footerWithNormalRefreshingSEL:self refreshingAction:@selector(footerRefreshing)];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
         [_collection setBackgroundColor:ThinColor];
         [_collection setContentInset:UIEdgeInsetsMake(ScreenWidth / 3, 0, 0, 0)];
         [_collection setShowsVerticalScrollIndicator:NO];
         [_collection registerClass:[HomeCollectionTechnicalCell class] forCellWithReuseIdentifier:@"HomeCollectionTechnicalCell"];
-        [_collection registerClass:[ArticleSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ArticleSectionHeader"];
-        [_collection registerClass:[ArticleCollectionCell class] forCellWithReuseIdentifier:@"ArticleCollectionCell"];
+        [_collection registerClass:[SectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SectionHeader"];
+        [_collection registerNib:[UINib nibWithNibName:@"ArticleCollectionNameCell" bundle:nil] forCellWithReuseIdentifier:@"ArticleCollectionNameCell"];
+        [_collection registerNib:[UINib nibWithNibName:@"ArticleCollectionIconCell" bundle:nil] forCellWithReuseIdentifier:@"ArticleCollectionIconCell"];
         [self addSubview:_collection];
     }
     return _collection;
 }
+
+
+- (void)headerRefreshing {
+    MJWeakSelf
+    [ArticleService serviceRequestWithPage:1 success:^(ArticleModel *model) {
+        [weakSelf setModel:model];
+        [weakSelf.collection.mj_header endRefreshing];
+        [weakSelf.collection.mj_footer endRefreshing];
+    } error:^(NSError *error) {
+        
+    }];
+}
+- (void)footerRefreshing {
+    MJWeakSelf
+    [ArticleService serviceRequestWithPage:1 success:^(ArticleModel *model) {
+        [weakSelf setModel:model];
+        [weakSelf.collection.mj_header endRefreshing];
+        [weakSelf.collection.mj_footer endRefreshing];
+    } error:^(NSError *error) {
+        
+    }];
+}
+
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -86,10 +101,10 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
-        return _model.ad.count;
+        return _model.technical.count;
     }
     else if (section == 1) {
-        return 5;
+        return _model.article.count;
     }
     return 0;
 }
@@ -99,8 +114,15 @@
         cell.model = _model.technical[indexPath.row];
         return cell;
     } else if (indexPath.section == 1) {
-        ArticleCollectionCell *cell = [ArticleCollectionCell initWithCollection:collectionView index:indexPath];
-        return cell;
+        if (_model.article[indexPath.row].type == 0) {
+            ArticleCollectionIconCell *cell = [ArticleCollectionIconCell initWithCollection:collectionView index:indexPath];
+            cell.model = _model.article[indexPath.row];
+            return cell;
+        } else {
+            ArticleCollectionNameCell *cell = [ArticleCollectionNameCell initWithCollection:collectionView index:indexPath];
+            cell.model = _model.article[indexPath.row];
+            return cell;
+        }
     }
     return nil;
 }
@@ -110,7 +132,7 @@
             return nil;
         }
         else if (indexPath.section == 1) {
-            ArticleSectionHeader *header = [ArticleSectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
+            SectionHeader *header = [SectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
             return header;
         }
     }
@@ -126,22 +148,6 @@
     }
     return CGSizeZero;
 }
-//// Footer
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return CGSizeZero;
-//    }
-//    else if (section == 1) {
-//        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
-//    }
-//    else if (section == 2) {
-//        return CGSizeZero;
-//    }
-//    else if (section == 3) {
-//        return CGSizeZero;
-//    }
-//    return CGSizeZero;
-//}
 // Section内间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
@@ -160,9 +166,15 @@
         return CGSizeMake(ScreenWidth / 3, ScreenWidth / 3 / 5 * 3);
     }
     else if (indexPath.section == 1) {
-        CGFloat width = ScreenWidth;
-        CGFloat height = width / 3;
-        return CGSizeMake(width, height);
+        if (_model.article[indexPath.row].type == 1) {
+            CGFloat width = ScreenWidth;
+            CGFloat height = countcoordinatesY(160);
+            return CGSizeMake(width, height);
+        } else {
+            CGFloat width = ScreenWidth;
+            CGFloat height = countcoordinatesY(200);
+            return CGSizeMake(width, height);
+        }
     }
     return CGSizeZero;
 }
@@ -183,3 +195,4 @@
 
 
 @end
+

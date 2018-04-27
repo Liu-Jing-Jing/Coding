@@ -110,7 +110,11 @@
     return _scroll;
 }
 - (void)createSubView:(NSArray *)titles {
-    _btns = [[NSMutableArray alloc] init];
+    for (UILabel *label in self.btns) {
+        [label removeFromSuperview];
+    }
+    [self.btns removeAllObjects];
+    
     CGFloat maxWidth = countcoordinatesX(10);
     for (int i=0; i<titles.count; i++) {
         NSString *title = titles[i];
@@ -156,7 +160,12 @@
     _line.centerX = self.btns[0].centerX;
     return _line;
 }
-
+- (NSMutableArray<UILabel *> *)btns {
+    if (!_btns) {
+        _btns = [[NSMutableArray alloc] init];
+    }
+    return _btns;
+}
 
 
 @end

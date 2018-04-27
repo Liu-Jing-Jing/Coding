@@ -10,6 +10,8 @@
 
 @interface DiscoveryView : BaseView
 
+@property (nonatomic, strong) DiscoveryModel *model;
+
 + (instancetype)init;
 
 @end

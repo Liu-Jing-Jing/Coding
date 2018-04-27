@@ -10,6 +10,8 @@
 
 @interface DiscoveryHeader : BaseView
 
+@property (nonatomic, strong) AdModel *model;
+
 + (instancetype)initWithFrame:(CGRect)frame;
 
 @end

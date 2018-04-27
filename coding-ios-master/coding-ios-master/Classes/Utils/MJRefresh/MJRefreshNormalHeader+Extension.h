@@ -10,6 +10,7 @@
 
 @interface MJRefreshNormalHeader (Extension)
 
-+ (MJRefreshNormalHeader *)headerWithNormalRefreshing:(MJRefreshComponentRefreshingBlock)refreshingBlock;
++ (MJRefreshNormalHeader *)headerWithNormalRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
++ (MJRefreshNormalHeader *)headerWithNormalRefreshingSEL:(id)target refreshingAction:(SEL)action;
 
 @end

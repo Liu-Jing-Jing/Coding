@@ -44,7 +44,6 @@
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
-        _icon.backgroundColor = BoldColor;
         _icon.layer.cornerRadius = 1;
         _icon.layer.masksToBounds = YES;
         _icon.contentMode = UIViewContentModeScaleAspectFit;
@@ -55,7 +54,6 @@
 - (UILabel *)name {
     if (!_name) {
         _name = [[UILabel alloc] init];
-        _name.backgroundColor = BoldColor;
         _name.layer.cornerRadius = 1;
         _name.layer.masksToBounds = YES;
         _name.textAlignment = NSTextAlignmentCenter;

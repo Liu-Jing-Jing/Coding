@@ -53,7 +53,7 @@
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - NavigationBarHeight - TabbarHeight) collectionViewLayout:self.layout];
         _collection.mj_header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingBlock:^{
                 if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeaderRefreshing)]) {
                     [self.delegate homeHeaderRefreshing];
                 } else {

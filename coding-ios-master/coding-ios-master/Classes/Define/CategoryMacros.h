@@ -30,6 +30,8 @@
 #import "KKEmptyView.h"
 #import "UIView+BlockGesture.h"
 #import "SDCycleScrollView+Manager.h"
+#import "UIImageView+SDWebManager.h"
+#import "SectionHeader.h"
 
 #import "MJRefreshNormalHeader+Extension.h"
 #import "MJRefreshBackNormalFooter+Extension.h"

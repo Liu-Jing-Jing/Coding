@@ -16,8 +16,8 @@
 #import "MineController.h"
 #import "ContentController.h"
 
-
 #import "HomeModel.h"
 #import "ArticleModel.h"
+#import "DiscoveryModel.h"
 
 

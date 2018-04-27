@@ -85,7 +85,6 @@
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
-        _icon.backgroundColor = LightColor;
         [self addSubview:_icon];
     }
     return _icon;
@@ -93,7 +92,6 @@
 - (UIView *)eyeBg {
     if (!_eyeBg) {
         _eyeBg = [[UIView alloc] init];
-        _eyeBg.backgroundColor = [BoldColor colorWithAlphaComponent:0.5];
         [self addSubview:_eyeBg];
     }
     return _eyeBg;
@@ -118,7 +116,6 @@
 - (UILabel *)name {
     if (!_name) {
         _name = [[UILabel alloc] init];
-        _name.backgroundColor = LightColor;
         _name.numberOfLines = 0;
         [_name titleFontAndColor];
         [self addSubview:_name];

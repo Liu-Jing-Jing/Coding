@@ -34,10 +34,10 @@
 }
 
 #pragma mark - 设置
-- (void)setModels:(NSArray<HomeAdModel *> *)models {
+- (void)setModels:(NSArray<AdModel *> *)models {
     _models = models;
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (HomeAdModel *model in models) {
+    for (AdModel *model in models) {
         [arr addObject:model.image];
     }
     _scroll.imageURLStringsGroup = arr;

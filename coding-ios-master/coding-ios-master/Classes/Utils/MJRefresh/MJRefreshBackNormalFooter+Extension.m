@@ -16,5 +16,11 @@
     footer.stateLabel.hidden = YES;
     return footer;
 }
++ (MJRefreshBackNormalFooter *)footerWithNormalRefreshingSEL:(id)target refreshingAction:(SEL)action {
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:target refreshingAction:action];
+    footer.stateLabel.text = @"";
+    footer.stateLabel.hidden = YES;
+    return footer;
+}
 
 @end

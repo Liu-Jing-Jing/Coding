@@ -8,12 +8,13 @@
 
 #import "DiscoveryView.h"
 #import "DiscoveryHeader.h"
-#import "DiscoverySectionHeader.h"
+#import "HomeSectionNextHeader.h"
 #import "DiscoveryCollectionLayout.h"
 #import "DiscoveryCollectionHotCell.h"
 #import "DiscoveryCollectionRecommendCell.h"
 #import "DiscoveryCollectionThemeCell.h"
-#import "DiscoveryCollectionListCell.h"
+#import "ArticleCollectionIconCell.h"
+#import "DiscoveryService.h"
 
 #pragma mark - 声明
 @interface DiscoveryView()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -45,22 +46,11 @@
             [[DiscoveryCollectionLayout alloc] init];
         })];
         _collection.mj_header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [_collection.mj_header endRefreshing];
-                });
-            }];
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingSEL:self refreshingAction:@selector(headerRefreshing)];
             header.ignoredScrollViewContentInsetTop = ScreenWidth / 3;
             header;
         });
-        _collection.mj_footer = ({
-            MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithNormalRefreshing:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [_collection.mj_footer endRefreshing];
-                });
-            }];
-            footer;
-        });
+        _collection.mj_footer = [MJRefreshBackNormalFooter footerWithNormalRefreshingSEL:self refreshingAction:@selector(footerRefreshing)];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
         [_collection setBackgroundColor:ThinColor];
@@ -69,13 +59,40 @@
         [_collection registerClass:[DiscoveryCollectionHotCell class] forCellWithReuseIdentifier:@"DiscoveryCollectionHotCell"];
         [_collection registerClass:[DiscoveryCollectionRecommendCell class] forCellWithReuseIdentifier:@"DiscoveryCollectionRecommendCell"];
         [_collection registerClass:[DiscoveryCollectionThemeCell class] forCellWithReuseIdentifier:@"DiscoveryCollectionThemeCell"];
-        [_collection registerClass:[DiscoveryCollectionListCell class] forCellWithReuseIdentifier:@"DiscoveryCollectionListCell"];
-        [_collection registerClass:[DiscoverySectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DiscoverySectionHeader"];
+        [_collection registerNib:[UINib nibWithNibName:@"ArticleCollectionIconCell" bundle:nil] forCellWithReuseIdentifier:@"ArticleCollectionIconCell"];
+        [_collection registerClass:[HomeSectionNextHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeSectionNextHeader"];
+        [_collection registerClass:[SectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SectionHeader"];
         [self addSubview:_collection];
     }
     return _collection;
 }
 
+- (void)headerRefreshing {
+    MJWeakSelf
+    [DiscoveryService serviceRequestWithPage:1 success:^(DiscoveryModel *model) {
+        [weakSelf setModel:model];
+        [weakSelf.collection.mj_header endRefreshing];
+        [weakSelf.collection.mj_footer endRefreshing];
+    } error:^(NSError *error) {
+        
+    }];
+}
+- (void)footerRefreshing {
+    MJWeakSelf
+    [DiscoveryService serviceRequestWithPage:1 success:^(DiscoveryModel *model) {
+        [weakSelf setModel:model];
+        [weakSelf.collection.mj_header endRefreshing];
+        [weakSelf.collection.mj_footer endRefreshing];
+    } error:^(NSError *error) {
+        
+    }];
+}
+
+- (void)setModel:(DiscoveryModel *)model {
+    _model = model;
+    _header.model = model.ad[0];
+    [_collection reloadData];
+}
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -92,25 +109,29 @@
         return 1;
     }
     else if (section == 3) {
-        return 6;
+        return _model.article.count;
     }
     return 0;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         DiscoveryCollectionHotCell *cell = [DiscoveryCollectionHotCell initWithCollection:collectionView index:indexPath];
+        cell.models = _model.hot;
         return cell;
     }
     else if (indexPath.section == 1) {
         DiscoveryCollectionRecommendCell *cell = [DiscoveryCollectionRecommendCell initWithCollection:collectionView index:indexPath];
+        cell.models = _model.recommend;
         return cell;
     }
     else if (indexPath.section == 2) {
         DiscoveryCollectionThemeCell *cell = [DiscoveryCollectionThemeCell initWithCollection:collectionView index:indexPath];
+        cell.models = _model.theme;
         return cell;
     }
     else if (indexPath.section == 3) {
-        DiscoveryCollectionListCell *cell = [DiscoveryCollectionListCell initWithCollection:collectionView index:indexPath];
+        ArticleCollectionIconCell *cell = [ArticleCollectionIconCell initWithCollection:collectionView index:indexPath];
+        cell.model = _model.article[indexPath.row];
         return cell;
     }
     return nil;
@@ -121,15 +142,17 @@
             return nil;
         }
         else if (indexPath.section == 1) {
-            DiscoverySectionHeader *header = [DiscoverySectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
+            HomeSectionNextHeader *header = [HomeSectionNextHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
+            header.headerStr = _model.sectionHeader[0];
             return header;
         }
         else if (indexPath.section == 2) {
-            DiscoverySectionHeader *header = [DiscoverySectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
+            HomeSectionNextHeader *header = [HomeSectionNextHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
+            header.headerStr = _model.sectionHeader[1];
             return header;
         }
         else if (indexPath.section == 3) {
-            DiscoverySectionHeader *header = [DiscoverySectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
+            SectionHeader *header = [SectionHeader initWithCollection:collectionView kind:UICollectionElementKindSectionHeader index:indexPath];
             return header;
         }
     }
@@ -151,22 +174,7 @@
     }
     return CGSizeZero;
 }
-//// Footer
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return CGSizeZero;
-//    }
-//    else if (section == 1) {
-//        return CGSizeMake(ScreenWidth, countcoordinatesY(40));
-//    }
-//    else if (section == 2) {
-//        return CGSizeZero;
-//    }
-//    else if (section == 3) {
-//        return CGSizeZero;
-//    }
-//    return CGSizeZero;
-//}
+
 // Section内间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
@@ -197,7 +205,8 @@
         return CGSizeMake(ScreenWidth, ScreenWidth / 4);
     }
     else if (indexPath.section == 3) {
-        return CGSizeMake(ScreenWidth, ScreenWidth / 4);
+        CGFloat height = countcoordinatesY(200);
+        return CGSizeMake(ScreenWidth, height);
     }
     return CGSizeZero;
 }

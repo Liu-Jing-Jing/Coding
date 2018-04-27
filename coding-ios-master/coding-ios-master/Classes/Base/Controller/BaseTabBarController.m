@@ -35,13 +35,10 @@
     
     tabBar.composeButtonClick = ^{
         NSLog(@"点击按钮,弹出菜单");
-//        CLComposeView *composeView = [[CLComposeView alloc] init];
-//        [composeView showWithController:self];
     };
     
     [self setValue:tabBar forKey:@"tabBar"];
-    
-//    [self setSelectedIndex:1];
+    [self setSelectedIndex:2];
     
     
 //    UIColor *color = [UIColor whiteColor];

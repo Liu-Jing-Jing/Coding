@@ -9,6 +9,7 @@
 #import "ArticleController.h"
 #import "ArticleView.h"
 #import "ArticleModel.h"
+#import "ArticleService.h"
 
 #pragma mark - 声明
 @interface ArticleController ()
@@ -38,12 +39,8 @@
 
 #pragma mark - 请求
 - (void)getArticleList {
-    [AFNManager GET:[NSString getArticleList] params:nil success:^(NSDictionary *data) {
-        ArticleModel *model = [ArticleModel mj_objectWithKeyValues:data];
+    [ArticleService serviceRequestWithPage:1 success:^(ArticleModel *model) {
         _articleView.model = model;
-//        [_homeView setModel:model];
-//        [_homeView endHeaderRefreshing];
-//        [_homeView endFooterRefreshing];
     } error:^(NSError *error) {
         NSLog(@"请求失败");
     }];

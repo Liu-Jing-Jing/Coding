@@ -14,5 +14,7 @@
 + (NSString *)getHomeList;
 /// 文章列表
 + (NSString *)getArticleList;
+/// 发现列表
++ (NSString *)getDiscoveryList;
 
 @end

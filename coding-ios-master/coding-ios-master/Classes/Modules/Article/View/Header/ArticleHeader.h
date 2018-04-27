@@ -11,7 +11,7 @@
 
 @interface ArticleHeader : BaseView
 
-@property (nonatomic, strong) NSArray<ArticleAdModel *> *models;
+@property (nonatomic, strong) NSArray<AdModel *> *models;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

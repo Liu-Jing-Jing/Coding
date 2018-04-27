@@ -45,7 +45,7 @@
             [[PushCollectionLayout alloc] init];
         })];
         _collection.mj_header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshing:^{
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingBlock:^{
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [_collection.mj_header endRefreshing];
                 });

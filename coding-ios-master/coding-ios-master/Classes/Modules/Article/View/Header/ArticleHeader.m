@@ -11,7 +11,7 @@
 #pragma mark - 声明
 @interface ArticleHeader()
 
-@property (nonatomic, strong) SDCycleScrollView *scroll;
+@property (nonatomic, strong) UIImageView *icon;
 
 @end
 
@@ -21,25 +21,21 @@
 + (instancetype)initWithFrame:(CGRect)frame {
     ArticleHeader *view = [ArticleHeader loadCode:frame];
     [view setBackgroundColor:LightColor];
-    [view scroll];
+    [view icon];
     return view;
 }
-- (SDCycleScrollView *)scroll {
-    if (!_scroll) {
-        _scroll = [SDCycleScrollView initWithFrame:self.bounds];
-        [self addSubview:_scroll];
+- (UIImageView *)icon {
+    if (!_icon) {
+        _icon = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview:_icon];
     }
-    return _scroll;
+    return _icon;
 }
 
 #pragma mark - 设置
-- (void)setModels:(NSArray<ArticleAdModel *> *)models {
+- (void)setModels:(NSArray<AdModel *> *)models {
     _models = models;
-    NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (ArticleAdModel *model in models) {
-        [arr addObject:model.image];
-    }
-    _scroll.imageURLStringsGroup = arr;
+    [_icon sd_setImageWithURL:[NSURL URLWithString:models[0].image]];
 }
 
 @end

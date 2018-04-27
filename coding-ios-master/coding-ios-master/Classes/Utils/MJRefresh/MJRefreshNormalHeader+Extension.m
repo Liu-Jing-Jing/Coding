@@ -10,8 +10,15 @@
 
 @implementation MJRefreshNormalHeader (Extension)
 
-+ (MJRefreshNormalHeader *)headerWithNormalRefreshing:(MJRefreshComponentRefreshingBlock)refreshingBlock {
++ (MJRefreshNormalHeader *)headerWithNormalRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:refreshingBlock];
+    header.stateLabel.hidden = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.arrowView.center = header.center;
+    return header;
+}
++ (MJRefreshNormalHeader *)headerWithNormalRefreshingSEL:(id)target refreshingAction:(SEL)action {
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:target refreshingAction:action];
     header.stateLabel.hidden = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
     header.arrowView.center = header.center;

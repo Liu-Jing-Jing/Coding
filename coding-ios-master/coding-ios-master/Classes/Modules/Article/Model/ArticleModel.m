@@ -8,29 +8,14 @@
 
 #import "ArticleModel.h"
 
-@implementation ArticleAdModel
-
-@end
-
-
-@implementation ArticleArticleModel
-
-+ (NSDictionary *)objectClassInArray {
-    return @{
-             @"category" : [CategoryModel class],
-             };
-}
-
-@end
-
 
 @implementation ArticleModel
 
 + (NSDictionary *)objectClassInArray {
     return @{
-             @"ad"        : [ArticleAdModel class],
+             @"ad"        : [AdModel class],
              @"technical" : [TechnicalModel class],
-             @"article"   : [ArticleArticleModel class],
+             @"article"   : [EssayModel class],
              };
 }
 
