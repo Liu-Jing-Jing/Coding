@@ -16,6 +16,7 @@
 #pragma mark - 实现
 @implementation AppDelegate
 
+#pragma mark - 初始化
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     if (@available(iOS 11.0, *)) {
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -25,7 +26,7 @@
     [self setRootWindow];
     return YES;
 }
-
+/// 跟控制器
 - (void)setRootWindow {
     [self setWindow:[[UIWindow alloc] initWithFrame:ScreenBounds]];
     [self.window setBackgroundColor:[UIColor whiteColor]];
@@ -35,6 +36,12 @@
     })];
     [self.window makeKeyAndVisible];
 }
+
+- (void)asd {
+    [self setupNIMSDK];
+}
+
+
 
 @end
 

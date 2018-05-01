@@ -1269,6 +1269,7 @@
 				4BE9FCF820862FCA0020B755 /* Frameworks */,
 				4BE9FCF920862FCA0020B755 /* Resources */,
 				D8F1ED0CC406A7D3397BB08B /* [CP] Embed Pods Frameworks */,
+				72B27A0A30A57F8EDB15322B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1327,6 +1328,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		72B27A0A30A57F8EDB15322B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-coding-ios-master/Pods-coding-ios-master-resources.sh",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NMCVideoFilter.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-coding-ios-master/Pods-coding-ios-master-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9100B876445D75B29F86C2B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
