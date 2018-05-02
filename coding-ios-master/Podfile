@@ -11,5 +11,4 @@ target 'coding-ios-master' do
   pod 'SDWebImage', '~>4.0.0'
   pod 'SDCycleScrollView', '~>1.75'
   pod 'TTTAttributedLabel', '~>2.0.0'
-  pod 'NIMSDK', '~>4.0.0'
 end

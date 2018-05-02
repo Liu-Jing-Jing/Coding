@@ -34,9 +34,9 @@
 #pragma mark - 初始化
 + (instancetype)init {
     HomeView *view = [HomeView loadCode:ScreenBounds];
-    [view collection];
-    [view header];
-    [view.collection.mj_header beginRefreshing];
+//    [view collection];
+//    [view header];
+//    [view.collection.mj_header beginRefreshing];
     return view;
 }
 - (HomeHeader *)header {

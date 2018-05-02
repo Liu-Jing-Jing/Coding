@@ -37,10 +37,6 @@
     [self.window makeKeyAndVisible];
 }
 
-- (void)asd {
-    [self setupNIMSDK];
-}
-
 
 
 @end

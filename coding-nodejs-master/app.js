@@ -20,7 +20,7 @@ app.get('/discovery_list', discovery_list);
 // app.get('/home_recommend', home_recommend);
 
 
-spider();
+// spider();
 
 
 // app.get('/spider', async (req, res)=>{
@@ -29,4 +29,4 @@ spider();
 // });
 
  
-// app.listen(3003)
+app.listen(3003)
