@@ -10,6 +10,6 @@
 
 @interface BaseTabBar : UITabBar
 
-@property (copy, nonatomic) void (^composeButtonClick)();
+//@property (copy, nonatomic) void (^composeButtonClick)();
 
 @end

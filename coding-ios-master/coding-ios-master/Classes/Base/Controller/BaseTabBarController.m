@@ -19,23 +19,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    HomeController *home = [[HomeController alloc] init];
-    [self addChildViewController:home title:@"首页" image:@"tabbar_discover_26x26_" selImage:@"tabbar_discover_s_26x26_"];
-    ArticleController *article = [[ArticleController alloc] init];
-    [self addChildViewController:article title:@"文章" image:@"tabbar_detail_26x26_" selImage:@"tabbar_detail_s_26x26_"];
-    // PushController *push = [[PushController alloc] init];
-    // [self addChildViewController:push title:@"发布" image:@"tabbar_detail_26x26_" selImage:@"tabbar_detail_s_26x26_"];
-    DiscoveryController *discovery = [[DiscoveryController alloc] init];
-    [self addChildViewController:discovery title:@"发现" image:@"tabbar_chart_26x26_" selImage:@"tabbar_chart_s_26x26_"];
+    ShelfController *shelf = [[ShelfController alloc] init];
+    [self addChildViewController:shelf title:@"书架" image:@"tabbar_discover_26x26_" selImage:@"tabbar_discover_s_26x26_"];
+    StoreController *article = [[StoreController alloc] init];
+    [self addChildViewController:article title:@"书城" image:@"tabbar_detail_26x26_" selImage:@"tabbar_detail_s_26x26_"];
+    FindController *find = [[FindController alloc] init];
+    [self addChildViewController:find title:@"发现" image:@"tabbar_detail_26x26_" selImage:@"tabbar_detail_s_26x26_"];
     MineController *mine = [[MineController alloc] init];
     [self addChildViewController:mine title:@"我的" image:@"tabbar_settings_24x24_" selImage:@"tabbar_settings_s_24x24_"];
     
     // 自定义TabBar
     BaseTabBar *tabBar = [[BaseTabBar alloc] init];
-    
-    tabBar.composeButtonClick = ^{
-        NSLog(@"点击按钮,弹出菜单");
-    };
+//    tabBar.composeButtonClick = ^{
+//        NSLog(@"点击按钮,弹出菜单");
+//    };
     
     [self setValue:tabBar forKey:@"tabBar"];
 //    [self setSelectedIndex:2];
@@ -47,7 +44,7 @@
 //    self.tabBar.layer.shadowPath = path;
 //    CGPathCloseSubpath(path);
 //    CGPathRelease(path);
-//    
+//
 //    self.tabBar.layer.shadowColor = color.CGColor;
 //    self.tabBar.layer.shadowOffset = CGSizeMake(2, 2);
 //    self.tabBar.layer.shadowRadius = 5;

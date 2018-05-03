@@ -9,6 +9,9 @@
 
 #pragma mark - Modules
 #import "WelcomeController.h"
+#import "ShelfController.h"
+#import "StoreController.h"
+#import "FindController.h"
 #import "HomeController.h"
 #import "ArticleController.h"
 #import "PushController.h"
