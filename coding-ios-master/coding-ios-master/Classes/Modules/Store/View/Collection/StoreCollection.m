@@ -55,7 +55,7 @@
         })];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
-        [_collection setBackgroundColor:[UIColor whiteColor]];
+        [_collection setBackgroundColor:ColorBg];
         [_collection setContentInset:UIEdgeInsetsMake(self.carouse.height, 0, 0, 0)];
         [_collection setContentSize:CGSizeMake(0, ScreenHeight * 2)];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionSummaryCell" bundle:nil] forCellWithReuseIdentifier:@"StoreCollectionSummaryCell"];
@@ -73,7 +73,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
-        return 3;
+        return 9;
     }
     else if (section == 1) {
         return 2;
@@ -94,14 +94,17 @@
         return cell;
     }
     else if (indexPath.section == 2) {
-        StoreCollectionDetailCell *cell = [StoreCollectionDetailCell loadWithCollection:collectionView indexPath:indexPath];
+        StoreCollectionDetailCell *cell = [StoreCollectionDetailCell initWithCollection:collectionView indexPath:indexPath];
         return cell;
     }
     return nil;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
-        StoreCollectionSectionHeader *header = [StoreCollectionSectionHeader initWithCollection:collectionView kind:kind indexPath:indexPath];
+        StoreCollectionSectionHeader *header = [StoreCollectionSectionHeader initWithCollection:collectionView indexPath:indexPath];
+        [header.moreBtn addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            NSLog(@"123");
+        }];
         return header;
     }
     return nil;

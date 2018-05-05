@@ -21,26 +21,26 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="okM-IM-dc8">
-                        <rect key="frame" x="10" y="10" width="71.5" height="107"/>
+                        <rect key="frame" x="10" y="10" width="85.5" height="107"/>
                         <color key="backgroundColor" red="1" green="0.16876094059999999" blue="0.11974024599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="okM-IM-dc8" secondAttribute="height" multiplier="2:3" id="ecu-YI-z5C"/>
+                            <constraint firstAttribute="width" secondItem="okM-IM-dc8" secondAttribute="height" multiplier="4:5" id="ecu-YI-z5C"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwC-qY-Hx0">
-                        <rect key="frame" x="91.5" y="10" width="42" height="21"/>
+                        <rect key="frame" x="105.5" y="10" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJH-X3-DkI">
-                        <rect key="frame" x="91.5" y="31" width="42" height="21"/>
+                        <rect key="frame" x="105.5" y="31" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTk-z9-Mc2">
-                        <rect key="frame" x="91.5" y="96" width="42" height="21"/>
+                        <rect key="frame" x="105.5" y="96" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -77,7 +77,13 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="336" height="127"/>
-            <point key="canvasLocation" x="73" y="42.5"/>
+            <connections>
+                <outlet property="iconConstraintL" destination="dcQ-QF-hlI" id="z0t-nL-qKe"/>
+                <outlet property="iconConstraintT" destination="l9u-dT-UrX" id="bcq-Dq-0WL"/>
+                <outlet property="nameConstraintL" destination="X0U-tv-qlH" id="dCg-gy-wzh"/>
+                <outlet property="tagConstraintR" destination="d5v-ME-PFo" id="Vr5-Xx-Ihr"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="14"/>
         </collectionViewCell>
     </objects>
 </document>

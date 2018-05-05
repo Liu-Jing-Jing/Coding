@@ -10,4 +10,10 @@
 
 @interface StoreCollectionSectionHeader : BaseCollectionReusableView
 
+@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
+
++ (instancetype)initWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath;
+- (void)show;
+- (void)hide;
+
 @end

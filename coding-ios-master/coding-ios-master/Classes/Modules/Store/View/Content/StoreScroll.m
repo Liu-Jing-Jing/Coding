@@ -36,6 +36,7 @@
         _pageScrollView.backgroundColor = [UIColor grayColor];
         _pageScrollView.bounces = NO;
         _pageScrollView.showsVerticalScrollIndicator = NO;
+        _pageScrollView.showsHorizontalScrollIndicator = NO;
         [_pageScrollView setContentSize:CGSizeMake(self.width * self.titles.count, 0)];
         [self addSubview:_pageScrollView];
     }
@@ -63,8 +64,8 @@
 /// 显示
 - (void)show {
     [UIView animateWithDuration:.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGFloat top = StatusBarHeight + 80;
-        CGFloat height = ScreenHeight - (StatusBarHeight + 80) - TabbarHeight;
+        CGFloat top = StatusBarHeight + 60;
+        CGFloat height = ScreenHeight - (StatusBarHeight + 60) - TabbarHeight;
         
         [self setTop:top];
         [self setHeight:height];
@@ -80,8 +81,8 @@
 /// 隐藏
 - (void)hide {
     [UIView animateWithDuration:.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGFloat top = StatusBarHeight + 40;
-        CGFloat height = ScreenHeight - (StatusBarHeight + 40) - TabbarHeight;
+        CGFloat top = StatusBarHeight + 30;
+        CGFloat height = ScreenHeight - (StatusBarHeight + 30) - TabbarHeight;
         
         [self setTop:top];
         [self setHeight:height];

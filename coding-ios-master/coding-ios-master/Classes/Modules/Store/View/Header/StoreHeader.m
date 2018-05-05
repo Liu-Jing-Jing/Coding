@@ -9,6 +9,9 @@
 #import "StoreHeader.h"
 #import "TLSegmentedControl.h"
 
+#define SearchHeight 30
+#define SegmentBarHeight 30
+
 #pragma mark - 声明
 @interface StoreHeader()<TLSegmentedControlDelegate>
 
@@ -26,7 +29,8 @@
 }
 - (void)createView {
     [self search];
-    [self setHeight:80 + StatusBarHeight];
+    [self setHeight:SearchHeight + SegmentBarHeight + StatusBarHeight];
+    [self ritl_addBorderWithColor:ColorBg BodrerWidth:1.0 direction:RITLBorderDirectionBottom];
 }
 - (UITextField *)search {
     if (!_search) {
@@ -34,7 +38,7 @@
             CGFloat left = countcoordinatesX(15);
             CGFloat width = ScreenWidth - left * 2;
             CGFloat height = 30;
-            CGFloat top = (40 - height) / 2;
+            CGFloat top = (SearchHeight - height) / 2;
             CGRectMake(left, StatusBarHeight + top, width, height);
         })];
         [_search setBackgroundColor:RGBA(245, 245, 245, 1)];
@@ -54,9 +58,9 @@
 }
 - (TLSegmentedControl *)segmentBar {
     if (!_segmentBar) {
-        _segmentBar = [[TLSegmentedControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_search.frame), self.width, 40) titls:self.titles delegate:self];
+        _segmentBar = [[TLSegmentedControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_search.frame), self.width, SegmentBarHeight) titls:self.titles delegate:self];
         _segmentBar.spacing = 20;
-        _segmentBar.padding = UIEdgeInsetsMake(12, 0, 8, 0);
+        _segmentBar.padding = UIEdgeInsetsMake(8, 0, 2, 0);
         _segmentBar.pageWidth = self.width;
         _segmentBar.indicatorBarSize = CGSizeMake(15, 3);
         _segmentBar.indicatorBarColor = @[(id)[UIColor orangeColor].CGColor,(id)[UIColor redColor].CGColor];
@@ -68,7 +72,7 @@
     if (!_seg) {
         _seg = [UIButton buttonWithType:UIButtonTypeCustom];
         _seg.backgroundColor = [UIColor redColor];
-        _seg.frame = CGRectMake(ScreenWidth - 30, CGRectGetMaxY(_search.frame), 30, 40);
+        _seg.frame = CGRectMake(ScreenWidth - 30, CGRectGetMaxY(_search.frame), 30, SegmentBarHeight);
         [self addSubview:_seg];
     }
     return _seg;
@@ -80,9 +84,9 @@
     [UIView animateWithDuration:.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _search.top = StatusBarHeight;
         _search.alpha = 1;
-        _segmentBar.top = StatusBarHeight + 40;
-        _seg.top = StatusBarHeight + 40;
-        self.height = StatusBarHeight + 80;
+        _segmentBar.top = CGRectGetMaxY(_search.frame);
+        _seg.top = CGRectGetMaxY(_search.frame);
+        self.height = StatusBarHeight + SearchHeight + SegmentBarHeight;
     } completion:^(BOOL finished) {
         
     }];
@@ -90,11 +94,11 @@
 /// 隐藏
 - (void)hide {
     [UIView animateWithDuration:.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        _search.top = StatusBarHeight - 40;
+        _search.top = StatusBarHeight - SearchHeight;
         _search.alpha = 0;
         _segmentBar.top = StatusBarHeight;
         _seg.top = StatusBarHeight;
-        self.height = StatusBarHeight + 40;
+        self.height = StatusBarHeight + SegmentBarHeight;
     } completion:^(BOOL finished) {
         
     }];
