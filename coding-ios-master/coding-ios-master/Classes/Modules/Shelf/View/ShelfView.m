@@ -7,10 +7,12 @@
 //
 
 #import "ShelfView.h"
+#import "ShelfHeader.h"
 
 #pragma mark - 声明
 @interface ShelfView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (nonatomic, strong) ShelfHeader *header;
 @property (nonatomic, strong) UICollectionView *collection;
 @property (nonatomic, strong) NSMutableArray *images;
 
@@ -26,7 +28,16 @@
     return view;
 }
 - (void)createView {
+    [self header];
     [self collection];
+    [self bringSubviewToFront:self.header];
+}
+- (ShelfHeader *)header {
+    if (!_header) {
+        _header = [ShelfHeader initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth / 2)];
+        [self addSubview:_header];
+    }
+    return _header;
 }
 - (UICollectionView *)collection {
     if (!_collection) {
@@ -42,7 +53,7 @@
             flow.minimumInteritemSpacing = inPadding;
             flow;
         })];
-        _collection.contentInset = UIEdgeInsetsMake(0, countcoordinatesX(30), 0, countcoordinatesX(30));
+        _collection.contentInset = UIEdgeInsetsMake(self.header.height, countcoordinatesX(30), 0, countcoordinatesX(30));
         _collection.delegate = self;
         _collection.dataSource = self;
         [_collection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
@@ -56,7 +67,7 @@
 - (NSMutableArray *)images {
     if (!_images) {
         _images = [[NSMutableArray alloc] init];
-        for (int i=0; i<20; i++) {
+        for (int i=0; i<5; i++) {
             [self.images addObject:[NSString stringWithFormat:@"%tu",i]];
         }
     }

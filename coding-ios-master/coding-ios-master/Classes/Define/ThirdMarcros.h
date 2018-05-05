@@ -20,6 +20,7 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <SDWebImage/SDWebImageDownloader.h>
+#import "TLSegmentedControl.h"
+#import <SDCycleScrollView/SDCycleScrollView.h>
 
-#import <NIMSDK/NIMSDK.h>
-#import <NIMSDK/NIMSDKConfig.h>
+

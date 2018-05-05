@@ -20,6 +20,9 @@
 
 #pragma mark - Base
 #import "BaseView.h"
+#import "BaseTableCell.h"
+#import "BaseCollectionCell.h"
+#import "BaseCollectionReusableView.h"
 #import "BaseViewController.h"
 #import "BaseTabBarController.h"
 #import "BaseNavigationController.h"

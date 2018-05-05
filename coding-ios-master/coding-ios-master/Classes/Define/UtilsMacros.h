@@ -16,3 +16,4 @@
 #import "StatusUtils.h"
 #import "AFNManager.h"
 #import "NSString+API.h"
+#import "CarouselView.h"

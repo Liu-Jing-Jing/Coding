@@ -85,6 +85,23 @@
 		4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1E920863DC100E31A21 /* UITableViewCell+Extension.m */; };
 		4BD2B1F120863EEA00E31A21 /* UICollectionViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1F020863EEA00E31A21 /* UICollectionViewCell+Extension.m */; };
 		4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1FF2086453900E31A21 /* UICollectionReusableView+Extension.m */; };
+		4BE8DE03209DBF4500A79ECD /* ShelfHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE02209DBF4500A79ECD /* ShelfHeader.m */; };
+		4BE8DE07209DC59300A79ECD /* TLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE06209DC59300A79ECD /* TLSegmentedControl.m */; };
+		4BE8DE0A209DD0D700A79ECD /* StoreCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE09209DD0D700A79ECD /* StoreCollection.m */; };
+		4BE8DE0D209DD2D900A79ECD /* StoreHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE0C209DD2D900A79ECD /* StoreHeader.m */; };
+		4BE8DE10209DD97600A79ECD /* StoreScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE0F209DD97600A79ECD /* StoreScroll.m */; };
+		4BE8DE17209DE92B00A79ECD /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE16209DE92B00A79ECD /* CarouselView.m */; };
+		4BE8DE2A209DEDE900A79ECD /* StoreCollectionSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE28209DEDE900A79ECD /* StoreCollectionSectionHeader.m */; };
+		4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8DE29209DEDE900A79ECD /* StoreCollectionSectionHeader.xib */; };
+		4BE8DE31209DEEBB00A79ECD /* BaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE30209DEEBB00A79ECD /* BaseTableCell.m */; };
+		4BE8DE34209DEEF500A79ECD /* BaseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE33209DEEF500A79ECD /* BaseCollectionCell.m */; };
+		4BE8DE38209DF04500A79ECD /* StoreCollectionSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE36209DF04500A79ECD /* StoreCollectionSummaryCell.m */; };
+		4BE8DE39209DF04500A79ECD /* StoreCollectionSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8DE37209DF04500A79ECD /* StoreCollectionSummaryCell.xib */; };
+		4BE8DE3D209DF34100A79ECD /* StoreCollectionCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE3B209DF34100A79ECD /* StoreCollectionCategoryCell.m */; };
+		4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8DE3C209DF34100A79ECD /* StoreCollectionCategoryCell.xib */; };
+		4BE8DE42209DF38F00A79ECD /* StoreCollectionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE40209DF38F00A79ECD /* StoreCollectionDetailCell.m */; };
+		4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8DE41209DF38F00A79ECD /* StoreCollectionDetailCell.xib */; };
+		4BE8DE46209DF69400A79ECD /* BaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE45209DF69400A79ECD /* BaseCollectionReusableView.m */; };
 		4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE9FD0720862FCA0020B755 /* Assets.xcassets */; };
 		4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BE9FD0920862FCA0020B755 /* LaunchScreen.storyboard */; };
 		4BE9FD0E20862FCA0020B755 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE9FD0D20862FCA0020B755 /* main.m */; };
@@ -280,6 +297,36 @@
 		4BD2B1F020863EEA00E31A21 /* UICollectionViewCell+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Extension.m"; sourceTree = "<group>"; };
 		4BD2B1FE2086453900E31A21 /* UICollectionReusableView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+Extension.h"; sourceTree = "<group>"; };
 		4BD2B1FF2086453900E31A21 /* UICollectionReusableView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+Extension.m"; sourceTree = "<group>"; };
+		4BE8DE01209DBF4500A79ECD /* ShelfHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShelfHeader.h; sourceTree = "<group>"; };
+		4BE8DE02209DBF4500A79ECD /* ShelfHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfHeader.m; sourceTree = "<group>"; };
+		4BE8DE05209DC59300A79ECD /* TLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSegmentedControl.h; sourceTree = "<group>"; };
+		4BE8DE06209DC59300A79ECD /* TLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSegmentedControl.m; sourceTree = "<group>"; };
+		4BE8DE08209DD0D700A79ECD /* StoreCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCollection.h; sourceTree = "<group>"; };
+		4BE8DE09209DD0D700A79ECD /* StoreCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCollection.m; sourceTree = "<group>"; };
+		4BE8DE0B209DD2D900A79ECD /* StoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreHeader.h; sourceTree = "<group>"; };
+		4BE8DE0C209DD2D900A79ECD /* StoreHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreHeader.m; sourceTree = "<group>"; };
+		4BE8DE0E209DD97600A79ECD /* StoreScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreScroll.h; sourceTree = "<group>"; };
+		4BE8DE0F209DD97600A79ECD /* StoreScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreScroll.m; sourceTree = "<group>"; };
+		4BE8DE15209DE92B00A79ECD /* CarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
+		4BE8DE16209DE92B00A79ECD /* CarouselView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
+		4BE8DE27209DEDE900A79ECD /* StoreCollectionSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCollectionSectionHeader.h; sourceTree = "<group>"; };
+		4BE8DE28209DEDE900A79ECD /* StoreCollectionSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionSectionHeader.m; sourceTree = "<group>"; };
+		4BE8DE29209DEDE900A79ECD /* StoreCollectionSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCollectionSectionHeader.xib; sourceTree = "<group>"; };
+		4BE8DE2F209DEEBA00A79ECD /* BaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableCell.h; sourceTree = "<group>"; };
+		4BE8DE30209DEEBB00A79ECD /* BaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableCell.m; sourceTree = "<group>"; };
+		4BE8DE32209DEEF500A79ECD /* BaseCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionCell.h; sourceTree = "<group>"; };
+		4BE8DE33209DEEF500A79ECD /* BaseCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionCell.m; sourceTree = "<group>"; };
+		4BE8DE35209DF04500A79ECD /* StoreCollectionSummaryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCollectionSummaryCell.h; sourceTree = "<group>"; };
+		4BE8DE36209DF04500A79ECD /* StoreCollectionSummaryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionSummaryCell.m; sourceTree = "<group>"; };
+		4BE8DE37209DF04500A79ECD /* StoreCollectionSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCollectionSummaryCell.xib; sourceTree = "<group>"; };
+		4BE8DE3A209DF34100A79ECD /* StoreCollectionCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCollectionCategoryCell.h; sourceTree = "<group>"; };
+		4BE8DE3B209DF34100A79ECD /* StoreCollectionCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionCategoryCell.m; sourceTree = "<group>"; };
+		4BE8DE3C209DF34100A79ECD /* StoreCollectionCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCollectionCategoryCell.xib; sourceTree = "<group>"; };
+		4BE8DE3F209DF38F00A79ECD /* StoreCollectionDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCollectionDetailCell.h; sourceTree = "<group>"; };
+		4BE8DE40209DF38F00A79ECD /* StoreCollectionDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionDetailCell.m; sourceTree = "<group>"; };
+		4BE8DE41209DF38F00A79ECD /* StoreCollectionDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCollectionDetailCell.xib; sourceTree = "<group>"; };
+		4BE8DE44209DF69400A79ECD /* BaseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionReusableView.h; sourceTree = "<group>"; };
+		4BE8DE45209DF69400A79ECD /* BaseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionReusableView.m; sourceTree = "<group>"; };
 		4BE9FCFB20862FCA0020B755 /* coding-ios-master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coding-ios-master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE9FD0720862FCA0020B755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BE9FD0A20862FCA0020B755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -385,6 +432,8 @@
 			children = (
 				0402B347209A8CB8004A13AD /* ShelfView.h */,
 				0402B348209A8CB8004A13AD /* ShelfView.m */,
+				4BE8DE01209DBF4500A79ECD /* ShelfHeader.h */,
+				4BE8DE02209DBF4500A79ECD /* ShelfHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,6 +469,9 @@
 			children = (
 				0402B34A209A8DC2004A13AD /* StoreView.h */,
 				0402B34B209A8DC2004A13AD /* StoreView.m */,
+				4BE8DE12209DE88400A79ECD /* Header */,
+				4BE8DE11209DE88400A79ECD /* Content */,
+				4BE8DE13209DE89600A79ECD /* Collection */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -517,6 +569,7 @@
 		0495ABD12092C75800BC963E /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8DE04209DC59300A79ECD /* TLSegmentedControl */,
 				4BDE172420877F110001472F /* MJRefresh */,
 				045724BB20888CC0004E7450 /* POP */,
 				4B6594F1208E24A9005CF75C /* SDCycleScrollView */,
@@ -528,6 +581,7 @@
 		0495ABD22092C78600BC963E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8DE14209DE92400A79ECD /* CarouselView */,
 				4BE9FD40208630070020B755 /* Tool */,
 				04EEDF1B2091E79200CDD14E /* SectionHeader */,
 				04554F422089B1B200BEC435 /* KKEmptyView */,
@@ -1080,6 +1134,63 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		4BE8DE04209DC59300A79ECD /* TLSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8DE05209DC59300A79ECD /* TLSegmentedControl.h */,
+				4BE8DE06209DC59300A79ECD /* TLSegmentedControl.m */,
+			);
+			path = TLSegmentedControl;
+			sourceTree = "<group>";
+		};
+		4BE8DE11209DE88400A79ECD /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8DE0E209DD97600A79ECD /* StoreScroll.h */,
+				4BE8DE0F209DD97600A79ECD /* StoreScroll.m */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		4BE8DE12209DE88400A79ECD /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8DE0B209DD2D900A79ECD /* StoreHeader.h */,
+				4BE8DE0C209DD2D900A79ECD /* StoreHeader.m */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		4BE8DE13209DE89600A79ECD /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8DE08209DD0D700A79ECD /* StoreCollection.h */,
+				4BE8DE09209DD0D700A79ECD /* StoreCollection.m */,
+				4BE8DE27209DEDE900A79ECD /* StoreCollectionSectionHeader.h */,
+				4BE8DE28209DEDE900A79ECD /* StoreCollectionSectionHeader.m */,
+				4BE8DE29209DEDE900A79ECD /* StoreCollectionSectionHeader.xib */,
+				4BE8DE35209DF04500A79ECD /* StoreCollectionSummaryCell.h */,
+				4BE8DE36209DF04500A79ECD /* StoreCollectionSummaryCell.m */,
+				4BE8DE37209DF04500A79ECD /* StoreCollectionSummaryCell.xib */,
+				4BE8DE3A209DF34100A79ECD /* StoreCollectionCategoryCell.h */,
+				4BE8DE3B209DF34100A79ECD /* StoreCollectionCategoryCell.m */,
+				4BE8DE3C209DF34100A79ECD /* StoreCollectionCategoryCell.xib */,
+				4BE8DE3F209DF38F00A79ECD /* StoreCollectionDetailCell.h */,
+				4BE8DE40209DF38F00A79ECD /* StoreCollectionDetailCell.m */,
+				4BE8DE41209DF38F00A79ECD /* StoreCollectionDetailCell.xib */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		4BE8DE14209DE92400A79ECD /* CarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8DE15209DE92B00A79ECD /* CarouselView.h */,
+				4BE8DE16209DE92B00A79ECD /* CarouselView.m */,
+			);
+			path = CarouselView;
+			sourceTree = "<group>";
+		};
 		4BE9FCF220862FCA0020B755 = {
 			isa = PBXGroup;
 			children = (
@@ -1362,6 +1473,12 @@
 				4BB1E44320879CCE0066B80A /* BaseTabBar.m */,
 				4BE9FDE7208630070020B755 /* BaseView.h */,
 				4BE9FDE5208630070020B755 /* BaseView.m */,
+				4BE8DE44209DF69400A79ECD /* BaseCollectionReusableView.h */,
+				4BE8DE45209DF69400A79ECD /* BaseCollectionReusableView.m */,
+				4BE8DE2F209DEEBA00A79ECD /* BaseTableCell.h */,
+				4BE8DE30209DEEBB00A79ECD /* BaseTableCell.m */,
+				4BE8DE32209DEEF500A79ECD /* BaseCollectionCell.h */,
+				4BE8DE33209DEEF500A79ECD /* BaseCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1444,7 +1561,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE8DE39209DF04500A79ECD /* StoreCollectionSummaryCell.xib in Resources */,
+				4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */,
+				4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */,
 				4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */,
+				4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */,
 				4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */,
 				04DDE6B0209081E1005F1545 /* ArticleCollectionNameCell.xib in Resources */,
 				04DDE6B5209081ED005F1545 /* ArticleCollectionIconCell.xib in Resources */,
@@ -1531,6 +1652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE8DE2A209DEDE900A79ECD /* StoreCollectionSectionHeader.m in Sources */,
 				0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */,
 				4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */,
 				4B8E9E8720920E040017A5E4 /* DiscoveryCollectionThemeCell.m in Sources */,
@@ -1543,13 +1665,17 @@
 				4BE9FDF0208630070020B755 /* UIView+Extension.m in Sources */,
 				04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */,
 				4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */,
+				4BE8DE0D209DD2D900A79ECD /* StoreHeader.m in Sources */,
 				4B06988720935D0500A72077 /* HomeCollectionLayout.m in Sources */,
 				4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */,
 				0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */,
 				4B8E9E80209209B30017A5E4 /* DiscoveryCollectionRecommendView.m in Sources */,
 				4B06988A20935D0500A72077 /* HomeCollectionTechnicalCell.m in Sources */,
+				4BE8DE03209DBF4500A79ECD /* ShelfHeader.m in Sources */,
 				04DDE6B4209081ED005F1545 /* ArticleCollectionIconCell.m in Sources */,
 				4BE9FE2F208630070020B755 /* BaseTabBarController.m in Sources */,
+				4BE8DE07209DC59300A79ECD /* TLSegmentedControl.m in Sources */,
+				4BE8DE34209DEEF500A79ECD /* BaseCollectionCell.m in Sources */,
 				4BE9FDF8208630070020B755 /* ImageUtils.m in Sources */,
 				4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */,
 				4BE9FDED208630070020B755 /* UIView+Border.m in Sources */,
@@ -1588,14 +1714,20 @@
 				4BE9FDF3208630070020B755 /* NSString+Extension.m in Sources */,
 				04C14C4820881747000A7951 /* PushCollectionListCell.m in Sources */,
 				04C14C6220881946000A7951 /* DiscoveryView.m in Sources */,
+				4BE8DE38209DF04500A79ECD /* StoreCollectionSummaryCell.m in Sources */,
 				4BB1E42E208796AC0066B80A /* MineController.m in Sources */,
 				4B06988820935D0500A72077 /* HomeCollectionSectionBgView.m in Sources */,
+				4BE8DE17209DE92B00A79ECD /* CarouselView.m in Sources */,
 				0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */,
 				4BB1E43A2087988F0066B80A /* PushController.m in Sources */,
 				043CEB4C20915B1A004BE1D9 /* ArticleService.m in Sources */,
+				4BE8DE46209DF69400A79ECD /* BaseCollectionReusableView.m in Sources */,
+				4BE8DE0A209DD0D700A79ECD /* StoreCollection.m in Sources */,
 				4B06989020935D0600A72077 /* HomeSectionNextHeader.m in Sources */,
 				04C03D01208AD2B400BD0995 /* NSString+API.m in Sources */,
+				4BE8DE3D209DF34100A79ECD /* StoreCollectionCategoryCell.m in Sources */,
 				04DF10202088790C00462250 /* ContentController.m in Sources */,
+				4BE8DE31209DEEBB00A79ECD /* BaseTableCell.m in Sources */,
 				4B06988D20935D0600A72077 /* HomeView.m in Sources */,
 				4BE9FDEA208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				4B06988620935D0500A72077 /* HomeSectionFooter.m in Sources */,
@@ -1617,11 +1749,13 @@
 				4B06989520935D5900A72077 /* ColumnView.m in Sources */,
 				4BB1E43B2087988F0066B80A /* PushView.m in Sources */,
 				4BB1E4142087872B0066B80A /* ArticleHeader.m in Sources */,
+				4BE8DE10209DD97600A79ECD /* StoreScroll.m in Sources */,
 				4B06988F20935D0600A72077 /* HomeHeader.m in Sources */,
 				0402B355209A8E24004A13AD /* FindView.m in Sources */,
 				0402B349209A8CB8004A13AD /* ShelfView.m in Sources */,
 				4BE9FDFC208630070020B755 /* GCDUtils.m in Sources */,
 				4BB1E44420879CCE0066B80A /* BaseTabBar.m in Sources */,
+				4BE8DE42209DF38F00A79ECD /* StoreCollectionDetailCell.m in Sources */,
 				4BB1E431208796C00066B80A /* MineView.m in Sources */,
 				4BE9FE2C208630070020B755 /* YLButton.m in Sources */,
 				0402B34C209A8DC2004A13AD /* StoreView.m in Sources */,

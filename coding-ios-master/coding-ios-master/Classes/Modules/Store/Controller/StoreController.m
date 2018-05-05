@@ -26,11 +26,16 @@
 - (void)loadView {
     self.view = [self store];
 }
-- (StoreView *)StoreView {
+- (StoreView *)store {
     if (!_store) {
         _store = [StoreView init];
     }
     return _store;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 
