@@ -29,11 +29,11 @@
     return header;
 }
 - (void)createLayout {
-    _iconConstraintR.constant = countcoordinatesX(15);
+    _iconConstraintR.constant = countcoordinatesX(10);
     _labelConstrainL.constant = countcoordinatesX(15);
     _name.textColor = ColorTextBold;
     _name.font = [UIFont systemFontOfSize:adjustFont(12)];
-    _moreLabel.textColor = ColorTextBold;
+    _moreLabel.textColor = ColorTextMedium;
     _moreLabel.font = [UIFont systemFontOfSize:adjustFont(12)];
 }
 

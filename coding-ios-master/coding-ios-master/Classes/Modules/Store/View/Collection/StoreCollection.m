@@ -11,6 +11,9 @@
 #import "StoreCollectionSummaryCell.h"
 #import "StoreCollectionCategoryCell.h"
 #import "StoreCollectionDetailCell.h"
+#import "StoreCollectionLayout.h"
+
+#define FooterHeight countcoordinatesY(10)
 
 #pragma mark - 声明
 @interface StoreCollection()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
@@ -38,7 +41,7 @@
     if (!_carouse) {
         _carouse = [CarouselView initWithFrame:({
             CGFloat height = ScreenWidth / 5 * 2;
-            CGRectMake(0, -height, ScreenWidth, height);
+            CGRectMake(0, -height - FooterHeight, ScreenWidth, height);
         })];
         _carouse.images = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526132348&di=a55b937782ebd7c097fbcc587bbd0a80&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F17%2F86%2F17%2F559f42e68d5f0_1024.jpg",
                             @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525537630756&di=af0b42045b7307b79a0b199b47baaf5f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F013d5b56fe13946ac725794803ca4e.jpg",
@@ -50,21 +53,35 @@
 - (UICollectionView *)collection {
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:({
-            UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+            StoreCollectionLayout *flow = [[StoreCollectionLayout alloc] init];
             flow;
         })];
+        [_collection setMj_header:({
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingSEL:self refreshingAction:@selector(headerRefresh)];
+            header.ignoredScrollViewContentInsetTop = _carouse.height + FooterHeight;
+            header;
+        })];
+        [_collection setShowsVerticalScrollIndicator:NO];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
         [_collection setBackgroundColor:ColorBg];
-        [_collection setContentInset:UIEdgeInsetsMake(self.carouse.height, 0, 0, 0)];
+        [_collection setContentInset:UIEdgeInsetsMake(self.carouse.height + FooterHeight, 0, 0, 0)];
         [_collection setContentSize:CGSizeMake(0, ScreenHeight * 2)];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionSummaryCell" bundle:nil] forCellWithReuseIdentifier:@"StoreCollectionSummaryCell"];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionCategoryCell" bundle:nil] forCellWithReuseIdentifier:@"StoreCollectionCategoryCell"];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionDetailCell" bundle:nil] forCellWithReuseIdentifier:@"StoreCollectionDetailCell"];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionSectionHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"StoreCollectionSectionHeader"];
+        [_collection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView"];
         [self addSubview:_collection];
     }
     return _collection;
+}
+
+#pragma mark - 刷新
+- (void)headerRefresh {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_collection.mj_header endRefreshing];
+    });
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -73,24 +90,24 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
-        return 9;
+        return 6;
     }
     else if (section == 1) {
-        return 2;
+        return 4;
     }
     else if (section == 2) {
-        return 1;
+        return 3;
     }
     return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        StoreCollectionSummaryCell *cell = [StoreCollectionSummaryCell loadWithCollection:collectionView indexPath:indexPath];
+        StoreCollectionSummaryCell *cell = [StoreCollectionSummaryCell initWithCollection:collectionView indexPath:indexPath];
         return cell;
     }
     else if (indexPath.section == 1) {
-        StoreCollectionCategoryCell *cell = [StoreCollectionCategoryCell loadWithCollection:collectionView indexPath:indexPath];
+        StoreCollectionCategoryCell *cell = [StoreCollectionCategoryCell initWithCollection:collectionView indexPath:indexPath];
         return cell;
     }
     else if (indexPath.section == 2) {
@@ -106,6 +123,10 @@
             NSLog(@"123");
         }];
         return header;
+    } else if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView" forIndexPath:indexPath];
+        footer.backgroundColor = [UIColor clearColor];
+        return footer;
     }
     return nil;
 }
@@ -115,12 +136,12 @@
     if (indexPath.section == 0) {
         CGFloat row = 3;
         CGFloat width = (ScreenWidth - countcoordinatesX(15) * (row + 1)) / row;
-        return CGSizeMake(width, width / 3 * 4);
+        return CGSizeMake(width, width / 3 * 5);
     }
     else if (indexPath.section == 1) {
         CGFloat row = 2;
         CGFloat width = (ScreenWidth - countcoordinatesX(15) * (row + 1)) / row;
-        return CGSizeMake(width, width / 2);
+        return CGSizeMake(width, width / 4 * 3);
     }
     else if (indexPath.section == 2) {
         CGFloat width = ScreenWidth;
@@ -131,17 +152,35 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(ScreenWidth, 40);
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(ScreenWidth, FooterHeight);
+}
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
         return UIEdgeInsetsMake(0, countcoordinatesX(15), 0, countcoordinatesX(15));
     }
     else if (section == 1) {
-        return UIEdgeInsetsMake(0, countcoordinatesX(15), 0, countcoordinatesX(15));
+        return UIEdgeInsetsMake(0, countcoordinatesX(15), countcoordinatesX(10), countcoordinatesX(15));
     }
     else if (section == 2) {
         return UIEdgeInsetsZero;
     }
     return UIEdgeInsetsZero;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    }
+    else if (section == 1) {
+        return FooterHeight;
+    }
+    else if (section == 2) {
+        return 0;
+    }
+    return 0;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -152,18 +191,18 @@
         return;
     }
     
-    
+    CGFloat CanMoveH = 70;
     CGFloat scrollOffsetH = scrollView.contentOffset.y - _lastOffsetY;
     // 突然滚动
-    if (ABS(scrollOffsetH) > 100) {
+    if (ABS(scrollOffsetH) > CanMoveH) {
         // 向上滚动
-        if (scrollOffsetH < -100) {
+        if (scrollOffsetH < -CanMoveH) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(collectionScrollViewDidScroll:isDown:)]) {
                 [self.delegate collectionScrollViewDidScroll:scrollView isDown:YES];
             }
         }
         // 向下滚动
-        else if (scrollOffsetH > 100) {
+        else if (scrollOffsetH > CanMoveH) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(collectionScrollViewDidScroll:isDown:)]) {
                 [self.delegate collectionScrollViewDidScroll:scrollView isDown:NO];
             }

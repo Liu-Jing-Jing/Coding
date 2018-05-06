@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,26 +23,26 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看更多" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI5-cD-lV6">
-                    <rect key="frame" x="227.5" y="0.0" width="57.5" height="50"/>
+                    <rect key="frame" x="232.5" y="0.0" width="57.5" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jKt-Cn-o29">
-                    <rect key="frame" x="290" y="15.5" width="20" height="20"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_next" translatesAutoresizingMaskIntoConstraints="NO" id="jKt-Cn-o29">
+                    <rect key="frame" x="295" y="0.0" width="15" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="BgO-c6-wnf"/>
-                        <constraint firstAttribute="width" secondItem="jKt-Cn-o29" secondAttribute="height" multiplier="1:1" id="QWu-4u-dOa"/>
+                        <constraint firstAttribute="width" constant="15" id="BgO-c6-wnf"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ty-2H-KaM">
-                    <rect key="frame" x="227.5" y="0.0" width="82.5" height="50"/>
+                    <rect key="frame" x="232.5" y="0.0" width="77.5" height="50"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="7fM-qb-vfi" firstAttribute="leading" secondItem="9Gg-ye-v9C" secondAttribute="leading" constant="10" id="0BO-RC-bJH"/>
                 <constraint firstItem="5ty-2H-KaM" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="24n-Ar-oCv"/>
+                <constraint firstItem="jKt-Cn-o29" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="3fv-1C-R8r"/>
                 <constraint firstItem="LI5-cD-lV6" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="46U-9M-9rB"/>
                 <constraint firstItem="jKt-Cn-o29" firstAttribute="leading" secondItem="LI5-cD-lV6" secondAttribute="trailing" constant="5" id="Aqw-Fi-UXn"/>
                 <constraint firstItem="7fM-qb-vfi" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="PQc-cj-ZIH"/>
@@ -64,7 +63,10 @@
                 <outlet property="moreLabel" destination="LI5-cD-lV6" id="adn-Me-6Pc"/>
                 <outlet property="name" destination="7fM-qb-vfi" id="HYo-5Z-LJA"/>
             </connections>
-            <point key="canvasLocation" x="-474" y="-182"/>
+            <point key="canvasLocation" x="-599" y="-169"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="btn_next" width="64" height="64"/>
+    </resources>
 </document>

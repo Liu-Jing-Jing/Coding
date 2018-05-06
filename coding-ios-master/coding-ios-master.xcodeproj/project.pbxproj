@@ -62,6 +62,13 @@
 		4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */; };
 		4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */; };
 		4B7D6D452088D99B00F7DC2B /* WatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D442088D99B00F7DC2B /* WatchView.m */; };
+		4B8B354C209F06790065E540 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B354A209F06790065E540 /* MineCell.m */; };
+		4B8B354D209F06790065E540 /* MineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B8B354B209F06790065E540 /* MineCell.xib */; };
+		4B8B3550209F07860065E540 /* MineHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B354F209F07860065E540 /* MineHeader.m */; };
+		4B8B3552209F07BE0065E540 /* MineHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B8B3551209F07BE0065E540 /* MineHeader.xib */; };
+		4B8B355A209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B3554209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m */; };
+		4B8B355B209F1E7C0065E540 /* StoreCollectionSectionBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B3556209F1E7C0065E540 /* StoreCollectionSectionBgView.m */; };
+		4B8B355C209F1E7C0065E540 /* StoreCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B3558209F1E7C0065E540 /* StoreCollectionLayout.m */; };
 		4B8E9E782092099A0017A5E4 /* DiscoveryCollectionHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E9E762092099A0017A5E4 /* DiscoveryCollectionHotCell.m */; };
 		4B8E9E792092099A0017A5E4 /* DiscoveryCollectionHotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E9E772092099A0017A5E4 /* DiscoveryCollectionHotView.m */; };
 		4B8E9E7F209209B30017A5E4 /* DiscoveryCollectionRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E9E7B209209B30017A5E4 /* DiscoveryCollectionRecommendCell.m */; };
@@ -246,6 +253,18 @@
 		4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "POPAnimation+Extension.m"; sourceTree = "<group>"; };
 		4B7D6D432088D99B00F7DC2B /* WatchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchView.h; sourceTree = "<group>"; };
 		4B7D6D442088D99B00F7DC2B /* WatchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchView.m; sourceTree = "<group>"; };
+		4B8B3549209F06790065E540 /* MineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCell.h; sourceTree = "<group>"; };
+		4B8B354A209F06790065E540 /* MineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCell.m; sourceTree = "<group>"; };
+		4B8B354B209F06790065E540 /* MineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCell.xib; sourceTree = "<group>"; };
+		4B8B354E209F07860065E540 /* MineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineHeader.h; sourceTree = "<group>"; };
+		4B8B354F209F07860065E540 /* MineHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHeader.m; sourceTree = "<group>"; };
+		4B8B3551209F07BE0065E540 /* MineHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHeader.xib; sourceTree = "<group>"; };
+		4B8B3554209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		4B8B3555209F1E7C0065E540 /* StoreCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCollectionLayout.h; sourceTree = "<group>"; };
+		4B8B3556209F1E7C0065E540 /* StoreCollectionSectionBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionSectionBgView.m; sourceTree = "<group>"; };
+		4B8B3557209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		4B8B3558209F1E7C0065E540 /* StoreCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionLayout.m; sourceTree = "<group>"; };
+		4B8B3559209F1E7C0065E540 /* StoreCollectionSectionBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCollectionSectionBgView.h; sourceTree = "<group>"; };
 		4B8E9E742092099A0017A5E4 /* DiscoveryCollectionHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCollectionHotCell.h; sourceTree = "<group>"; };
 		4B8E9E752092099A0017A5E4 /* DiscoveryCollectionHotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCollectionHotView.h; sourceTree = "<group>"; };
 		4B8E9E762092099A0017A5E4 /* DiscoveryCollectionHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCollectionHotCell.m; sourceTree = "<group>"; };
@@ -471,6 +490,7 @@
 				0402B34B209A8DC2004A13AD /* StoreView.m */,
 				4BE8DE12209DE88400A79ECD /* Header */,
 				4BE8DE11209DE88400A79ECD /* Content */,
+				4B8B3553209F1E7C0065E540 /* Layout */,
 				4BE8DE13209DE89600A79ECD /* Collection */,
 			);
 			path = View;
@@ -790,11 +810,11 @@
 			isa = PBXGroup;
 			children = (
 				4B06986B20935D0500A72077 /* HomeCollectionSectionBgView.h */,
+				4B06986E20935D0500A72077 /* HomeCollectionSectionBgView.m */,
+				4B06987020935D0500A72077 /* HomeCollectionLayout.h */,
 				4B06986C20935D0500A72077 /* HomeCollectionLayout.m */,
 				4B06986D20935D0500A72077 /* HomeCollectionViewLayoutAttributes.h */,
-				4B06986E20935D0500A72077 /* HomeCollectionSectionBgView.m */,
 				4B06986F20935D0500A72077 /* HomeCollectionViewLayoutAttributes.m */,
-				4B06987020935D0500A72077 /* HomeCollectionLayout.h */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -900,6 +920,19 @@
 				04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */,
 			);
 			path = Watch;
+			sourceTree = "<group>";
+		};
+		4B8B3553209F1E7C0065E540 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				4B8B3555209F1E7C0065E540 /* StoreCollectionLayout.h */,
+				4B8B3558209F1E7C0065E540 /* StoreCollectionLayout.m */,
+				4B8B3557209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.h */,
+				4B8B3554209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m */,
+				4B8B3559209F1E7C0065E540 /* StoreCollectionSectionBgView.h */,
+				4B8B3556209F1E7C0065E540 /* StoreCollectionSectionBgView.m */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		4B8E9E732092099A0017A5E4 /* Hot */ = {
@@ -1061,6 +1094,12 @@
 			children = (
 				4BB1E42F208796C00066B80A /* MineView.h */,
 				4BB1E430208796C00066B80A /* MineView.m */,
+				4B8B354E209F07860065E540 /* MineHeader.h */,
+				4B8B354F209F07860065E540 /* MineHeader.m */,
+				4B8B3551209F07BE0065E540 /* MineHeader.xib */,
+				4B8B3549209F06790065E540 /* MineCell.h */,
+				4B8B354A209F06790065E540 /* MineCell.m */,
+				4B8B354B209F06790065E540 /* MineCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1562,9 +1601,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BE8DE39209DF04500A79ECD /* StoreCollectionSummaryCell.xib in Resources */,
+				4B8B3552209F07BE0065E540 /* MineHeader.xib in Resources */,
 				4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */,
 				4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */,
 				4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */,
+				4B8B354D209F06790065E540 /* MineCell.xib in Resources */,
 				4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */,
 				4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */,
 				04DDE6B0209081E1005F1545 /* ArticleCollectionNameCell.xib in Resources */,
@@ -1683,6 +1724,7 @@
 				4BD2B1D820863A8A00E31A21 /* AppManager.m in Sources */,
 				0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */,
 				4BE9FD0E20862FCA0020B755 /* main.m in Sources */,
+				4B8B355A209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m in Sources */,
 				04DDE6AF209081E1005F1545 /* ArticleCollectionNameCell.m in Sources */,
 				4BE9FDFB208630070020B755 /* SaveUtils.m in Sources */,
 				042CA10A20919A270067FDD1 /* DiscoveryModel.m in Sources */,
@@ -1702,11 +1744,13 @@
 				4B8E9E8620920E040017A5E4 /* DiscoveryCollectionThemeView.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,
 				0402B352209A8E1A004A13AD /* FindController.m in Sources */,
+				4B8B354C209F06790065E540 /* MineCell.m in Sources */,
 				4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */,
 				04C14C6320881946000A7951 /* DiscoveryCollectionLayout.m in Sources */,
 				4B06988E20935D0600A72077 /* HomeSectionCategoryHeader.m in Sources */,
 				4B06988920935D0500A72077 /* HomeCollectionViewLayoutAttributes.m in Sources */,
 				04C14C4220881723000A7951 /* PushCollectionRecommendCell.m in Sources */,
+				4B8B355C209F1E7C0065E540 /* StoreCollectionLayout.m in Sources */,
 				4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */,
 				4B06988C20935D0600A72077 /* HomeCollectionCategoryCell.m in Sources */,
 				04BBD348208DBCC900968BF8 /* UILabel+Commonly.m in Sources */,
@@ -1717,6 +1761,7 @@
 				4BE8DE38209DF04500A79ECD /* StoreCollectionSummaryCell.m in Sources */,
 				4BB1E42E208796AC0066B80A /* MineController.m in Sources */,
 				4B06988820935D0500A72077 /* HomeCollectionSectionBgView.m in Sources */,
+				4B8B355B209F1E7C0065E540 /* StoreCollectionSectionBgView.m in Sources */,
 				4BE8DE17209DE92B00A79ECD /* CarouselView.m in Sources */,
 				0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */,
 				4BB1E43A2087988F0066B80A /* PushController.m in Sources */,
@@ -1750,6 +1795,7 @@
 				4BB1E43B2087988F0066B80A /* PushView.m in Sources */,
 				4BB1E4142087872B0066B80A /* ArticleHeader.m in Sources */,
 				4BE8DE10209DD97600A79ECD /* StoreScroll.m in Sources */,
+				4B8B3550209F07860065E540 /* MineHeader.m in Sources */,
 				4B06988F20935D0600A72077 /* HomeHeader.m in Sources */,
 				0402B355209A8E24004A13AD /* FindView.m in Sources */,
 				0402B349209A8CB8004A13AD /* ShelfView.m in Sources */,

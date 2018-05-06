@@ -7,15 +7,15 @@
 //
 
 #import "MineView.h"
+#import "MineHeader.h"
+#import "MineCell.h"
 
 #pragma mark - 声明
-@interface MineView()
+@interface MineView()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UILabel *name;
-@property (nonatomic, strong) UIImageView *icon;
-@property (nonatomic, strong) UIButton *login;
-@property (nonatomic, strong) UILabel *desc;
-@property (nonatomic, strong) UIImageView *bg;
+@property (nonatomic, strong) UIView *status;
+@property (nonatomic, strong) MineHeader *header;
+@property (nonatomic, strong) UITableView *table;
 
 @end
 
@@ -26,81 +26,66 @@
 + (instancetype)init {
     MineView *view = [MineView loadCode:ScreenBounds];
     [view setBackgroundColor:WhiteColor];
-//    [view name];
-//    [view icon];
-//    [view login];
-//    [view desc];
-//    [view createLayout];
-    [view bg];
+    [view createView];
     return view;
 }
-- (UIImageView *)bg {
-    if (!_bg) {
-        _bg = [[UIImageView alloc] initWithFrame:self.bounds];
-        _bg.image = [UIImage imageNamed:@"my_bg_414x736_"];
-        [self addSubview:_bg];
-    }
-    return _bg;
+- (void)createView {
+    [self status];
+    [self table];
 }
-- (void)createLayout {
-    [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.height * 0.2);
-        make.centerX.mas_equalTo(self.mas_centerX).mas_equalTo(countcoordinatesX(15));
-    }];
-    [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(self.name.mas_left).mas_equalTo(countcoordinatesY(-10));
-        make.width.and.height.mas_equalTo(countcoordinatesX(40));
-        make.centerY.mas_equalTo(self.name.mas_centerY);
-    }];
-    [self.login mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.and.height.mas_equalTo(self.mas_width).multipliedBy(0.25);
-        make.centerX.mas_equalTo(self.mas_centerX);
-        make.centerY.mas_equalTo(self.mas_centerY);
-    }];
-    [self.desc mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.login.mas_bottom).mas_equalTo(countcoordinatesY(30));
-        make.width.mas_equalTo(self.mas_width);
-        make.centerX.mas_equalTo(self.mas_centerX);
-    }];
-}
-- (UIImageView *)icon {
-    if (!_icon) {
-        _icon = [[UIImageView alloc] init];
-        _icon.backgroundColor = LightColor;
-        _icon.layer.cornerRadius = 5;
-        _icon.layer.masksToBounds = YES;
-        [_icon shadowWithColor:ColorTextBold offset:CGSizeMake(1, 1) opacity:0.2 radius:1];
-        [self addSubview:_icon];
+- (UIView *)status {
+    if (!_status) {
+        _status = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, StatusBarHeight)];
+        _status.backgroundColor = [UIColor whiteColor];
+        [self addSubview:_status];
     }
-    return _icon;
+    return _status;
 }
-- (UILabel *)name {
-    if (!_name) {
-        _name = [[UILabel alloc] init];
-        _name.text = @"奇点日报";
-        [self addSubview:_name];
+- (MineHeader *)header {
+    if (!_header) {
+        _header = [MineHeader initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth / 3)];
     }
-    return _name;
+    return _header;
 }
-- (UIButton *)login {
-    if (!_login) {
-        _login = [UIButton buttonWithType:UIButtonTypeCustom];
-        _login.backgroundColor = LightColor;
-        _login.layer.cornerRadius = ScreenWidth / 4 / 2;
-        _login.layer.masksToBounds = YES;
-        [self addSubview:_login];
+- (UITableView *)table {
+    if (!_table) {
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, self.status.height, ScreenWidth, ScreenHeight - TabbarHeight - self.status.height) style:UITableViewStylePlain];
+        _table.delegate = self;
+        _table.dataSource = self;
+        _table.tableHeaderView = [self header];
+        _table.backgroundColor = ColorBg;
+        _table.separatorColor = ColorBg;
+        _table.separatorInset = UIEdgeInsetsMake(0, countcoordinatesX(15), 0, countcoordinatesX(15));
+        [_table lineHide];
+        [self addSubview:_table];
     }
-    return _login;
+    return _table;
 }
-- (UILabel *)desc {
-    if (!_desc) {
-        _desc = [[UILabel alloc] init];
-        _desc.numberOfLines = 0;
-        _desc.textAlignment = NSTextAlignmentCenter;
-        _desc.attributedText = [NSAttributedString attributedWithLineSpacing:5 color:ColorTextMedium font:[UIFont systemFontOfSize:adjustFont(12) weight:UIFontWeightLight] str:@"在这个互联网泛滥的时代\n安心如此简单"];
-        [self addSubview:_desc];
-    }
-    return _desc;
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MineCell *cell = [MineCell initWithTable:tableView];
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 40;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return countcoordinatesY(10);
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [UIView new];
 }
 
 @end

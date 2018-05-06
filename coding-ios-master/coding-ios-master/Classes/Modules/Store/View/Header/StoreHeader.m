@@ -48,8 +48,9 @@
         [_search.layer setCornerRadius:5];
         [_search.layer setMasksToBounds:YES];
         [_search setLeftView:({
-            UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
-            image.backgroundColor = [UIColor redColor];
+            UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 13)];
+            image.image = [UIImage imageNamed:@"search_in_12x12_"];
+            image.contentMode = UIViewContentModeScaleAspectFit;
             image;
         })];
         [self addSubview:_search];
@@ -71,8 +72,9 @@
 - (UIButton *)seg {
     if (!_seg) {
         _seg = [UIButton buttonWithType:UIButtonTypeCustom];
-        _seg.backgroundColor = [UIColor redColor];
-        _seg.frame = CGRectMake(ScreenWidth - 30, CGRectGetMaxY(_search.frame), 30, SegmentBarHeight);
+        _seg.frame = CGRectMake(ScreenWidth - 30, CGRectGetMaxY(_search.frame), 25, SegmentBarHeight);
+        _seg.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [_seg setImage:[UIImage imageNamed:@"btn_menu"] forState:UIControlStateNormal];
         [self addSubview:_seg];
     }
     return _seg;

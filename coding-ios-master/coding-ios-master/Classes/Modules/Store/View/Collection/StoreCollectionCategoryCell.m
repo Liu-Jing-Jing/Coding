@@ -8,11 +8,30 @@
 
 #import "StoreCollectionCategoryCell.h"
 
+#pragma mark - 声明
+@interface StoreCollectionCategoryCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *desc;
+
+@end
+
+#pragma mark - 实现
 @implementation StoreCollectionCategoryCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
++ (instancetype)initWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath {
+    StoreCollectionCategoryCell *cell = [StoreCollectionCategoryCell loadCode:collection index:indexPath];
+    [cell createView];
+    return cell;
+}
+- (void)createView {
+    _name.font = [UIFont boldSystemFontOfSize:adjustFont(16)];
+    _name.textColor = ColorTextBold;
+    _desc.font = [UIFont systemFontOfSize:adjustFont(12)];
+    _desc.textColor = ColorTextMedium;
 }
 
 @end
+
+
+

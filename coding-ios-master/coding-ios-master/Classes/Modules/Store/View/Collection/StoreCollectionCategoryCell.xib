@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,9 +40,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-aa-FR8">
                         <rect key="frame" x="0.0" y="40" width="164" height="54.5"/>
                         <color key="backgroundColor" red="1" green="0.16876094059999999" blue="0.11974024599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="gqp-aa-FR8" secondAttribute="height" multiplier="3:1" id="zTh-Yh-3mc"/>
-                        </constraints>
                     </imageView>
                 </subviews>
             </view>
@@ -52,6 +48,7 @@
                 <constraint firstAttribute="trailing" secondItem="2KH-sM-UCd" secondAttribute="trailing" id="4MX-It-tmY"/>
                 <constraint firstItem="gqp-aa-FR8" firstAttribute="top" secondItem="rms-V5-qza" secondAttribute="bottom" id="Dp5-pY-QTO"/>
                 <constraint firstItem="gqp-aa-FR8" firstAttribute="trailing" secondItem="rms-V5-qza" secondAttribute="trailing" id="RFP-Z6-d6D"/>
+                <constraint firstAttribute="bottom" secondItem="gqp-aa-FR8" secondAttribute="bottom" id="UOq-KE-txe"/>
                 <constraint firstItem="rms-V5-qza" firstAttribute="trailing" secondItem="2KH-sM-UCd" secondAttribute="trailing" id="cAG-Ex-q6W"/>
                 <constraint firstItem="2KH-sM-UCd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nsN-o5-bz2"/>
                 <constraint firstItem="rms-V5-qza" firstAttribute="top" secondItem="2KH-sM-UCd" secondAttribute="bottom" id="oul-zL-TxT"/>
@@ -61,7 +58,11 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="164" height="95"/>
-            <point key="canvasLocation" x="-116" y="20.5"/>
+            <connections>
+                <outlet property="desc" destination="rms-V5-qza" id="2K9-db-jlW"/>
+                <outlet property="name" destination="2KH-sM-UCd" id="is8-Jd-L8w"/>
+            </connections>
+            <point key="canvasLocation" x="-252" y="22"/>
         </collectionViewCell>
     </objects>
 </document>

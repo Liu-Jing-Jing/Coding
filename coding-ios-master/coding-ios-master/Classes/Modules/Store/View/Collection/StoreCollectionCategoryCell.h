@@ -10,4 +10,6 @@
 
 @interface StoreCollectionCategoryCell : BaseCollectionCell
 
++ (instancetype)initWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath;
+
 @end

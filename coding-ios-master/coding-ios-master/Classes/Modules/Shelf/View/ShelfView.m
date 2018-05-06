@@ -42,7 +42,7 @@
 - (UICollectionView *)collection {
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - TabbarHeight) collectionViewLayout:({
-            CGFloat outPadding = countcoordinatesX(30);
+            CGFloat outPadding = countcoordinatesX(15);
             CGFloat inPadding = countcoordinatesX(10);
             NSInteger row = 3;
             CGFloat wdith = (ScreenWidth - outPadding * 2 - inPadding * (row - 1)) / 3;
@@ -53,7 +53,8 @@
             flow.minimumInteritemSpacing = inPadding;
             flow;
         })];
-        _collection.contentInset = UIEdgeInsetsMake(self.header.height, countcoordinatesX(30), 0, countcoordinatesX(30));
+        _collection.backgroundColor = ColorBg;
+        _collection.contentInset = UIEdgeInsetsMake(self.header.height, countcoordinatesX(15), 0, countcoordinatesX(15));
         _collection.delegate = self;
         _collection.dataSource = self;
         [_collection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
@@ -86,6 +87,12 @@
             }
             // 在路径上则开始移动该路径上的cell
             [self.collection beginInteractiveMovementForItemAtIndexPath:indexPath];
+            [UIView beginAnimations:nil context:nil];
+            // 默认是1/4s，需要double类型数据
+            [UIView setAnimationDuration:2.0];
+            [self.collection updateInteractiveMovementTargetPosition:[longGesture locationInView:self.collection]];
+            // 提交动画，动画结束
+            [UIView commitAnimations];
         }
             break;
         case UIGestureRecognizerStateChanged:

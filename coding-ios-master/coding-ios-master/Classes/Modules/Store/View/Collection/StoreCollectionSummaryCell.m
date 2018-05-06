@@ -8,11 +8,25 @@
 
 #import "StoreCollectionSummaryCell.h"
 
+#pragma mark - 声明
+@interface StoreCollectionSummaryCell()
+
+@property (weak, nonatomic) IBOutlet UIView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+
+@end
+
+#pragma mark - 实现
 @implementation StoreCollectionSummaryCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
++ (instancetype)initWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath {
+    StoreCollectionSummaryCell *cell = [StoreCollectionSummaryCell loadCode:collection index:indexPath];
+    [cell createView];
+    return cell;
+}
+- (void)createView {
+    _name.font = [UIFont systemFontOfSize:adjustFont(12)];
+    _name.textColor = ColorTextBold;
 }
 
 @end
