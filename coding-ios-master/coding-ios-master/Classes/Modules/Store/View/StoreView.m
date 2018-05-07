@@ -10,6 +10,7 @@
 #import "StoreHeader.h"
 #import "StoreScroll.h"
 #import "StoreCollection.h"
+#import "LRLChannelEditController.h"
 
 #pragma mark - 声明
 @interface StoreView ()<StoreHeaderDelegate, StoreScrollDelegate>
@@ -41,6 +42,28 @@
         _header = [StoreHeader initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
         _header.delegate = self;
         _header.titles = self.titles;
+        [_header.seg addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            
+            LRLChannelEditController *channelEdit = [[LRLChannelEditController alloc] initWithTopDataSource:self.topChannelArr andBottomDataSource:self.bottomChannelArr andInitialIndex:self.chooseIndex];
+            channelEdit.fixedCount = 2;
+            
+            //编辑后的回调
+            __weak StoreView *weakSelf = self;
+            channelEdit.removeInitialIndexBlock = ^(NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
+                weakSelf.topChannelArr = topArr;
+                weakSelf.bottomChannelArr = bottomArr;
+                NSLog(@"删除了初始选中项的回调:\n保留的频道有: %@", topArr);
+            };
+            channelEdit.chooseIndexBlock = ^(NSInteger index, NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
+                weakSelf.topChannelArr = topArr;
+                weakSelf.bottomChannelArr = bottomArr;
+                weakSelf.chooseIndex = index;
+                NSLog(@"选中了某一项的回调:\n保留的频道有: %@, 选中第%ld个频道", topArr, index);
+            };
+            
+            channelEdit.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self.viewController presentViewController:channelEdit animated:YES completion:nil];
+        }];
         [self addSubview:_header];
     }
     return _header;

@@ -57,6 +57,12 @@
 		4B06989020935D0600A72077 /* HomeSectionNextHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B06988020935D0500A72077 /* HomeSectionNextHeader.m */; };
 		4B06989120935D0600A72077 /* HomeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B06988320935D0500A72077 /* HomeService.m */; };
 		4B06989520935D5900A72077 /* ColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B06989420935D5900A72077 /* ColumnView.m */; };
+		4B4DDE8220A096F8001A5132 /* LRLChannelEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DDE7820A096F8001A5132 /* LRLChannelEditController.m */; };
+		4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DDE7920A096F8001A5132 /* LRLChannelUnitModel.m */; };
+		4B4DDE8420A096F8001A5132 /* LRLChannelEdit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B4DDE7E20A096F8001A5132 /* LRLChannelEdit.bundle */; };
+		4B4DDE8520A096F8001A5132 /* UIImage+LRLBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DDE7F20A096F8001A5132 /* UIImage+LRLBundle.m */; };
+		4B4DDE8620A096F8001A5132 /* LRLTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DDE8020A096F8001A5132 /* LRLTouchView.m */; };
+		4B4DDE8720A096F8001A5132 /* LRLChannelEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4DDE8120A096F8001A5132 /* LRLChannelEditController.xib */; };
 		4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */; };
 		4B6594F0208E1E1C005CF75C /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EF208E1E1C005CF75C /* ArticleModel.m */; };
 		4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */; };
@@ -243,6 +249,16 @@
 		4B06988320935D0500A72077 /* HomeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeService.m; sourceTree = "<group>"; };
 		4B06989320935D5900A72077 /* ColumnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColumnView.h; sourceTree = "<group>"; };
 		4B06989420935D5900A72077 /* ColumnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColumnView.m; sourceTree = "<group>"; };
+		4B4DDE7820A096F8001A5132 /* LRLChannelEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLChannelEditController.m; sourceTree = "<group>"; };
+		4B4DDE7920A096F8001A5132 /* LRLChannelUnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLChannelUnitModel.m; sourceTree = "<group>"; };
+		4B4DDE7A20A096F8001A5132 /* UIImage+LRLBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LRLBundle.h"; sourceTree = "<group>"; };
+		4B4DDE7B20A096F8001A5132 /* LRLTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLTouchView.h; sourceTree = "<group>"; };
+		4B4DDE7C20A096F8001A5132 /* LRLChannelEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLChannelEditController.h; sourceTree = "<group>"; };
+		4B4DDE7D20A096F8001A5132 /* LRLChannelUnitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLChannelUnitModel.h; sourceTree = "<group>"; };
+		4B4DDE7E20A096F8001A5132 /* LRLChannelEdit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LRLChannelEdit.bundle; sourceTree = "<group>"; };
+		4B4DDE7F20A096F8001A5132 /* UIImage+LRLBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LRLBundle.m"; sourceTree = "<group>"; };
+		4B4DDE8020A096F8001A5132 /* LRLTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLTouchView.m; sourceTree = "<group>"; };
+		4B4DDE8120A096F8001A5132 /* LRLChannelEditController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LRLChannelEditController.xib; sourceTree = "<group>"; };
 		4B6594EA208E189F005CF75C /* UIView+BlockGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlockGesture.h"; sourceTree = "<group>"; };
 		4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BlockGesture.m"; sourceTree = "<group>"; };
 		4B6594EE208E1E1C005CF75C /* ArticleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleModel.h; sourceTree = "<group>"; };
@@ -893,6 +909,23 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		4B4DDE7720A096F8001A5132 /* LRLChannelEdit */ = {
+			isa = PBXGroup;
+			children = (
+				4B4DDE7C20A096F8001A5132 /* LRLChannelEditController.h */,
+				4B4DDE7820A096F8001A5132 /* LRLChannelEditController.m */,
+				4B4DDE7920A096F8001A5132 /* LRLChannelUnitModel.m */,
+				4B4DDE7A20A096F8001A5132 /* UIImage+LRLBundle.h */,
+				4B4DDE7B20A096F8001A5132 /* LRLTouchView.h */,
+				4B4DDE7D20A096F8001A5132 /* LRLChannelUnitModel.h */,
+				4B4DDE7E20A096F8001A5132 /* LRLChannelEdit.bundle */,
+				4B4DDE7F20A096F8001A5132 /* UIImage+LRLBundle.m */,
+				4B4DDE8020A096F8001A5132 /* LRLTouchView.m */,
+				4B4DDE8120A096F8001A5132 /* LRLChannelEditController.xib */,
+			);
+			path = LRLChannelEdit;
+			sourceTree = "<group>";
+		};
 		4B6594ED208E1E0F005CF75C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1458,6 +1491,7 @@
 		4BE9FDD5208630070020B755 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				4B4DDE7720A096F8001A5132 /* LRLChannelEdit */,
 				0478B2BC2087588100213353 /* LLNavigationBar */,
 				4BE9FDD6208630070020B755 /* YLButton */,
 			);
@@ -1600,11 +1634,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4DDE8420A096F8001A5132 /* LRLChannelEdit.bundle in Resources */,
 				4BE8DE39209DF04500A79ECD /* StoreCollectionSummaryCell.xib in Resources */,
 				4B8B3552209F07BE0065E540 /* MineHeader.xib in Resources */,
 				4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */,
 				4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */,
 				4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */,
+				4B4DDE8720A096F8001A5132 /* LRLChannelEditController.xib in Resources */,
 				4B8B354D209F06790065E540 /* MineCell.xib in Resources */,
 				4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */,
 				4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */,
@@ -1739,6 +1775,7 @@
 				04C14C3C208816D9000A7951 /* PushCollectionLayout.m in Sources */,
 				4BE9FDF2208630070020B755 /* UIFont+Extension.m in Sources */,
 				4BE9FE30208630070020B755 /* BaseModel.m in Sources */,
+				4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */,
 				04C14C4520881731000A7951 /* PushCollectionThemeCell.m in Sources */,
 				4B7D6D452088D99B00F7DC2B /* WatchView.m in Sources */,
 				4B8E9E8620920E040017A5E4 /* DiscoveryCollectionThemeView.m in Sources */,
@@ -1759,11 +1796,13 @@
 				04C14C4820881747000A7951 /* PushCollectionListCell.m in Sources */,
 				04C14C6220881946000A7951 /* DiscoveryView.m in Sources */,
 				4BE8DE38209DF04500A79ECD /* StoreCollectionSummaryCell.m in Sources */,
+				4B4DDE8220A096F8001A5132 /* LRLChannelEditController.m in Sources */,
 				4BB1E42E208796AC0066B80A /* MineController.m in Sources */,
 				4B06988820935D0500A72077 /* HomeCollectionSectionBgView.m in Sources */,
 				4B8B355B209F1E7C0065E540 /* StoreCollectionSectionBgView.m in Sources */,
 				4BE8DE17209DE92B00A79ECD /* CarouselView.m in Sources */,
 				0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */,
+				4B4DDE8520A096F8001A5132 /* UIImage+LRLBundle.m in Sources */,
 				4BB1E43A2087988F0066B80A /* PushController.m in Sources */,
 				043CEB4C20915B1A004BE1D9 /* ArticleService.m in Sources */,
 				4BE8DE46209DF69400A79ECD /* BaseCollectionReusableView.m in Sources */,
@@ -1811,6 +1850,7 @@
 				4BE9FDEE208630070020B755 /* UIView+KKCore.m in Sources */,
 				4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */,
 				04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */,
+				4B4DDE8620A096F8001A5132 /* LRLTouchView.m in Sources */,
 				04C14C4E20881769000A7951 /* PushSectionHeader.m in Sources */,
 				04C14C4B20881758000A7951 /* PushHeader.m in Sources */,
 			);
