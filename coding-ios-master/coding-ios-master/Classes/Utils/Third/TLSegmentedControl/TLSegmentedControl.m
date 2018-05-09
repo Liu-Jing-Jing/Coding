@@ -247,7 +247,7 @@
     
     [self setOffsetX:_offsetX];
 }
--(void)setSegmentedTitles:(NSArray *)segmentedTitles {
+-(void)setSegmentedTitles:(NSArray<LRLChannelUnitModel *> *)segmentedTitles {
     _segmentedTitles = segmentedTitles;
     
     [self.btns removeAllObjects];
@@ -259,9 +259,9 @@
     }
     
     NSInteger i = 0;
-    for (NSString *title in self.segmentedTitles) {
+    for (LRLChannelUnitModel *model in self.segmentedTitles) {
         JLSegmentedButton *segBtn = [JLSegmentedButton buttonWithType:UIButtonTypeCustom];
-        [segBtn setTitle:title forState:UIControlStateNormal];
+        [segBtn setTitle:model.name forState:UIControlStateNormal];
         [segBtn setTitleColor:UIColorFromHEX(0x666666) forState:UIControlStateNormal];
         [segBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
         [segBtn.titleLabel setFont:[UIFont systemFontOfSize:adjustFont(12)]];

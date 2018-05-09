@@ -7,6 +7,7 @@
 //
 
 #import "BaseView.h"
+#import "LRLChannelUnitModel.h"
 
 #pragma mark - 代理
 @protocol StoreHeaderDelegate<NSObject>
@@ -24,7 +25,7 @@
 // 代理
 @property (nonatomic, weak  ) id<StoreHeaderDelegate> delegate;
 // 文本
-@property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSArray<LRLChannelUnitModel *> *titles;
 // 导航栏
 @property (nonatomic, strong) TLSegmentedControl *segmentBar;
 // 搜索栏

@@ -11,6 +11,7 @@
 #import "StoreScroll.h"
 #import "StoreCollection.h"
 #import "LRLChannelEditController.h"
+#import "LRLChannelUnitModel.h"
 
 #pragma mark - 声明
 @interface StoreView ()<StoreHeaderDelegate, StoreScrollDelegate>
@@ -20,7 +21,11 @@
 // 内容
 @property (nonatomic, strong) StoreScroll *content;
 // 文本
-@property (nonatomic, strong) NSMutableArray<NSString *> *titles;
+@property (nonatomic, strong) NSMutableArray<LRLChannelUnitModel *> *titles;
+
+@property (nonatomic, strong) NSMutableArray *topChannelArr;
+@property (nonatomic, strong) NSMutableArray *bottomChannelArr;
+@property (nonatomic, assign) NSInteger chooseIndex;
 
 @end
 
@@ -37,33 +42,24 @@
     [self header];
     [self content];
 }
+- (NSMutableArray *)topChannelArr {
+    if (!_topChannelArr) {
+        _topChannelArr = [NSMutableArray arrayWithArray:[NSArray getTopChannelArr]];
+    }
+    return _topChannelArr;
+}
+- (NSMutableArray *)bottomChannelArr {
+    if (!_bottomChannelArr) {
+        _bottomChannelArr = [NSMutableArray arrayWithArray:[NSArray getBottomChannelArr]];
+    }
+    return _bottomChannelArr;
+}
 - (StoreHeader *)header {
     if (!_header) {
         _header = [StoreHeader initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
         _header.delegate = self;
         _header.titles = self.titles;
-        [_header.seg addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-            
-            LRLChannelEditController *channelEdit = [[LRLChannelEditController alloc] initWithTopDataSource:self.topChannelArr andBottomDataSource:self.bottomChannelArr andInitialIndex:self.chooseIndex];
-            channelEdit.fixedCount = 2;
-            
-            //编辑后的回调
-            __weak StoreView *weakSelf = self;
-            channelEdit.removeInitialIndexBlock = ^(NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
-                weakSelf.topChannelArr = topArr;
-                weakSelf.bottomChannelArr = bottomArr;
-                NSLog(@"删除了初始选中项的回调:\n保留的频道有: %@", topArr);
-            };
-            channelEdit.chooseIndexBlock = ^(NSInteger index, NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
-                weakSelf.topChannelArr = topArr;
-                weakSelf.bottomChannelArr = bottomArr;
-                weakSelf.chooseIndex = index;
-                NSLog(@"选中了某一项的回调:\n保留的频道有: %@, 选中第%ld个频道", topArr, index);
-            };
-            
-            channelEdit.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self.viewController presentViewController:channelEdit animated:YES completion:nil];
-        }];
+        [_header.seg addTarget:self action:@selector(pushController) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_header];
     }
     return _header;
@@ -83,16 +79,34 @@
     }
     return _content;
 }
-- (NSMutableArray<NSString *> *)titles {
+- (NSMutableArray<LRLChannelUnitModel *> *)titles {
     if (!_titles) {
-        _titles = [[NSMutableArray alloc] init];
-        [_titles addObject:@"精选"];
-        [_titles addObject:@"男生"];
-        [_titles addObject:@"女生"];
-        [_titles addObject:@"出版"];
-        [_titles addObject:@"免费"];
+        _titles = [NSMutableArray arrayWithArray:[NSArray getTopChannelArr]];
     }
     return _titles;
+}
+
+
+- (void)pushController {
+    __weak typeof(self) weak = self;
+    LRLChannelEditController *channelEdit = [[LRLChannelEditController alloc] initWithTopDataSource:weak.topChannelArr andBottomDataSource:weak.bottomChannelArr andInitialIndex:weak.chooseIndex];
+    channelEdit.fixedCount = 2;
+    
+    channelEdit.removeInitialIndexBlock = ^(NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
+        [weak setTopChannelArr:topArr];
+        [weak setBottomChannelArr:bottomArr];
+        [weak.header setTitles:topArr];
+        [weak.header.seg addTarget:self action:@selector(pushController) forControlEvents:UIControlEventTouchUpInside];
+        [weak.content setTitles:topArr];
+        NSLog(@"删除了初始选中项的回调:\n保留的频道有: %@", topArr);
+    };
+    channelEdit.chooseIndexBlock = ^(NSInteger index, NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
+        weak.topChannelArr = topArr;
+        weak.bottomChannelArr = bottomArr;
+        weak.chooseIndex = index;
+        NSLog(@"选中了某一项的回调:\n保留的频道有: %@, 选中第%ld个频道", topArr, index);
+    };
+    [self.viewController presentViewController:channelEdit animated:YES completion:nil];
 }
 
 #pragma mark - StoreHeaderDelegate

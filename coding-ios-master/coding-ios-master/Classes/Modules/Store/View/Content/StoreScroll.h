@@ -7,6 +7,7 @@
 //
 
 #import "BaseView.h"
+#import "LRLChannelUnitModel.h"
 
 
 #pragma mark - 代理
@@ -29,7 +30,7 @@
 // 代理
 @property (nonatomic, weak  ) id<StoreScrollDelegate> delegate;
 // 文本
-@property (nonatomic, strong) NSArray<NSString *> *titles;
+@property (nonatomic, strong) NSArray<LRLChannelUnitModel *> *titles;
 //
 @property (nonatomic, strong) UIScrollView *pageScrollView;
 

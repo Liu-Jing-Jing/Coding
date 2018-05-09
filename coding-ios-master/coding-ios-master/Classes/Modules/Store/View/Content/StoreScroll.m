@@ -42,8 +42,10 @@
     }
     return _pageScrollView;
 }
-- (void)setTitles:(NSArray<NSString *> *)titles {
+- (void)setTitles:(NSArray<LRLChannelUnitModel *> *)titles {
+    [_pageScrollView removeAllSubviews];
     [self.contents removeAllObjects];
+    
     _titles = titles;
     for (int i=0; i<titles.count; i++) {
         StoreCollection *collection = [StoreCollection initWithFrame:CGRectMake(i * _pageScrollView.width, 0, _pageScrollView.width, _pageScrollView.height)];
@@ -52,6 +54,7 @@
         [self.contents addObject:collection];
     }
     [_pageScrollView setContentSize:CGSizeMake(ScreenWidth * titles.count, 0)];
+    [_pageScrollView setContentOffset:CGPointZero];
 }
 - (NSMutableArray *)contents {
     if (!_contents) {

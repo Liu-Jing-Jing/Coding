@@ -16,6 +16,7 @@
 		042CA106209199F10067FDD1 /* DiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CA105209199F10067FDD1 /* DiscoveryService.m */; };
 		042CA10A20919A270067FDD1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CA10920919A270067FDD1 /* DiscoveryModel.m */; };
 		043CEB4C20915B1A004BE1D9 /* ArticleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 043CEB4B20915B1A004BE1D9 /* ArticleService.m */; };
+		0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442A39320A124AC00F22D8A /* NSArray+Project.m */; };
 		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
@@ -42,6 +43,11 @@
 		04DDE6B5209081ED005F1545 /* ArticleCollectionIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DDE6B3209081ED005F1545 /* ArticleCollectionIconCell.xib */; };
 		04DF10202088790C00462250 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF101F2088790C00462250 /* ContentController.m */; };
 		04DF10232088792400462250 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF10222088792400462250 /* ContentView.m */; };
+		04E1E04320A27374009ADED4 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1E04220A27374009ADED4 /* DetailController.m */; };
+		04E1E04620A27387009ADED4 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1E04520A27387009ADED4 /* DetailView.m */; };
+		04E1E04D20A2760C009ADED4 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1E04C20A2760C009ADED4 /* DetailView.xib */; };
+		04E1E05020A2774F009ADED4 /* DetailContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1E04F20A2774F009ADED4 /* DetailContent.m */; };
+		04E1E05220A2783F009ADED4 /* DetailContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1E05120A2783F009ADED4 /* DetailContent.xib */; };
 		4B06988420935D0500A72077 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B06986120935D0500A72077 /* HomeController.m */; };
 		4B06988520935D0500A72077 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B06986520935D0500A72077 /* HomeModel.m */; };
 		4B06988620935D0500A72077 /* HomeSectionFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B06986920935D0500A72077 /* HomeSectionFooter.m */; };
@@ -165,6 +171,8 @@
 		042CA10920919A270067FDD1 /* DiscoveryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryModel.m; sourceTree = "<group>"; };
 		043CEB4A20915B1A004BE1D9 /* ArticleService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleService.h; sourceTree = "<group>"; };
 		043CEB4B20915B1A004BE1D9 /* ArticleService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleService.m; sourceTree = "<group>"; };
+		0442A39220A124AC00F22D8A /* NSArray+Project.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Project.h"; sourceTree = "<group>"; };
+		0442A39320A124AC00F22D8A /* NSArray+Project.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Project.m"; sourceTree = "<group>"; };
 		04554F432089B1C800BEC435 /* KKEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKEmptyView.h; sourceTree = "<group>"; };
 		04554F442089B1C800BEC435 /* KKEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKEmptyView.m; sourceTree = "<group>"; };
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
@@ -218,6 +226,14 @@
 		04DF101F2088790C00462250 /* ContentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = "<group>"; };
 		04DF10212088792400462250 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		04DF10222088792400462250 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		04E1E04120A27374009ADED4 /* DetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
+		04E1E04220A27374009ADED4 /* DetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
+		04E1E04420A27387009ADED4 /* DetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		04E1E04520A27387009ADED4 /* DetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
+		04E1E04C20A2760C009ADED4 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		04E1E04E20A2774F009ADED4 /* DetailContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailContent.h; sourceTree = "<group>"; };
+		04E1E04F20A2774F009ADED4 /* DetailContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailContent.m; sourceTree = "<group>"; };
+		04E1E05120A2783F009ADED4 /* DetailContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailContent.xib; sourceTree = "<group>"; };
 		17D8745DF5456539CEBD9B92 /* Pods-coding-ios-master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coding-ios-master.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coding-ios-master/Pods-coding-ios-master.debug.xcconfig"; sourceTree = "<group>"; };
 		4B06986120935D0500A72077 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		4B06986220935D0500A72077 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
@@ -574,6 +590,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		0442A39120A1249E00F22D8A /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				0442A39220A124AC00F22D8A /* NSArray+Project.h */,
+				0442A39320A124AC00F22D8A /* NSArray+Project.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
 		04554F422089B1B200BEC435 /* KKEmptyView */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +787,45 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04E1E03D20A27362009ADED4 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				04E1E03E20A27362009ADED4 /* Controller */,
+				04E1E03F20A27362009ADED4 /* Model */,
+				04E1E04020A27362009ADED4 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		04E1E03E20A27362009ADED4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04E1E04120A27374009ADED4 /* DetailController.h */,
+				04E1E04220A27374009ADED4 /* DetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04E1E03F20A27362009ADED4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04E1E04020A27362009ADED4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04E1E04420A27387009ADED4 /* DetailView.h */,
+				04E1E04520A27387009ADED4 /* DetailView.m */,
+				04E1E04C20A2760C009ADED4 /* DetailView.xib */,
+				04E1E04E20A2774F009ADED4 /* DetailContent.h */,
+				04E1E04F20A2774F009ADED4 /* DetailContent.m */,
+				04E1E05120A2783F009ADED4 /* DetailContent.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04EEDF1B2091E79200CDD14E /* SectionHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -914,14 +978,14 @@
 			children = (
 				4B4DDE7C20A096F8001A5132 /* LRLChannelEditController.h */,
 				4B4DDE7820A096F8001A5132 /* LRLChannelEditController.m */,
+				4B4DDE8120A096F8001A5132 /* LRLChannelEditController.xib */,
+				4B4DDE7D20A096F8001A5132 /* LRLChannelUnitModel.h */,
 				4B4DDE7920A096F8001A5132 /* LRLChannelUnitModel.m */,
 				4B4DDE7A20A096F8001A5132 /* UIImage+LRLBundle.h */,
-				4B4DDE7B20A096F8001A5132 /* LRLTouchView.h */,
-				4B4DDE7D20A096F8001A5132 /* LRLChannelUnitModel.h */,
-				4B4DDE7E20A096F8001A5132 /* LRLChannelEdit.bundle */,
 				4B4DDE7F20A096F8001A5132 /* UIImage+LRLBundle.m */,
+				4B4DDE7B20A096F8001A5132 /* LRLTouchView.h */,
 				4B4DDE8020A096F8001A5132 /* LRLTouchView.m */,
-				4B4DDE8120A096F8001A5132 /* LRLChannelEditController.xib */,
+				4B4DDE7E20A096F8001A5132 /* LRLChannelEdit.bundle */,
 			);
 			path = LRLChannelEdit;
 			sourceTree = "<group>";
@@ -1324,6 +1388,7 @@
 		4BE9FD17208630070020B755 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0442A39120A1249E00F22D8A /* NSArray */,
 				0495ABD72092C7E800BC963E /* NSAttributedString */,
 				0495ABD32092C7DA00BC963E /* UITextField */,
 				4BD2B1EB20863EB700E31A21 /* UICollectionView */,
@@ -1453,6 +1518,7 @@
 				0402B33C209A8C45004A13AD /* Store */,
 				0402B340209A8C52004A13AD /* Find */,
 				4BB1E4282087969E0066B80A /* Mine */,
+				04E1E03D20A27362009ADED4 /* Detail */,
 				4BE9FD54208630070020B755 /* Home */,
 				4BB1E4032087854A0066B80A /* Article */,
 				4BB1E4322087988F0066B80A /* Push */,
@@ -1640,12 +1706,14 @@
 				4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */,
 				4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */,
 				4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */,
+				04E1E05220A2783F009ADED4 /* DetailContent.xib in Resources */,
 				4B4DDE8720A096F8001A5132 /* LRLChannelEditController.xib in Resources */,
 				4B8B354D209F06790065E540 /* MineCell.xib in Resources */,
 				4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */,
 				4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */,
 				04DDE6B0209081E1005F1545 /* ArticleCollectionNameCell.xib in Resources */,
 				04DDE6B5209081ED005F1545 /* ArticleCollectionIconCell.xib in Resources */,
+				04E1E04D20A2760C009ADED4 /* DetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1767,6 +1835,7 @@
 				0402B34F209A8DDE004A13AD /* StoreController.m in Sources */,
 				4BE9FE0B208630070020B755 /* WelcomeController.m in Sources */,
 				4BB1E408208785600066B80A /* ArticleController.m in Sources */,
+				04E1E04320A27374009ADED4 /* DetailController.m in Sources */,
 				4BE9FE31208630070020B755 /* BaseView.m in Sources */,
 				0402B346209A8C98004A13AD /* ShelfController.m in Sources */,
 				4BB1E4112087863E0066B80A /* ArticleCollectionLayout.m in Sources */,
@@ -1816,11 +1885,13 @@
 				4BE9FDEA208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				4B06988620935D0500A72077 /* HomeSectionFooter.m in Sources */,
 				4BE9FDF4208630070020B755 /* UITableView+Extension.m in Sources */,
+				04E1E05020A2774F009ADED4 /* DetailContent.m in Sources */,
 				4BE9FDFA208630070020B755 /* HelperUtil.m in Sources */,
 				4BB1E4172087893D0066B80A /* SectionHeader.m in Sources */,
 				4BE9FDE9208630070020B755 /* UIImage+Extension.m in Sources */,
 				4B8E9E782092099A0017A5E4 /* DiscoveryCollectionHotCell.m in Sources */,
 				4B06988420935D0500A72077 /* HomeController.m in Sources */,
+				04E1E04620A27387009ADED4 /* DetailView.m in Sources */,
 				04C14C3F20881709000A7951 /* PushCollectionHotCell.m in Sources */,
 				4BE9FDF5208630070020B755 /* CALayer+Extension.m in Sources */,
 				04DF10232088792400462250 /* ContentView.m in Sources */,
@@ -1848,6 +1919,7 @@
 				4BE9FE2D208630070020B755 /* BaseViewController.m in Sources */,
 				4BE9FDEF208630070020B755 /* UIView+XWAddForRoundedCorner.m in Sources */,
 				4BE9FDEE208630070020B755 /* UIView+KKCore.m in Sources */,
+				0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */,
 				4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */,
 				04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */,
 				4B4DDE8620A096F8001A5132 /* LRLTouchView.m in Sources */,

@@ -11,7 +11,7 @@
 
 @implementation LRLTouchView
 
--(float)getTextSizeWithInOrOut:(BOOL)inOrOut{
+- (float)getTextSizeWithInOrOut:(BOOL)inOrOut {
     if (inOrOut) {
         return 15.0;
     }else{
@@ -19,7 +19,7 @@
     }
 }
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
         self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.bounds.size.width - 10, self.bounds.size.height - 10)];
@@ -31,8 +31,8 @@
         self.contentLabel.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
         self.contentLabel.layer.cornerRadius = (self.bounds.size.height - 10) / 2;
         self.contentLabel.layer.masksToBounds = YES;
-        self.contentLabel.layer.borderWidth = 1;
-        self.contentLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        self.contentLabel.layer.borderWidth = 1 / ScreenScale;
+        self.contentLabel.layer.borderColor = ColorTextThin.CGColor;
         [self addSubview:self.contentLabel];
         
         self.closeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width - 16.5, 1.5, 15, 15)];

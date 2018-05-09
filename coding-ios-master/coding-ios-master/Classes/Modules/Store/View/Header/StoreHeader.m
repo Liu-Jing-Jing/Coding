@@ -107,8 +107,12 @@
 }
 
 #pragma mark - 设置
-- (void)setTitles:(NSArray *)titles {
+- (void)setTitles:(NSArray<LRLChannelUnitModel *> *)titles {
     _titles = titles;
+    [_segmentBar removeFromSuperview];
+    _segmentBar = nil;
+    [_seg removeFromSuperview];
+    _seg = nil;
     [self segmentBar];
     [self seg];
 }

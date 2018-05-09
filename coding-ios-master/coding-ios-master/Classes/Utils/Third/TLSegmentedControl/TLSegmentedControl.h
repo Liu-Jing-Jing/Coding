@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LRLChannelUnitModel.h"
 
 @class TLSegmentedControl;
 
@@ -16,7 +17,7 @@
 
 @interface TLSegmentedControl : UIView
 // 标题
-@property(nonatomic,strong)NSArray *segmentedTitles;
+@property(nonatomic,strong)NSArray<LRLChannelUnitModel *> *segmentedTitles;
 //for indicatorBar scroll
 @property(nonatomic,assign)CGFloat offsetX;
 //current index

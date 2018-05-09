@@ -13,16 +13,14 @@
 
 //左右边距
 #define EdgeX 5
-#define TopEdge 30
+#define TopEdge 10
 
 //每行频道的个数
 #define ButtonCountOneRow 4
 #define ButtonHeight (ButtonWidth / 2)
 #define LocationWidth (ScreenWidth - EdgeX * 2)
 #define ButtonWidth (LocationWidth/ButtonCountOneRow)
-#define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
-#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
-#define TitleSize 12.0
+#define TitleSize adjustFont(12)
 #define EditTextSize 9.0
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -70,7 +68,7 @@
     }
     return self;
 }
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColorFromRGB(0xf5f5f5);
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -84,9 +82,9 @@
     
     //上面的标题
     self.topLabel.text = @"我的栏目";
-    self.topLabel.font = [UIFont boldSystemFontOfSize:TitleSize];
+    self.topLabel.font = [UIFont systemFontOfSize:TitleSize];
     
-    self.editAlertLabel.textColor = UIColorFromRGB(0xc0c0c0);
+//    self.editAlertLabel.textColor = UIColorFromRGB(0xc0c0c0);
     self.editAlertLabel.font = [UIFont systemFontOfSize:EditTextSize];
     self.editAlertLabel.hidden = YES;
     
@@ -99,10 +97,12 @@
         LRLChannelUnitModel *model = self.topDataSource[i];
         touchView.contentLabel.text = model.name;
         if (i < self.fixedCount) { //位于前两个的频道不添加任何手势, 并且文字颜色为灰色
-            touchView.contentLabel.textColor = UIColorFromRGB(0xc0c0c0);
+//            touchView.contentLabel.textColor = UIColorFromRGB(0xc0c0c0);
+            touchView.contentLabel.layer.borderWidth = 0;
             touchView.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(defaultTopTap:)];
             [touchView addGestureRecognizer:touchView.tap];
-        }else{
+        } else {
+            touchView.contentLabel.layer.borderWidth = 1 / ScreenScale;
             touchView.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topTapAct:)];
             [touchView addGestureRecognizer:touchView.tap];
             
@@ -128,7 +128,7 @@
     self.bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,TopEdge + 25 + self.topHeight, 150, 20)];
     self.bottomLabel.textAlignment = NSTextAlignmentLeft;
     self.bottomLabel.text = @"点击添加更过栏目";
-    self.bottomLabel.font = [UIFont systemFontOfSize:TitleSize];
+    self.bottomLabel.font = [UIFont systemFontOfSize:TitleSize weight:UIFontWeightThin];
     self.bottomLabel.textColor = [UIColor grayColor];
     [self.scrollView addSubview:self.bottomLabel];
     
@@ -507,15 +507,17 @@
 #pragma mark - 进入或者退出编辑状态
 -(void)inOrOutEditWithEditing:(BOOL)isEditing{
     if (isEditing) {
-        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"finsh"] forState:UIControlStateNormal];
-        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"finsh-1"] forState:UIControlStateHighlighted];
+        [self.editButton setTitle:@"完成" forState:UIControlStateNormal];
+        [self.editButton setTitle:@"完成" forState:UIControlStateHighlighted];
+//        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"finsh"] forState:UIControlStateNormal];
+//        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"finsh-1"] forState:UIControlStateHighlighted];
         
         if (self.initalTouchView) {
-            if (self.locationIndex > 1) {
-                self.initalTouchView.contentLabel.textColor = UIColorFromRGB(0X333333);
-            }else{
-                self.initalTouchView.contentLabel.textColor = UIColorFromRGB(0xc0c0c0);
-            }
+//            if (self.locationIndex > 1) {
+//                self.initalTouchView.contentLabel.textColor = UIColorFromRGB(0X333333);
+//            }else{
+//                self.initalTouchView.contentLabel.textColor = UIColorFromRGB(0xc0c0c0);
+//            }
         }
         
         self.editAlertLabel.hidden = YES;
@@ -528,8 +530,10 @@
             }
         }
     }else{
-        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"reorder"] forState:UIControlStateNormal];
-        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"reorder-1"] forState:UIControlStateHighlighted];
+        [self.editButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [self.editButton setTitle:@"编辑" forState:UIControlStateHighlighted];
+//        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"reorder"] forState:UIControlStateNormal];
+//        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"reorder-1"] forState:UIControlStateHighlighted];
         
         if (self.initalTouchView && self.initialIndexModel.isTop) {
             self.initalTouchView.contentLabel.textColor = UIColorFromRGB(0x008dff);
@@ -560,7 +564,7 @@
                 self.chooseIndexBlock([self.topDataSource indexOfObject:self.initialIndexModel], self.topDataSource, self.bottomDataSource);
             }
         }
-    }else{
+    } else {
         if (self.removeInitialIndexBlock) {
             self.removeInitialIndexBlock(self.topDataSource, self.bottomDataSource);
         }
