@@ -11,5 +11,6 @@
 @interface DetailView : BaseView
 
 + (instancetype)init;
+- (void)show;
 
 @end

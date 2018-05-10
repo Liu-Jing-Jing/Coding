@@ -23,21 +23,31 @@
 
 #pragma mark - 初始化
 + (instancetype)init {
-    DetailView *view = [DetailView loadCode:ScreenBounds];
+    DetailView *view = [DetailView loadLastNib:ScreenBounds];
     [view createView];
     return view;
 }
 - (void)createView {
+    [self setHidden:YES];
     [self content];
 }
 - (DetailContent *)content {
     if (!_content) {
-        _content = [DetailContent initWithFrame:CGRectMake(0, 0, ScreenWidth, 200)];
+        _content = [DetailContent loadLastNib:CGRectMake(0, ScreenHeight, ScreenWidth, 500)];
         [_scroll addSubview:_content];
     }
     return _content;
 }
 
+
+- (void)show {
+    [self setHidden:NO];
+    __weak typeof(self) weak = self;
+    [UIView animateWithDuration:.3f animations:^{
+        [weak.shadow setAlpha:0.3];
+        [weak.content setTop:0];
+    }];
+}
 
 
 @end
