@@ -15,6 +15,7 @@
 @interface ShelfController ()
 
 @property (nonatomic, strong) ShelfView *shelf;
+@property (nonatomic, strong) DetailView *detailView;
 
 @end
 
@@ -23,7 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _detailView = [DetailView init];
+    [self.view addSubview:_detailView];
 }
 //- (void)loadView {
 //    self.view = [self shelf];
@@ -36,9 +38,8 @@
 //}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    DetailView *vc = [DetailView init];
-    [self.view addSubview:vc];
-    [vc show];
+    
+    [_detailView show];
 }
 
 @end

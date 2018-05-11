@@ -35,7 +35,7 @@
 //    };
     
     [self setValue:tabBar forKey:@"tabBar"];
-    [self setSelectedIndex:1];
+    [self setSelectedIndex:0];
     
     
 //    UIColor *color = [UIColor whiteColor];

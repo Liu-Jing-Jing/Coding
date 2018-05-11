@@ -18,6 +18,8 @@
 		043CEB4C20915B1A004BE1D9 /* ArticleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 043CEB4B20915B1A004BE1D9 /* ArticleService.m */; };
 		0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442A39320A124AC00F22D8A /* NSArray+Project.m */; };
 		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
+		0470C71920A51B3200A83501 /* DetailContentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0470C71820A51B3200A83501 /* DetailContentBar.m */; };
+		0470C71B20A51B6F00A83501 /* DetailContentBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0470C71A20A51B6F00A83501 /* DetailContentBar.xib */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
 		0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD52092C7DA00BC963E /* UITextField+Extension.m */; };
@@ -175,6 +177,9 @@
 		0442A39320A124AC00F22D8A /* NSArray+Project.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Project.m"; sourceTree = "<group>"; };
 		04554F432089B1C800BEC435 /* KKEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKEmptyView.h; sourceTree = "<group>"; };
 		04554F442089B1C800BEC435 /* KKEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKEmptyView.m; sourceTree = "<group>"; };
+		0470C71720A51B3200A83501 /* DetailContentBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailContentBar.h; sourceTree = "<group>"; };
+		0470C71820A51B3200A83501 /* DetailContentBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailContentBar.m; sourceTree = "<group>"; };
+		0470C71A20A51B6F00A83501 /* DetailContentBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailContentBar.xib; sourceTree = "<group>"; };
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
 		0478B2BE2087588100213353 /* UIViewController+LLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLAdd.m"; sourceTree = "<group>"; };
 		0478B2BF2087588100213353 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
@@ -819,6 +824,9 @@
 				04E1E04420A27387009ADED4 /* DetailView.h */,
 				04E1E04520A27387009ADED4 /* DetailView.m */,
 				04E1E04C20A2760C009ADED4 /* DetailView.xib */,
+				0470C71720A51B3200A83501 /* DetailContentBar.h */,
+				0470C71820A51B3200A83501 /* DetailContentBar.m */,
+				0470C71A20A51B6F00A83501 /* DetailContentBar.xib */,
 				04E1E04E20A2774F009ADED4 /* DetailContent.h */,
 				04E1E04F20A2774F009ADED4 /* DetailContent.m */,
 				04E1E05120A2783F009ADED4 /* DetailContent.xib */,
@@ -1712,6 +1720,7 @@
 				4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */,
 				4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */,
 				04DDE6B0209081E1005F1545 /* ArticleCollectionNameCell.xib in Resources */,
+				0470C71B20A51B6F00A83501 /* DetailContentBar.xib in Resources */,
 				04DDE6B5209081ED005F1545 /* ArticleCollectionIconCell.xib in Resources */,
 				04E1E04D20A2760C009ADED4 /* DetailView.xib in Resources */,
 			);
@@ -1829,6 +1838,7 @@
 				0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */,
 				4BE9FD0E20862FCA0020B755 /* main.m in Sources */,
 				4B8B355A209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m in Sources */,
+				0470C71920A51B3200A83501 /* DetailContentBar.m in Sources */,
 				04DDE6AF209081E1005F1545 /* ArticleCollectionNameCell.m in Sources */,
 				4BE9FDFB208630070020B755 /* SaveUtils.m in Sources */,
 				042CA10A20919A270067FDD1 /* DiscoveryModel.m in Sources */,
