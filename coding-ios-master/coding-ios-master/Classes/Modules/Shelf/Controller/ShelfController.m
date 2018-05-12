@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _detailView = [DetailView init];
-    [self.view addSubview:_detailView];
 }
 //- (void)loadView {
 //    self.view = [self shelf];

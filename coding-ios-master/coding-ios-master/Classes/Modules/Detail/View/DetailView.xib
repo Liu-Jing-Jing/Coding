@@ -21,6 +21,9 @@
                 </view>
                 <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFZ-Sb-n5U">
                     <rect key="frame" x="0.0" y="200" width="368" height="383"/>
+                    <connections>
+                        <outlet property="delegate" destination="D3y-bS-gXF" id="g28-JS-fm8"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <constraints>

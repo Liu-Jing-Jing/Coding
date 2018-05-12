@@ -10,6 +10,10 @@
 
 @interface DetailContent : BaseView
 
+// 图标
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+
 + (instancetype)initWithFrame:(CGRect)frame;
+- (void)shadowAlphaWithContentOffsetY:(CGFloat)y;
 
 @end

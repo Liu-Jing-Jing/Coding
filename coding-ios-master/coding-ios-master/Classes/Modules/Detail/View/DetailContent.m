@@ -13,8 +13,6 @@
 
 // 背景
 @property (weak, nonatomic) IBOutlet UIView *bg;
-// 图标
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
 // 姓名
 @property (weak, nonatomic) IBOutlet UILabel *name;
 // 作者

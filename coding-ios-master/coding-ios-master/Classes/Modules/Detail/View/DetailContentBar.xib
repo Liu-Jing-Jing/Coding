@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cSR-9V-1lS">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cSR-9V-1lS" customClass="DetailContentBar">
             <rect key="frame" x="0.0" y="0.0" width="399" height="79"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -43,7 +43,7 @@
                     <state key="normal" title="Button"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Jlk-77-lP2" firstAttribute="leading" secondItem="cSR-9V-1lS" secondAttribute="leading" id="171-Su-jUh"/>
                 <constraint firstItem="NVI-lk-r4h" firstAttribute="top" secondItem="nxE-Ub-J7b" secondAttribute="top" id="1R6-vy-lTB"/>
