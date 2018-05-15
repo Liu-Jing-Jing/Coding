@@ -22,16 +22,17 @@
     _allowPanBack = YES;
     self.navigationController.jz_navigationBarTransitionStyle = JZNavigationBarTransitionStyleSystem;
     self.navigationController.jz_navigationBarSize = CGSizeMake(ScreenWidth, 100);
+    [self setJz_navigationBarTintColor:ColorTextHeavy];
 }
 - (void)setNavTitle:(NSString *)navTitle {
     _navTitle = navTitle;
-    UIFont *font = [UIFont boldSystemFontOfSize:adjustFont(18)];
+    UIFont *font = [UIFont boldSystemFontOfSize:adjustFont(16)];
     CGSize maxSize = [navTitle sizeWithMaxSize:CGSizeMake(MAXFLOAT, 0) font:font];
     UIButton *btn = ({
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.titleLabel.font = font;
         [btn setFrame:CGRectMake(0, 0, maxSize.width, 40)];
-        [btn setTitleColor:MediumColor forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btn setTitle:navTitle forState:UIControlStateNormal];
         btn;
     });
@@ -174,11 +175,11 @@
 
 
 - (void)hideNavigationBarLine {
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 - (void)showNavigationBarLine {
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
 

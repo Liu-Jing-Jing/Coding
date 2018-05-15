@@ -7,138 +7,214 @@
 //
 
 #import "KKEmptyView.h"
-#import "UIView+Watch.h"
 
 #pragma mark - 声明
 @interface KKEmptyView ()
 
-@property (nonatomic, strong) UIView *icon;
-@property (nonatomic, strong) UIView *title;
-@property (nonatomic, strong) UIView *timeIcon;
-@property (nonatomic, strong) UIView *timeText;
-@property (nonatomic, strong) UIView *authorIcon;
-@property (nonatomic, strong) UIView *authorText;
-@property (nonatomic, strong) UIView *link;
+@property (strong, nonatomic) EmptyViewEventBlock eventBlock;   // 点击事件处理
+@property (nonatomic, assign) EmptyViewType emptyViewType;      // 空界面类型枚举
+@property (weak  , nonatomic) UIView *inView;
+@property (nonatomic, strong) UIButton *back;       // 返回按钮
+@property (nonatomic, strong) UILabel *title;       // 描述文字
+@property (nonatomic, strong) UIImageView *icon;    // 图片
+@property (nonatomic, strong) UIButton *dosome;     // 按钮
+
+@property (nonatomic, assign, getter=isDisplay) BOOL display;    // 是否显示
 
 @end
 
 #pragma mark - 实现
 @implementation KKEmptyView
 
-#pragma mark - 操作
-- (void)show {
-    [UIView animateWithDuration:.3f animations:^{
-        self.alpha = 1;
-    }];
-}
-- (void)hide {
-    [UIView animateWithDuration:.3f animations:^{
-        self.alpha = 0;
-    }];
-}
-
 #pragma mark - 初始化
-+ (instancetype)initWithFrame:(CGRect)frame {
-    KKEmptyView *view = [[KKEmptyView alloc] initWithFrame:frame];
-    [view setBackgroundColor:[UIColor whiteColor]];
-    [view icon];
-    [view title];
-    [view timeIcon];
-    [view timeText];
-    [view authorIcon];
-    [view authorText];
-    [view link];
-    [view createContent];
-    return view;
-}
-- (void)createContent {
-    CGFloat maxHeight = CGRectGetMaxY(_link.frame) + countcoordinatesY(10);
-    int count = 0;
-    while (maxHeight < ScreenHeight) {
-        if (count % 4 == 0) {
-            UIView *line = [self createView:maxHeight left:countcoordinatesX(10) height:1];
-            [self addSubview:line];
-            maxHeight = CGRectGetMaxY(line.frame) + countcoordinatesY(10);
-        }
-        CGFloat left = count % 4 == 0 ? countcoordinatesX(50) : countcoordinatesX(10);
-        UIView *view = [self createView:maxHeight left:left height:countcoordinatesY(10)];
-        [view cornerClipRadius:1];
-        [self addSubview:view];
-        maxHeight = CGRectGetMaxY(view.frame) + countcoordinatesY(10);
-        
-        count += 1;
+- (instancetype)initEmptyViewType:(EmptyViewType)emptyViewType showInView:(UIView *)view eventBlock:(EmptyViewEventBlock)eventBlock {
+    if (self = [super init]) {
+        self.inView = view;
+        self.eventBlock = eventBlock;
+        self.emptyViewType = emptyViewType;
+        [self initView];
     }
+    return self;
 }
-- (UIView *)createView:(CGFloat)maxHeight left:(CGFloat)left height:(CGFloat)height {
-    UIView *line = [[UIView alloc] initWithFrame:({
-        CGRectMake(left, maxHeight, ScreenWidth - left - countcoordinatesX(10), height);
-    })];
-    [line setBackgroundColor:ThinColor];
-    return line;
+- (instancetype)initEmptyViewType:(EmptyViewType)emptyViewType showInView:(UIView *)view backButton:(BOOL)backButton eventBlock:(EmptyViewEventBlock)eventBlock {
+    KKEmptyView *single = [[KKEmptyView alloc] initEmptyViewType:emptyViewType showInView:view eventBlock:eventBlock];
+    if (backButton == YES) {
+        [single back];
+    }
+    return single;
 }
 
-- (UIView *)icon {
-    if (!_icon) {
-        _icon = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth / 2)];
-        _icon.backgroundColor = ThinColor;
-        [self addSubview:_icon];
+
+// 返回按钮
+- (UIButton *)back {
+    if (!_back) {
+        _back = [UIButton buttonWithType:UIButtonTypeCustom];
+        _back.frame = CGRectMake(countcoordinatesX(15), StatusBarHeight + countcoordinatesX(5), 30, 30);
+        _back.backgroundColor = [UIColor redColor];
+        __weak typeof(self) weak = self;
+        [_back addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            [weak.viewController.navigationController popViewControllerAnimated:YES];
+        }];
+        [self addSubview:_back];
     }
-    return _title;
+    return _back;
 }
-- (UIView *)title {
+// 标题
+- (UILabel *)title {
     if (!_title) {
-        _title = [[UIView alloc] initWithFrame:CGRectMake(countcoordinatesX(10), ScreenWidth / 2 + countcoordinatesY(10), ScreenWidth - countcoordinatesX(10) * 2, 0)];
-        _title.height = [@"123" sizeWithMaxSize:CGSizeMake(MAXFLOAT, 0) font:FontName(15)].height;
-        _title.backgroundColor = ThinColor;
-        [_title cornerClipRadius:1];
+        _title = [[UILabel alloc] init];
+        _title.textAlignment = NSTextAlignmentCenter;
+        _title.alpha = 0;
         [self addSubview:_title];
     }
     return _title;
 }
-- (UIView *)timeIcon {
-    if (!_timeIcon) {
-        _timeIcon = [[UIView alloc] initWithFrame:CGRectMake(countcoordinatesX(10), CGRectGetMaxY(_title.frame) + countcoordinatesY(10), 10, 10)];
-        _timeIcon.backgroundColor = ThinColor;
-        [_timeIcon cornerClipRadius:5];
-        [self addSubview:_timeIcon];
+// 图片
+- (UIImageView *)icon {
+    if (!_icon) {
+        _icon = [[UIImageView alloc] init];
+        _icon.userInteractionEnabled = YES;
+        _icon.alpha = 0;
+        [self addSubview:_icon];
     }
-    return _timeIcon;
+    return _icon;
 }
-- (UIView *)timeText {
-    if (!_timeText) {
-        _timeText = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_timeIcon.frame) + countcoordinatesX(5), CGRectGetMaxY(_title.frame) + countcoordinatesY(10), 40, 10)];
-        _timeText.backgroundColor = ThinColor;
-        [_timeText cornerClipRadius:1];
-        [self addSubview:_timeText];
+// 执行操作
+- (UIButton *)dosome {
+    if (!_dosome) {
+        _dosome = [UIButton buttonWithType:UIButtonTypeCustom];
+        _dosome.alpha = 0;
+        _dosome.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_dosome setTitleColor:ColorTextMedium forState:UIControlStateNormal];
+        [_dosome.layer setCornerRadius:3];
+        [_dosome cornerRadius:3 strokeSize:0.5 color:ColorTextMedium];
+        [self addSubview:_dosome];
     }
-    return _timeText;
+    return _dosome;
 }
-- (UIView *)authorIcon {
-    if (!_authorIcon) {
-        _authorIcon = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_timeText.frame) + countcoordinatesX(10), CGRectGetMaxY(_title.frame) + countcoordinatesY(10), 10, 10)];
-        _authorIcon.backgroundColor = ThinColor;
-        [_authorIcon cornerClipRadius:5];
-        [self addSubview:_authorIcon];
+
+// 设置控件 Layout
+- (void)createLayout:(EmptyViewLayoutType)type {
+    [self title];
+    [self icon];
+    [self dosome];
+    
+    CGFloat width = self.inView.width;
+    CGFloat height = self.inView.height;
+    
+    if (type == EmptyViewLayoutTypeTitle) {
+        _title.alpha = 1;
+        _icon.alpha = 0;
+        _dosome.alpha = 0;
+        _title.textColor = ColorTextMedium;
+        _title.font = [UIFont systemFontOfSize:15];
+        _title.frame = CGRectMake(0, 0, width, 20);
+        _title.center = CGPointMake(width / 2, height / 2 - 16);
     }
-    return _timeIcon;
+    else if (type == EmptyViewLayoutTypeTitleIcon) {
+        _title.alpha = 1;
+        _icon.alpha = 1;
+        _dosome.alpha = 0;
+        _title.textColor = ColorTextMedium;
+        _title.font = [UIFont systemFontOfSize:14];
+        
+        _title.frame = CGRectMake(0, 0, width, 20);
+        _title.center = CGPointMake(width / 2, height / 2 + 16);
+        _icon.frame = CGRectMake(0, 0, width / 3, width / 3);
+        _icon.centerX = width / 2;
+        _icon.bottom = _title.top - countcoordinatesX(14);
+    }
+    else if (type == EmptyViewLayoutTypeTitleIconButton) {
+        _title.alpha = 1;
+        _icon.alpha = 1;
+        _dosome.alpha = 1;
+        _title.textColor = ColorTextMedium;
+        _title.font = [UIFont systemFontOfSize:14];
+        
+        _title.frame = CGRectMake(0, 0, width, 20);
+        _title.center = CGPointMake(width / 2, height / 2);
+        _icon.frame = CGRectMake(0, 0, width / 3, width / 3);
+        _icon.centerX = width / 2;
+        _icon.bottom = _title.top - countcoordinatesX(14);
+        _dosome.frame = CGRectMake(0, 0, 100, 40);
+        _dosome.centerX = width / 2;
+        _dosome.top = _title.bottom + countcoordinatesX(28);
+    }
 }
-- (UIView *)authorText {
-    if (!_authorText) {
-        _authorText = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_authorIcon.frame) + countcoordinatesX(5), CGRectGetMaxY(_title.frame) + countcoordinatesY(10), 40, 10)];
-        _authorText.backgroundColor = ThinColor;
-        [_authorText cornerClipRadius:1];
-        [self addSubview:_authorText];
-    }
-    return _authorText;
+
+
+#pragma mark - 动画
+- (void)show {
+    _display = YES;
+    [self.inView setAlpha:0];
+    [self setFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    [self.inView addSubview:self];
+    [self.inView setAlpha:1];
 }
-- (UIView *)link {
-    if (!_link) {
-        _link = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_authorText.frame) + countcoordinatesX(10), CGRectGetMaxY(_title.frame) + countcoordinatesY(10), 40, 10)];
-        _link.backgroundColor = ThinColor;
-        [_link cornerClipRadius:1];
-        [self addSubview:_link];
+
+- (void)hide {
+    _display = NO;
+    [self removeFromSuperview];
+}
+
+#pragma mark - 生成视图内容的私有方法
+
+- (void)initView {
+    [self setBackgroundColor:ColorBg];
+    // 加载中……
+    if (self.emptyViewType == EmptyViewTypeLoading) {
+        // Layout
+        [self createLayout:EmptyViewLayoutTypeTitle];
+        // 数据
+        _title.text = @"数据加载中...";
     }
-    return _link;
+    // 网络连接出错
+    else if (self.emptyViewType == EmptyViewTypeNetFail) {
+        // Layout
+        [self createLayout:EmptyViewLayoutTypeTitleIcon];
+        // 数据
+        _title.text = @"网络连接出错";
+        _icon.image = [UIImage imageNamed:@"00currency_icon49"];
+        // 操作
+        __weak typeof(self) weak = self;
+        [_icon addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            if (weak.eventBlock) {
+                weak.eventBlock(EmptyViewEventTypeReload);
+            }
+        }];
+    }
+    // 暂无商品
+    else if (self.emptyViewType == EmptyViewTypeCart) {
+        // Layout
+        [self createLayout:EmptyViewLayoutTypeTitleIconButton];
+        // 数据
+        _title.text = @"您的购物车空空如也～";
+        _title.textColor = ColorTextMedium;
+        _icon.image = [UIImage imageNamed:@"00currency_icon48"];
+        [_dosome setTitle:@"去逛逛" forState:UIControlStateNormal];
+        
+        // 操作
+        __weak typeof(self) weak = self;
+        [_dosome addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            if (weak.eventBlock) {
+                weak.eventBlock(EmptyViewEventTypeBuy);
+            }
+        }];
+    }
+    else {
+        // Layout
+        [self createLayout:EmptyViewLayoutTypeTitleIcon];
+        // 数据
+        _title.text = @"暂无数据";
+        _icon.image = [UIImage imageNamed:@"00currency_icon48"];
+        // 操作
+        __weak typeof(self) weak = self;
+        [_icon addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            if (weak.eventBlock) {
+                weak.eventBlock(EmptyViewEventTypeReload);
+            }
+        }];
+    }
 }
 
 @end

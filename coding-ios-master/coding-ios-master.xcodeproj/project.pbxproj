@@ -17,7 +17,15 @@
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
 		0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD52092C7DA00BC963E /* UITextField+Extension.m */; };
 		0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */; };
-		04A3B22F2089E3E50011DDA5 /* UIView+Watch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */; };
+		04BA9E2820AABFC300678BE1 /* TimerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E2720AABFC300678BE1 /* TimerUtil.m */; };
+		04BA9E3D20AAD6CA00678BE1 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E3C20AAD6CA00678BE1 /* Music.m */; };
+		04BA9E4420AAF41500678BE1 /* ShelfListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E4220AAF41500678BE1 /* ShelfListCell.m */; };
+		04BA9E4520AAF41500678BE1 /* ShelfListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA9E4320AAF41500678BE1 /* ShelfListCell.xib */; };
+		04BA9E4C20AB054300678BE1 /* SongListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E4B20AB054300678BE1 /* SongListController.m */; };
+		04BA9E4F20AB056800678BE1 /* SongListHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E4E20AB056800678BE1 /* SongListHeader.m */; };
+		04BA9E5320AB066F00678BE1 /* SongListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E5120AB066F00678BE1 /* SongListCell.m */; };
+		04BA9E5420AB066F00678BE1 /* SongListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA9E5220AB066F00678BE1 /* SongListCell.xib */; };
+		04BA9E5820AB0A1700678BE1 /* KKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E5720AB0A1700678BE1 /* KKNavigationBar.m */; };
 		04BBD348208DBCC900968BF8 /* UILabel+Commonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BBD347208DBCC900968BF8 /* UILabel+Commonly.m */; };
 		04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BDCF2B208EB8A200B7A8DF /* UIImageView+SDWebManager.m */; };
 		04C03CFE208AD00700BD0995 /* AFNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C03CFD208AD00700BD0995 /* AFNManager.m */; };
@@ -32,7 +40,6 @@
 		4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */; };
 		4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */; };
 		4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */; };
-		4B7D6D452088D99B00F7DC2B /* WatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D442088D99B00F7DC2B /* WatchView.m */; };
 		4B8B354C209F06790065E540 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B354A209F06790065E540 /* MineCell.m */; };
 		4B8B354D209F06790065E540 /* MineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B8B354B209F06790065E540 /* MineCell.xib */; };
 		4B8B3550209F07860065E540 /* MineHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B354F209F07860065E540 /* MineHeader.m */; };
@@ -120,8 +127,22 @@
 		0495ABD52092C7DA00BC963E /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
 		0495ABD82092C7E800BC963E /* NSAttributedString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Size.h"; sourceTree = "<group>"; };
 		0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Size.m"; sourceTree = "<group>"; };
-		04A3B22D2089E3E50011DDA5 /* UIView+Watch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Watch.h"; sourceTree = "<group>"; };
-		04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Watch.m"; sourceTree = "<group>"; };
+		04BA9E2620AABFC300678BE1 /* TimerUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerUtil.h; sourceTree = "<group>"; };
+		04BA9E2720AABFC300678BE1 /* TimerUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerUtil.m; sourceTree = "<group>"; };
+		04BA9E3B20AAD6CA00678BE1 /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		04BA9E3C20AAD6CA00678BE1 /* Music.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		04BA9E4120AAF41500678BE1 /* ShelfListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShelfListCell.h; sourceTree = "<group>"; };
+		04BA9E4220AAF41500678BE1 /* ShelfListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfListCell.m; sourceTree = "<group>"; };
+		04BA9E4320AAF41500678BE1 /* ShelfListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShelfListCell.xib; sourceTree = "<group>"; };
+		04BA9E4A20AB054300678BE1 /* SongListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongListController.h; sourceTree = "<group>"; };
+		04BA9E4B20AB054300678BE1 /* SongListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongListController.m; sourceTree = "<group>"; };
+		04BA9E4D20AB056800678BE1 /* SongListHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongListHeader.h; sourceTree = "<group>"; };
+		04BA9E4E20AB056800678BE1 /* SongListHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongListHeader.m; sourceTree = "<group>"; };
+		04BA9E5020AB066F00678BE1 /* SongListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongListCell.h; sourceTree = "<group>"; };
+		04BA9E5120AB066F00678BE1 /* SongListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongListCell.m; sourceTree = "<group>"; };
+		04BA9E5220AB066F00678BE1 /* SongListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongListCell.xib; sourceTree = "<group>"; };
+		04BA9E5620AB0A1700678BE1 /* KKNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKNavigationBar.h; sourceTree = "<group>"; };
+		04BA9E5720AB0A1700678BE1 /* KKNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKNavigationBar.m; sourceTree = "<group>"; };
 		04BBD346208DBCC900968BF8 /* UILabel+Commonly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Commonly.h"; sourceTree = "<group>"; };
 		04BBD347208DBCC900968BF8 /* UILabel+Commonly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Commonly.m"; sourceTree = "<group>"; };
 		04BDCF2A208EB8A200B7A8DF /* UIImageView+SDWebManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDWebManager.h"; sourceTree = "<group>"; };
@@ -151,8 +172,6 @@
 		4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SDCycleScrollView+Manager.m"; sourceTree = "<group>"; };
 		4B7D6D3C2088B84C00F7DC2B /* POPAnimation+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POPAnimation+Extension.h"; sourceTree = "<group>"; };
 		4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "POPAnimation+Extension.m"; sourceTree = "<group>"; };
-		4B7D6D432088D99B00F7DC2B /* WatchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchView.h; sourceTree = "<group>"; };
-		4B7D6D442088D99B00F7DC2B /* WatchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchView.m; sourceTree = "<group>"; };
 		4B8B3549209F06790065E540 /* MineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCell.h; sourceTree = "<group>"; };
 		4B8B354A209F06790065E540 /* MineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCell.m; sourceTree = "<group>"; };
 		4B8B354B209F06790065E540 /* MineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCell.xib; sourceTree = "<group>"; };
@@ -325,6 +344,9 @@
 			children = (
 				0402B347209A8CB8004A13AD /* ShelfView.h */,
 				0402B348209A8CB8004A13AD /* ShelfView.m */,
+				04BA9E4120AAF41500678BE1 /* ShelfListCell.h */,
+				04BA9E4220AAF41500678BE1 /* ShelfListCell.m */,
+				04BA9E4320AAF41500678BE1 /* ShelfListCell.xib */,
 				4BE8DE01209DBF4500A79ECD /* ShelfHeader.h */,
 				4BE8DE02209DBF4500A79ECD /* ShelfHeader.m */,
 			);
@@ -422,11 +444,11 @@
 		0495ABD22092C78600BC963E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04BA9E3A20AAD6A600678BE1 /* Music */,
 				4BE8DE14209DE92400A79ECD /* CarouselView */,
 				4BE9FD40208630070020B755 /* Tool */,
 				04EEDF1B2091E79200CDD14E /* SectionHeader */,
 				04554F422089B1B200BEC435 /* KKEmptyView */,
-				4B7D6D422088D99000F7DC2B /* Watch */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -448,6 +470,63 @@
 			);
 			path = NSAttributedString;
 			sourceTree = "<group>";
+		};
+		04BA9E3A20AAD6A600678BE1 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				04BA9E3B20AAD6CA00678BE1 /* Music.h */,
+				04BA9E3C20AAD6CA00678BE1 /* Music.m */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		04BA9E4620AB053100678BE1 /* SongList */ = {
+			isa = PBXGroup;
+			children = (
+				04BA9E4720AB053100678BE1 /* Controller */,
+				04BA9E4820AB053100678BE1 /* Model */,
+				04BA9E4920AB053100678BE1 /* View */,
+			);
+			path = SongList;
+			sourceTree = "<group>";
+		};
+		04BA9E4720AB053100678BE1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04BA9E4A20AB054300678BE1 /* SongListController.h */,
+				04BA9E4B20AB054300678BE1 /* SongListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04BA9E4820AB053100678BE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04BA9E4920AB053100678BE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04BA9E4D20AB056800678BE1 /* SongListHeader.h */,
+				04BA9E4E20AB056800678BE1 /* SongListHeader.m */,
+				04BA9E5020AB066F00678BE1 /* SongListCell.h */,
+				04BA9E5120AB066F00678BE1 /* SongListCell.m */,
+				04BA9E5220AB066F00678BE1 /* SongListCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04BA9E5520AB0A0B00678BE1 /* KKNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				04BA9E5620AB0A1700678BE1 /* KKNavigationBar.h */,
+				04BA9E5720AB0A1700678BE1 /* KKNavigationBar.m */,
+			);
+			name = KKNavigationBar;
+			path = "coding-ios-master/Classes/KKNavigationBar";
+			sourceTree = SOURCE_ROOT;
 		};
 		04BDCF29208EB83100B7A8DF /* SDWebImage */ = {
 			isa = PBXGroup;
@@ -557,17 +636,6 @@
 				4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */,
 			);
 			path = SDCycleScrollView;
-			sourceTree = "<group>";
-		};
-		4B7D6D422088D99000F7DC2B /* Watch */ = {
-			isa = PBXGroup;
-			children = (
-				4B7D6D432088D99B00F7DC2B /* WatchView.h */,
-				4B7D6D442088D99B00F7DC2B /* WatchView.m */,
-				04A3B22D2089E3E50011DDA5 /* UIView+Watch.h */,
-				04A3B22E2089E3E50011DDA5 /* UIView+Watch.m */,
-			);
-			path = Watch;
 			sourceTree = "<group>";
 		};
 		4B8B3553209F1E7C0065E540 /* Layout */ = {
@@ -762,6 +830,7 @@
 		4BE9FD16208630070020B755 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04BA9E5520AB0A0B00678BE1 /* KKNavigationBar */,
 				0495ABD12092C75800BC963E /* Third */,
 				0495ABD22092C78600BC963E /* Utils */,
 				04C03CFB208ACFF900BD0995 /* NetWork */,
@@ -869,16 +938,18 @@
 		4BE9FD40208630070020B755 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				04BA9E2620AABFC300678BE1 /* TimerUtil.h */,
+				04BA9E2720AABFC300678BE1 /* TimerUtil.m */,
 				4BE9FD41208630070020B755 /* HelperUtil.h */,
 				4BE9FD42208630070020B755 /* ImageUtils.m */,
 				4BE9FD43208630070020B755 /* SaveUtils.h */,
-				4BE9FD44208630070020B755 /* GCDUtils.h */,
 				4BE9FD45208630070020B755 /* StatusUtils.h */,
+				4BE9FD44208630070020B755 /* GCDUtils.h */,
+				4BE9FD4A208630070020B755 /* GCDUtils.m */,
 				4BE9FD46208630070020B755 /* DataUtil.m */,
 				4BE9FD47208630070020B755 /* ImageUtils.h */,
 				4BE9FD48208630070020B755 /* HelperUtil.m */,
 				4BE9FD49208630070020B755 /* SaveUtils.m */,
-				4BE9FD4A208630070020B755 /* GCDUtils.m */,
 				4BE9FD4B208630070020B755 /* Single.h */,
 				4BE9FD4C208630070020B755 /* DataUtil.h */,
 				4BE9FD4D208630070020B755 /* StatusUtils.m */,
@@ -903,6 +974,7 @@
 				0402B338209A8C1B004A13AD /* Shelf */,
 				4BB1E4282087969E0066B80A /* Mine */,
 				04C59E0B20AA64CA00551BF3 /* Play */,
+				04BA9E4620AB053100678BE1 /* SongList */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1070,11 +1142,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BA9E5420AB066F00678BE1 /* SongListCell.xib in Resources */,
 				4B4DDE8420A096F8001A5132 /* LRLChannelEdit.bundle in Resources */,
 				4BE8DE39209DF04500A79ECD /* StoreCollectionSummaryCell.xib in Resources */,
 				4B8B3552209F07BE0065E540 /* MineHeader.xib in Resources */,
 				4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */,
 				4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */,
+				04BA9E4520AAF41500678BE1 /* ShelfListCell.xib in Resources */,
 				4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */,
 				4B4DDE8720A096F8001A5132 /* LRLChannelEditController.xib in Resources */,
 				4B8B354D209F06790065E540 /* MineCell.xib in Resources */,
@@ -1168,12 +1242,12 @@
 				4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */,
 				4BE9FDFE208630070020B755 /* AppDelegate.m in Sources */,
 				04C03CFE208AD00700BD0995 /* AFNManager.m in Sources */,
-				04A3B22F2089E3E50011DDA5 /* UIView+Watch.m in Sources */,
 				4BE9FDF0208630070020B755 /* UIView+Extension.m in Sources */,
 				04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */,
 				4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */,
 				4BE8DE0D209DD2D900A79ECD /* StoreHeader.m in Sources */,
 				4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */,
+				04BA9E5820AB0A1700678BE1 /* KKNavigationBar.m in Sources */,
 				0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */,
 				4BE8DE03209DBF4500A79ECD /* ShelfHeader.m in Sources */,
 				4BE9FE2F208630070020B755 /* BaseTabBarController.m in Sources */,
@@ -1182,22 +1256,25 @@
 				4BE9FDF8208630070020B755 /* ImageUtils.m in Sources */,
 				4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */,
 				4BE9FDED208630070020B755 /* UIView+Border.m in Sources */,
+				04BA9E5320AB066F00678BE1 /* SongListCell.m in Sources */,
 				4BD2B1D820863A8A00E31A21 /* AppManager.m in Sources */,
 				0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */,
 				4BE9FD0E20862FCA0020B755 /* main.m in Sources */,
 				4B8B355A209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m in Sources */,
 				4BE9FDFB208630070020B755 /* SaveUtils.m in Sources */,
+				04BA9E4420AAF41500678BE1 /* ShelfListCell.m in Sources */,
 				0402B34F209A8DDE004A13AD /* StoreController.m in Sources */,
 				4BE9FE0B208630070020B755 /* WelcomeController.m in Sources */,
 				4BE9FE31208630070020B755 /* BaseView.m in Sources */,
 				0402B346209A8C98004A13AD /* ShelfController.m in Sources */,
+				04BA9E3D20AAD6CA00678BE1 /* Music.m in Sources */,
 				4BD2B1F120863EEA00E31A21 /* UICollectionViewCell+Extension.m in Sources */,
 				04C59E1020AA64E700551BF3 /* PlayController.m in Sources */,
+				04BA9E2820AABFC300678BE1 /* TimerUtil.m in Sources */,
 				4BE9FDFD208630070020B755 /* StatusUtils.m in Sources */,
 				4BE9FDF2208630070020B755 /* UIFont+Extension.m in Sources */,
 				4BE9FE30208630070020B755 /* BaseModel.m in Sources */,
 				4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */,
-				4B7D6D452088D99B00F7DC2B /* WatchView.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,
 				4B8B354C209F06790065E540 /* MineCell.m in Sources */,
 				4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */,
@@ -1231,7 +1308,9 @@
 				4BB1E44420879CCE0066B80A /* BaseTabBar.m in Sources */,
 				4BE8DE42209DF38F00A79ECD /* StoreCollectionDetailCell.m in Sources */,
 				4BB1E431208796C00066B80A /* MineView.m in Sources */,
+				04BA9E4F20AB056800678BE1 /* SongListHeader.m in Sources */,
 				4BE9FE2C208630070020B755 /* YLButton.m in Sources */,
+				04BA9E4C20AB054300678BE1 /* SongListController.m in Sources */,
 				0402B34C209A8DC2004A13AD /* StoreView.m in Sources */,
 				4BE9FE2E208630070020B755 /* BaseNavigationController.m in Sources */,
 				4BE9FE2D208630070020B755 /* BaseViewController.m in Sources */,

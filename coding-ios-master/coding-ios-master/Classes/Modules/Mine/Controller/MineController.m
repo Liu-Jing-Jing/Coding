@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setJz_navigationBarTintColor:ColorTextHeavy];
     [self setNavTitle:@"我的"];
-    [self setJz_wantsNavigationBarVisible:NO];
 }
 - (void)loadView {
     self.view = [self mineView];
@@ -32,6 +32,12 @@
         _mineView = [MineView init];
     }
     return _mineView;
+}
+
+#pragma mark - mark
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [StatusUtils setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 }
 
 @end

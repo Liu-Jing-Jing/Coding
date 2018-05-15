@@ -25,7 +25,6 @@
 #import "UICollectionReusableView+Extension.h"
 #import "UIViewController+LLAdd.h"
 #import "UIFont+Extension.h"
-#import "WatchView.h"
 #import "KKEmptyView.h"
 #import "UIView+BlockGesture.h"
 #import "SDCycleScrollView+Manager.h"

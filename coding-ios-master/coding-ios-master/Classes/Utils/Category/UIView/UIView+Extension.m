@@ -250,13 +250,14 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (UIViewController*)viewController {
-    for (UIView *next = [self superview]; next; next = next.superview) {
-        UIResponder *nextResponder = [next nextResponder];
-        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)nextResponder;
+- (UIViewController *)viewController {
+    UIResponder *responder = self.nextResponder;
+    do {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
         }
-    }
+        responder = responder.nextResponder;
+    } while (responder);
     return nil;
 }
 

@@ -19,6 +19,8 @@
 @interface StoreCollection()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     // 之前滚动位置;
     CGFloat _lastOffsetY;
+    // 定时器
+    NSTimer *_timer;
 }
 @property (nonatomic, strong) CarouselView *carouse;
 
@@ -185,38 +187,73 @@
     return 0;
 }
 
+
 #pragma mark - UICollectionViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    BOOL judgment1 = scrollView.contentOffset.y < 0;
-    BOOL judgment2 = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.height) < 0;
-    if (judgment1 || judgment2) {
-        return;
-    }
-    
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    SongListController *vc = [[SongListController alloc] init];
+    [self.viewController.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - UICollectionViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _lastOffsetY = scrollView.contentOffset.y;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(startTimer) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
+}
+- (void)startTimer {
     CGFloat CanMoveH = 70;
-    CGFloat scrollOffsetH = scrollView.contentOffset.y - _lastOffsetY;
+    CGFloat scrollOffsetH = _collection.contentOffset.y - _lastOffsetY;
     // 突然滚动
     if (ABS(scrollOffsetH) > CanMoveH) {
         // 向上滚动
         if (scrollOffsetH < -CanMoveH) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(collectionScrollViewDidScroll:isDown:)]) {
-                [self.delegate collectionScrollViewDidScroll:scrollView isDown:YES];
+                [self.delegate collectionScrollViewDidScroll:_collection isDown:YES];
             }
         }
         // 向下滚动
         else if (scrollOffsetH > CanMoveH) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(collectionScrollViewDidScroll:isDown:)]) {
-                [self.delegate collectionScrollViewDidScroll:scrollView isDown:NO];
+                [self.delegate collectionScrollViewDidScroll:_collection isDown:NO];
             }
         }
-        _lastOffsetY = scrollView.contentOffset.y;
     }
-    // 慢慢滚动
-    else {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            _lastOffsetY = scrollView.contentOffset.y;
-        });
-    }
+    // 注销
+    [_timer invalidate];
+    _timer = nil;
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    BOOL judgment1 = scrollView.contentOffset.y < 0;
+//    BOOL judgment2 = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.height) < 0;
+//    if (judgment1 || judgment2) {
+//        return;
+//    }
+//
+//    CGFloat CanMoveH = 70;
+//    CGFloat scrollOffsetH = scrollView.contentOffset.y - _lastOffsetY;
+//    // 突然滚动
+//    if (ABS(scrollOffsetH) > CanMoveH) {
+//        // 向上滚动
+//        if (scrollOffsetH < -CanMoveH) {
+//            if (self.delegate && [self.delegate respondsToSelector:@selector(collectionScrollViewDidScroll:isDown:)]) {
+//                [self.delegate collectionScrollViewDidScroll:scrollView isDown:YES];
+//            }
+//        }
+//        // 向下滚动
+//        else if (scrollOffsetH > CanMoveH) {
+//            if (self.delegate && [self.delegate respondsToSelector:@selector(collectionScrollViewDidScroll:isDown:)]) {
+//                [self.delegate collectionScrollViewDidScroll:scrollView isDown:NO];
+//            }
+//        }
+//        _lastOffsetY = scrollView.contentOffset.y;
+//    }
+//    // 慢慢滚动
+//    else {
+//        _lastOffsetY = scrollView.contentOffset.y;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            _lastOffsetY = scrollView.contentOffset.y;
+//        });
+//    }
 }
 
 

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KKEmptyView.h"
 
 @interface BaseView : UIView
 
+@property (nonatomic, strong) KKEmptyView *emptyView;
+
+//==================================== 加载 ====================================//
 /// 加载第一个nib
 + (instancetype)loadFirstNib:(CGRect)frame;
 
@@ -21,5 +25,16 @@
 
 /// 加载指定nib
 + (instancetype)loadNib:(NSInteger)index frame:(CGRect)frame;
+
+
+//==================================== 空白 ====================================//
+/// 初始化空视图
+- (void)showEmptyView:(EmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock;
+/// 初始化空视图
+- (void)showEmptyView:(EmptyViewType)emptyViewType backButton:(BOOL)backButton eventBlock:(EmptyViewEventBlock)eventBlock;
+/// 初始化空视图
+- (void)showEmptyView:(EmptyViewType)emptyViewType inView:(UIView *)inview eventBlock:(EmptyViewEventBlock)eventBlock;
+/// 隐藏视图
+- (void)hideEmptyView;
 
 @end

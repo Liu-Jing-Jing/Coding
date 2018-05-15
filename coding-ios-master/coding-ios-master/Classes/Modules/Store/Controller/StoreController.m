@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setJz_wantsNavigationBarVisible:NO];
 }
 - (void)loadView {
     self.view = [self store];
@@ -33,9 +33,10 @@
     return _store;
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
+    [StatusUtils setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
 }
 
 

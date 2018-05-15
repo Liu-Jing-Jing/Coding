@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setJz_navigationBarTintColor:ColorTextHeavy];
+    [self setNavTitle:@"我的音乐"];
 }
 - (void)loadView {
     self.view = [self shelf];
@@ -37,4 +39,13 @@
     
 }
 
+#pragma mark -
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [StatusUtils setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+}
+
 @end
+
+
+

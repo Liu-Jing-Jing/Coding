@@ -13,7 +13,6 @@
 #pragma mark - 声明
 @interface MineView()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UIView *status;
 @property (nonatomic, strong) MineHeader *header;
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) NSArray<NSArray *> *datas;
@@ -31,16 +30,7 @@
     return view;
 }
 - (void)createView {
-    [self status];
     [self table];
-}
-- (UIView *)status {
-    if (!_status) {
-        _status = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, StatusBarHeight)];
-        _status.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_status];
-    }
-    return _status;
 }
 - (MineHeader *)header {
     if (!_header) {
@@ -50,7 +40,10 @@
 }
 - (UITableView *)table {
     if (!_table) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, self.status.height, ScreenWidth, ScreenHeight - TabbarHeight - self.status.height) style:UITableViewStylePlain];
+        _table = [[UITableView alloc] initWithFrame:({
+            CGFloat top = NavigationBarHeight;
+            CGRectMake(0, top, ScreenWidth, ScreenHeight - top - TabbarHeight);
+        }) style:UITableViewStylePlain];
         _table.delegate = self;
         _table.dataSource = self;
         _table.tableHeaderView = [self header];
@@ -95,6 +88,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return [UIView new];
 }
+
+
 
 @end
 

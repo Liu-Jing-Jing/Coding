@@ -18,15 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tKb-bY-AqX">
-                        <rect key="frame" x="10" y="0.0" width="25" height="62.5"/>
-                        <color key="backgroundColor" red="1" green="0.16876094059999999" blue="0.11974024599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code_prodoct_20x17_" translatesAutoresizingMaskIntoConstraints="NO" id="tKb-bY-AqX">
+                        <rect key="frame" x="10" y="0.0" width="20" height="62.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="UQh-dG-Ihn"/>
+                            <constraint firstAttribute="width" constant="20" id="UQh-dG-Ihn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7z-7R-dAC">
-                        <rect key="frame" x="45" y="0.0" width="42" height="62.5"/>
+                        <rect key="frame" x="40" y="0.0" width="42" height="62.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -69,10 +68,11 @@
                 <outlet property="nextConstraintL" destination="QJB-A9-dRO" id="XNe-HK-tFf"/>
                 <outlet property="nextConstraintR" destination="9Cb-f2-zhP" id="i1P-2H-djI"/>
             </connections>
-            <point key="canvasLocation" x="-127" y="4"/>
+            <point key="canvasLocation" x="-197" y="1"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="btn_next" width="64" height="64"/>
+        <image name="code_prodoct_20x17_" width="20" height="17"/>
     </resources>
 </document>

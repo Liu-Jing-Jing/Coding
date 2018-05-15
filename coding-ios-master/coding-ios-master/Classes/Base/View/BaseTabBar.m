@@ -35,19 +35,20 @@
 }
 
 - (void)setupUI {
+    
 //    [self addSubview:self.composeButton];
     
     
-//    //去掉tabBar顶部线条
-//    CGRect rect = CGRectMake(0, 0, ScreenWidth, 1);
-//    UIGraphicsBeginImageContext(rect.size);
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
-//    CGContextFillRect(context, rect);
-//    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    [self setBackgroundImage:img];
-//    [self setShadowImage:img];
+    //去掉tabBar顶部线条
+    CGRect rect = CGRectMake(0, 0, ScreenWidth, 1);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [ColorTextBold CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self setBackgroundImage:img];
+    [self setShadowImage:img];
 }
 
 //- (void)layoutSubviews {
