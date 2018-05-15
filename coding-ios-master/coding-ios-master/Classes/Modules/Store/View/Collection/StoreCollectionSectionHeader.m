@@ -11,12 +11,6 @@
 #pragma mark - 声明
 @interface StoreCollectionSectionHeader()
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconConstraintR;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelConstrainL;
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *moreLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *moreIcon;
-
 @end
 
 #pragma mark - 实现
@@ -29,24 +23,17 @@
     return header;
 }
 - (void)createLayout {
-    _iconConstraintR.constant = countcoordinatesX(10);
-    _labelConstrainL.constant = countcoordinatesX(15);
     _name.textColor = ColorTextBold;
     _name.font = [UIFont systemFontOfSize:adjustFont(12)];
-    _moreLabel.textColor = ColorTextMedium;
-    _moreLabel.font = [UIFont systemFontOfSize:adjustFont(12)];
+    
 }
 
 #pragma mark - 动画
 - (void)show {
-    _moreLabel.hidden = NO;
-    _moreIcon.hidden = NO;
-    _moreBtn.hidden = NO;
+    
 }
 - (void)hide {
-    _moreLabel.hidden = YES;
-    _moreIcon.hidden = YES;
-    _moreBtn.hidden = YES;
+    
 }
 
 

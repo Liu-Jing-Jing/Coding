@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,7 +38,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPj-2K-NdF">
-                        <rect key="frame" x="288" y="0.0" width="42" height="62.5"/>
+                        <rect key="frame" x="298" y="0.0" width="42" height="62.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                     <constraint firstItem="X7z-7R-dAC" firstAttribute="top" secondItem="u05-vv-vPv" secondAttribute="top" id="CWY-NU-rwk"/>
                     <constraint firstItem="KPj-2K-NdF" firstAttribute="centerY" secondItem="u05-vv-vPv" secondAttribute="centerY" id="Mei-WL-Ka1"/>
                     <constraint firstItem="tKb-bY-AqX" firstAttribute="leading" secondItem="u05-vv-vPv" secondAttribute="leading" constant="10" id="O0y-mQ-hMB"/>
-                    <constraint firstItem="4cS-pk-FFi" firstAttribute="leading" secondItem="KPj-2K-NdF" secondAttribute="trailing" constant="10" id="QJB-A9-dRO"/>
+                    <constraint firstItem="4cS-pk-FFi" firstAttribute="leading" secondItem="KPj-2K-NdF" secondAttribute="trailing" id="QJB-A9-dRO"/>
                     <constraint firstItem="tKb-bY-AqX" firstAttribute="top" secondItem="u05-vv-vPv" secondAttribute="top" id="caK-fa-X0y"/>
                     <constraint firstItem="4cS-pk-FFi" firstAttribute="centerY" secondItem="u05-vv-vPv" secondAttribute="centerY" id="d1Q-Qy-bzR"/>
                     <constraint firstItem="X7z-7R-dAC" firstAttribute="centerY" secondItem="u05-vv-vPv" secondAttribute="centerY" id="ix6-g9-dgL"/>
@@ -60,16 +60,16 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="desc" destination="KPj-2K-NdF" id="oyW-ru-dCY"/>
-                <outlet property="icon" destination="tKb-bY-AqX" id="yMs-4R-HZ8"/>
+                <outlet property="desc" destination="KPj-2K-NdF" id="Ojg-fQ-mwd"/>
+                <outlet property="icon" destination="tKb-bY-AqX" id="Fon-w3-f0t"/>
                 <outlet property="iconConstraintL" destination="O0y-mQ-hMB" id="lRj-zy-iH9"/>
-                <outlet property="name" destination="X7z-7R-dAC" id="0Xu-fm-KIb"/>
+                <outlet property="name" destination="X7z-7R-dAC" id="y8j-lf-d6a"/>
                 <outlet property="nameConstraintL" destination="xLi-aZ-vMC" id="Efq-Sc-RMO"/>
-                <outlet property="next" destination="4cS-pk-FFi" id="AZq-Is-qYf"/>
+                <outlet property="next" destination="4cS-pk-FFi" id="tVf-Ce-eQ9"/>
                 <outlet property="nextConstraintL" destination="QJB-A9-dRO" id="XNe-HK-tFf"/>
                 <outlet property="nextConstraintR" destination="9Cb-f2-zhP" id="i1P-2H-djI"/>
             </connections>
-            <point key="canvasLocation" x="7" y="190"/>
+            <point key="canvasLocation" x="-127" y="4"/>
         </tableViewCell>
     </objects>
     <resources>

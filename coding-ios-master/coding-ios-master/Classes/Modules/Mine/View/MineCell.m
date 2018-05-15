@@ -11,10 +11,6 @@
 #pragma mark - 声明
 @interface MineCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *desc;
-@property (weak, nonatomic) IBOutlet UIImageView *next;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconConstraintL;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameConstraintL;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstraintL;
@@ -38,7 +34,7 @@
     _iconConstraintL.constant = countcoordinatesX(15);
     _nameConstraintL.constant = countcoordinatesX(10);
     _nextConstraintR.constant = countcoordinatesX(15);
-    _nextConstraintL.constant = countcoordinatesX(10);
+    _nextConstraintL.constant = countcoordinatesX(0);
 }
 
 @end

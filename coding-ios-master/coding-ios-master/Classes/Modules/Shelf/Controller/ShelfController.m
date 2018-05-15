@@ -9,13 +9,11 @@
 
 #import "ShelfController.h"
 #import "ShelfView.h"
-#import "DetailView.h"
 
 #pragma mark - 声明
 @interface ShelfController ()
 
 @property (nonatomic, strong) ShelfView *shelf;
-@property (nonatomic, strong) DetailView *detailView;
 
 @end
 
@@ -24,21 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _detailView = [DetailView init];
 }
-//- (void)loadView {
-//    self.view = [self shelf];
-//}
-//- (ShelfView *)shelf {
-//    if (!_shelf) {
-//        _shelf = [ShelfView init];
-//    }
-//    return _shelf;
-//}
+- (void)loadView {
+    self.view = [self shelf];
+}
+- (ShelfView *)shelf {
+    if (!_shelf) {
+        _shelf = [ShelfView init];
+    }
+    return _shelf;
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    [_detailView show];
 }
 
 @end

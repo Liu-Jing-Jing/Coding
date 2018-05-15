@@ -119,7 +119,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
         StoreCollectionSectionHeader *header = [StoreCollectionSectionHeader initWithCollection:collectionView indexPath:indexPath];
-        [header.moreBtn addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        [header.more addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
             NSLog(@"123");
         }];
         return header;
@@ -135,13 +135,15 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         CGFloat row = 3;
-        CGFloat width = (ScreenWidth - countcoordinatesX(15) * (row + 1)) / row;
-        return CGSizeMake(width, width / 3 * 5);
+        CGFloat padding = countcoordinatesX(5);
+        CGFloat width = (ScreenWidth - padding * (row - 1)) / row;
+        return CGSizeMake(width, width + 30);
     }
     else if (indexPath.section == 1) {
         CGFloat row = 2;
-        CGFloat width = (ScreenWidth - countcoordinatesX(15) * (row + 1)) / row;
-        return CGSizeMake(width, width / 4 * 3);
+        CGFloat padding = countcoordinatesX(5);
+        CGFloat width = (ScreenWidth - padding * (row - 1)) / row;
+        return CGSizeMake(width, width / 2 + 30);
     }
     else if (indexPath.section == 2) {
         CGFloat width = ScreenWidth;
@@ -157,10 +159,10 @@
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
-        return UIEdgeInsetsMake(0, countcoordinatesX(15), 0, countcoordinatesX(15));
+        return UIEdgeInsetsZero;
     }
     else if (section == 1) {
-        return UIEdgeInsetsMake(0, countcoordinatesX(15), countcoordinatesX(10), countcoordinatesX(15));
+        return UIEdgeInsetsZero;
     }
     else if (section == 2) {
         return UIEdgeInsetsZero;
@@ -169,10 +171,10 @@
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
-        return 0;
+        return FooterHeight;
     }
     else if (section == 1) {
-        return FooterHeight;
+        return countcoordinatesX(5);
     }
     else if (section == 2) {
         return 0;

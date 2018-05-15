@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIView *status;
 @property (nonatomic, strong) MineHeader *header;
 @property (nonatomic, strong) UITableView *table;
+@property (nonatomic, strong) NSArray<NSArray *> *datas;
 
 @end
 
@@ -61,16 +62,23 @@
     }
     return _table;
 }
+- (NSArray<NSArray *> *)datas {
+    if (!_datas) {
+        _datas = @[@[@"设置",@"个性换肤",@"夜间模式",@"定时关闭"],@[@"分享这个App"]];
+    }
+    return _datas;
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return self.datas.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.datas[section].count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineCell *cell = [MineCell initWithTable:tableView];
+    cell.name.text = self.datas[indexPath.section][indexPath.row];
     return cell;
 }
 

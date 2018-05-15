@@ -24,7 +24,7 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    HomeController *vc = [[HomeController alloc] init];
+    StoreController *vc = [[StoreController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

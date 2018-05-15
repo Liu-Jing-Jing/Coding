@@ -155,7 +155,6 @@
     if (self = [super init]) {
         if ([self isKindOfClass:[ShelfController class]] ||
             [self isKindOfClass:[StoreController class]] ||
-            [self isKindOfClass:[FindController class]] ||
             [self isKindOfClass:[MineController class]]) {
             self.hidesBottomBarWhenPushed = NO;
 //            [(BaseTabBarController *)self.navigationController.tabBarController hideTabbar:NO];

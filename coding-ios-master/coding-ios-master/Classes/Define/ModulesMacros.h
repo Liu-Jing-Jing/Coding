@@ -11,16 +11,7 @@
 #import "WelcomeController.h"
 #import "ShelfController.h"
 #import "StoreController.h"
-#import "FindController.h"
-#import "HomeController.h"
-#import "ArticleController.h"
-#import "PushController.h"
-#import "DiscoveryController.h"
 #import "MineController.h"
-#import "ContentController.h"
 
-#import "HomeModel.h"
-#import "ArticleModel.h"
-#import "DiscoveryModel.h"
 
 
