@@ -16,10 +16,12 @@
 #pragma mark - 实现
 @implementation PlayController
 
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self setJz_wantsNavigationBarVisible:YES];
+    [self setJz_navigationBarTintColor:ColorTextHeavy];
 }
-
 
 @end

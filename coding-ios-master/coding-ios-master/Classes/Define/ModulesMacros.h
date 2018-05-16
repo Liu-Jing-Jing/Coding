@@ -13,6 +13,7 @@
 #import "StoreController.h"
 #import "MineController.h"
 #import "SongListController.h"
+#import "PlayController.h"
 
 
 

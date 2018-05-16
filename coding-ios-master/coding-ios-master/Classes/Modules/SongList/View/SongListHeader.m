@@ -16,6 +16,7 @@
 #pragma mark - 实现
 @implementation SongListHeader
 
+#pragma mark - 初始化
 + (instancetype)initWithFrame:(CGRect)frame {
     SongListHeader *view = [SongListHeader loadCode:frame];
     return view;

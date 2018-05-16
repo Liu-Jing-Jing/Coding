@@ -973,8 +973,8 @@
 				0402B33C209A8C45004A13AD /* Store */,
 				0402B338209A8C1B004A13AD /* Shelf */,
 				4BB1E4282087969E0066B80A /* Mine */,
-				04C59E0B20AA64CA00551BF3 /* Play */,
 				04BA9E4620AB053100678BE1 /* SongList */,
+				04C59E0B20AA64CA00551BF3 /* Play */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

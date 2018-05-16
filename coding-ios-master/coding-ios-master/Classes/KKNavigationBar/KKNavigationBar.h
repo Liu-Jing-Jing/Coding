@@ -10,6 +10,6 @@
 
 @interface KKNavigationBar : BaseView
 
-+ (instancetype)initWithFrame:(CGRect)frame;
++ (instancetype)init;
 
 @end

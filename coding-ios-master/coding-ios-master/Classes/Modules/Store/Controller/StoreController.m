@@ -36,7 +36,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [StatusUtils setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+    [StatusUtils setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 }
 
 

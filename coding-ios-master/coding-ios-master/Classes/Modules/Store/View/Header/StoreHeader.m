@@ -28,9 +28,10 @@
     return header;
 }
 - (void)createView {
+    [self setBackgroundColor:ColorTextBold];
     [self search];
     [self setHeight:SearchHeight + SegmentBarHeight + StatusBarHeight];
-    [self ritl_addBorderWithColor:ColorBg BodrerWidth:1.0 direction:RITLBorderDirectionBottom];
+    [self ritl_addBorderWithColor:ColorTextBold BodrerWidth:1.0 direction:RITLBorderDirectionBottom];
 }
 - (UITextField *)search {
     if (!_search) {
@@ -41,7 +42,7 @@
             CGFloat top = (SearchHeight - height) / 2;
             CGRectMake(left, StatusBarHeight + top, width, height);
         })];
-        [_search setBackgroundColor:RGBA(245, 245, 245, 1)];
+        [_search setBackgroundColor:[UIColor whiteColor]];
         [_search setPlaceholder:@"搜索本地或书城"];
         [_search setFont:[UIFont systemFontOfSize:adjustFont(12)]];
         [_search setLeftViewMode:UITextFieldViewModeAlways];

@@ -11,11 +11,17 @@
 #pragma mark - 声明
 @interface SongListCell ()
 
+@property (weak, nonatomic) IBOutlet UILabel *number;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *desc;
+@property (weak, nonatomic) IBOutlet UIButton *menu;
+
 @end
 
 #pragma mark - 实现
 @implementation SongListCell
 
+#pragma mark - 初始化
 + (instancetype)initWithTable:(UITableView *)table {
     SongListCell *cell = [SongListCell loadLastNib:table];
     return cell;
