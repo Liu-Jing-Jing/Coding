@@ -14,6 +14,7 @@
 #import "MineController.h"
 #import "SongListController.h"
 #import "PlayController.h"
+#import "CategoryController.h"
 
 
 

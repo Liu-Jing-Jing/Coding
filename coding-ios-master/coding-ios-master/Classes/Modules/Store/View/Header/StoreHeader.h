@@ -15,6 +15,12 @@
 @optional
 // 点击了page
 - (void)headerSegmentedControl:(TLSegmentedControl *)segmentedControl didSelectIndex:(NSUInteger)index;
+// 开始搜索
+- (void)headerBeginSearch:(UITextField *)textField;
+// 停止搜索
+- (void)headerEndSearch:(UITextField *)textField;
+// 点击Return
+- (void)headerReturn:(UITextField *)textField;
 
 @end
 
@@ -30,6 +36,8 @@
 @property (nonatomic, strong) TLSegmentedControl *segmentBar;
 // 搜索栏
 @property (nonatomic, strong) UITextField *search;
+// 取消
+@property (nonatomic, strong) UIButton *cancle;
 // 分类
 @property (nonatomic, strong) UIButton *seg;
 
@@ -39,5 +47,9 @@
 - (void)show;
 /// 隐藏
 - (void)hide;
+/// 显示搜索
+- (void)showSearch;
+/// 隐藏搜索
+- (void)hideSearch;
 
 @end

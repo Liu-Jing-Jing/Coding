@@ -86,7 +86,6 @@
     return _titles;
 }
 
-
 - (void)pushController {
     __weak typeof(self) weak = self;
     LRLChannelEditController *channelEdit = [[LRLChannelEditController alloc] initWithTopDataSource:weak.topChannelArr andBottomDataSource:weak.bottomChannelArr andInitialIndex:weak.chooseIndex];
@@ -110,8 +109,21 @@
 }
 
 #pragma mark - StoreHeaderDelegate
+// 点击了Page
 - (void)headerSegmentedControl:(TLSegmentedControl *)segmentedControl didSelectIndex:(NSUInteger)index {
     self.content.pageScrollView.contentOffset = CGPointMake(index * self.width, 0);
+}
+// 开始搜索
+- (void)headerBeginSearch:(UITextField *)textField {
+    NSLog(@"开始搜索");
+}
+// 停止搜索
+- (void)headerEndSearch:(UITextField *)textField {
+    NSLog(@"停止搜索");
+}
+// 点击Return
+- (void)headerReturn:(UITextField *)textField {
+    NSLog(@"点击Return");
 }
 
 #pragma mark - StoreScrollDelegate

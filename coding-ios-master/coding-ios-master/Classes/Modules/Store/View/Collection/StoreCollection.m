@@ -122,7 +122,8 @@
     if (kind == UICollectionElementKindSectionHeader) {
         StoreCollectionSectionHeader *header = [StoreCollectionSectionHeader initWithCollection:collectionView indexPath:indexPath];
         [header.more addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-            NSLog(@"123");
+            CategoryController *vc = [[CategoryController alloc] init];
+            [self.viewController.navigationController pushViewController:vc animated:YES];
         }];
         return header;
     } else if (kind == UICollectionElementKindSectionFooter) {

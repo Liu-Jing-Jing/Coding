@@ -14,9 +14,14 @@
 		0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442A39320A124AC00F22D8A /* NSArray+Project.m */; };
 		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
+		048802CD20AD78BD00698C0C /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048802CC20AD78BD00698C0C /* SearchView.m */; };
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
 		0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD52092C7DA00BC963E /* UITextField+Extension.m */; };
 		0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */; };
+		04B1ABF820AD01D9002DE63C /* CategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B1ABF720AD01D9002DE63C /* CategoryController.m */; };
+		04B1ABFB20AD01EB002DE63C /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B1ABFA20AD01EB002DE63C /* CategoryView.m */; };
+		04B1ABFF20AD04AE002DE63C /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B1ABFD20AD04AE002DE63C /* CategoryCell.m */; };
+		04B1AC0020AD04AE002DE63C /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B1ABFE20AD04AE002DE63C /* CategoryCell.xib */; };
 		04BA9E2820AABFC300678BE1 /* TimerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E2720AABFC300678BE1 /* TimerUtil.m */; };
 		04BA9E3D20AAD6CA00678BE1 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E3C20AAD6CA00678BE1 /* Music.m */; };
 		04BA9E4420AAF41500678BE1 /* ShelfListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E4220AAF41500678BE1 /* ShelfListCell.m */; };
@@ -121,12 +126,21 @@
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
 		0478B2BE2087588100213353 /* UIViewController+LLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLAdd.m"; sourceTree = "<group>"; };
 		0478B2BF2087588100213353 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
+		048802CB20AD78BD00698C0C /* SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		048802CC20AD78BD00698C0C /* SearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		0495ABC82092B69700BC963E /* UIView+Visuals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visuals.h"; sourceTree = "<group>"; };
 		0495ABC92092B69700BC963E /* UIView+Visuals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Visuals.m"; sourceTree = "<group>"; };
 		0495ABD42092C7DA00BC963E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
 		0495ABD52092C7DA00BC963E /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
 		0495ABD82092C7E800BC963E /* NSAttributedString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Size.h"; sourceTree = "<group>"; };
 		0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Size.m"; sourceTree = "<group>"; };
+		04B1ABF620AD01D9002DE63C /* CategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryController.h; sourceTree = "<group>"; };
+		04B1ABF720AD01D9002DE63C /* CategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryController.m; sourceTree = "<group>"; };
+		04B1ABF920AD01EB002DE63C /* CategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryView.h; sourceTree = "<group>"; };
+		04B1ABFA20AD01EB002DE63C /* CategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryView.m; sourceTree = "<group>"; };
+		04B1ABFC20AD04AE002DE63C /* CategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		04B1ABFD20AD04AE002DE63C /* CategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		04B1ABFE20AD04AE002DE63C /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		04BA9E2620AABFC300678BE1 /* TimerUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerUtil.h; sourceTree = "<group>"; };
 		04BA9E2720AABFC300678BE1 /* TimerUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerUtil.m; sourceTree = "<group>"; };
 		04BA9E3B20AAD6CA00678BE1 /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
@@ -429,6 +443,15 @@
 			path = LLNavigationBar;
 			sourceTree = "<group>";
 		};
+		048802CA20AD78B300698C0C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				048802CB20AD78BD00698C0C /* SearchView.h */,
+				048802CC20AD78BD00698C0C /* SearchView.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		0495ABD12092C75800BC963E /* Third */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +492,36 @@
 				0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */,
 			);
 			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		04B1ABF320AD01C9002DE63C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				04B1ABF420AD01C9002DE63C /* Controller */,
+				04B1ABF520AD01C9002DE63C /* View */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		04B1ABF420AD01C9002DE63C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04B1ABF620AD01D9002DE63C /* CategoryController.h */,
+				04B1ABF720AD01D9002DE63C /* CategoryController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04B1ABF520AD01C9002DE63C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B1ABF920AD01EB002DE63C /* CategoryView.h */,
+				04B1ABFA20AD01EB002DE63C /* CategoryView.m */,
+				04B1ABFC20AD04AE002DE63C /* CategoryCell.h */,
+				04B1ABFD20AD04AE002DE63C /* CategoryCell.m */,
+				04B1ABFE20AD04AE002DE63C /* CategoryCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		04BA9E3A20AAD6A600678BE1 /* Music */ = {
@@ -971,9 +1024,11 @@
 			children = (
 				4BE9FD74208630070020B755 /* Welcome */,
 				0402B33C209A8C45004A13AD /* Store */,
+				048802CA20AD78B300698C0C /* Search */,
 				0402B338209A8C1B004A13AD /* Shelf */,
 				4BB1E4282087969E0066B80A /* Mine */,
 				04BA9E4620AB053100678BE1 /* SongList */,
+				04B1ABF320AD01C9002DE63C /* Category */,
 				04C59E0B20AA64CA00551BF3 /* Play */,
 			);
 			path = Modules;
@@ -1146,6 +1201,7 @@
 				4B4DDE8420A096F8001A5132 /* LRLChannelEdit.bundle in Resources */,
 				4BE8DE39209DF04500A79ECD /* StoreCollectionSummaryCell.xib in Resources */,
 				4B8B3552209F07BE0065E540 /* MineHeader.xib in Resources */,
+				04B1AC0020AD04AE002DE63C /* CategoryCell.xib in Resources */,
 				4BE8DE3E209DF34100A79ECD /* StoreCollectionCategoryCell.xib in Resources */,
 				4BE8DE43209DF38F00A79ECD /* StoreCollectionDetailCell.xib in Resources */,
 				04BA9E4520AAF41500678BE1 /* ShelfListCell.xib in Resources */,
@@ -1242,6 +1298,7 @@
 				4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */,
 				4BE9FDFE208630070020B755 /* AppDelegate.m in Sources */,
 				04C03CFE208AD00700BD0995 /* AFNManager.m in Sources */,
+				04B1ABF820AD01D9002DE63C /* CategoryController.m in Sources */,
 				4BE9FDF0208630070020B755 /* UIView+Extension.m in Sources */,
 				04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */,
 				4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */,
@@ -1262,6 +1319,7 @@
 				4BE9FD0E20862FCA0020B755 /* main.m in Sources */,
 				4B8B355A209F1E7C0065E540 /* StoreCollectionViewLayoutAttributes.m in Sources */,
 				4BE9FDFB208630070020B755 /* SaveUtils.m in Sources */,
+				04B1ABFB20AD01EB002DE63C /* CategoryView.m in Sources */,
 				04BA9E4420AAF41500678BE1 /* ShelfListCell.m in Sources */,
 				0402B34F209A8DDE004A13AD /* StoreController.m in Sources */,
 				4BE9FE0B208630070020B755 /* WelcomeController.m in Sources */,
@@ -1290,6 +1348,7 @@
 				0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */,
 				4B4DDE8520A096F8001A5132 /* UIImage+LRLBundle.m in Sources */,
 				4BE8DE46209DF69400A79ECD /* BaseCollectionReusableView.m in Sources */,
+				04B1ABFF20AD04AE002DE63C /* CategoryCell.m in Sources */,
 				4BE8DE0A209DD0D700A79ECD /* StoreCollection.m in Sources */,
 				04C03D01208AD2B400BD0995 /* NSString+API.m in Sources */,
 				4BE8DE3D209DF34100A79ECD /* StoreCollectionCategoryCell.m in Sources */,
@@ -1312,6 +1371,7 @@
 				4BE9FE2C208630070020B755 /* YLButton.m in Sources */,
 				04BA9E4C20AB054300678BE1 /* SongListController.m in Sources */,
 				0402B34C209A8DC2004A13AD /* StoreView.m in Sources */,
+				048802CD20AD78BD00698C0C /* SearchView.m in Sources */,
 				4BE9FE2E208630070020B755 /* BaseNavigationController.m in Sources */,
 				4BE9FE2D208630070020B755 /* BaseViewController.m in Sources */,
 				4BE9FDEF208630070020B755 /* UIView+XWAddForRoundedCorner.m in Sources */,
