@@ -11,6 +11,8 @@
 #pragma mark - 声明
 @interface SearchView : BaseView
 
-+ (instancetype)initWithFrame:(CGRect)frame;
++ (instancetype)initWithFrame:(CGRect)frame inView:(UIView *)inView;
+- (void)show;
+- (void)hide;
 
 @end

@@ -12,6 +12,7 @@
 #import "StoreCollection.h"
 #import "LRLChannelEditController.h"
 #import "LRLChannelUnitModel.h"
+#import "SearchView.h"
 
 #pragma mark - 声明
 @interface StoreView ()<StoreHeaderDelegate, StoreScrollDelegate>
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) StoreScroll *content;
 // 文本
 @property (nonatomic, strong) NSMutableArray<LRLChannelUnitModel *> *titles;
+// 搜索页
+@property (nonatomic, strong) SearchView *search;
 
 @property (nonatomic, strong) NSMutableArray *topChannelArr;
 @property (nonatomic, strong) NSMutableArray *bottomChannelArr;
@@ -85,6 +88,12 @@
     }
     return _titles;
 }
+- (SearchView *)search {
+    if (!_search) {
+        _search = [SearchView initWithFrame:CGRectMake(0, CGRectGetMaxY(_header.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(_header.frame)) inView:self];
+    }
+    return _search;
+}
 
 - (void)pushController {
     __weak typeof(self) weak = self;
@@ -116,10 +125,12 @@
 // 开始搜索
 - (void)headerBeginSearch:(UITextField *)textField {
     NSLog(@"开始搜索");
+    [self.search show];
 }
 // 停止搜索
 - (void)headerEndSearch:(UITextField *)textField {
     NSLog(@"停止搜索");
+    [self.search hide];
 }
 // 点击Return
 - (void)headerReturn:(UITextField *)textField {

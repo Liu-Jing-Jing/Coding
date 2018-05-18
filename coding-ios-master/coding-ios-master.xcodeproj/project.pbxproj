@@ -18,6 +18,13 @@
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
 		0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD52092C7DA00BC963E /* UITextField+Extension.m */; };
 		0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */; };
+		04A85D2020AE53000052D312 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A85D1E20AE53000052D312 /* SearchCell.m */; };
+		04A85D2120AE53000052D312 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A85D1F20AE53000052D312 /* SearchCell.xib */; };
+		04A85D2420AE56FB0052D312 /* SearchSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A85D2320AE56FB0052D312 /* SearchSectionHeader.m */; };
+		04A85D2620AE575C0052D312 /* SearchSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A85D2520AE575C0052D312 /* SearchSectionHeader.xib */; };
+		04A85D2920AE58750052D312 /* SearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A85D2820AE58750052D312 /* SearchHeader.m */; };
+		04A85D2F20AE59B50052D312 /* KMTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A85D2C20AE59B50052D312 /* KMTag.m */; };
+		04A85D3020AE59B50052D312 /* KMTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A85D2E20AE59B50052D312 /* KMTagListView.m */; };
 		04B1ABF820AD01D9002DE63C /* CategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B1ABF720AD01D9002DE63C /* CategoryController.m */; };
 		04B1ABFB20AD01EB002DE63C /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B1ABFA20AD01EB002DE63C /* CategoryView.m */; };
 		04B1ABFF20AD04AE002DE63C /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B1ABFD20AD04AE002DE63C /* CategoryCell.m */; };
@@ -134,6 +141,18 @@
 		0495ABD52092C7DA00BC963E /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
 		0495ABD82092C7E800BC963E /* NSAttributedString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Size.h"; sourceTree = "<group>"; };
 		0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Size.m"; sourceTree = "<group>"; };
+		04A85D1D20AE53000052D312 /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		04A85D1E20AE53000052D312 /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
+		04A85D1F20AE53000052D312 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		04A85D2220AE56FB0052D312 /* SearchSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchSectionHeader.h; sourceTree = "<group>"; };
+		04A85D2320AE56FB0052D312 /* SearchSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchSectionHeader.m; sourceTree = "<group>"; };
+		04A85D2520AE575C0052D312 /* SearchSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSectionHeader.xib; sourceTree = "<group>"; };
+		04A85D2720AE58750052D312 /* SearchHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchHeader.h; sourceTree = "<group>"; };
+		04A85D2820AE58750052D312 /* SearchHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchHeader.m; sourceTree = "<group>"; };
+		04A85D2B20AE59B50052D312 /* KMTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMTag.h; sourceTree = "<group>"; };
+		04A85D2C20AE59B50052D312 /* KMTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMTag.m; sourceTree = "<group>"; };
+		04A85D2D20AE59B50052D312 /* KMTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMTagListView.h; sourceTree = "<group>"; };
+		04A85D2E20AE59B50052D312 /* KMTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMTagListView.m; sourceTree = "<group>"; };
 		04B1ABF620AD01D9002DE63C /* CategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryController.h; sourceTree = "<group>"; };
 		04B1ABF720AD01D9002DE63C /* CategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryController.m; sourceTree = "<group>"; };
 		04B1ABF920AD01EB002DE63C /* CategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryView.h; sourceTree = "<group>"; };
@@ -448,6 +467,14 @@
 			children = (
 				048802CB20AD78BD00698C0C /* SearchView.h */,
 				048802CC20AD78BD00698C0C /* SearchView.m */,
+				04A85D2720AE58750052D312 /* SearchHeader.h */,
+				04A85D2820AE58750052D312 /* SearchHeader.m */,
+				04A85D2220AE56FB0052D312 /* SearchSectionHeader.h */,
+				04A85D2320AE56FB0052D312 /* SearchSectionHeader.m */,
+				04A85D2520AE575C0052D312 /* SearchSectionHeader.xib */,
+				04A85D1D20AE53000052D312 /* SearchCell.h */,
+				04A85D1E20AE53000052D312 /* SearchCell.m */,
+				04A85D1F20AE53000052D312 /* SearchCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -492,6 +519,17 @@
 				0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */,
 			);
 			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		04A85D2A20AE59B50052D312 /* KMTagListView */ = {
+			isa = PBXGroup;
+			children = (
+				04A85D2B20AE59B50052D312 /* KMTag.h */,
+				04A85D2C20AE59B50052D312 /* KMTag.m */,
+				04A85D2D20AE59B50052D312 /* KMTagListView.h */,
+				04A85D2E20AE59B50052D312 /* KMTagListView.m */,
+			);
+			path = KMTagListView;
 			sourceTree = "<group>";
 		};
 		04B1ABF320AD01C9002DE63C /* Category */ = {
@@ -1054,6 +1092,7 @@
 		4BE9FDD5208630070020B755 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				04A85D2A20AE59B50052D312 /* KMTagListView */,
 				4B4DDE7720A096F8001A5132 /* LRLChannelEdit */,
 				0478B2BC2087588100213353 /* LLNavigationBar */,
 				4BE9FDD6208630070020B755 /* YLButton */,
@@ -1208,6 +1247,8 @@
 				4BE9FD0B20862FCA0020B755 /* LaunchScreen.storyboard in Resources */,
 				4B4DDE8720A096F8001A5132 /* LRLChannelEditController.xib in Resources */,
 				4B8B354D209F06790065E540 /* MineCell.xib in Resources */,
+				04A85D2620AE575C0052D312 /* SearchSectionHeader.xib in Resources */,
+				04A85D2120AE53000052D312 /* SearchCell.xib in Resources */,
 				4BE8DE2B209DEDE900A79ECD /* StoreCollectionSectionHeader.xib in Resources */,
 				4BE9FD0820862FCA0020B755 /* Assets.xcassets in Resources */,
 			);
@@ -1293,6 +1334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A85D2420AE56FB0052D312 /* SearchSectionHeader.m in Sources */,
 				4BE8DE2A209DEDE900A79ECD /* StoreCollectionSectionHeader.m in Sources */,
 				0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */,
 				4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */,
@@ -1302,12 +1344,14 @@
 				4BE9FDF0208630070020B755 /* UIView+Extension.m in Sources */,
 				04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */,
 				4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */,
+				04A85D2920AE58750052D312 /* SearchHeader.m in Sources */,
 				4BE8DE0D209DD2D900A79ECD /* StoreHeader.m in Sources */,
 				4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */,
 				04BA9E5820AB0A1700678BE1 /* KKNavigationBar.m in Sources */,
 				0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */,
 				4BE8DE03209DBF4500A79ECD /* ShelfHeader.m in Sources */,
 				4BE9FE2F208630070020B755 /* BaseTabBarController.m in Sources */,
+				04A85D2F20AE59B50052D312 /* KMTag.m in Sources */,
 				4BE8DE07209DC59300A79ECD /* TLSegmentedControl.m in Sources */,
 				4BE8DE34209DEEF500A79ECD /* BaseCollectionCell.m in Sources */,
 				4BE9FDF8208630070020B755 /* ImageUtils.m in Sources */,
@@ -1351,6 +1395,7 @@
 				04B1ABFF20AD04AE002DE63C /* CategoryCell.m in Sources */,
 				4BE8DE0A209DD0D700A79ECD /* StoreCollection.m in Sources */,
 				04C03D01208AD2B400BD0995 /* NSString+API.m in Sources */,
+				04A85D3020AE59B50052D312 /* KMTagListView.m in Sources */,
 				4BE8DE3D209DF34100A79ECD /* StoreCollectionCategoryCell.m in Sources */,
 				4BE8DE31209DEEBB00A79ECD /* BaseTableCell.m in Sources */,
 				4BE9FDEA208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
@@ -1370,6 +1415,7 @@
 				04BA9E4F20AB056800678BE1 /* SongListHeader.m in Sources */,
 				4BE9FE2C208630070020B755 /* YLButton.m in Sources */,
 				04BA9E4C20AB054300678BE1 /* SongListController.m in Sources */,
+				04A85D2020AE53000052D312 /* SearchCell.m in Sources */,
 				0402B34C209A8DC2004A13AD /* StoreView.m in Sources */,
 				048802CD20AD78BD00698C0C /* SearchView.m in Sources */,
 				4BE9FE2E208630070020B755 /* BaseNavigationController.m in Sources */,
