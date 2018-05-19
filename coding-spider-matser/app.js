@@ -17,3 +17,18 @@
 
 // 具体歌的地址
 // http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.song.play&songid=
+
+
+var {connectDB} = require('./mongdb');
+
+var asd = async ()=>{
+    await connectDB();
+    await console.log('-------');
+}
+
+asd();
+
+
+
+
+
