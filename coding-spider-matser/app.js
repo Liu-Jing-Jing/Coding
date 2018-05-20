@@ -37,7 +37,7 @@ var spider = async ()=>{
     await insertDate('list', datas.list);
     await insertDate('song', datas.song);
     // 下载文件
-    downloadFiles(datas.song);
+    await downloadFiles(datas.song);
 }
 
 spider();

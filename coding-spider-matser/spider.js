@@ -45,20 +45,24 @@ var getList = (id, page, list, complete)=>{
                         var data = json.song_list[i];
                         songIds.push(data.song_id);
                     }
+                    console.log('爬虫成功, id: ' + _id + ' url: ' + url);
                     getList(_id, _page + 1, list, complete);
                 }
                 // 最后一页
                 else {
+                    console.log('爬虫最后一页, id: ' + _id + ' url: ' + url);
                     complete({[_id]: list});
                 }
             }
             // 无数据
             else {
+                console.log('爬虫无数据, id: ' + _id + ' url: ' + url);
                 complete({[_id]: list});
             }
         } 
         // 失败
         else {
+            console.log('爬虫失败, id: ' + _id + ' url: ' + url);
             complete({[_id]: list});
         }
     })

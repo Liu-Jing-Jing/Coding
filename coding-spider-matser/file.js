@@ -49,10 +49,12 @@ var downloadFiles = (datas)=>{
     console.log('开始下载');
     async.mapLimit(arr, 2, (data, callback)=>{
         if (!fs.existsSync('./resources/' + data.name)) {
+            console.log('下载完成: ' + data.name);
             downloadFile(data.url, data.name, ()=>{
                 callback(null, '');
             });
         } else {
+            console.log('已存在: ' + data.name);
             callback(null, '');
         }
     },(err, result)=>{
