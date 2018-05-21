@@ -32,7 +32,9 @@ var getList = (id, page, list, complete)=>{
 
     var _page = page == undefined ? 0 : page;
     var _id = id == undefined ? 1 : id;
-    var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.billboard.billList&format=json&type=" + _id + "&offset=0&size=20&page=" + _page;
+    // var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.billboard.billList&format=json&type=" + _id + "&offset=0&size=20&page=" + _page;
+
+    var url = "http://route.showapi.com/213-4?showapi_appid=65749&showapi_sign=d3f6a011ddd842cb9591089f013443dc&showapi_timestamp=20180521225800&showapi_sign_method=md5&showapi_res_gzip=1&topid=3";
 
     var json = {
         method: 'GET',
