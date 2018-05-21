@@ -17,6 +17,7 @@ var createFileDir = (name)=>{
 }
 // 下载文件
 var downloadFile = (uri, filename, callback)=>{
+    console.log('下载文件')
     var stream = fs.createWriteStream('./resources/' + filename);
     request(uri).pipe(stream).on('close', callback); 
 }

@@ -2,6 +2,8 @@
 
 const request = require('request');
 const async = require('async');
+const ipProxyRequest = require('ip-proxy-request');
+const userAgents = require('./userAgents');
 
 /**
  * #define NEW_SONG_LIST           1   新歌
@@ -17,8 +19,8 @@ const async = require('async');
  * #define POP_MUSIC_LIST          16  流行
  */
 
-var listIds = [1, 2, 22, 23, 25, 24, 21, 8, 11, 12, 16];
-// var listIds = [1, 2, 22];
+// var listIds = [1, 2, 22, 23, 25, 24, 21, 8, 11, 12, 16];
+var listIds = [1];
 var songIds = [];
 // 列表数据
 var lists = [];
@@ -27,17 +29,29 @@ var songs = [];
 
 // 获取列表
 var getList = (id, page, list, complete)=>{
+
     var _page = page == undefined ? 0 : page;
     var _id = id == undefined ? 1 : id;
     var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.billboard.billList&format=json&type=" + _id + "&offset=0&size=20&page=" + _page;
-    request(url, function (error, response, body) {
+
+    var json = {
+        method: 'GET',
+        proxy: 'http://221.8.173.236: 80',
+        headers: {
+            'User-Agent': userAgents[Math.random() % userAgents.length],
+        },
+        timeout: 50000,
+        url: url
+    }
+
+    request(json, function (error, response, body) {
         // 成功
         if (!error && response.statusCode == 200) {
             var json = JSON.parse(body);
             // 有数据
             if (json && json.song_list != null) {
                 // 还有下一页
-                if (page <= 4 || json.song_list.length != 0) {
+                if (_page <= 2 || json.song_list.length != 0) {
                     // 列表数据
                     list.push(...json.song_list);
                     // 歌曲id
@@ -51,29 +65,40 @@ var getList = (id, page, list, complete)=>{
                 // 最后一页
                 else {
                     console.log('爬虫最后一页, id: ' + _id + ' url: ' + url);
-                    complete({[_id]: list});
+                    complete(list);
                 }
             }
             // 无数据
             else {
                 console.log('爬虫无数据, id: ' + _id + ' url: ' + url);
-                complete({[_id]: list});
+                complete(list);
             }
         } 
         // 失败
         else {
             console.log('爬虫失败, id: ' + _id + ' url: ' + url);
-            complete({[_id]: list});
+            complete(list);
         }
     })
 }
 var getListData = ()=>{
     return new Promise((resolve, reject)=>{
         // 获取歌曲列表
-        async.mapLimit(listIds, 2, (id, callback)=>{
+        async.mapLimit(listIds, 1, (id, callback)=>{
             getList(id, 1, [], (datas)=>{
-                lists.push(datas);
+                // 数据
+                lists.push({
+                    'list': datas,
+                    'id': id,
+                });
                 callback(null, datas);
+
+                // // 回调
+                // var delay = (Math.random() * 10000000) % 5000;
+                // console.log('延时: ' + delay + "秒");
+                // setTimeout(()=>{
+                //     callback(null, datas);
+                // },delay);
             });
         },(err, result)=>{
             resolve(result);
@@ -84,10 +109,20 @@ var getListData = ()=>{
 var getSong = (id, callback)=>{
     // 具体歌的地址
     var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.song.play&songid=" + id;
-    request(url, (error, response, body)=>{
+    var json = {
+        method: 'GET',
+        proxy: 'http://221.8.173.236: 80',
+        headers: {
+            'User-Agent': userAgents[Math.random() % userAgents.length],
+        },
+        timeout: 50000,
+        url: url
+    }
+    request(json, (error, response, body)=>{
         // 成功
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
+            data.id = id;
             songs.push(data);
             callback(data);
         }
@@ -100,7 +135,7 @@ var getSong = (id, callback)=>{
 var getSongData = ()=>{
     return new Promise((resolve, reject)=>{
         // 获取歌曲列表
-        async.mapLimit(songIds, 2, (id, callback)=>{
+        async.mapLimit(songIds, 1, (id, callback)=>{
             getSong(id, (datas)=>{
                 callback(null, {[id]: datas});
             });

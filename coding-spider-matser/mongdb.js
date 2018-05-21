@@ -46,9 +46,14 @@ var createCollection = (data, err, res)=>{
 // 添加数据
 var insertDate = (base, data)=>{
     return new Promise((resolve, reject)=>{
-        _dbase.collection(base).insertMany(data, (err, result)=>{  
+        _dbase.collection(base).insertMany(data, (err, result)=>{ 
             if (err) {  
-                console.log('添加数据失败');
+                console.log('添加数据 ' + base + '失败');
+                console.log('================================');
+                console.log(err);
+                console.log('================================');
+                console.log(data);
+                console.log('================================');
                 reject();
             } 
             else {
