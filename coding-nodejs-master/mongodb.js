@@ -43,8 +43,6 @@ var createCollection = (data, err, res)=>{
 }
 // 读取列表
 var readListData = (page, number)=>{
-    page = page == undefined ? 0 : parseInt(page - 1);
-    number = number == undefined ? 20 : parseInt(number);
     return new Promise((resolve, reject)=>{
         _dbase = _db.db("runoob");
         var cursor = _dbase.collection('list').find().skip(page * number).limit(number);
@@ -63,7 +61,6 @@ var readListData = (page, number)=>{
 }
 // 读取歌曲
 var readSongData = (songid)=>{
-    songid = songid == undefined ? 0 : songid;
     return new Promise((resolve, reject)=>{
         _dbase = _db.db("runoob");
         var cursor = _dbase.collection('song').find({songid: parseInt(songid)})
@@ -135,9 +132,9 @@ var insertSomeData = ()=>{
                 icon: "三只松鼠_icon"
             }
         ]);
+        await resolve();
     })
 }
-
 
 module.exports = {
     connectDB, 

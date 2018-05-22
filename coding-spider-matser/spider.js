@@ -32,13 +32,13 @@ var getList = (id, page, list, complete)=>{
 
     var _page = page == undefined ? 0 : page;
     var _id = id == undefined ? 1 : id;
-    // var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.billboard.billList&format=json&type=" + _id + "&offset=0&size=20&page=" + _page;
+    var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.billboard.billList&format=json&type=" + _id + "&offset=0&size=20&page=" + _page;
 
-    var url = "http://route.showapi.com/213-4?showapi_appid=65749&showapi_sign=d3f6a011ddd842cb9591089f013443dc&showapi_timestamp=20180521225800&showapi_sign_method=md5&showapi_res_gzip=1&topid=3";
+    // var url = "http://route.showapi.com/213-4?showapi_appid=65749&showapi_sign=d3f6a011ddd842cb9591089f013443dc&showapi_timestamp=20180521225800&showapi_sign_method=md5&showapi_res_gzip=1&topid=3";
 
     var json = {
         method: 'GET',
-        proxy: 'http://221.8.173.236: 80',
+        proxy: 'http://119.167.153.50:8118',
         headers: {
             'User-Agent': userAgents[Math.random() % userAgents.length],
         },
@@ -53,7 +53,7 @@ var getList = (id, page, list, complete)=>{
             // 有数据
             if (json && json.song_list != null) {
                 // 还有下一页
-                if (_page <= 2 || json.song_list.length != 0) {
+                if (_page <= 2 && json.song_list.length != 0) {
                     // 列表数据
                     list.push(...json.song_list);
                     // 歌曲id
@@ -62,7 +62,10 @@ var getList = (id, page, list, complete)=>{
                         songIds.push(data.song_id);
                     }
                     console.log('爬虫成功, id: ' + _id + ' url: ' + url);
-                    getList(_id, _page + 1, list, complete);
+                    var delay = (Math.random() * 10000000) % 10000;
+                    setTimeout(()=>{
+                        getList(_id, _page + 1, list, complete);
+                    },delay);
                 }
                 // 最后一页
                 else {
@@ -93,14 +96,14 @@ var getListData = ()=>{
                     'list': datas,
                     'id': id,
                 });
-                callback(null, datas);
+                // callback(null, datas);
 
-                // // 回调
-                // var delay = (Math.random() * 10000000) % 5000;
-                // console.log('延时: ' + delay + "秒");
-                // setTimeout(()=>{
-                //     callback(null, datas);
-                // },delay);
+                // 回调
+                var delay = (Math.random() * 10000000) % 10000;
+                console.log('延时: ' + delay + "秒");
+                setTimeout(()=>{
+                    callback(null, datas);
+                },delay);
             });
         },(err, result)=>{
             resolve(result);
@@ -113,7 +116,7 @@ var getSong = (id, callback)=>{
     var url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=qianqian&version=2.1.0&method=baidu.ting.song.play&songid=" + id;
     var json = {
         method: 'GET',
-        proxy: 'http://221.8.173.236: 80',
+        proxy: 'http://119.167.153.50:8118',
         headers: {
             'User-Agent': userAgents[Math.random() % userAgents.length],
         },
