@@ -21,4 +21,11 @@
 #define countcoordinatesX(A) ScreenWidth * (A / 320.f)
 #define countcoordinatesY(A) ScreenHeight * (A / 568.f)
 
+#define kQQAppId @"1106915970"
+#define KQQAppKey @"CNCRDcW0NxOJvE0k"
+#define kWXAppId @"wx6b477a1bfabcb188"
+#define kWXAppSecreat @"74b031a679e893601d1749a64ba03aa1"
+#define kWeiboAppId @"651417025"
+#define kWeiboCallbackURL   @"https://sns.whalecloud.com/sina2/callback"
+
 

@@ -26,5 +26,4 @@
 
 #define FontName(A) [UIFont systemFontOfSize:adjustFont(A)]
 
-#import "UILabel+Commonly.h"
 

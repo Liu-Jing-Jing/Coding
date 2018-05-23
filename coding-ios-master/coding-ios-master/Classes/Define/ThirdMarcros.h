@@ -22,5 +22,4 @@
 #import <SDWebImage/SDWebImageDownloader.h>
 #import "TLSegmentedControl.h"
 #import <SDCycleScrollView/SDCycleScrollView.h>
-#import "KMTagListView.h"
 

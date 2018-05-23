@@ -33,6 +33,7 @@
 #import "UIView+Visuals.h"
 #import "NSAttributedString+Size.h"
 #import "NSArray+Project.h"
+#import "UILabel+Commonly.h"
 
 #import "MJRefreshNormalHeader+Extension.h"
 #import "MJRefreshBackNormalFooter+Extension.h"
