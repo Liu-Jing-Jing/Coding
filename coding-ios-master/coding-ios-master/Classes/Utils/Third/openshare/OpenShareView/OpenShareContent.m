@@ -45,24 +45,24 @@
             
             
             
-            UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
-            view.frame = CGRectMake(i * SCREEN_WIDTH / 3, 0, SCREEN_WIDTH / 3, _scroll.height);
-            view.tag = i;
-            [view addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-            [_scroll addSubview:view];
-            
-            UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.width, view.height / 2)];
-            image.centerY = view.height / 2 - 10;
-            image.image = [UIImage imageNamed:icons[i]];
-            image.contentMode = UIViewContentModeScaleAspectFit;
-            [view addSubview:image];
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(image.frame), view.width, 20)];
-            label.text = names[i];
-            label.font = [UIFont systemFontOfSize:AdjustFont(26) weight:UIFontWeightThin];
-            label.textColor = kColor_Text_Black;
-            label.textAlignment = NSTextAlignmentCenter;
-            [view addSubview:label];
+//            UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
+//            view.frame = CGRectMake(i * SCREEN_WIDTH / 3, 0, SCREEN_WIDTH / 3, _scroll.height);
+//            view.tag = i;
+//            [view addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+//            [_scroll addSubview:view];
+//
+//            UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.width, view.height / 2)];
+//            image.centerY = view.height / 2 - 10;
+//            image.image = [UIImage imageNamed:icons[i]];
+//            image.contentMode = UIViewContentModeScaleAspectFit;
+//            [view addSubview:image];
+//
+//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(image.frame), view.width, 20)];
+//            label.text = names[i];
+//            label.font = [UIFont systemFontOfSize:AdjustFont(26) weight:UIFontWeightThin];
+//            label.textColor = kColor_Text_Black;
+//            label.textAlignment = NSTextAlignmentCenter;
+//            [view addSubview:label];
         }
     }
     return _scroll;

@@ -26,6 +26,7 @@
 #import "BaseViewController.h"
 #import "BaseTabBarController.h"
 #import "BaseNavigationController.h"
+#import "BaseService.h"
 
 
 #endif

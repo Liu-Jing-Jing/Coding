@@ -1,6 +1,7 @@
 
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/runoob";
+var {KHost} = require('./define');
 
 var _db;
 var _dbase;
@@ -99,39 +100,63 @@ var insertDate = (base, data)=>{
 }
 // 写假数据
 var insertSomeData = ()=>{
+
+    var names = [
+        "爱不得 恨不得 舍不得","爱的代价","爱了很久的朋友","半壶纱","初恋的地方","大王叫我来巡山",
+        "大中国","当爱已成往事","独孤天下","凡人歌","飞云之下","风雨无阻","橄榄树","红颜旧",
+        "后来","后来的我们（电影《后来的我们》片名曲）","狐狸（电影《二代妖精之今生有幸》推广曲）",
+        "恍若年少","灰姑娘","几乎成名","寂寞的人伤心的歌","空空如也(Cover 胡66)","老古董",
+        "恋恋风尘","领悟","摩天大楼","內疚","你不来我不老 (对唱版)","你还要我怎样","你是我今生的依靠",
+        "你怎么舍得我难过","菩提偈","起床歌","三的颜色","伤心太平洋","时间都去哪儿了","肆无忌惮",
+        "她很漂亮","体面(Cover 于文文)","听说爱情回来过","我们不一样","无情的雨无情的你","无问西东",
+        "小芳","笑红尘","哑巴","演员","一起红火火","勇气","遇见你","阅读爱情","栀子花开",
+        "纸短情长(咚鼓版)","最近比较烦","New Silk Road"
+    ];
+    // list
+    var list = [];
+    var listId = 1;
+    for (var i=0; i<3; i++) {
+        var arr = [];
+        for (var y=names.length / 3 * i; y<names.length / 3; y++) {
+            var offset = names.length / 3 * i + y;
+            var data = {};
+            data.songid = listId;
+            data.name = KHost + "/" + names[offset] + ".mp3";
+            data.icon_big = KHost + "/" + names[offset]+"_big"+".jpg";
+            data.icon_small = KHost + "/" + names[offset]+"_small"+".jpg";
+            data.icon_lrc = KHost + "/" + names[offset]+".lrc";
+            if (offset < 6) {
+                data.type = 1;
+            } else if (offset < 10) {
+                data.type = 2;
+            } else {
+                data.type = 3;
+            }
+            arr.push(data)
+            listId += 1;
+        }
+        list.push({
+            lid: i,
+            list: arr
+        });
+    }
+
+    // name
+    var songs = [];
+    var songId = 1;
+    for (var i=0; i<names.length; i++) {
+        var data = {};
+        data.songid = songId;
+        data.name = names[i] + ".mp3";
+        data.icon_big = KHost + "/" + names[i]+"_big"+".jpg";
+        data.icon_small = KHost + "/" + names[i]+"_small"+".jpg";
+        data.icon_lrc = KHost + "/" + names[i]+".lrc";
+        songs.push(data)
+    }
+    
     return new Promise(async (resolve, reject)=>{
-        await insertDate("list", [
-            {
-                id: 1,
-                list: [
-                    {
-                        songId: 11,
-                        title: "两只老虎"
-                    }
-                ]
-            },
-            {
-                id: 2,
-                list: [
-                    {
-                        songId: 12,
-                        title: "三只松鼠"
-                    }
-                ]
-            }
-        ]);
-        await insertDate("song", [
-            {
-                songid: 11,
-                title: "两只老虎",
-                icon: "两只老虎_icon"
-            },
-            {
-                songid: 12,
-                title: "三只松鼠",
-                icon: "三只松鼠_icon"
-            }
-        ]);
+        await insertDate("list", list);
+        await insertDate("song", songs);
         await resolve();
     })
 }

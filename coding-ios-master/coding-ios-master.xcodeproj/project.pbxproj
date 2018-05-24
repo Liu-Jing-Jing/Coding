@@ -12,6 +12,9 @@
 		0402B34C209A8DC2004A13AD /* StoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402B34B209A8DC2004A13AD /* StoreView.m */; };
 		0402B34F209A8DDE004A13AD /* StoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402B34E209A8DDE004A13AD /* StoreController.m */; };
 		0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442A39320A124AC00F22D8A /* NSArray+Project.m */; };
+		044960EE20B63F6900573C7A /* StoreService.m in Sources */ = {isa = PBXBuildFile; fileRef = 044960ED20B63F6900573C7A /* StoreService.m */; };
+		044960F120B63FFE00573C7A /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 044960F020B63FFE00573C7A /* BaseService.m */; };
+		044960F420B6442A00573C7A /* APPResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 044960F320B6442A00573C7A /* APPResult.m */; };
 		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
 		048802CD20AD78BD00698C0C /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048802CC20AD78BD00698C0C /* SearchView.m */; };
@@ -141,6 +144,12 @@
 		0402B34E209A8DDE004A13AD /* StoreController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreController.m; sourceTree = "<group>"; };
 		0442A39220A124AC00F22D8A /* NSArray+Project.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Project.h"; sourceTree = "<group>"; };
 		0442A39320A124AC00F22D8A /* NSArray+Project.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Project.m"; sourceTree = "<group>"; };
+		044960EC20B63F6900573C7A /* StoreService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreService.h; sourceTree = "<group>"; };
+		044960ED20B63F6900573C7A /* StoreService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreService.m; sourceTree = "<group>"; };
+		044960EF20B63FFE00573C7A /* BaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseService.h; sourceTree = "<group>"; };
+		044960F020B63FFE00573C7A /* BaseService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseService.m; sourceTree = "<group>"; };
+		044960F220B6442A00573C7A /* APPResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPResult.h; sourceTree = "<group>"; };
+		044960F320B6442A00573C7A /* APPResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPResult.m; sourceTree = "<group>"; };
 		04554F432089B1C800BEC435 /* KKEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKEmptyView.h; sourceTree = "<group>"; };
 		04554F442089B1C800BEC435 /* KKEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKEmptyView.m; sourceTree = "<group>"; };
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
@@ -428,6 +437,7 @@
 		0402B33C209A8C45004A13AD /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				044960EB20B63D4800573C7A /* Service */,
 				0402B33D209A8C45004A13AD /* Controller */,
 				0402B33E209A8C45004A13AD /* Model */,
 				0402B33F209A8C45004A13AD /* View */,
@@ -471,6 +481,15 @@
 				0442A39320A124AC00F22D8A /* NSArray+Project.m */,
 			);
 			path = NSArray;
+			sourceTree = "<group>";
+		};
+		044960EB20B63D4800573C7A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				044960EC20B63F6900573C7A /* StoreService.h */,
+				044960ED20B63F6900573C7A /* StoreService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		04554F422089B1B200BEC435 /* KKEmptyView */ = {
@@ -674,6 +693,8 @@
 			children = (
 				04C03CFC208AD00700BD0995 /* AFNManager.h */,
 				04C03CFD208AD00700BD0995 /* AFNManager.m */,
+				044960F220B6442A00573C7A /* APPResult.h */,
+				044960F320B6442A00573C7A /* APPResult.m */,
 				04C03CFF208AD2B400BD0995 /* NSString+API.h */,
 				04C03D00208AD2B400BD0995 /* NSString+API.m */,
 			);
@@ -1233,6 +1254,8 @@
 		4BE9FDE4208630070020B755 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				044960EF20B63FFE00573C7A /* BaseService.h */,
+				044960F020B63FFE00573C7A /* BaseService.m */,
 				4BB1E44220879CCD0066B80A /* BaseTabBar.h */,
 				4BB1E44320879CCE0066B80A /* BaseTabBar.m */,
 				4BE9FDE7208630070020B755 /* BaseView.h */,
@@ -1435,6 +1458,7 @@
 				04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */,
 				4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */,
 				04A85D2920AE58750052D312 /* SearchHeader.m in Sources */,
+				044960EE20B63F6900573C7A /* StoreService.m in Sources */,
 				4BE8DE0D209DD2D900A79ECD /* StoreHeader.m in Sources */,
 				4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */,
 				04BA9E5820AB0A1700678BE1 /* KKNavigationBar.m in Sources */,
@@ -1445,6 +1469,7 @@
 				4BE8DE07209DC59300A79ECD /* TLSegmentedControl.m in Sources */,
 				4BE8DE34209DEEF500A79ECD /* BaseCollectionCell.m in Sources */,
 				4BE9FDF8208630070020B755 /* ImageUtils.m in Sources */,
+				044960F420B6442A00573C7A /* APPResult.m in Sources */,
 				4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */,
 				4BE9FDED208630070020B755 /* UIView+Border.m in Sources */,
 				04BA9E5320AB066F00678BE1 /* SongListCell.m in Sources */,
@@ -1487,6 +1512,7 @@
 				4BE8DE17209DE92B00A79ECD /* CarouselView.m in Sources */,
 				0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */,
 				4B4DDE8520A096F8001A5132 /* UIImage+LRLBundle.m in Sources */,
+				044960F120B63FFE00573C7A /* BaseService.m in Sources */,
 				4BE8DE46209DF69400A79ECD /* BaseCollectionReusableView.m in Sources */,
 				04B1ABFF20AD04AE002DE63C /* CategoryCell.m in Sources */,
 				4BE8DE0A209DD0D700A79ECD /* StoreCollection.m in Sources */,

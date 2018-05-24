@@ -9,54 +9,6 @@
 #import "BaseModel.h"
 #import <MJExtension/MJExtension.h>
 
-/// Tag
-@implementation AdModel
-
-@end
-
-/// Tag
-@implementation TagModel
-
-+ (NSDictionary *)replacedKeyFromPropertyName {
-    return @{
-             @"ID" : @"id",
-             };
-}
-
-@end
-
-/// 分类
-@implementation CategoryModel
-
-+ (NSDictionary *)replacedKeyFromPropertyName {
-    return @{
-             @"ID" : @"id",
-             };
-}
-
-@end
-
-/// 技术点
-@implementation TechnicalModel
-
-@end
-
-/// 栏目
-@implementation ColumnModel
-
-+ (NSDictionary *)replacedKeyFromPropertyName {
-    return @{
-             @"ID" : @"id",
-             };
-}
-@end
-
-
-/// 文章
-@implementation EssayModel
-
-@end
-
 @implementation BaseModel
 
 @end

@@ -22,7 +22,7 @@
     return arrm;
 }
 + (NSArray<LRLChannelUnitModel *> *)getBottomChannelArr {
-    NSArray *arr = @[@"女生",@"漫画",@"全本"];
+    NSArray *arr = @[@"女生",@"全本"];
     NSMutableArray *arrm = [[NSMutableArray alloc] init];
     for (int i=0; i<arr.count; i++) {
         LRLChannelUnitModel *model = [[LRLChannelUnitModel alloc] init];

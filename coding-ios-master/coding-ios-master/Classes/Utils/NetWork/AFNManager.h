@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "APPResult.h"
 
 #pragma mark - typeof
-typedef void(^SuccessNetWorkBlock)(NSDictionary *data);
-typedef void(^ErrorNetWorkBlock)(NSError *error);
+typedef void(^ServiceCompleteBlock)(APPResult *result);
 typedef void(^ProgressNetWorkBlock)(CGFloat currentProgress, CGFloat maxProgress, CGFloat percentage);
 
 #pragma mark - 声明
 @interface AFNManager : NSObject
 
-+ (void)GET:(NSString *)url params:(NSDictionary *)params success:(SuccessNetWorkBlock)success error:(ErrorNetWorkBlock)error;
-+ (void)GET:(NSString *)url params:(NSDictionary *)params success:(SuccessNetWorkBlock)success error:(ErrorNetWorkBlock)error progress:(ProgressNetWorkBlock)progress;
++ (void)GET:(NSString *)url params:(NSDictionary *)params complete:(ServiceCompleteBlock)complete;
++ (void)GET:(NSString *)url params:(NSDictionary *)params progress:(ProgressNetWorkBlock)progress complete:(ServiceCompleteBlock)complete;
 
 @end
