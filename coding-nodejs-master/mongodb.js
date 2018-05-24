@@ -85,6 +85,11 @@ var readSongData = (songid)=>{
 }
 // 添加数据
 var insertDate = (base, data)=>{
+    var coll = _dbase.getCollection(base)
+    if (coll) {
+        console.log("")
+        return;
+    }
     return new Promise((resolve, reject)=>{
         _dbase.collection(base).insertMany(data, (err, result)=>{ 
             if (err) {  
