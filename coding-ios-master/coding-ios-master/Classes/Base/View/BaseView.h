@@ -29,11 +29,11 @@
 
 //==================================== 空白 ====================================//
 /// 初始化空视图
-- (void)showEmptyView:(EmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock;
+- (void)showEmptyView:(KKEmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock;
 /// 初始化空视图
-- (void)showEmptyView:(EmptyViewType)emptyViewType backButton:(BOOL)backButton eventBlock:(EmptyViewEventBlock)eventBlock;
+- (void)showEmptyView:(KKEmptyViewType)emptyViewType backButton:(BOOL)backButton eventBlock:(EmptyViewEventBlock)eventBlock;
 /// 初始化空视图
-- (void)showEmptyView:(EmptyViewType)emptyViewType inView:(UIView *)inview eventBlock:(EmptyViewEventBlock)eventBlock;
+- (void)showEmptyView:(KKEmptyViewType)emptyViewType inView:(UIView *)inview eventBlock:(EmptyViewEventBlock)eventBlock;
 /// 隐藏视图
 - (void)hideEmptyView;
 

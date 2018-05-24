@@ -335,6 +335,10 @@
 }
 -(void)setIndex:(NSUInteger)index {
     _index = index;
+//    if (self.btns.count <= index) {
+//        [self segmentSelectedAction:self.btns[0]];
+//    } else {
+//    }
     [self segmentSelectedAction:self.btns[index]];
 }
 

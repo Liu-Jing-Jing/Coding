@@ -7,12 +7,9 @@
 //
 
 #import "StoreScroll.h"
-#import "StoreCollection.h"
 
 #pragma mark - 声明
 @interface StoreScroll()<StoreCollectionDelegate, UIScrollViewDelegate>
-
-@property (nonatomic, strong) NSMutableArray *contents;
 
 @end
 
@@ -49,9 +46,13 @@
     _titles = titles;
     for (int i=0; i<titles.count; i++) {
         StoreCollection *collection = [StoreCollection initWithFrame:CGRectMake(i * _pageScrollView.width, 0, _pageScrollView.width, _pageScrollView.height)];
-        collection.delegate = self;
+        [collection setDelegate:self];
+        [collection setLid:i];
         [_pageScrollView addSubview:collection];
         [self.contents addObject:collection];
+        if (i == 0) {
+            [collection beginHeaderRefresh];
+        }
     }
     [_pageScrollView setContentSize:CGSizeMake(ScreenWidth * titles.count, 0)];
     [_pageScrollView setContentOffset:CGPointZero];

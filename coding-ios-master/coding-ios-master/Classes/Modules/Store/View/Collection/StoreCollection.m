@@ -12,6 +12,8 @@
 #import "StoreCollectionCategoryCell.h"
 #import "StoreCollectionDetailCell.h"
 #import "StoreCollectionLayout.h"
+#import "StoreService.h"
+#import "StoreModel.h"
 
 #define FooterHeight countcoordinatesY(10)
 
@@ -23,6 +25,7 @@
     NSTimer *_timer;
 }
 @property (nonatomic, strong) CarouselView *carouse;
+@property (nonatomic, strong) StoreModel *model;
 
 @end
 
@@ -38,6 +41,7 @@
 - (void)createView {
     [self carouse];
     [self collection];
+    [self showEmptyView:KKEmptyViewTypeLoading eventBlock:nil];
 }
 - (CarouselView *)carouse {
     if (!_carouse) {
@@ -80,11 +84,33 @@
 }
 
 #pragma mark - 刷新
-- (void)headerRefresh {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [_collection.mj_header endRefreshing];
-    });
+/// 开始下拉请求
+- (void)beginHeaderRefresh {
+    [_collection.mj_header beginRefreshing];
+    [self headerRefresh];
 }
+- (void)headerRefresh {
+    __weak typeof(self) weak = self;
+    [StoreService getStoreList:_lid complete:^(StoreModel *model, ServiceType result) {
+        if (result == ServiceTypeSuccess) {
+            [weak.collection.mj_header endRefreshing];
+            [weak hideEmptyView];
+            [weak setModel:model];
+        } else if (result == ServiceTypeFail){
+            [weak showEmptyView:KKEmptyViewTypeNetFail eventBlock:^(KKEmptyViewEventType eventType) {
+                [weak showEmptyView:KKEmptyViewTypeLoading eventBlock:nil];
+                [weak headerRefresh];
+            }];
+        }
+    }];
+}
+
+#pragma mark - 设置
+- (void)setModel:(StoreModel *)model {
+    _model = model;
+    [_collection reloadData];
+}
+
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

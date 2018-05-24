@@ -8,7 +8,7 @@
 
 #import "BaseView.h"
 #import "LRLChannelUnitModel.h"
-
+#import "StoreCollection.h"
 
 #pragma mark - 代理
 @protocol StoreScrollDelegate<NSObject>
@@ -33,6 +33,8 @@
 @property (nonatomic, strong) NSArray<LRLChannelUnitModel *> *titles;
 //
 @property (nonatomic, strong) UIScrollView *pageScrollView;
+// 控制器
+@property (nonatomic, strong) NSMutableArray<StoreCollection *> *contents;
 
 /// 初始化
 + (instancetype)initWithFrame:(CGRect)frame;

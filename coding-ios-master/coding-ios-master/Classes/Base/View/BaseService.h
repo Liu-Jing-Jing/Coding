@@ -12,6 +12,6 @@
 
 @interface BaseService : NSObject
 
-typedef void(^ServiceComplete)(__kindof BaseModel *model);
+typedef void(^ServiceComplete)(__kindof BaseModel *model, ServiceType result);
 
 @end

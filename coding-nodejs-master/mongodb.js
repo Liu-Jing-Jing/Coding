@@ -26,36 +26,35 @@ var connectDB = ()=>{
 }
 // 创建集合
 var createCollection = (data, err, res)=>{
-    return new Promise((resolve, reject)=>{
-        // 创建失败
-        if (err) {
-            console.log("创建合集: " + data + " 失败")
-            reject();
-        }
-        // 创建成功
-        else {
-            console.log("创建合集: " + data + " 成功")
-            _dbase = _db.db("runoob");
-            _dbase.createCollection(data, (err, res)=>{
+    return new Promise(async (resolve, reject)=>{
+        _dbase = await _db.db("runoob");
+        // 不知道怎么判断是否有集合了
+        await removeData(data);
+        await _dbase.createCollection(data, (err, res)=>{
+            if (err) {
+                console.log("创建合集: " + data + " 失败")
+                reject();
+            } else {
+                console.log("创建合集: " + data + " 成功")
                 resolve();
-            });
-        }
+            }
+        });
     })
 }
 // 读取列表
-var readListData = (page, number)=>{
+var readListData = (lid)=>{
     return new Promise((resolve, reject)=>{
         _dbase = _db.db("runoob");
-        var cursor = _dbase.collection('list').find().skip(page * number).limit(number);
-        var arr = [];
+        var cursor = _dbase.collection('list').find({"lid": lid});
+        var data;
         cursor.each((err, doc)=>{
             if (err) {
-                reject(arr);
+                reject(data);
             }
             if (doc != null) {
-                arr.push(doc);
+                data = doc;
             } else {
-                resolve(arr);
+                resolve(data);
             }
         });
     })
@@ -85,11 +84,6 @@ var readSongData = (songid)=>{
 }
 // 添加数据
 var insertDate = (base, data)=>{
-    var coll = _dbase.getCollection(base)
-    if (coll) {
-        console.log("")
-        return;
-    }
     return new Promise((resolve, reject)=>{
         _dbase.collection(base).insertMany(data, (err, result)=>{ 
             if (err) {  
@@ -103,9 +97,14 @@ var insertDate = (base, data)=>{
         });  
     });
 }
+// 删除数据
+var removeData = (base)=>{
+    _dbase = _db.db("runoob");
+    _dbase.collection(base).drop()
+    console.log("删除集合: " + base + " 完成");
+}
 // 写假数据
 var insertSomeData = ()=>{
-
     var names = [
         "爱不得 恨不得 舍不得","爱的代价","爱了很久的朋友","半壶纱","初恋的地方","大王叫我来巡山",
         "大中国","当爱已成往事","独孤天下","凡人歌","飞云之下","风雨无阻","橄榄树","红颜旧",
@@ -117,12 +116,11 @@ var insertSomeData = ()=>{
         "小芳","笑红尘","哑巴","演员","一起红火火","勇气","遇见你","阅读爱情","栀子花开",
         "纸短情长(咚鼓版)","最近比较烦","New Silk Road"
     ];
-    // list
     var list = [];
     var listId = 1;
-    for (var i=0; i<3; i++) {
+    for (let i=0; i<3; i++) {
         var arr = [];
-        for (var y=names.length / 3 * i; y<names.length / 3; y++) {
+        for (var y=parseInt(names.length / 3) * i; y<names.length / 3 * (i + 1); y++) {
             var offset = names.length / 3 * i + y;
             var data = {};
             data.songid = listId;
@@ -130,12 +128,14 @@ var insertSomeData = ()=>{
             data.icon_big = KHost + "/" + names[offset]+"_big"+".jpg";
             data.icon_small = KHost + "/" + names[offset]+"_small"+".jpg";
             data.icon_lrc = KHost + "/" + names[offset]+".lrc";
-            if (offset < 6) {
+            if (offset < 3) {
                 data.type = 1;
-            } else if (offset < 10) {
+            } else if (offset < 9) {
                 data.type = 2;
-            } else {
+            } else if (offset < 13) {
                 data.type = 3;
+            } else {
+                data.type = 4;
             }
             arr.push(data)
             listId += 1;

@@ -9,10 +9,10 @@
 #import "StoreView.h"
 #import "StoreHeader.h"
 #import "StoreScroll.h"
-#import "StoreCollection.h"
 #import "LRLChannelEditController.h"
 #import "LRLChannelUnitModel.h"
 #import "SearchView.h"
+#import "StoreService.h"
 
 #pragma mark - 声明
 @interface StoreView ()<StoreHeaderDelegate, StoreScrollDelegate>
@@ -44,6 +44,10 @@
 - (void)createView {
     [self header];
     [self content];
+//    [self showEmptyView:KKEmptyViewTypeLoading eventBlock:nil];
+//    [StoreService getStoreList:@"0" complete:^(__kindof BaseModel *model) {
+//        
+//    }];
 }
 - (NSMutableArray *)topChannelArr {
     if (!_topChannelArr) {
@@ -95,6 +99,8 @@
     return _search;
 }
 
+
+#pragma mark - 跳转
 - (void)pushController {
     __weak typeof(self) weak = self;
     LRLChannelEditController *channelEdit = [[LRLChannelEditController alloc] initWithTopDataSource:weak.topChannelArr andBottomDataSource:weak.bottomChannelArr andInitialIndex:weak.chooseIndex];
@@ -109,10 +115,19 @@
         NSLog(@"删除了初始选中项的回调:\n保留的频道有: %@", topArr);
     };
     channelEdit.chooseIndexBlock = ^(NSInteger index, NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
-        weak.topChannelArr = topArr;
-        weak.bottomChannelArr = bottomArr;
+        [weak setTopChannelArr:topArr];
+        [weak setBottomChannelArr:bottomArr];
+        [weak.header setTitles:topArr];
+        [weak.header.seg addTarget:self action:@selector(pushController) forControlEvents:UIControlEventTouchUpInside];
+        [weak.content setTitles:topArr];
         weak.chooseIndex = index;
+        weak.header.segmentBar.index = index;
         NSLog(@"选中了某一项的回调:\n保留的频道有: %@, 选中第%ld个频道", topArr, index);
+//        weak.topChannelArr = topArr;
+//        weak.bottomChannelArr = bottomArr;
+//        weak.chooseIndex = index;
+//        weak.header.segmentBar.index = index;
+//        NSLog(@"选中了某一项的回调:\n保留的频道有: %@, 选中第%ld个频道", topArr, index);
     };
     [self.viewController presentViewController:channelEdit animated:YES completion:nil];
 }
@@ -120,7 +135,8 @@
 #pragma mark - StoreHeaderDelegate
 // 点击了Page
 - (void)headerSegmentedControl:(TLSegmentedControl *)segmentedControl didSelectIndex:(NSUInteger)index {
-    self.content.pageScrollView.contentOffset = CGPointMake(index * self.width, 0);
+    [self.content.pageScrollView setContentOffset:CGPointMake(index * self.width, 0)];
+    [self.content.contents[index] beginHeaderRefresh];
 }
 // 开始搜索
 - (void)headerBeginSearch:(UITextField *)textField {

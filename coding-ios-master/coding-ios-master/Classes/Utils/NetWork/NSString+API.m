@@ -14,7 +14,7 @@
 
 /// Store列表
 + (NSString *)getStoreList {
-    return [NSString stringWithFormat:@"%@/home_list",KHost];
+    return [NSString stringWithFormat:@"%@/songlist",KHost];
 }
 
 

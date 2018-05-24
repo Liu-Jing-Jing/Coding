@@ -68,6 +68,7 @@
 		4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */; };
 		4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */; };
 		4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */; };
+		4B8A231920B6EF4000458BCC /* StoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A231820B6EF4000458BCC /* StoreModel.m */; };
 		4B8B354C209F06790065E540 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B354A209F06790065E540 /* MineCell.m */; };
 		4B8B354D209F06790065E540 /* MineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B8B354B209F06790065E540 /* MineCell.xib */; };
 		4B8B3550209F07860065E540 /* MineHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B354F209F07860065E540 /* MineHeader.m */; };
@@ -253,6 +254,8 @@
 		4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SDCycleScrollView+Manager.m"; sourceTree = "<group>"; };
 		4B7D6D3C2088B84C00F7DC2B /* POPAnimation+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POPAnimation+Extension.h"; sourceTree = "<group>"; };
 		4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "POPAnimation+Extension.m"; sourceTree = "<group>"; };
+		4B8A231720B6EF4000458BCC /* StoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreModel.h; sourceTree = "<group>"; };
+		4B8A231820B6EF4000458BCC /* StoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreModel.m; sourceTree = "<group>"; };
 		4B8B3549209F06790065E540 /* MineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCell.h; sourceTree = "<group>"; };
 		4B8B354A209F06790065E540 /* MineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCell.m; sourceTree = "<group>"; };
 		4B8B354B209F06790065E540 /* MineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCell.xib; sourceTree = "<group>"; };
@@ -439,7 +442,7 @@
 			children = (
 				044960EB20B63D4800573C7A /* Service */,
 				0402B33D209A8C45004A13AD /* Controller */,
-				0402B33E209A8C45004A13AD /* Model */,
+				4B8A231620B6EF3800458BCC /* Model */,
 				0402B33F209A8C45004A13AD /* View */,
 			);
 			path = Store;
@@ -452,13 +455,6 @@
 				0402B34E209A8DDE004A13AD /* StoreController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		0402B33E209A8C45004A13AD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0402B33F209A8C45004A13AD /* View */ = {
@@ -838,6 +834,15 @@
 				4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */,
 			);
 			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		4B8A231620B6EF3800458BCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B8A231720B6EF4000458BCC /* StoreModel.h */,
+				4B8A231820B6EF4000458BCC /* StoreModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4B8B3553209F1E7C0065E540 /* Layout */ = {
@@ -1496,6 +1501,7 @@
 				4BE9FDF2208630070020B755 /* UIFont+Extension.m in Sources */,
 				04DD0C1B20B4F34600DF2E0F /* OpenShareContent.m in Sources */,
 				04DD0C0220B4F0F500DF2E0F /* OpenShare+Alipay.m in Sources */,
+				4B8A231920B6EF4000458BCC /* StoreModel.m in Sources */,
 				4BE9FE30208630070020B755 /* BaseModel.m in Sources */,
 				4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,

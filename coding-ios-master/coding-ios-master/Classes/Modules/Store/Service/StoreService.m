@@ -7,17 +7,18 @@
 //
 
 #import "StoreService.h"
+#import "StoreModel.h"
 
 @implementation StoreService
 
-+ (void)getStoreList:(NSString *)lid complete:(ServiceComplete)complete {
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:lid, @"lid", nil];
-//    [AFNManager GET:[NSString getStoreList] params:param success:^(NSDictionary *data) {
-//
-//    } error:^(NSError *error) {
-//        BaseModel *model = [[BaseModel alloc] init];
-//        model.r =
-//    }];
++ (void)getStoreList:(NSInteger)lid complete:(ServiceComplete)complete {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@(lid), @"lid", nil];
+    [AFNManager GET:[NSString getStoreList] params:param complete:^(APPResult *result) {
+        if (complete) {
+            StoreModel *model = [StoreModel mj_objectWithKeyValues:result.data];
+            complete(model, result.result);
+        }
+    }];
 }
 
 @end

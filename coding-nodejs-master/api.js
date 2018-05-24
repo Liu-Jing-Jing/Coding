@@ -7,22 +7,23 @@ var {loadCache, saveCache} = require('./cache');
 // 歌曲列表
 var songlist = async (req, res)=>{
     // 数据
-    var page = req.query.page;
-    var number = req.query.number;
-    page = page == undefined ? 0 : parseInt(page - 1);
-    number = number == undefined ? 20 : parseInt(number);
+    var lid = req.query.lid;
+    lid = lid == undefined ? 0 : parseInt(lid);
     // 从缓存读取
-    var key = 'songlist' + '_' + page + '_' + number;
+    var key = 'songlist' + '_' + lid;
     loadCache(key, async (data)=>{
         // 有缓存
         if (data != null) {
             console.log('通过缓存');
-            res.send(JSON.parse(data.data));
+            // 加个延时
+            setTimeout(() => {
+                res.send(JSON.parse(data.data));
+            }, 500);
         } 
         // 没有缓存, 从数据库
         else {
             console.log('通过数据库');
-            var data = await readListData(page, number);
+            var data = await readListData(lid);
             // 有数据, 加入到缓存
             if (data != undefined && data.length != 0) {
                 // 存值
@@ -47,7 +48,11 @@ var songdetail = async (req, res)=>{
         // 有缓存
         if (data != null) {
             console.log('通过缓存');
-            res.send(JSON.parse(data.data));
+            // res.send(JSON.parse(data.data));
+            // 加个延时
+            setTimeout(() => {
+                res.send(JSON.parse(data.data));
+            }, 500);
         }
         // 没有缓存, 从数据库
         else {

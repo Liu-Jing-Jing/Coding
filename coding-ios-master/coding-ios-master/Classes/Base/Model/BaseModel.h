@@ -14,8 +14,6 @@
 /// BaseModel
 @interface BaseModel : NSObject
 
-@property (nonatomic, copy  ) NSString *message;
-//@property (nonatomic, assign) ServiceType result;
 
 @end
 

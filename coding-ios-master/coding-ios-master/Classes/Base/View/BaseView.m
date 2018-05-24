@@ -41,17 +41,17 @@
 }
 
 
-- (void)showEmptyView:(EmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock {
+- (void)showEmptyView:(KKEmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock {
     [self hideEmptyView];
     self.emptyView = [[KKEmptyView alloc] initEmptyViewType:emptyViewType showInView:self eventBlock:eventBlock];
     [self.emptyView show];
 }
-- (void)showEmptyView:(EmptyViewType)emptyViewType backButton:(BOOL)backButton eventBlock:(EmptyViewEventBlock)eventBlock {
+- (void)showEmptyView:(KKEmptyViewType)emptyViewType backButton:(BOOL)backButton eventBlock:(EmptyViewEventBlock)eventBlock {
     [self hideEmptyView];
     self.emptyView = [[KKEmptyView alloc] initEmptyViewType:emptyViewType showInView:self backButton:backButton eventBlock:eventBlock];
     [self.emptyView show];
 }
-- (void)showEmptyView:(EmptyViewType)emptyViewType inView:(UIView *)inview eventBlock:(EmptyViewEventBlock)eventBlock {
+- (void)showEmptyView:(KKEmptyViewType)emptyViewType inView:(UIView *)inview eventBlock:(EmptyViewEventBlock)eventBlock {
     [self hideEmptyView];
     self.emptyView = [[KKEmptyView alloc] initEmptyViewType:emptyViewType showInView:inview eventBlock:eventBlock];
     [self.emptyView show];

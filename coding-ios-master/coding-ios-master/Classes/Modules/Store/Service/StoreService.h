@@ -11,4 +11,6 @@
 
 @interface StoreService : NSObject
 
++ (void)getStoreList:(NSInteger)lid complete:(ServiceComplete)complete;
+
 @end
