@@ -26,7 +26,6 @@
     NSTimer *_timer;
 }
 @property (nonatomic, strong) StoreRotationView *rotation;
-@property (nonatomic, strong) CarouselView *carouse;
 @property (nonatomic, strong) StoreModel *model;
 
 @end
@@ -42,7 +41,6 @@
 }
 - (void)createView {
     [self rotation];
-//    [self carouse];
     [self collection];
     [self showEmptyView:KKEmptyViewTypeLoading eventBlock:nil];
 }
@@ -56,19 +54,6 @@
     }
     return _rotation;
 }
-- (CarouselView *)carouse {
-    if (!_carouse) {
-        _carouse = [CarouselView initWithFrame:({
-            CGFloat height = ScreenWidth / 5 * 2;
-            CGRectMake(0, -height - FooterHeight, ScreenWidth, height);
-        })];
-        _carouse.images = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526132348&di=a55b937782ebd7c097fbcc587bbd0a80&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F17%2F86%2F17%2F559f42e68d5f0_1024.jpg",
-                            @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525537630756&di=af0b42045b7307b79a0b199b47baaf5f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F013d5b56fe13946ac725794803ca4e.jpg",
-                            @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525537632771&di=1c24dfbb1e71ada29b1740ca9253ae67&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01b266571dd33b32f875a3996d817b.jpg%402o.jpg"];
-        [self.collection addSubview:_carouse];
-    }
-    return _carouse;
-}
 - (UICollectionView *)collection {
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:({
@@ -77,14 +62,14 @@
         })];
         [_collection setMj_header:({
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithNormalRefreshingSEL:self refreshingAction:@selector(headerRefresh)];
-            header.ignoredScrollViewContentInsetTop = _carouse.height + FooterHeight;
+            header.ignoredScrollViewContentInsetTop = _rotation.height + FooterHeight;
             header;
         })];
         [_collection setShowsVerticalScrollIndicator:NO];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
         [_collection setBackgroundColor:ColorBg];
-        [_collection setContentInset:UIEdgeInsetsMake(self.carouse.height + FooterHeight, 0, 0, 0)];
+        [_collection setContentInset:UIEdgeInsetsMake(self.rotation.height + FooterHeight, 0, 0, 0)];
         [_collection setContentSize:CGSizeMake(0, ScreenHeight * 2)];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionSummaryCell" bundle:nil] forCellWithReuseIdentifier:@"StoreCollectionSummaryCell"];
         [_collection registerNib:[UINib nibWithNibName:@"StoreCollectionCategoryCell" bundle:nil] forCellWithReuseIdentifier:@"StoreCollectionCategoryCell"];
@@ -234,7 +219,9 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    SongListController *vc = [[SongListController alloc] init];
+    StoreCollectionSummaryCell *cell = (StoreCollectionSummaryCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    PlayController *vc = [[PlayController alloc] init];
+    vc.name = cell.model.name;
     [self.viewController.navigationController pushViewController:vc animated:YES];
 }
 

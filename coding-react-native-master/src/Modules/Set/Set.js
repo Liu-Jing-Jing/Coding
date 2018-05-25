@@ -7,11 +7,11 @@ import {
   ScrollView
 } from 'react-native';
 
-export default class Mine extends Component {
+export default class Set extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Mine</Text>
+        <Text>Set</Text>
       </View>
     );
   }

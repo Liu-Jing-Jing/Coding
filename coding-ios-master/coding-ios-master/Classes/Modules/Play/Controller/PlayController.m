@@ -22,6 +22,11 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setJz_wantsNavigationBarVisible:YES];
     [self setJz_navigationBarTintColor:ColorTextHeavy];
+    [self setLeftClick:@[@[@"btn_back",@""]]];
+    [self setNavTitle:_name];
+}
+- (void)leftItemPressed:(NSInteger)index {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

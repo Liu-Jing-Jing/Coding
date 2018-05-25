@@ -15,11 +15,10 @@ import BackLeft  from './Back/BackLeft';
 import BackRight from './Back/BackRight';
 
 // 控件
-import Home from '../Modules/Home/Home';
-import Article from '../Modules/Article/Article';
-import NoneThing from '../Modules/NoneThing/NoneThing';
-import Discovery from '../Modules/Discovery/Discovery';
+import Store from '../Modules/Store/Store';
 import Mine from '../Modules/Mine/Mine';
+import Set from '../Modules/Set/Set';
+import NoneThing from '../Modules/NoneThing/NoneThing';
 
 import {HeavyTextColor, ThinTextColor, MediumBGColor, LightBGColor} from '../Public/Public';
 
@@ -149,11 +148,11 @@ controllerSetting = (screenName, navTitle, tabTitle, navFontSize, tabIcon, tabSe
 
 
 const MyTab = TabNavigator({
-  Home: controllerSetting(Home, '首页', '首页', 14, tabbar_home_n, tabbar_home_s, false, false),
-  Article: controllerSetting(Article, '文章', '文章', 14, tabbar_home_n, tabbar_home_s, false, true),
-  NoneThing: controllerSetting(NoneThing, '发布', '发布', navigationFontSize, tabbar_add_n, tabbar_add_h, false, false),
-  Find: controllerSetting(Home, '发现', '发现', 14, tabbar_home_n, tabbar_home_s, false, true),
+  Store: controllerSetting(Store, '首页', '首页', 14, tabbar_home_n, tabbar_home_s, false, true),
   Mine: controllerSetting(Mine, '我的', '我的', 14, tabbar_mine_n, tabbar_mine_s, false, true),
+  Set: controllerSetting(Set, '设置', '设置', 14, tabbar_mine_n, tabbar_mine_s, false, true),
+  
+  
   // Details: controllerSetting(Details, '明细', '明细', navigationFontSize, tabBar_detail_n, tabBar_detail_s, false, true),
   // Chart: controllerSetting(Chart, '图表', '图表', navigationFontSize, tabBar_chart_n, tabBar_chart_s, false, true),
   // NoneThing: controllerSetting(NoneThing, '发布', '发布', navigationFontSize, tabBar_add_n, tabBar_add_h, false, false),
@@ -194,6 +193,7 @@ export default MyApp = StackNavigator({
   MyTab: {
     screen: MyTab
   },
+  NoneThing: controllerSetting(NoneThing, '发布', '发布', navigationFontSize, tabbar_add_n, tabbar_add_h, false, false),
   // Badge: controllerSetting(Badge, '徽章', '徽章', navigationFontSize, tabBar_chart_n, tabBar_chart_s, true, true),
   // Category: controllerSetting(Category, '类别设置', '类别设置', navigationFontSize, tabBar_chart_n, tabBar_chart_s, true, true),
   // Bookkeep: controllerSetting(Bookkeep, '发布', '发布', navigationFontSize, tabBar_add_n, tabBar_add_h, false, true),

@@ -10,4 +10,9 @@
 
 @interface PlayController : BaseViewController
 
+/// id
+@property (nonatomic, assign) NSInteger lid;
+/// name
+@property (nonatomic, copy  ) NSString *name;
+
 @end
