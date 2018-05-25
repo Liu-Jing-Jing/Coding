@@ -11,7 +11,6 @@
 
 @interface CarouselView : BaseView
 
-@property (nonatomic, strong) StoreModel *model;
 @property (nonatomic, strong) NSArray *images;
 
 + (instancetype)initWithFrame:(CGRect)frame;

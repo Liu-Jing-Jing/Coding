@@ -18,7 +18,10 @@
 
 + (NSDictionary *)mj_objectClassInArray {
     return @{
-             @"list": @"StoreSubModel"
+             @"rotation": @"StoreSubModel",
+             @"recommend": @"StoreSubModel",
+             @"exclusive": @"StoreSubModel",
+             @"featured": @"StoreSubModel"
              };
 }
 

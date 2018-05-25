@@ -22,8 +22,15 @@
 
 @interface StoreModel : BaseModel
 
+// id
 @property (nonatomic, assign) NSInteger lid;
-@property (nonatomic, assign) ServiceType result;
-@property (nonatomic, strong) NSArray<StoreSubModel *> *list;
+// 轮播图
+@property (nonatomic, strong) NSArray<StoreSubModel *> *rotation;
+// 推荐歌单
+@property (nonatomic, strong) NSArray<StoreSubModel *> *recommend;
+// 独家放送
+@property (nonatomic, strong) NSArray<StoreSubModel *> *exclusive;
+// 精选专栏
+@property (nonatomic, strong) NSArray<StoreSubModel *> *featured;
 
 @end

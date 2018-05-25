@@ -50,4 +50,10 @@
     });
 }
 
+#pragma mark - 设置
+- (void)setModel:(StoreSubModel *)model {
+    _model = model;
+   
+}
+
 @end

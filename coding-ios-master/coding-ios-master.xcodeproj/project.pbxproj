@@ -11,6 +11,7 @@
 		0402B349209A8CB8004A13AD /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402B348209A8CB8004A13AD /* ShelfView.m */; };
 		0402B34C209A8DC2004A13AD /* StoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402B34B209A8DC2004A13AD /* StoreView.m */; };
 		0402B34F209A8DDE004A13AD /* StoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402B34E209A8DDE004A13AD /* StoreController.m */; };
+		0406D5A920B7906D009745D7 /* StoreRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406D5A820B7906D009745D7 /* StoreRotationView.m */; };
 		0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442A39320A124AC00F22D8A /* NSArray+Project.m */; };
 		044960EE20B63F6900573C7A /* StoreService.m in Sources */ = {isa = PBXBuildFile; fileRef = 044960ED20B63F6900573C7A /* StoreService.m */; };
 		044960F120B63FFE00573C7A /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 044960F020B63FFE00573C7A /* BaseService.m */; };
@@ -143,6 +144,8 @@
 		0402B34B209A8DC2004A13AD /* StoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreView.m; sourceTree = "<group>"; };
 		0402B34D209A8DDE004A13AD /* StoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreController.h; sourceTree = "<group>"; };
 		0402B34E209A8DDE004A13AD /* StoreController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreController.m; sourceTree = "<group>"; };
+		0406D5A720B7906D009745D7 /* StoreRotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreRotationView.h; sourceTree = "<group>"; };
+		0406D5A820B7906D009745D7 /* StoreRotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreRotationView.m; sourceTree = "<group>"; };
 		0442A39220A124AC00F22D8A /* NSArray+Project.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Project.h"; sourceTree = "<group>"; };
 		0442A39320A124AC00F22D8A /* NSArray+Project.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Project.m"; sourceTree = "<group>"; };
 		044960EC20B63F6900573C7A /* StoreService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreService.h; sourceTree = "<group>"; };
@@ -953,6 +956,8 @@
 			children = (
 				4BE8DE0B209DD2D900A79ECD /* StoreHeader.h */,
 				4BE8DE0C209DD2D900A79ECD /* StoreHeader.m */,
+				0406D5A720B7906D009745D7 /* StoreRotationView.h */,
+				0406D5A820B7906D009745D7 /* StoreRotationView.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1499,6 +1504,7 @@
 				04BA9E2820AABFC300678BE1 /* TimerUtil.m in Sources */,
 				4BE9FDFD208630070020B755 /* StatusUtils.m in Sources */,
 				4BE9FDF2208630070020B755 /* UIFont+Extension.m in Sources */,
+				0406D5A920B7906D009745D7 /* StoreRotationView.m in Sources */,
 				04DD0C1B20B4F34600DF2E0F /* OpenShareContent.m in Sources */,
 				04DD0C0220B4F0F500DF2E0F /* OpenShare+Alipay.m in Sources */,
 				4B8A231920B6EF4000458BCC /* StoreModel.m in Sources */,

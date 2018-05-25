@@ -19,6 +19,7 @@
 #pragma mark - 实现
 @implementation StoreCollectionSummaryCell
 
+#pragma mark - 初始化
 + (instancetype)initWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath {
     StoreCollectionSummaryCell *cell = [StoreCollectionSummaryCell loadCode:collection index:indexPath];
     [cell createView];
@@ -27,6 +28,12 @@
 - (void)createView {
     _name.font = [UIFont systemFontOfSize:adjustFont(12)];
     _name.textColor = ColorTextBold;
+}
+
+#pragma mark - 设置
+- (void)setModel:(StoreSubModel *)model {
+    _model = model;
+    _name.text = model.name;
 }
 
 @end

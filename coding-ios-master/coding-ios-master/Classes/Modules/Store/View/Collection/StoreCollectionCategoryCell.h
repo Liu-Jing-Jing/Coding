@@ -7,8 +7,11 @@
 //
 
 #import "BaseCollectionCell.h"
+#import "StoreModel.h"
 
 @interface StoreCollectionCategoryCell : BaseCollectionCell
+
+@property (nonatomic, strong) StoreSubModel *model;
 
 + (instancetype)initWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath;
 

@@ -20,5 +20,11 @@ var saveCache = (key, data, callback, errback)=>{
         }
     })
 }
+// 初始化缓存
+var initializationCache = ()=>{
+    // 清空缓存
+    client.flushdb();
+    console.log("redis已清空");
+}
 
-module.exports = {loadCache,saveCache};
+module.exports = {loadCache, saveCache, initializationCache};

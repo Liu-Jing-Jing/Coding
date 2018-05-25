@@ -31,6 +31,12 @@
     _desc.textColor = ColorTextMedium;
 }
 
+#pragma mark - 设置
+- (void)setModel:(StoreSubModel *)model {
+    _model = model;
+    _name.text = model.name;
+}
+
 @end
 
 

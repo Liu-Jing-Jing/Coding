@@ -119,30 +119,44 @@ var insertSomeData = ()=>{
     var list = [];
     var listId = 1;
     for (let i=0; i<3; i++) {
-        var arr = [];
-        for (var y=parseInt(names.length / 3) * i; y<names.length / 3 * (i + 1); y++) {
-            var offset = names.length / 3 * i + y;
+        // 轮播图
+        var rotation = [];
+        // 推荐歌单
+        var recommend = [];
+        // 独家放送
+        var exclusive = [];
+        // 精选专栏
+        var featured = [];
+        for (var y=0; y<19; y++) {
+            var offset = 19 * i + y;
             var data = {};
             data.songid = listId;
-            data.name = KHost + "/" + names[offset] + ".mp3";
-            data.icon_big = KHost + "/" + names[offset]+"_big"+".jpg";
-            data.icon_small = KHost + "/" + names[offset]+"_small"+".jpg";
-            data.icon_lrc = KHost + "/" + names[offset]+".lrc";
-            if (offset < 3) {
+            data.name = names[listId];
+            data.mp3 = KHost + "/" + names[listId] + ".mp3";
+            data.icon_big = KHost + "/" + names[listId]+"_big"+".jpg";
+            data.icon_small = KHost + "/" + names[listId]+"_small"+".jpg";
+            data.icon_lrc = KHost + "/" + names[listId]+".lrc";
+            if (y < 3) {
                 data.type = 1;
-            } else if (offset < 9) {
+                rotation.push(data);
+            } else if (y < 9) {
                 data.type = 2;
-            } else if (offset < 13) {
+                recommend.push(data);
+            } else if (y < 13) {
                 data.type = 3;
+                exclusive.push(data);
             } else {
                 data.type = 4;
+                featured.push(data);
             }
-            arr.push(data)
             listId += 1;
         }
         list.push({
             lid: i,
-            list: arr
+            rotation: rotation,
+            recommend: recommend,
+            exclusive: exclusive,
+            featured: featured
         });
     }
 
@@ -152,7 +166,8 @@ var insertSomeData = ()=>{
     for (var i=0; i<names.length; i++) {
         var data = {};
         data.songid = songId;
-        data.name = names[i] + ".mp3";
+        data.name = names[i];
+        data.mp3 = KHost + "/" + names[i] + ".mp3";
         data.icon_big = KHost + "/" + names[i]+"_big"+".jpg";
         data.icon_small = KHost + "/" + names[i]+"_small"+".jpg";
         data.icon_lrc = KHost + "/" + names[i]+".lrc";

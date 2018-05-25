@@ -14,6 +14,7 @@
 #import "StoreCollectionLayout.h"
 #import "StoreService.h"
 #import "StoreModel.h"
+#import "StoreRotationView.h"
 
 #define FooterHeight countcoordinatesY(10)
 
@@ -24,6 +25,7 @@
     // 定时器
     NSTimer *_timer;
 }
+@property (nonatomic, strong) StoreRotationView *rotation;
 @property (nonatomic, strong) CarouselView *carouse;
 @property (nonatomic, strong) StoreModel *model;
 
@@ -39,9 +41,20 @@
     return view;
 }
 - (void)createView {
-    [self carouse];
+    [self rotation];
+//    [self carouse];
     [self collection];
     [self showEmptyView:KKEmptyViewTypeLoading eventBlock:nil];
+}
+- (StoreRotationView *)rotation {
+    if (!_rotation) {
+        _rotation = [StoreRotationView initWithFrame:({
+            CGFloat height = ScreenWidth / 5 * 2;
+            CGRectMake(0, -height - FooterHeight, ScreenWidth, height);
+        })];
+        [self.collection addSubview:_rotation];
+    }
+    return _rotation;
 }
 - (CarouselView *)carouse {
     if (!_carouse) {
@@ -108,6 +121,7 @@
 #pragma mark - 设置
 - (void)setModel:(StoreModel *)model {
     _model = model;
+    _rotation.images = model.rotation;
     [_collection reloadData];
 }
 
@@ -118,13 +132,13 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
-        return 6;
+        return _model.recommend.count;
     }
     else if (section == 1) {
-        return 4;
+        return _model.exclusive.count;
     }
     else if (section == 2) {
-        return 3;
+        return _model.featured.count;
     }
     return 0;
 }
@@ -132,14 +146,17 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         StoreCollectionSummaryCell *cell = [StoreCollectionSummaryCell initWithCollection:collectionView indexPath:indexPath];
+        cell.model = _model.recommend[indexPath.row];
         return cell;
     }
     else if (indexPath.section == 1) {
         StoreCollectionCategoryCell *cell = [StoreCollectionCategoryCell initWithCollection:collectionView indexPath:indexPath];
+        cell.model = _model.exclusive[indexPath.row];
         return cell;
     }
     else if (indexPath.section == 2) {
         StoreCollectionDetailCell *cell = [StoreCollectionDetailCell initWithCollection:collectionView indexPath:indexPath];
+        cell.model = _model.featured[indexPath.row];
         return cell;
     }
     return nil;
