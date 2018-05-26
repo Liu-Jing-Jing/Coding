@@ -5,18 +5,19 @@ import {
   Text,
   View
 } from 'react-native';
-import KKButton from './KKButton';
+import KKNavigationItem from './KKNavigationItem';
 import { ScreenWidth, NavigationHeight, StatusBarHeight, countcoordinatesX } from './Define';
 import { ColorBg } from './ColorUtils';
 
 export default class NavigationBar extends Component {
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.content}>
-          <KKButton/>
+          <KKNavigationItem/>
           <Text style={styles.title}>asdasd</Text>
-          <KKButton/>
+          <KKNavigationItem/>
         </View>
       </View>
     );
