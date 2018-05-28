@@ -6,8 +6,7 @@ import {
   View
 } from 'react-native';
 import KKNavigationItem from './KKNavigationItem';
-import { ScreenWidth, NavigationHeight, StatusBarHeight, countcoordinatesX } from './Define';
-import { ColorBg } from './ColorUtils';
+import { ScreenWidth, NavigationHeight, StatusBarHeight, countcoordinatesX, ColorBg } from '../../../Define/PublicMacros'
 
 export default class NavigationBar extends Component {
 

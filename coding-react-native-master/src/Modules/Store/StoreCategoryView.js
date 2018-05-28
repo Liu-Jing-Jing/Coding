@@ -6,7 +6,7 @@ import {
   View,
   Image
 } from 'react-native';
-import {ScreenWidth, countcoordinatesX, countcoordinatesY} from '../../Utils/Define';
+import { ScreenWidth, countcoordinatesX, countcoordinatesY } from '../../Define/PublicMacros';
 
 class StoreCategoryCell extends Component {
   render() {

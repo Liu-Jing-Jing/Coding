@@ -6,8 +6,7 @@ import {
   View,
   Image
 } from 'react-native';
-import {ScreenWidth, countcoordinatesX, countcoordinatesY} from '../../Utils/Define';
-import {ColorLine} from '../../Utils/ColorUtils';
+import { ScreenWidth, countcoordinatesX, countcoordinatesY, ColorLine } from '../../Define/PublicMacros';
 
 class StoreDetailCell extends Component {
   render() {

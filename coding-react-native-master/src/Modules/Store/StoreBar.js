@@ -8,11 +8,10 @@ import {
   Image,
   Button
 } from 'react-native';
-import { ScreenWidth, NavigationHeight, countcoordinatesX } from '../../Utils/Define';
-import KKTextInput from '../../Utils/KKTextInput';
-import KKSegmentBar from '../../Utils/KKSegmentBar';
-import KKButton, {ButtonStyle} from '../../Utils/KKButton';
-import { ColorBg } from '../../Utils/ColorUtils';
+import { ScreenWidth, countcoordinatesX, countcoordinatesY, ColorBg } from '../../Define/PublicMacros';
+import KKTextInput from '../../Utils/Util/KKTextInput/KKTextInput';
+import KKSegmentBar from '../../Utils/Util/KKSegmentBar/KKSegmentBar';
+import KKButton, { ButtonStyle } from '../../Utils/Util/KKButton/KKButton';
 
 export default class StoreBar extends Component {
 

@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 import Button from '../Button/Button';
-import {ScreenWidth, ScreenHeight, StreamColor} from '../../Public/Public';
+import {ScreenWidth, ScreenHeight, StreamColor} from '../../Define/PublicMacros';
 
 
 const backIcon = require('../../Resources/Images/tabbar_mine_n.png');

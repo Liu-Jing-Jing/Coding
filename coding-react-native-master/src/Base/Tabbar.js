@@ -20,7 +20,7 @@ import Mine from '../Modules/Mine/Mine';
 import Set from '../Modules/Set/Set';
 import NoneThing from '../Modules/NoneThing/NoneThing';
 
-import {HeavyTextColor, ThinTextColor, MediumBGColor, LightBGColor} from '../Public/Public';
+import {HeavyTextColor, ThinTextColor, MediumBGColor, LightBGColor} from '../Define/PublicMacros';
 
 const tabbar_home_n = require('../Resources/Images/tabbar_home_n.png');
 const tabbar_home_s = require('../Resources/Images/tabbar_home_s.png');

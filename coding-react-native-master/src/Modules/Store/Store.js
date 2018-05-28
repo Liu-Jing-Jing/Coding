@@ -6,14 +6,13 @@ import {
   View,
   ScrollView
 } from 'react-native';
-import NavigationBar from '../../Utils/NavigationBar';
+import NavigationBar from '../../Utils/Util/KKNavigationItem/NavigationBar';
 import StoreSectionHeader from './StoreSectionHeader';
 import StoreSummaryView from './StoreSummaryView';
 import StoreCategoryView from './StoreCategoryView';
 import StoreDetailView from './StoreDetailView';
-import { ScreenWidth, ScreenHeight } from '../../Utils/Define';
-import { ColorBg } from '../../Utils/ColorUtils';
 import StoreBar from './StoreBar';
+import { ScreenWidth, ScreenHeight, ColorBg } from '../../Define/PublicMacros';
 
 export default class Store extends Component {
   render() {

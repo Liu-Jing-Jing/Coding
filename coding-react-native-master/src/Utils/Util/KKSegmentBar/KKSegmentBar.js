@@ -10,8 +10,7 @@ import {
   Animated,
   TouchableOpacity
 } from 'react-native';
-import { ScreenWidth, NavigationHeight, countcoordinatesX } from './Define';
-import { ColorBg } from './ColorUtils';
+import { ScreenWidth, NavigationHeight, countcoordinatesX, ColorBg } from '../../../Define/PublicMacros';
 
 // 子控件
 class KKSegmentSubView extends Component {
