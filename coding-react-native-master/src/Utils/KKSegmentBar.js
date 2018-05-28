@@ -16,21 +16,21 @@ import { ColorBg } from './ColorUtils';
 // 子控件
 class KKSegmentSubView extends Component {
 
-
-  prop_measure = async()=>{
-    // var aaa = Promise(this.refs["view"].measure((x, y, width, height, left, top)=>{
-    //   return width
-    // }));
-    const aaa = new Promise((resolve, reject)=>{
-      if (true){
-        resolve("AAAAAAA");
-      } else {
-        reject("BBBBBBB");
-      }
+  // 获取frame
+  getFrame = async ()=>{
+    var frame = await new Promise((resolve, reject)=>{
+      this.refs.view.measure((x, y, width, height, left, top)=>{
+        resolve({
+          x: x,
+          y: y,
+          width: width,
+          height: height,
+          left: left,
+          top: top
+        });
+      })
     });
-    aaa.then(value=>{
-      console.log("value: " + value);
-    })
+    return frame;
   }
 
   render() {
@@ -56,18 +56,26 @@ class KKSegmentSubView extends Component {
 }
 // 底部那条线
 class KKSegmentLine extends Component {
+
+  setSelect = (frame)=>{
+    console.log('index: ' + frame);
+  }
+
   // 初始化
   render() {
     return (
-      <View style={styles.line}/>
+      <View style={[styles.line, {
+        left: 10
+      }]}/>
     )
   }
 }
 // 输入框
-export default class KKSegmentBar extends Component {
+class KKSegmentBar extends Component {
   // 点击事件
-  _onPress = (index)=>{
-    console.log(this.refs["subview"+index].prop_measure());
+  _onPress = async (index)=>{
+    var frame = await this.refs["subview"+index].getFrame()
+    await this.refs.line.setSelect(frame);
   }
   // 子控件
   subview = ()=>{
@@ -102,7 +110,7 @@ export default class KKSegmentBar extends Component {
           showsHorizontalScrollIndicator={false}
         >
           {this.subview()}
-          <KKSegmentLine/>
+          <KKSegmentLine ref={"line"}/>
         </ScrollView>
       </View>
     );
@@ -128,7 +136,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 2,
     borderRadius: 1.5,
-    left: 10,
   },
   // 文字
   text: {
@@ -136,3 +143,6 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+
+export default KKSegmentBar;
