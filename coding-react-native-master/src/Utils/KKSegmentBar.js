@@ -56,15 +56,22 @@ class KKSegmentSubView extends Component {
 }
 // 底部那条线
 class KKSegmentLine extends Component {
-
+  // 初始值
+  static defaultProps = {  
+    // 横线宽度
+    width: 20,
+  } 
+  // 设置选中
   setSelect = (frame)=>{
-    console.log('index: ' + frame);
+    var left = frame.left + frame.width / 2 - this.props.width / 2
+
   }
 
   // 初始化
   render() {
     return (
       <View style={[styles.line, {
+        width: this.props.width,
         left: 10
       }]}/>
     )
@@ -130,7 +137,6 @@ const styles = StyleSheet.create({
   },
   // 线条
   line: {
-    width: 20,
     height: 3,
     backgroundColor: 'orange',
     position: 'absolute',
