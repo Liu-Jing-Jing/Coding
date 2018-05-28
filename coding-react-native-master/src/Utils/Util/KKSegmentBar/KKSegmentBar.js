@@ -11,6 +11,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { ScreenWidth, NavigationHeight, countcoordinatesX, ColorBg } from '../../../Define/PublicMacros';
+import UITool from '../../Tool/UITool';
 
 // 子控件
 class KKSegmentSubView extends Component {
@@ -39,12 +40,14 @@ class KKSegmentSubView extends Component {
           ref={"view"}
         >
           <TouchableOpacity 
-            style={{justifyContent: 'center'}}
+            activeOpacity={0.9}
+            style={{justifyContent: 'center', flex: 1}}
             onPress={this.props.onPress}
           >
             <Text style={[
-              styles.text,
-              {color: this.props.isChoose == true ? this.props.selectColor : this.props.normalColor}
+              styles.text, {
+                color: this.props.isChoose == true ? this.props.selectColor : this.props.normalColor
+              }
             ]}>
               推荐
             </Text>
@@ -61,16 +64,17 @@ class KKSegmentLine extends Component {
     // 设置初始的状态
     this.state = {
       width: 20,
-      left: new Animated.Value(10)
+      left: new Animated.Value(15)
     };
   }
   // 设置选中
   setSelect = (frame)=>{
-    var left = frame.left + frame.width / 2 - this.state.width / 2
-    Animated.timing(this.state.left, { 
-      duration: 800,
-      easing: Easing.linear,
-      toValue: ScreenWidth / 2
+    console.log(frame.left)
+    var left = frame.x + (frame.width - this.state.width) / 2
+    Animated.spring(this.state.left,{ 
+      bounciness: 5,
+      speed: 9,
+      toValue: left
     }).start((result)=>{
       
     });
@@ -88,10 +92,35 @@ class KKSegmentLine extends Component {
 }
 // 输入框
 class KKSegmentBar extends Component {
+  // 构造器
+
+  constructor(props) {
+    super(props);
+    // 设置初始的状态
+    this.state = {
+      selectIndex: 0
+    };
+  }
   // 点击事件
   _onPress = async (index)=>{
+    // 获取控件尺寸
     var frame = await this.refs["subview"+index].getFrame()
+    // 选中
     await this.refs.line.setSelect(frame);
+    await this.setState({
+      selectIndex: index
+    })
+    // 滚动
+    await UITool.layout(this.refs.scroll).then(data=>{
+      var scrollContentW = frame.width * 10;
+      var viewOffsetX = (data.width - frame.width) / 2;
+      var offsetX = frame.x - viewOffsetX;
+      offsetX = offsetX < 0 ? 0 : offsetX;
+      console.log('frameX + viewOffsetX: ' + (frame.x + viewOffsetX))
+      console.log('scrollContentW:  ' + scrollContentW);
+      offsetX = (frame.x + viewOffsetX + frame.width) > scrollContentW ? scrollContentW - data.width : offsetX 
+      this.refs["scroll"].scrollTo({x: offsetX, y: 0, animated: true})
+    })
   }
   // 子控件
   subview = ()=>{
@@ -102,7 +131,7 @@ class KKSegmentBar extends Component {
         <KKSegmentSubView 
           key={i}
           ref={refStr}
-          isChoose={i==2}
+          isChoose={i==this.state.selectIndex}
           normalColor={"green"}
           selectColor={"red"}
           onPress={()=>this._onPress(i)}
@@ -111,17 +140,12 @@ class KKSegmentBar extends Component {
     }
     return arr;
   }
-
-  // 选中
-  selectIndex = ()=>{
-
-  }
-
   // 初始化
   render() {
     return (
       <View style={[this.props.prop_style, styles.container]}>
         <ScrollView 
+          ref={"scroll"}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         >
@@ -140,9 +164,8 @@ const styles = StyleSheet.create({
   },
   // 子控件
   subview: {
-    paddingLeft: 10,
-    paddingRight: 10,
     justifyContent: 'center',
+    backgroundColor: 'yellow',
   },
   // 线条
   line: {
@@ -155,7 +178,11 @@ const styles = StyleSheet.create({
   // 文字
   text: {
     fontWeight: '700',
-    color: 'white'
+    color: 'white',
+    paddingLeft: 10,
+    paddingRight: 10,
+    flex: 1 ,
+    lineHeight: 30,
   }
 });
 
