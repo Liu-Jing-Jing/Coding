@@ -55,23 +55,33 @@ class KKSegmentSubView extends Component {
 }
 // 底部那条线
 class KKSegmentLine extends Component {
-  // 初始值
-  static defaultProps = {  
-    // 横线宽度
-    width: 20,
-  } 
+  // 构造器
+  constructor(props) {
+    super(props);
+    // 设置初始的状态
+    this.state = {
+      width: 20,
+      left: new Animated.Value(10)
+    };
+  }
   // 设置选中
   setSelect = (frame)=>{
-    var left = frame.left + frame.width / 2 - this.props.width / 2
-
+    var left = frame.left + frame.width / 2 - this.state.width / 2
+    Animated.timing(this.state.left, { 
+      duration: 800,
+      easing: Easing.linear,
+      toValue: ScreenWidth / 2
+    }).start((result)=>{
+      
+    });
   }
 
   // 初始化
   render() {
     return (
-      <View style={[styles.line, {
-        width: this.props.width,
-        left: 10
+      <Animated.View style={[styles.line, {
+        width: this.state.width,
+        left: this.state.left
       }]}/>
     )
   }
