@@ -8,7 +8,7 @@ import {
   Image,
   Button
 } from 'react-native';
-import { ScreenWidth, countcoordinatesX, countcoordinatesY, ColorBg } from '../../Define/PublicMacros';
+import { ScreenWidth, countcoordinatesX, countcoordinatesY, ColorBg, StatusBarHeight } from '../../Define/PublicMacros';
 import KKTextInput from '../../Utils/Util/KKTextInput/KKTextInput';
 import KKSegmentBar from '../../Utils/Util/KKSegmentBar/KKSegmentBar';
 import KKButton, { ButtonStyle } from '../../Utils/Util/KKButton/KKButton';
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     width: ScreenWidth - padding * 2,
     height: 35,
     backgroundColor: 'white',
-    marginTop: 20,
+    marginTop: StatusBarHeight(),
     borderRadius: 3,
   },
   bottom: {

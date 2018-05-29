@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import StoreBar from './StoreBar';
 import StoreScroll from './StoreScroll';
+import Search from '../Search/Search';
 import { ScreenWidth, ScreenHeight, ColorBg } from '../../Define/PublicMacros';
 
 export default class Store extends Component {
@@ -24,7 +25,6 @@ export default class Store extends Component {
   _onFocus = ()=>{
     console.log('onFocus')
   }
-
   render() {
     return (
       <View style={styles.container}>
@@ -34,6 +34,7 @@ export default class Store extends Component {
           onFocus={this._onFocus}
         />
         <StoreScroll ref={"scroll"} onMomentumScrollEnd={this._onScrollEnd}/>
+        <Search/>
       </View>
     );
   }
