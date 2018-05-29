@@ -18,7 +18,7 @@ export default class KKButton extends Component {
   name() {
     if (this.props.name) {
       return (
-        <Text>asdasdad</Text>
+        <Text key={0}>asdasdad</Text>
       )
     }
   }
@@ -26,6 +26,7 @@ export default class KKButton extends Component {
     if (this.props.icon) {
       return (
         <Image 
+          key={1}
           style={styles.icon}
           source={{uri: this.props.icon}}
         />
@@ -34,25 +35,28 @@ export default class KKButton extends Component {
   }
   padding() {
     return (
-      <View style={{width: 3}}/>
+      <View 
+        key={2}
+        style={{width: 3}}
+      />
     )
   }
   
 
   content = ()=>{
+    var arr = [];
     if (this.props.button_style == ButtonStyle.Left) {
-      return ([
-        this.name(),
-        this.padding(),
-        this.icon()
-      ])
-    } else if (this.props.button_style == ButtonStyle.Right) {
-      return ([
-        this.icon(),
-        this.padding(),
-        this.name()
-      ])
-    } 
+      arr.push(this.name())
+    } else {
+      arr.push(this.icon())
+    }
+    arr.push(this.padding())
+    if (this.props.button_style == ButtonStyle.Left) {
+      arr.push(this.icon())
+    } else {
+      arr.push(this.name())
+    }
+    return arr
   }
 
   render() {

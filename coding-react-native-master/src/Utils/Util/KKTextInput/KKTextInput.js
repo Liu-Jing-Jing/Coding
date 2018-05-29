@@ -40,6 +40,7 @@ export default class KKTextInput extends Component {
         <TextInput 
           ref={"textInput"}
           style={styles.input}
+          onFocus={this.props.onFocus}
           placeholder={this.props.placeholder}
         />
       </View>

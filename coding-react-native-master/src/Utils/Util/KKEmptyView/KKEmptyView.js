@@ -25,7 +25,19 @@ export default class KKEmptyView extends Component {
       status: 2
     };
   }
-  getState=()=>{
+
+  componentDidMount() {
+    this.setState({
+      status: this.props.status
+    })
+  }
+
+  setStatus = (index)=>{
+    this.setState({
+      status: index
+    })
+  }
+  getState = ()=>{
     if (this.state.status == 0) {
       return (
         <Text style={styles.text}>数据加载中...</Text>
@@ -34,7 +46,7 @@ export default class KKEmptyView extends Component {
     else if (this.state.status == 1) {
       return (
         <TouchableOpacity 
-          onPress={this.props.onPress} 
+          onPress={()=>this.props.onPress(this.state.status)} 
           activeOpacity={0.9}
         >
           <Image 
@@ -48,7 +60,7 @@ export default class KKEmptyView extends Component {
     else if (this.state.status == 2) {
       return (
         <TouchableOpacity 
-          onPress={this.props.onPress} 
+        onPress={()=>this.props.onPress(this.state.status)} 
           activeOpacity={0.9}
         >
           <Image 

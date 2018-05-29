@@ -116,11 +116,15 @@ class KKSegmentBar extends Component {
       var viewOffsetX = (data.width - frame.width) / 2;
       var offsetX = frame.x - viewOffsetX;
       offsetX = offsetX < 0 ? 0 : offsetX;
-      console.log('frameX + viewOffsetX: ' + (frame.x + viewOffsetX))
-      console.log('scrollContentW:  ' + scrollContentW);
       offsetX = (frame.x + viewOffsetX + frame.width) > scrollContentW ? scrollContentW - data.width : offsetX 
       this.refs["scroll"].scrollTo({x: offsetX, y: 0, animated: true})
     })
+    // 回调
+    await this.props.onPress(index)
+  }
+  // btn点击
+  btnClick = (index)=>{
+    this._onPress(index);
   }
   // 子控件
   subview = ()=>{

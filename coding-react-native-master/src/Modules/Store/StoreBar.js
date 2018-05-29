@@ -18,7 +18,10 @@ export default class StoreBar extends Component {
   componentDidMount() {
     
   }
-
+  // btn点击
+  btnClick = (index)=>{
+    this.refs.bar.btnClick(index);
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -27,13 +30,16 @@ export default class StoreBar extends Component {
           ref="textInput"
           prop_style={styles.input}
           placeholder={"搜索音乐"}
+          onFocus={this.props.onFocus}
           leftImage={"search_in_12x12_"}
         />
         {/* 滚动条 + 按钮 */}
         <View style={styles.bottom}>
           {/* 滚动条 */}
           <KKSegmentBar 
+            ref={"bar"}
             prop_style={styles.bar}
+            onPress={this.props.onPress}
           />
           {/* 目录 */}
           <KKButton 
