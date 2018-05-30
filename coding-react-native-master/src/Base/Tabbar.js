@@ -149,10 +149,10 @@ controllerSetting = (screenName, navTitle, tabTitle, navFontSize, tabIcon, tabSe
 
 
 const MyTab = TabNavigator({
+  
+  Set: controllerSetting(Set, '设置', '设置', 14, tabbar_mine_n, tabbar_mine_s, false, true),
   Store: controllerSetting(Store, '首页', '首页', 14, tabbar_home_n, tabbar_home_s, false, true),
   Mine: controllerSetting(Mine, '我的', '我的', 14, tabbar_mine_n, tabbar_mine_s, false, true),
-  Set: controllerSetting(Set, '设置', '设置', 14, tabbar_mine_n, tabbar_mine_s, false, true),
-  
   
   // Details: controllerSetting(Details, '明细', '明细', navigationFontSize, tabBar_detail_n, tabBar_detail_s, false, true),
   // Chart: controllerSetting(Chart, '图表', '图表', navigationFontSize, tabBar_chart_n, tabBar_chart_s, false, true),

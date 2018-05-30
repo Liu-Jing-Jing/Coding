@@ -6,17 +6,29 @@ import {
   View
 } from 'react-native';
 import KKNavigationItem from './KKNavigationItem';
+import KKButton from '../KKButton/KKButton';
 import { ScreenWidth, NavigationHeight, StatusBarHeight, countcoordinatesX, ColorBg } from '../../../Define/PublicMacros'
 
 export default class NavigationBar extends Component {
+
+  left = ()=>{
+    return (
+      <KKButton/>
+    )
+  }
+  right = ()=>{
+    return (
+      <KKButton/>
+    )
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.content}>
-          <KKNavigationItem/>
-          <Text style={styles.title}>asdasd</Text>
-          <KKNavigationItem/>
+          {this.left()}
+          <Text style={styles.title}>{this.props.name}</Text>
+          {this.right()}
         </View>
       </View>
     );
@@ -41,6 +53,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: '900',
   }
 });

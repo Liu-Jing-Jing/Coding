@@ -18,7 +18,7 @@ export default class KKButton extends Component {
   name() {
     if (this.props.name) {
       return (
-        <Text key={0}>{this.props.name}</Text>
+        <Text key={0} style={this.props.name_style}>{this.props.name}</Text>
       )
     }
   }
@@ -27,7 +27,7 @@ export default class KKButton extends Component {
       return (
         <Image 
           key={1}
-          style={styles.icon}
+          style={[styles.icon, this.props.icon_style]}
           source={{uri: this.props.icon}}
         />
       )
@@ -58,7 +58,6 @@ export default class KKButton extends Component {
     }
     return arr
   }
-
   render() {
     return (
       <TouchableOpacity 
