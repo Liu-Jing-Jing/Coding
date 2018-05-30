@@ -5,7 +5,8 @@ import {
   Text,
   View,
   TextInput,
-  Image
+  Image,
+  Animated
 } from 'react-native';
 import { ScreenWidth, NavigationHeight, countcoordinatesX, ColorBg } from '../../../Define/PublicMacros';
 
@@ -29,10 +30,14 @@ export default class KKTextInput extends Component {
       }
     }
   }
+  // 取消焦点
+  cancle = ()=>{
+    this.refs.textInput.blur();
+  }
   // 初始化
   render() {
     return (
-      <View style={[this.props.prop_style, styles.container]}>
+      <Animated.View style={[this.props.prop_style, styles.container]}>
         <Image 
           style={[styles.icon, this.isShowIcon(this.props.leftImage)]}
           source={{uri: this.props.leftImage}}
@@ -41,9 +46,10 @@ export default class KKTextInput extends Component {
           ref={"textInput"}
           style={styles.input}
           onFocus={this.props.onFocus}
+          onBlur={this.props.onBlur}
           placeholder={this.props.placeholder}
         />
-      </View>
+      </Animated.View>
     );
   }
 }

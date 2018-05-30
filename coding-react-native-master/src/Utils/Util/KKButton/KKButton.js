@@ -5,7 +5,7 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from 'react-native';
 
 var ButtonStyle = {
@@ -18,7 +18,7 @@ export default class KKButton extends Component {
   name() {
     if (this.props.name) {
       return (
-        <Text key={0}>asdasdad</Text>
+        <Text key={0}>{this.props.name}</Text>
       )
     }
   }
@@ -61,11 +61,15 @@ export default class KKButton extends Component {
 
   render() {
     return (
-      <TouchableHighlight style={styles.touch}>
+      <TouchableOpacity 
+        style={[styles.touch, this.props.prop_style]} 
+        onPress={this.props.onPress}
+        activeOpacity={0.9}
+      >
         <View style={styles.container}>
           {this.content()}
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }

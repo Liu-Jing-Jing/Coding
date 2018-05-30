@@ -18,6 +18,7 @@ import BackRight from './Back/BackRight';
 import Store from '../Modules/Store/Store';
 import Mine from '../Modules/Mine/Mine';
 import Set from '../Modules/Set/Set';
+import Channels from '../Modules/Channels/Channels';
 import NoneThing from '../Modules/NoneThing/NoneThing';
 
 import {HeavyTextColor, ThinTextColor, MediumBGColor, LightBGColor} from '../Define/PublicMacros';
@@ -194,6 +195,7 @@ export default MyApp = StackNavigator({
     screen: MyTab
   },
   NoneThing: controllerSetting(NoneThing, '发布', '发布', navigationFontSize, tabbar_add_n, tabbar_add_h, false, false),
+  Channels: controllerSetting(Channels, '发布', '发布', navigationFontSize, tabbar_add_n, tabbar_add_h, false, true),
   // Badge: controllerSetting(Badge, '徽章', '徽章', navigationFontSize, tabBar_chart_n, tabBar_chart_s, true, true),
   // Category: controllerSetting(Category, '类别设置', '类别设置', navigationFontSize, tabBar_chart_n, tabBar_chart_s, true, true),
   // Bookkeep: controllerSetting(Bookkeep, '发布', '发布', navigationFontSize, tabBar_add_n, tabBar_add_h, false, true),

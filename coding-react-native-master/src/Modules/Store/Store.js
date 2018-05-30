@@ -9,9 +9,19 @@ import {
 import StoreBar from './StoreBar';
 import StoreScroll from './StoreScroll';
 import Search from '../Search/Search';
+import Channels from '../Channels/Channels';
 import { ScreenWidth, ScreenHeight, ColorBg } from '../../Define/PublicMacros';
 
 export default class Store extends Component {
+
+  // 构造器
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShowChannels: false,
+      isShowSearch: false,
+    };
+  }
 
   // Btn点击
   _onBarPress = (index)=>{
@@ -24,7 +34,39 @@ export default class Store extends Component {
   // 搜索框成为焦点
   _onFocus = ()=>{
     console.log('onFocus')
+    this.setState({
+      isShowSearch: true
+    })
   }
+  // 搜索框失去焦点
+  _onBlur = ()=>{
+    this.setState({
+      isShowSearch: false
+    })
+  }
+  // 点击频道
+  _onChannelsClick = ()=>{
+    // this.setState({
+    //   isShowChannels: true
+    // })
+  }
+
+  componentDidMount() {
+    // this.setState({
+    //   isShowChannels: true
+    // })
+  }
+
+  search = ()=>{
+    if (this.state.isShowSearch == true) {
+      return (
+        <Search onScroll={()=>{
+          this.refs.bar.cancleBlur()
+        }}/>
+      )
+    } 
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -32,9 +74,12 @@ export default class Store extends Component {
           ref={"bar"} 
           onPress={this._onBarPress}
           onFocus={this._onFocus}
+          onBlur={this._onBlur}
+          onChannelsClick={this._onChannelsClick}
         />
         <StoreScroll ref={"scroll"} onMomentumScrollEnd={this._onScrollEnd}/>
-        <Search/>
+        {this.search()}
+        {this.state.isShowChannels == true ? <Channels/> : <View/>}
       </View>
     );
   }

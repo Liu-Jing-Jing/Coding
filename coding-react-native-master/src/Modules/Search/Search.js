@@ -7,26 +7,36 @@ import {
   SectionList
 } from 'react-native';
 import SearchHeader from './SearchHeader';
-import { StatusBarHeight } from '../../Define/PublicMacros';
+import SearchCell from './SearchCell';
+import SearchSectionHeader from './SearchSectionHeader';
+import { StatusBarHeight, ScreenWidth, countcoordinatesX } from '../../Define/PublicMacros';
 
 export default class Search extends Component {
 
-
-  getView(width) {
+  // 组头视图
+  _renderSectionHeader = (section)=>{
     return (
-      <View style={{width: width, height: 30, backgroundColor: 'red', marginLeft: 10}}/>
+      <SearchSectionHeader name={section.title}/>
     )
+  }
+
+  // Cell
+  _renderItem = (item)=>{
+    return <SearchCell/>
   }
 
   render() {
     return (
       <View style={styles.container}>
         <SectionList
-          renderItem={({item}) => <Text>{item.key}</Text>}
-          renderSectionHeader={({section}) => <Text>{section.title}</Text>}
+          renderItem={({item}) => this._renderItem(item)}
+          renderSectionHeader={({section}) => this._renderSectionHeader(section)}
+          stickySectionHeadersEnabled={false}
+          ListHeaderComponent={() => <SearchHeader/>}
           sections={[ 
-            {data: [{key: 'a'}, {key: 'b'}], title: '123123'},
+            {data: [{key: 'a'}, {key: 'b'}], title: '标题'},
           ]}
+          onScroll={this.props.onScroll}
         />
       </View>
     );
@@ -44,5 +54,5 @@ const styles = StyleSheet.create({
     top: StatusBarHeight() + 65,
     flexDirection: 'row',
     flexWrap: 'wrap',
-  }
+  },
 });
