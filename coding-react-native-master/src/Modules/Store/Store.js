@@ -49,6 +49,9 @@ export default class Store extends Component {
     // this.setState({
     //   isShowChannels: true
     // })
+
+    const { navigate } = this.props.navigation;
+    navigate("Channels");
   }
 
   componentDidMount() {

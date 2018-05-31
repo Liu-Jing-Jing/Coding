@@ -9,6 +9,12 @@ import {
 import { ScreenWidth, ScreenHeight, StatusBarHeight, countcoordinatesY, countcoordinatesX } from '../../Define/PublicMacros';
 
 export default class Channels extends Component {
+
+  static navigationOptions = {
+    mode: 'modal',
+    gesturesEnabled: false
+  };
+  
   render() {
     return (
       <View style={[styles.container]}>

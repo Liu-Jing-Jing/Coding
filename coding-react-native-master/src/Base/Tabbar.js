@@ -8,7 +8,8 @@ import {
   Platform,
   TouchableOpacity
 } from 'react-native';
-import {StackNavigator,TabNavigator,TabBarBottom} from 'react-navigation'; 
+import {StackNavigator, TabNavigator, addNavigationHelpers} from 'shimo-navigation';
+import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 
 import Button    from './Button/Button';
 import BackLeft  from './Back/BackLeft';
@@ -150,10 +151,9 @@ controllerSetting = (screenName, navTitle, tabTitle, navFontSize, tabIcon, tabSe
 
 const MyTab = TabNavigator({
   
-  Set: controllerSetting(Set, '设置', '设置', 14, tabbar_mine_n, tabbar_mine_s, false, true),
   Store: controllerSetting(Store, '首页', '首页', 14, tabbar_home_n, tabbar_home_s, false, true),
   Mine: controllerSetting(Mine, '我的', '我的', 14, tabbar_mine_n, tabbar_mine_s, false, true),
-  
+  Set: controllerSetting(Set, '设置', '设置', 14, tabbar_mine_n, tabbar_mine_s, false, true),
   // Details: controllerSetting(Details, '明细', '明细', navigationFontSize, tabBar_detail_n, tabBar_detail_s, false, true),
   // Chart: controllerSetting(Chart, '图表', '图表', navigationFontSize, tabBar_chart_n, tabBar_chart_s, false, true),
   // NoneThing: controllerSetting(NoneThing, '发布', '发布', navigationFontSize, tabBar_add_n, tabBar_add_h, false, false),
