@@ -31,8 +31,10 @@
     [self setWindow:[[UIWindow alloc] initWithFrame:ScreenBounds]];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window setRootViewController:({
-        BaseTabBarController *tab = [[BaseTabBarController alloc] init];
-        tab;
+//        BaseTabBarController *tab = [[BaseTabBarController alloc] init];
+//        tab;
+        HomeController *vc = [[HomeController alloc] init];
+        vc;
     })];
     [self.window makeKeyAndVisible];
 }

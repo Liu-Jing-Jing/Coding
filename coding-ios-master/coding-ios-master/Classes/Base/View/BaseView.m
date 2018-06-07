@@ -14,17 +14,20 @@
 // 加载第一个nib
 + (instancetype)loadFirstNib:(CGRect)frame {
     BaseView *view = [self loadNib:0 frame:frame];
+    [view initUI];
     return view;
 }
 // 加载最后一个nib
 + (instancetype)loadLastNib:(CGRect)frame {
     NSInteger index = [self getViews].count - 1;
     BaseView *view = [self loadNib:index frame:frame];
+    [view initUI];
     return view;
 }
 // 从代码创建view
 + (instancetype)loadCode:(CGRect)frame {
     BaseView *view = [[[self class] alloc] initWithFrame:frame];
+    [view initUI];
     return view;
 }
 // 加载指定nib
@@ -32,6 +35,7 @@
     NSString *name = NSStringFromClass(self);
     BaseView *view = [[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil][index];
     view.frame = frame;
+    [view initUI];
     return view;
 }
 // 获取XIB中View个数
@@ -40,6 +44,10 @@
     return [[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil];
 }
 
+// 初始化UI
+- (void)initUI {
+    
+}
 
 - (void)showEmptyView:(KKEmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock {
     [self hideEmptyView];

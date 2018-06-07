@@ -14,7 +14,11 @@
 + (instancetype)loadCode:(UICollectionView *)collection index:(NSIndexPath *)index {
     NSString *identifier = NSStringFromClass([self class]);
     UICollectionViewCell *cell = [collection dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:index];
+    [cell initUI];
     return cell;
+}
+- (void)initUI {
+    
 }
 
 @end

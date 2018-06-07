@@ -16,7 +16,6 @@
 #import "StatusUtils.h"
 #import "AFNManager.h"
 #import "NSString+API.h"
-#import "CarouselView.h"
 #import "KKEmptyView.h"
 #import "KKNavigationBar.h"
 #import "KMTagListView.h"

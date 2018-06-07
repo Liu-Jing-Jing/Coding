@@ -27,6 +27,11 @@
 + (instancetype)loadNib:(NSInteger)index frame:(CGRect)frame;
 
 
+
+/// 初始化UI
+- (void)initUI;
+
+
 //==================================== 空白 ====================================//
 /// 初始化空视图
 - (void)showEmptyView:(KKEmptyViewType)emptyViewType eventBlock:(EmptyViewEventBlock)eventBlock;

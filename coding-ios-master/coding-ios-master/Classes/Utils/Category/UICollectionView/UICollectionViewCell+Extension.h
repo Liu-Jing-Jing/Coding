@@ -12,5 +12,7 @@
 
 /// 从代码创建cell
 + (instancetype)loadCode:(UICollectionView *)collection index:(NSIndexPath *)index;
+/// 初始化UI
+- (void)initUI;
 
 @end

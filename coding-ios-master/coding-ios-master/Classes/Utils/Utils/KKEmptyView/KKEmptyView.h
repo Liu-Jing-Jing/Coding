@@ -6,8 +6,6 @@
 //  Copyright © 2018年 kk. All rights reserved.
 //
 
-#import "BaseView.h"
-
 #pragma mark - typedef
 // 空界面类型枚举
 typedef enum : NSUInteger {

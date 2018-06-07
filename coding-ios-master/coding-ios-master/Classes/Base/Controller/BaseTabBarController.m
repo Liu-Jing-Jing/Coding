@@ -19,12 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    StoreController *article = [[StoreController alloc] init];
-    [self addChildViewController:article title:@"发现" image:@"tabbar_detail_26x26_" selImage:@"tabbar_detail_s_26x26_"];
-    ShelfController *shelf = [[ShelfController alloc] init];
-    [self addChildViewController:shelf title:@"我的" image:@"tabbar_discover_26x26_" selImage:@"tabbar_discover_s_26x26_"];
-    MineController *mine = [[MineController alloc] init];
-    [self addChildViewController:mine title:@"账号" image:@"tabbar_settings_24x24_" selImage:@"tabbar_settings_s_24x24_"];
+//    StoreController *article = [[StoreController alloc] init];
+//    [self addChildViewController:article title:@"发现" image:@"tabbar_detail_26x26_" selImage:@"tabbar_detail_s_26x26_"];
+//    ShelfController *shelf = [[ShelfController alloc] init];
+//    [self addChildViewController:shelf title:@"我的" image:@"tabbar_discover_26x26_" selImage:@"tabbar_discover_s_26x26_"];
+//    MineController *mine = [[MineController alloc] init];
+//    [self addChildViewController:mine title:@"账号" image:@"tabbar_settings_24x24_" selImage:@"tabbar_settings_s_24x24_"];
     
     // 自定义TabBar
     BaseTabBar *tabBar = [[BaseTabBar alloc] init];

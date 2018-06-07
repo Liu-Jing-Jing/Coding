@@ -6,8 +6,6 @@
 //  Copyright © 2016年 FzShop. All rights reserved.
 //
 
-
-
 #import "KKEmptyView.h"
 
 #pragma mark - 声明

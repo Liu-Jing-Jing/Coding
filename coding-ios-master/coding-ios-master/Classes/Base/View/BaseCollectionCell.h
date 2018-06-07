@@ -10,6 +10,4 @@
 
 @interface BaseCollectionCell : UICollectionViewCell
 
-+ (instancetype)loadWithCollection:(UICollectionView *)collection indexPath:(NSIndexPath *)indexPath;
-
 @end
