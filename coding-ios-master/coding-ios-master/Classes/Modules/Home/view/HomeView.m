@@ -7,12 +7,15 @@
 //
 
 #import "HomeView.h"
+#import "HomeHeader.h"
 #import "HomeCell.h"
 
 #pragma mark - 声明
 @interface HomeView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic, strong) HomeHeader *header;
 @property (nonatomic, strong) UICollectionView *collection;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
@@ -21,7 +24,26 @@
 
 #pragma mark - 初始化
 - (void)initUI {
+    [self header];
     [self collection];
+    [self bringSubviewToFront:_header];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CGFloat headerH = self.header.height / 750.f * 1030;
+        CGFloat moveH = _collection.contentOffset.y - (headerH - _header.height);
+        [UIView animateWithDuration:.5f animations:^{
+            [_collection setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+            [_collection setContentOffset:CGPointMake(0, moveH) animated:NO];
+            [_header setHeight:headerH];
+        }];
+    });
+}
+- (HomeHeader *)header {
+    if (!_header) {
+        _header = [HomeHeader loadCode:CGRectMake(0, 0, ScreenWidth, ScreenWidth)];
+        [self addSubview:_header];
+    }
+    return _header;
 }
 - (UICollectionView *)collection {
     if (!_collection) {
@@ -31,6 +53,8 @@
             layout.minimumInteritemSpacing = 0;
             layout;
         })];
+        [_collection setShowsVerticalScrollIndicator:NO];
+        [_collection setContentInset:UIEdgeInsetsMake(self.header.height, 0, 0, 0)];
         [_collection setBackgroundColor:[UIColor whiteColor]];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
@@ -42,11 +66,35 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return 109;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomeCell *cell = [HomeCell loadCode:collectionView index:indexPath];
+    cell.bgColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3];
+    cell.shapeColor = [[UIColor orangeColor] colorWithAlphaComponent:0.5];
+    if (indexPath.row == 100) {
+        cell.progress = 0.9;
+        cell.status = HomeShapeStatusDownloading;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            cell.status = HomeShapeStatusDownloaded;
+        });
+    }
+    else if (indexPath.row == 101) {
+        cell.status = HomeShapeStatusDownloaded;
+    }
+    else {
+        cell.status = HomeShapeStatusNotDownload;
+    }
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    HomeCell *cell = (HomeCell *)[_collection cellForItemAtIndexPath:indexPath];
+    cell.progress = 0;
+    cell.status = HomeShapeStatusDownloading;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        cell.status = HomeShapeStatusDownloaded;
+    });
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -55,3 +103,4 @@
 }
 
 @end
+

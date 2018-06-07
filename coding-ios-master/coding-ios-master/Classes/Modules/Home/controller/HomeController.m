@@ -8,14 +8,12 @@
 
 #import "HomeController.h"
 #import "HomeView.h"
-#import "PlayView.h"
 
 #pragma mark - 声明
 @interface HomeController ()
 
 @property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) HomeView *homev;
-@property (nonatomic, strong) PlayView *playv;
 
 @end
 
@@ -30,7 +28,6 @@
 - (void)createView {
     [self scroll];
     [self homev];
-    [self playv];
 }
 - (UIScrollView *)scroll {
     if (!_scroll) {
@@ -48,14 +45,6 @@
         [self.scroll addSubview:_homev];
     }
     return _homev;
-}
-- (PlayView *)playv {
-    if (!_playv) {
-        _playv = [PlayView initWithFrame:ScreenBounds];
-        _playv.left = CGRectGetMaxX(_homev.frame);
-        [self.scroll addSubview:_playv];
-    }
-    return _playv;
 }
 
 @end

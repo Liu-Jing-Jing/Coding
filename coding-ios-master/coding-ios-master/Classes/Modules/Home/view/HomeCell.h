@@ -7,7 +7,18 @@
 //
 
 #import "BaseCollectionCell.h"
+#import "HomeShapeView.h"
 
+#pragma mark - 声明
 @interface HomeCell : BaseCollectionCell
+
+/// 过程
+@property (nonatomic, assign) CGFloat progress;
+/// 状态
+@property (nonatomic, assign) HomeShapeStatus status;
+/// 背景颜色
+@property (nonatomic, strong) UIColor *bgColor;
+/// 圆圈颜色
+@property (nonatomic, strong) UIColor *shapeColor;
 
 @end

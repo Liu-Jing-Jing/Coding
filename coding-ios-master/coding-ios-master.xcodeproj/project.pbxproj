@@ -13,7 +13,6 @@
 		044BC28720C8D666007D21BD /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044BC28620C8D666007D21BD /* HomeCell.m */; };
 		0450063620C8CB9B00E56AC6 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450063520C8CB9B00E56AC6 /* HomeController.m */; };
 		0450063E20C8CD6E00E56AC6 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450063D20C8CD6E00E56AC6 /* HomeView.m */; };
-		0450064820C8D15000E56AC6 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450064720C8D15000E56AC6 /* PlayView.m */; };
 		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
@@ -58,6 +57,8 @@
 		4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1E920863DC100E31A21 /* UITableViewCell+Extension.m */; };
 		4BD2B1F120863EEA00E31A21 /* UICollectionViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1F020863EEA00E31A21 /* UICollectionViewCell+Extension.m */; };
 		4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2B1FF2086453900E31A21 /* UICollectionReusableView+Extension.m */; };
+		4BD4B2EA20C9626E0017E28A /* HomeShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4B2E920C9626E0017E28A /* HomeShapeView.m */; };
+		4BD4B2ED20C982780017E28A /* HomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4B2EC20C982780017E28A /* HomeHeader.m */; };
 		4BE8DE07209DC59300A79ECD /* TLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE06209DC59300A79ECD /* TLSegmentedControl.m */; };
 		4BE8DE31209DEEBB00A79ECD /* BaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE30209DEEBB00A79ECD /* BaseTableCell.m */; };
 		4BE8DE34209DEEF500A79ECD /* BaseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8DE33209DEEF500A79ECD /* BaseCollectionCell.m */; };
@@ -105,8 +106,6 @@
 		0450063520C8CB9B00E56AC6 /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		0450063C20C8CD6E00E56AC6 /* HomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		0450063D20C8CD6E00E56AC6 /* HomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
-		0450064620C8D15000E56AC6 /* PlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayView.h; sourceTree = "<group>"; };
-		0450064720C8D15000E56AC6 /* PlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayView.m; sourceTree = "<group>"; };
 		04554F432089B1C800BEC435 /* KKEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKEmptyView.h; sourceTree = "<group>"; };
 		04554F442089B1C800BEC435 /* KKEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKEmptyView.m; sourceTree = "<group>"; };
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
@@ -202,6 +201,10 @@
 		4BD2B1F020863EEA00E31A21 /* UICollectionViewCell+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Extension.m"; sourceTree = "<group>"; };
 		4BD2B1FE2086453900E31A21 /* UICollectionReusableView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+Extension.h"; sourceTree = "<group>"; };
 		4BD2B1FF2086453900E31A21 /* UICollectionReusableView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+Extension.m"; sourceTree = "<group>"; };
+		4BD4B2E820C9626E0017E28A /* HomeShapeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeShapeView.h; sourceTree = "<group>"; };
+		4BD4B2E920C9626E0017E28A /* HomeShapeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeShapeView.m; sourceTree = "<group>"; };
+		4BD4B2EB20C982780017E28A /* HomeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeader.h; sourceTree = "<group>"; };
+		4BD4B2EC20C982780017E28A /* HomeHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeader.m; sourceTree = "<group>"; };
 		4BE8DE05209DC59300A79ECD /* TLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSegmentedControl.h; sourceTree = "<group>"; };
 		4BE8DE06209DC59300A79ECD /* TLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSegmentedControl.m; sourceTree = "<group>"; };
 		4BE8DE2F209DEEBA00A79ECD /* BaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableCell.h; sourceTree = "<group>"; };
@@ -322,8 +325,12 @@
 			children = (
 				0450063C20C8CD6E00E56AC6 /* HomeView.h */,
 				0450063D20C8CD6E00E56AC6 /* HomeView.m */,
+				4BD4B2EB20C982780017E28A /* HomeHeader.h */,
+				4BD4B2EC20C982780017E28A /* HomeHeader.m */,
 				044BC28520C8D666007D21BD /* HomeCell.h */,
 				044BC28620C8D666007D21BD /* HomeCell.m */,
+				4BD4B2E820C9626E0017E28A /* HomeShapeView.h */,
+				4BD4B2E920C9626E0017E28A /* HomeShapeView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -333,39 +340,6 @@
 			children = (
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		0450063F20C8D14500E56AC6 /* Play */ = {
-			isa = PBXGroup;
-			children = (
-				0450064020C8D14500E56AC6 /* controller */,
-				0450064120C8D14500E56AC6 /* model */,
-				0450064220C8D14500E56AC6 /* view */,
-			);
-			path = Play;
-			sourceTree = "<group>";
-		};
-		0450064020C8D14500E56AC6 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		0450064120C8D14500E56AC6 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		0450064220C8D14500E56AC6 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				0450064620C8D15000E56AC6 /* PlayView.h */,
-				0450064720C8D15000E56AC6 /* PlayView.m */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		04554F422089B1B200BEC435 /* KKEmptyView */ = {
@@ -827,7 +801,6 @@
 			isa = PBXGroup;
 			children = (
 				0450063720C8CBAE00E56AC6 /* Home */,
-				0450063F20C8D14500E56AC6 /* Play */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1076,6 +1049,7 @@
 				4BE9FDF0208630070020B755 /* UIView+Extension.m in Sources */,
 				04BDCF2C208EB8A200B7A8DF /* UIImageView+SDWebManager.m in Sources */,
 				4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */,
+				4BD4B2EA20C9626E0017E28A /* HomeShapeView.m in Sources */,
 				4BD2B1EA20863DC100E31A21 /* UITableViewCell+Extension.m in Sources */,
 				04BA9E5820AB0A1700678BE1 /* KKNavigationBar.m in Sources */,
 				0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */,
@@ -1103,6 +1077,7 @@
 				4BE9FDFD208630070020B755 /* StatusUtils.m in Sources */,
 				4BE9FDF2208630070020B755 /* UIFont+Extension.m in Sources */,
 				04DD0C1B20B4F34600DF2E0F /* OpenShareContent.m in Sources */,
+				4BD4B2ED20C982780017E28A /* HomeHeader.m in Sources */,
 				04DD0C0220B4F0F500DF2E0F /* OpenShare+Alipay.m in Sources */,
 				4BE9FE30208630070020B755 /* BaseModel.m in Sources */,
 				4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */,
@@ -1141,7 +1116,6 @@
 				04DD0C0A20B4F0F500DF2E0F /* OpenShareManager.m in Sources */,
 				04DD0C0720B4F0F500DF2E0F /* OpenShare.m in Sources */,
 				0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */,
-				0450064820C8D15000E56AC6 /* PlayView.m in Sources */,
 				4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */,
 				0450063E20C8CD6E00E56AC6 /* HomeView.m in Sources */,
 				04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */,
