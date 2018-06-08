@@ -31,16 +31,19 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGFloat headerH = self.header.height / 750.f * 1030;
         CGFloat moveH = _collection.contentOffset.y - (headerH - _header.height);
-        [UIView animateWithDuration:.5f animations:^{
+        [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             [_collection setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
             [_collection setContentOffset:CGPointMake(0, moveH) animated:NO];
-            [_header setHeight:headerH];
+        } completion:^(BOOL finished) {
+            
         }];
+        [_header changeHeight:headerH duration:0.5f];
     });
 }
 - (HomeHeader *)header {
     if (!_header) {
         _header = [HomeHeader loadCode:CGRectMake(0, 0, ScreenWidth, ScreenWidth)];
+        _header.bgColor = [UIColor grayColor];
         [self addSubview:_header];
     }
     return _header;
@@ -70,8 +73,7 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomeCell *cell = [HomeCell loadCode:collectionView index:indexPath];
-    cell.bgColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3];
-    cell.shapeColor = [[UIColor orangeColor] colorWithAlphaComponent:0.5];
+    cell.shapeColor = [UIColor orangeColor];
     if (indexPath.row == 100) {
         cell.progress = 0.9;
         cell.status = HomeShapeStatusDownloading;

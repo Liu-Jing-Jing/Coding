@@ -16,8 +16,6 @@
 @property (nonatomic, assign) CGFloat progress;
 /// 状态
 @property (nonatomic, assign) HomeShapeStatus status;
-/// 背景颜色
-@property (nonatomic, strong) UIColor *bgColor;
 /// 圆圈颜色
 @property (nonatomic, strong) UIColor *shapeColor;
 

@@ -8,7 +8,7 @@
 
 #import "HomeCell.h"
 
-typedef void (^HomeCellBlock)();
+typedef void (^HomeCellBlock)(void);
 
 #pragma mark - 声明
 @interface HomeCell ()
@@ -68,8 +68,8 @@ typedef void (^HomeCellBlock)();
 // 设置下载进度
 - (void)setProgress:(CGFloat)progress {
     _progress = progress >= 1 ? 1 : progress;
-    [self.shape downloadProgress:_progress];
-    [self.icon setAlpha:_progress];
+    _shape.progress = _progress;
+    _icon.alpha = _progress;
 }
 // 设置状态
 - (void)setStatus:(HomeShapeStatus)status {
@@ -79,38 +79,22 @@ typedef void (^HomeCellBlock)();
         _desc.textColor = ColorTextMedium;
         _icon.backgroundColor = [UIColor redColor];
         _shape.hidden = YES;
-        
-        [self.timer invalidate];
-        self.timer = nil;
+        [self timerInvalidate];
     }
     else if (status == HomeShapeStatusDownloading) {
         _desc.textColor = ColorTextMedium;
         _icon.backgroundColor = [UIColor redColor];
         _shape.hidden = NO;
-        [self.timer invalidate];
-        self.timer = nil;
         [self timer:^{
-            // 进度
             [self setProgress:_progress + 0.005];
-            [self.shape downloadProgress:_progress];
-            // 图片
-            [self.icon setAlpha:_progress];
         }];
     }
     else if (status == HomeShapeStatusDownloaded) {
         _desc.textColor = ColorTextBold;
         _icon.backgroundColor = [UIColor greenColor];
         _shape.hidden = NO;
-        
-        [self.timer invalidate];
-        self.timer = nil;
-        [self.shape downloadComplete];
+        [self timerInvalidate];
     }
-}
-// 背景颜色
-- (void)setBgColor:(UIColor *)bgColor {
-    _bgColor = bgColor;
-    _shape.bgColor = bgColor;
 }
 // 线条颜色
 - (void)setShapeColor:(UIColor *)shapeColor {
@@ -124,6 +108,11 @@ typedef void (^HomeCellBlock)();
     if (_block) {
         _block();
     }
+}
+// 定时器停止
+- (void)timerInvalidate {
+    [self.timer invalidate];
+    [self setTimer:nil];
 }
 
 

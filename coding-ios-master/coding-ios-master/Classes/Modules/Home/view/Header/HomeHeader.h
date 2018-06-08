@@ -10,4 +10,8 @@
 
 @interface HomeHeader : BaseView
 
+@property (nonatomic, strong) UIColor *bgColor;
+
+- (void)changeHeight:(CGFloat)height duration:(NSTimeInterval)duration;
+
 @end

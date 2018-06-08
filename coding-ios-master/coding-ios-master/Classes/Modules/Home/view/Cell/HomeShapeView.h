@@ -20,12 +20,9 @@ typedef NS_ENUM(NSInteger, HomeShapeStatus) {
 
 /// 状态
 @property (nonatomic, assign) HomeShapeStatus status;
-/// 背景颜色
-@property (nonatomic, strong) UIColor *bgColor;
 /// 圆圈颜色
 @property (nonatomic, strong) UIColor *shapeColor;
-
-- (void)downloadProgress:(CGFloat)progress;
-- (void)downloadComplete;
+/// 进度
+@property (nonatomic, assign) CGFloat progress;
 
 @end
