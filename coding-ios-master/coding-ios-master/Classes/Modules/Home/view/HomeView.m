@@ -9,10 +9,12 @@
 #import "HomeView.h"
 #import "HomeHeader.h"
 #import "HomeCell.h"
+#import "HomeBar.h"
 
 #pragma mark - 声明
 @interface HomeView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic, strong) HomeBar *bar;
 @property (nonatomic, strong) HomeHeader *header;
 @property (nonatomic, strong) UICollectionView *collection;
 @property (nonatomic, strong) NSArray *data;
@@ -26,19 +28,28 @@
 - (void)initUI {
     [self header];
     [self collection];
+    [self bar];
     [self bringSubviewToFront:_header];
+    [self bringSubviewToFront:_bar];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CGFloat headerH = self.header.height / 750.f * 1030;
-        CGFloat moveH = _collection.contentOffset.y - (headerH - _header.height);
-        [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            [_collection setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
-            [_collection setContentOffset:CGPointMake(0, moveH) animated:NO];
-        } completion:^(BOOL finished) {
-            
-        }];
-        [_header changeHeight:headerH duration:0.5f];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        CGFloat headerH = self.header.height / 750.f * 1030;
+//        CGFloat moveH = _collection.contentOffset.y - (headerH - _header.height);
+//        [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//            [_collection setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+//            [_collection setContentOffset:CGPointMake(0, moveH) animated:NO];
+//        } completion:^(BOOL finished) {
+//            
+//        }];
+//        [_header changeHeight:headerH duration:0.5f];
+//    });
+}
+- (HomeBar *)bar {
+    if (!_bar) {
+        _bar = [HomeBar loadCode:CGRectMake(0, 0, ScreenWidth, NavigationBarHeight)];
+        [self addSubview:_bar];
+    }
+    return _bar;
 }
 - (HomeHeader *)header {
     if (!_header) {

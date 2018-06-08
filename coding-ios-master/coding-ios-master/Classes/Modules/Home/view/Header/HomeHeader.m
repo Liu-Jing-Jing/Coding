@@ -8,12 +8,16 @@
 
 #import "HomeHeader.h"
 #import "DisplayLinkUtil.h"
+#import "HomeDraw.h"
+#import "HomeCircle.h"
 
 #pragma mark - 声明
 @interface HomeHeader() {
     CGFloat _shapeH;
 }
 
+@property (nonatomic, strong) HomeDraw *draw;
+@property (nonatomic, strong) HomeCircle *circle;
 @property (nonatomic, strong) DisplayLinkUtil *link;
 @property (nonatomic, strong) NSMutableArray<CAShapeLayer *> *shape;
 @property (nonatomic, strong) NSMutableArray<NSArray<NSNumber *> *> *controls;
@@ -28,6 +32,8 @@
     _shapeH = self.height;
     [self shape];
     [self link];
+    [self draw];
+    [self circle];
     [self setBackgroundColor:[UIColor whiteColor]];
 }
 - (NSMutableArray<CAShapeLayer *> *)shape {
@@ -81,6 +87,22 @@
     }
     return _controls;
 }
+- (HomeDraw *)draw {
+    if (!_draw) {
+        _draw = [HomeDraw loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
+        [self addSubview:_draw];
+    }
+    return _draw;
+}
+- (HomeCircle *)circle {
+    if (!_circle) {
+        _circle = [HomeCircle loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
+        [self addSubview:_circle];
+    }
+    return _circle;
+}
+
+
 
 - (void)changeHeight:(CGFloat)height duration:(NSTimeInterval)duration {
 //    [self setControls:nil];
@@ -98,23 +120,23 @@
     if (!_link) {
         CFTimeInterval beginTime = CACurrentMediaTime();
         _link = [DisplayLinkUtil initWithBlock:^{
-            CGFloat fromH = ScreenWidth;
-            CGFloat toH = self.height / 750.f * 1030;
-            NSTimeInterval duration = 0.3f;
-            NSTimeInterval currentTime = CACurrentMediaTime() - beginTime;
-            
-            CGFloat percent = currentTime / duration;
-            if (percent > 1) {
-                percent = 1;
-//                [displayLink invalidate];
-            }
-            
-            percent = [self easeIn:percent];
-            NSLog(@"%.2f",percent);
-            
-            CGFloat h = [self _interpolateFrom:fromH to:toH percent:percent];
-            _shapeH = h;
-            [self setControls:nil];
+//            CGFloat fromH = ScreenWidth;
+//            CGFloat toH = self.height / 750.f * 1030;
+//            NSTimeInterval duration = 0.3f;
+//            NSTimeInterval currentTime = CACurrentMediaTime() - beginTime;
+//            
+//            CGFloat percent = currentTime / duration;
+//            if (percent > 1) {
+//                percent = 1;
+////                [displayLink invalidate];
+//            }
+//            
+//            percent = [self easeIn:percent];
+//            NSLog(@"%.2f",percent);
+//            
+//            CGFloat h = [self _interpolateFrom:fromH to:toH percent:percent];
+//            _shapeH = h;
+//            [self setControls:nil];
             
             
 //            if (_shapeH < self.height) {
