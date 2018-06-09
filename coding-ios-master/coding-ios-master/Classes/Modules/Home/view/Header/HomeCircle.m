@@ -9,6 +9,12 @@
 #import "HomeCircle.h"
 #import "BaseView+HomeHeader.h"
 
+#pragma mark - NS_ENUM
+typedef NS_ENUM(NSInteger, HomeCircleAnimation) {
+    HomeCircleAnimationShow,   // 显示
+    HomeCircleAnimationHide,   // 隐藏
+};
+
 #pragma mark - 声明
 @interface HomeCircle()
 
@@ -71,7 +77,5 @@
     }
     return _time;
 }
-
-
 
 @end

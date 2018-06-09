@@ -97,6 +97,7 @@
 - (HomeCircle *)circle {
     if (!_circle) {
         _circle = [HomeCircle loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
+        _circle.userInteractionEnabled = NO;
         [self addSubview:_circle];
     }
     return _circle;

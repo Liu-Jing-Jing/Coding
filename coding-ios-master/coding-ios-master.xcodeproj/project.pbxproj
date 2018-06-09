@@ -58,6 +58,8 @@
 		4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594EB208E189F005CF75C /* UIView+BlockGesture.m */; };
 		4B6594F4208E24C4005CF75C /* SDCycleScrollView+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */; };
 		4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */; };
+		4BAC3A2420CC17B60000F4E3 /* UIButton+HomeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC3A2320CC17B60000F4E3 /* UIButton+HomeAnimation.m */; };
+		4BAC3A2720CC1B0B0000F4E3 /* HomePushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC3A2620CC1B0B0000F4E3 /* HomePushButton.m */; };
 		4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1E4012087838D0066B80A /* MJRefreshNormalHeader+Extension.m */; };
 		4BB1E4172087893D0066B80A /* SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1E4162087893D0066B80A /* SectionHeader.m */; };
 		4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1E41C20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m */; };
@@ -205,6 +207,10 @@
 		4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SDCycleScrollView+Manager.m"; sourceTree = "<group>"; };
 		4B7D6D3C2088B84C00F7DC2B /* POPAnimation+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POPAnimation+Extension.h"; sourceTree = "<group>"; };
 		4B7D6D3D2088B84C00F7DC2B /* POPAnimation+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "POPAnimation+Extension.m"; sourceTree = "<group>"; };
+		4BAC3A2220CC17B60000F4E3 /* UIButton+HomeAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HomeAnimation.h"; sourceTree = "<group>"; };
+		4BAC3A2320CC17B60000F4E3 /* UIButton+HomeAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HomeAnimation.m"; sourceTree = "<group>"; };
+		4BAC3A2520CC1B0B0000F4E3 /* HomePushButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePushButton.h; sourceTree = "<group>"; };
+		4BAC3A2620CC1B0B0000F4E3 /* HomePushButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePushButton.m; sourceTree = "<group>"; };
 		4BB1E4002087838D0066B80A /* MJRefreshNormalHeader+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MJRefreshNormalHeader+Extension.h"; sourceTree = "<group>"; };
 		4BB1E4012087838D0066B80A /* MJRefreshNormalHeader+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MJRefreshNormalHeader+Extension.m"; sourceTree = "<group>"; };
 		4BB1E4152087893D0066B80A /* SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionHeader.h; sourceTree = "<group>"; };
@@ -320,12 +326,12 @@
 		0415EC0520CA63A40065FE10 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				4B332E6F20CAD5F5009AED3D /* BaseView+HomeHeader.h */,
-				4B332E7020CAD5F5009AED3D /* BaseView+HomeHeader.m */,
 				0415EC0620CA63A40065FE10 /* HomeHeader.h */,
 				0415EC0720CA63A40065FE10 /* HomeHeader.m */,
 				4B332E6620CABFC1009AED3D /* HomeDraw.h */,
 				4B332E6720CABFC1009AED3D /* HomeDraw.m */,
+				4BAC3A2520CC1B0B0000F4E3 /* HomePushButton.h */,
+				4BAC3A2620CC1B0B0000F4E3 /* HomePushButton.m */,
 				4B332E6920CAD121009AED3D /* HomeCircle.h */,
 				4B332E6A20CAD121009AED3D /* HomeCircle.m */,
 			);
@@ -355,6 +361,7 @@
 		0450063720C8CBAE00E56AC6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4BAC3A2120CC12940000F4E3 /* category */,
 				0450063820C8CBAE00E56AC6 /* controller */,
 				0450063920C8CBAE00E56AC6 /* model */,
 				0450063A20C8CBAE00E56AC6 /* view */,
@@ -634,6 +641,17 @@
 				4B6594F3208E24C4005CF75C /* SDCycleScrollView+Manager.m */,
 			);
 			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		4BAC3A2120CC12940000F4E3 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				4B332E6F20CAD5F5009AED3D /* BaseView+HomeHeader.h */,
+				4B332E7020CAD5F5009AED3D /* BaseView+HomeHeader.m */,
+				4BAC3A2220CC17B60000F4E3 /* UIButton+HomeAnimation.h */,
+				4BAC3A2320CC17B60000F4E3 /* UIButton+HomeAnimation.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 		4BD2B1E720863DAD00E31A21 /* UITableViewCell */ = {
@@ -1156,6 +1174,7 @@
 				4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,
 				4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */,
+				4BAC3A2720CC1B0B0000F4E3 /* HomePushButton.m in Sources */,
 				4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */,
 				04BBD348208DBCC900968BF8 /* UILabel+Commonly.m in Sources */,
 				4BE9FDF3208630070020B755 /* NSString+Extension.m in Sources */,
@@ -1188,6 +1207,7 @@
 				4BE9FDEE208630070020B755 /* UIView+KKCore.m in Sources */,
 				04DD0C0A20B4F0F500DF2E0F /* OpenShareManager.m in Sources */,
 				04DD0C0720B4F0F500DF2E0F /* OpenShare.m in Sources */,
+				4BAC3A2420CC17B60000F4E3 /* UIButton+HomeAnimation.m in Sources */,
 				0442A39420A124AC00F22D8A /* NSArray+Project.m in Sources */,
 				4B332E7120CAD5F5009AED3D /* BaseView+HomeHeader.m in Sources */,
 				4B7D6D3E2088B84C00F7DC2B /* POPAnimation+Extension.m in Sources */,

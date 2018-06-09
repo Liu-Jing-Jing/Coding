@@ -22,5 +22,7 @@
 - (CGFloat)createWidthWithWidth:(CGFloat)width;
 // 创建高度
 - (CGFloat)createHeightWithWidth:(CGFloat)width;
+// 创建三角形通过三边值
+- (CGMutablePathRef)createTriangleWithPercent1:(CGFloat)percent1 percent2:(CGFloat)percent2 percent3:(CGFloat)percent3;
 
 @end
