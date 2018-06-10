@@ -6,11 +6,10 @@
 //  Copyright © 2018年 kk. All rights reserved.
 //
 
-#import "BaseCollectionCell.h"
 #import "HomeShapeView.h"
 
 #pragma mark - 声明
-@interface HomeCell : BaseCollectionCell
+@interface HomeCell : BaseView
 
 /// 过程
 @property (nonatomic, assign) CGFloat progress;

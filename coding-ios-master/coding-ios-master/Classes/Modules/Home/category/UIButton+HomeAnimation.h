@@ -68,5 +68,6 @@ typedef NS_ENUM(NSInteger, HomePushBtn) {
 
 // 创建比例动画
 - (void)createScale:(CGPoint)scale name:(NSString *)name duration:(NSTimeInterval)duration;
+- (void)createScale:(CGPoint)scale name:(NSString *)name duration:(NSTimeInterval)duration complete:(HomeAnimationBlock)complete;
 
 @end

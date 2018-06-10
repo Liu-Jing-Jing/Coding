@@ -8,7 +8,7 @@
 
 #import "BaseView.h"
 
-#define HomeBgTriangleW self.width / 5 * 2
+#define HomeBgTriangleW ScreenWidth / 5 * 2
 #define HomeTriangleW 50
 
 #pragma mark - 声明

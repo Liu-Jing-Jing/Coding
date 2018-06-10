@@ -12,11 +12,11 @@
 #import "HomeBar.h"
 
 #pragma mark - 声明
-@interface HomeView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface HomeView ()<HomeHeaderDelegate>
 
 @property (nonatomic, strong) HomeBar *bar;
 @property (nonatomic, strong) HomeHeader *header;
-@property (nonatomic, strong) UICollectionView *collection;
+@property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) NSArray *data;
 
 @end
@@ -27,22 +27,11 @@
 #pragma mark - 初始化
 - (void)initUI {
     [self header];
-    [self collection];
-    [self bar];
+    [self scroll];
+//    [self bar];
     [self bringSubviewToFront:_header];
     [self bringSubviewToFront:_bar];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        CGFloat headerH = self.header.height / 750.f * 1030;
-//        CGFloat moveH = _collection.contentOffset.y - (headerH - _header.height);
-//        [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-//            [_collection setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
-//            [_collection setContentOffset:CGPointMake(0, moveH) animated:NO];
-//        } completion:^(BOOL finished) {
-//            
-//        }];
-//        [_header changeHeight:headerH duration:0.5f];
-//    });
+    [self createScrollView];
 }
 - (HomeBar *)bar {
     if (!_bar) {
@@ -55,65 +44,97 @@
     if (!_header) {
         _header = [HomeHeader loadCode:CGRectMake(0, 0, ScreenWidth, ScreenWidth)];
         _header.bgColor = [UIColor grayColor];
+        _header.delegate = self;
         [self addSubview:_header];
     }
     return _header;
 }
-- (UICollectionView *)collection {
-    if (!_collection) {
-        _collection = [[UICollectionView alloc] initWithFrame:ScreenBounds collectionViewLayout:({
-            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-            layout.minimumLineSpacing = 0;
-            layout.minimumInteritemSpacing = 0;
-            layout;
+- (UIScrollView *)scroll {
+    if (!_scroll) {
+        _scroll = [[UIScrollView alloc] initWithFrame:ScreenBounds];
+        _scroll.contentInset = UIEdgeInsetsMake(self.header.height, 0, 0, 0);
+        [self addSubview:_scroll];
+    }
+    return _scroll;
+}
+- (void)createScrollView {
+    for (int i=0; i<30; i++) {
+        NSInteger count = 4;
+        NSInteger row = i / count;
+        NSInteger col = i % count;
+        HomeCell *cell = [HomeCell loadCode:({
+            CGFloat width = ScreenWidth / count;
+            CGFloat height = width + 10;
+            CGFloat left = col * width;
+            CGFloat top = row * height;
+            CGRectMake(left, top, width, height);
         })];
-        [_collection setShowsVerticalScrollIndicator:NO];
-        [_collection setContentInset:UIEdgeInsetsMake(self.header.height, 0, 0, 0)];
-        [_collection setBackgroundColor:[UIColor whiteColor]];
-        [_collection setDelegate:self];
-        [_collection setDataSource:self];
-        [_collection registerClass:[HomeCell class] forCellWithReuseIdentifier:@"HomeCell"];
-        [self addSubview:_collection];
+        [cell setShapeColor:[UIColor orangeColor]];
+        [self.scroll addSubview:cell];
+        [self.scroll setContentSize:CGSizeMake(ScreenWidth, CGRectGetMaxY(cell.frame))];
     }
-    return _collection;
 }
 
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 109;
+#pragma mark - HomeHeaderDelegate
+// 点击了内三角, 更改高度
+- (void)homeHeader:(HomeHeader *)header didClickInTriangle:(CAShapeLayer *)triangle {
+    CGFloat headerH = self.header.height != ScreenWidth / 750.f * 1030 ? ScreenWidth / 750.f * 1030 : ScreenWidth;
+    CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
+    [_header setType:headerH == ScreenWidth / 750.f * 1030 ? HomeHeaderBgTypeSpeed : HomeHeaderBgTypeDefault];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [_header setHeight:headerH];
+        [_scroll setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+        [_scroll setContentOffset:CGPointMake(0, moveH) animated:NO];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    HomeCell *cell = [HomeCell loadCode:collectionView index:indexPath];
-    cell.shapeColor = [UIColor orangeColor];
-    if (indexPath.row == 100) {
-        cell.progress = 0.9;
-        cell.status = HomeShapeStatusDownloading;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            cell.status = HomeShapeStatusDownloaded;
-        });
-    }
-    else if (indexPath.row == 101) {
-        cell.status = HomeShapeStatusDownloaded;
-    }
-    else {
-        cell.status = HomeShapeStatusNotDownload;
-    }
-    return cell;
+/// 点击了三个按钮
+- (void)homeHeader:(HomeHeader *)header didTapButton:(HomePushButton *)button {
+    NSLog(@"123");
+}
+/// 点击速率按钮
+- (void)homeHeader:(HomeHeader *)header didTapSpeed:(UIButton *)speed {
+    CGFloat headerH = self.header.height != ScreenWidth / 750.f * 1030 ? ScreenWidth / 750.f * 1030 : ScreenWidth;
+    CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
+    [_header setType:headerH == ScreenWidth / 750.f * 1030 ? HomeHeaderBgTypeSpeed : HomeHeaderBgTypeDefault];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [_header setHeight:headerH];
+        [_scroll setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+        [_scroll setContentOffset:CGPointMake(0, moveH) animated:NO];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+/// 点击控制按钮
+- (void)homeHeader:(HomeHeader *)header didTapControl:(UIButton *)control {
+    CGFloat headerH = self.header.height != ScreenHeight ? ScreenHeight : ScreenWidth;
+    CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
+    [_header setType:headerH == ScreenHeight ? HomeHeaderBgTypeControl : HomeHeaderBgTypeDefault];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [_header setHeight:headerH];
+        [_scroll setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+        [_scroll setContentOffset:CGPointMake(0, moveH) animated:NO];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+/// 点击了关闭按钮
+- (void)homeHeader:(HomeHeader *)header didTapClose:(UIButton *)close {
+    CGFloat headerH = ScreenWidth;
+    CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
+    [_header setType:HomeHeaderBgTypeDefault];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [_header setHeight:headerH];
+        [_scroll setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+        [_scroll setContentOffset:CGPointMake(0, moveH) animated:NO];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    HomeCell *cell = (HomeCell *)[_collection cellForItemAtIndexPath:indexPath];
-    cell.progress = 0;
-    cell.status = HomeShapeStatusDownloading;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        cell.status = HomeShapeStatusDownloaded;
-    });
-}
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(ScreenWidth / 4, ScreenWidth / 4);
-}
+
 
 @end
 

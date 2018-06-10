@@ -35,17 +35,17 @@ typedef void (^HomeCellBlock)(void);
         _icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width / 3, self.width / 3)];
         _icon.backgroundColor = [UIColor redColor];
         _icon.center = CGPointMake(self.width / 2, self.height / 2);
-        [self.contentView addSubview:_icon];
+        [self addSubview:_icon];
     }
     return _icon;
 }
 - (UILabel *)desc {
     if (!_desc) {
-        _desc = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_icon.frame) + _icon.height / 2, self.width, 20)];
+        _desc = [[UILabel alloc] initWithFrame:CGRectMake(0, self.height - 20, self.width, 20)];
         _desc.text = @"隐隐春雷";
         _desc.font = [UIFont systemFontOfSize:adjustFont(12)];
         _desc.textAlignment = NSTextAlignmentCenter;
-        [self.contentView addSubview:_desc];
+        [self addSubview:_desc];
     }
     return _desc;
 }
@@ -59,7 +59,7 @@ typedef void (^HomeCellBlock)(void);
 - (HomeShapeView *)shape {
     if (!_shape) {
         _shape = [HomeShapeView loadCode:self.bounds];
-        [self.contentView addSubview:_shape];
+        [self addSubview:_shape];
     }
     return _shape;
 }
@@ -115,6 +115,14 @@ typedef void (^HomeCellBlock)(void);
     [self setTimer:nil];
 }
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.progress = 0;
+    self.status = HomeShapeStatusDownloading;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.status = HomeShapeStatusDownloaded;
+    });
+}
 
 @end
 

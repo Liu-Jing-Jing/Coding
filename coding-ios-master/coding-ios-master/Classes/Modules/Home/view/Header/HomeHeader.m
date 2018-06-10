@@ -10,17 +10,21 @@
 #import "DisplayLinkUtil.h"
 #import "HomeDraw.h"
 #import "HomeCircle.h"
+#import "HomeHeaderSpeed.h"
+#import "BaseView+HomeHeader.h"
+#import "HomeControl.h"
 
 #pragma mark - 声明
-@interface HomeHeader() {
-    CGFloat _shapeH;
-}
+@interface HomeHeader()<HomeDrawDelegate, HomeHeaderSpeedDelegate>
 
 @property (nonatomic, strong) HomeDraw *draw;
 @property (nonatomic, strong) HomeCircle *circle;
-@property (nonatomic, strong) DisplayLinkUtil *link;
-@property (nonatomic, strong) NSMutableArray<CAShapeLayer *> *shape;
-@property (nonatomic, strong) NSMutableArray<NSArray<NSNumber *> *> *controls;
+/// 背景层
+@property (nonatomic, strong) HomeHeaderBg *bg;
+/// 控制
+@property (nonatomic, strong) HomeHeaderSpeed *speed;
+///
+@property (nonatomic, strong) HomeControl *control;
 
 @end
 
@@ -29,71 +33,33 @@
 
 #pragma mark - 初始化
 - (void)initUI {
-    _shapeH = self.height;
-    [self shape];
-    [self link];
+    [self bg];
     [self draw];
-    [self circle];
+    [self speed];
+    [self control];
+//    [self circle];
     [self setBackgroundColor:[UIColor whiteColor]];
+    [self setClipsToBounds:YES];
 }
-- (NSMutableArray<CAShapeLayer *> *)shape {
-    if (!_shape) {
-        _shape = [[NSMutableArray alloc] init];
-        for (int i=0; i<10; i++) {
-            CAShapeLayer *shape = [CAShapeLayer layer];
-            shape.frame = [self bounds];
-            shape.fillColor = [[UIColor grayColor] colorWithAlphaComponent:0.1].CGColor;
-            [self.layer addSublayer:shape];
-            [_shape addObject:shape];
-        }
+// 背景
+- (HomeHeaderBg *)bg {
+    if (!_bg) {
+        _bg = [HomeHeaderBg loadCode:self.bounds];
+        _bg.userInteractionEnabled = NO;
+        [self addSubview:_bg];
     }
-    return _shape;
+    return _bg;
 }
-- (NSMutableArray<NSArray<NSNumber *> *> *)controls {
-    if (!_controls) {
-        _controls = [[NSMutableArray alloc] init];
-        for (int i=0; i<self.shape.count; i++) {
-            if (i == 0) {
-                [_controls addObject:@[@(_shapeH - 20),@(ScreenWidth / 2),@(_shapeH),@(_shapeH - 20)]];
-            }
-            else if (i == 1) {
-                [_controls addObject:@[@(_shapeH - 20),@(ScreenWidth / 2),@(_shapeH - 10),@(_shapeH - 30)]];
-            }
-            else if (i == 2) {
-                [_controls addObject:@[@(_shapeH - 30),@(ScreenWidth / 2),@(_shapeH - 20),@(_shapeH - 20)]];
-            }
-            else if (i == 3) {
-                [_controls addObject:@[@(_shapeH - 30),@(ScreenWidth / 2),@(_shapeH - 30),@(_shapeH - 35)]];
-            }
-            else if (i == 4) {
-                [_controls addObject:@[@(_shapeH - 50),@(ScreenWidth / 2),@(_shapeH - 35),@(_shapeH - 40)]];
-            }
-            else if (i == 5) {
-                [_controls addObject:@[@(_shapeH - 50),@(ScreenWidth / 2),@(_shapeH - 35),@(_shapeH - 50)]];
-            }
-            else if (i == 6) {
-                [_controls addObject:@[@(_shapeH - 55),@(ScreenWidth / 2),@(_shapeH - 45),@(_shapeH - 65)]];
-            }
-            else if (i == 7) {
-                [_controls addObject:@[@(_shapeH - 65),@(ScreenWidth / 2),@(_shapeH - 45),@(_shapeH - 55)]];
-            }
-            else if (i == 8) {
-                [_controls addObject:@[@(_shapeH - 85),@(ScreenWidth / 2 + 20),@(_shapeH - 55),@(_shapeH - 75)]];
-            }
-            else if (i == 9) {
-                [_controls addObject:@[@(_shapeH - 75),@(ScreenWidth / 2 + 20),@(_shapeH - 55),@(_shapeH - 85)]];
-            }
-        }
-    }
-    return _controls;
-}
+// 绘图
 - (HomeDraw *)draw {
     if (!_draw) {
         _draw = [HomeDraw loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
+        _draw.delegate = self;
         [self addSubview:_draw];
     }
     return _draw;
 }
+// 圆圈
 - (HomeCircle *)circle {
     if (!_circle) {
         _circle = [HomeCircle loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
@@ -102,106 +68,98 @@
     }
     return _circle;
 }
+// 控制
+- (HomeHeaderSpeed *)speed {
+    if (!_speed) {
+        _speed = [HomeHeaderSpeed loadCode:CGRectMake(0, 0, ScreenWidth, 100)];
+        _speed.delegate = self;
+        _speed.centerY = self.centerY;
+        _speed.top += [_speed createHeightWithWidth:HomeBgTriangleW + 60];
+        [self addSubview:_speed];
+    }
+    return _speed;
+}
+// 控制
+- (HomeControl *)control {
+    if (!_control) {
+        _control = [HomeControl loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
+        _control.top = _speed.top;
+        [self addSubview:_control];
+    }
+    return _control;
+}
 
-
-
-- (void)changeHeight:(CGFloat)height duration:(NSTimeInterval)duration {
-//    [self setControls:nil];
-//    [UIView animateWithDuration:duration animations:^{
-//        [self setHeight:height];
-//    }];
+#pragma mark - 设置
+// 设置背景颜色
+- (void)setBgColor:(UIColor *)bgColor {
+    _bgColor = bgColor;
+    _bg.bgColor = bgColor;
+}
+// 设置高度
+- (void)setHeight:(CGFloat)height {
+    [super setHeight:height];
+    [_bg setTop:height - ScreenWidth];
+}
+// 设置填充样式
+- (void)setType:(HomeHeaderBgType)type {
+    _type = type;
+    _bg.type = type;
+    if (_type == HomeHeaderBgTypeDefault) {
+        [self.speed show:0];
+        [self.control setAlpha:0];
+    }
+    else if (_type == HomeHeaderBgTypeSpeed) {
+        [self.speed show:1];
+        [self.control setAlpha:0];
+    }
+    else if (_type == HomeHeaderBgTypeControl) {
+        [self.speed show:0];
+        [self.control setAlpha:1];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     _bgColor = [UIColor colorWithRed:random() % 255 / 255.f green:random() % 255 / 255.f blue:random() % 255 / 255.f alpha:1];
 }
 
-
-- (DisplayLinkUtil *)link {
-    if (!_link) {
-        CFTimeInterval beginTime = CACurrentMediaTime();
-        _link = [DisplayLinkUtil initWithBlock:^{
-//            CGFloat fromH = ScreenWidth;
-//            CGFloat toH = self.height / 750.f * 1030;
-//            NSTimeInterval duration = 0.3f;
-//            NSTimeInterval currentTime = CACurrentMediaTime() - beginTime;
-//            
-//            CGFloat percent = currentTime / duration;
-//            if (percent > 1) {
-//                percent = 1;
-////                [displayLink invalidate];
-//            }
-//            
-//            percent = [self easeIn:percent];
-//            NSLog(@"%.2f",percent);
-//            
-//            CGFloat h = [self _interpolateFrom:fromH to:toH percent:percent];
-//            _shapeH = h;
-//            [self setControls:nil];
-            
-            
-//            if (_shapeH < self.height) {
-//                [self setControls:nil];
-//                _shapeH += 5;
-//                if (_shapeH > self.height) {
-//                    _shapeH = self.height;
-//                }
-//            }
-//            else if (_shapeH > self.height) {
-//                [self setControls:nil];
-//                _shapeH -= 5;
-//                if (_shapeH < self.height) {
-//                    _shapeH = self.height;
-//                }
-//            }
-//
-            for (int i=0; i<_shape.count; i++) {
-                CAShapeLayer *layer = _shape[i];
-                layer.fillColor = [_bgColor colorWithAlphaComponent:0.1].CGColor;
-                NSArray *numbers = self.controls[i];
-
-                CGMutablePathRef path = CGPathCreateMutable();
-                CGPathMoveToPoint(path, NULL, 0, 0);
-                CGPathAddLineToPoint(path, NULL, ScreenWidth, 0);
-                CGPathAddLineToPoint(path, NULL, ScreenWidth, [numbers[3] floatValue]);
-                CGPathAddQuadCurveToPoint(path, nil, [numbers[1] floatValue], [numbers[2] floatValue], 0, [numbers[0] floatValue]);
-                layer.path = path;
-            }
-        }];
+#pragma mark - HomeHeaderSpeedDelegate
+/// 点击了关闭按钮
+- (void)homeControl:(HomeHeaderSpeed *)view didTapClose:(UIButton *)close {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didTapClose:)]) {
+        [self.delegate homeHeader:self didTapClose:close];
     }
-    return _link;
 }
 
-
-//- (void)changeHeight:(CGFloat)height duration:(NSTimeInterval)duration {
-//    CGPoint fromPoint = CGPointMake(10, 20);
-//    CGPoint toPoint = CGPointMake(300, 400);
-//    NSTimeInterval duration = 2.78;
-//    NSTimeInterval currentTime = CACurrentMediaTime() - self.beginTime;
-//
-//    CGFloat percent = currentTime / duration;
-//    if (percent > 1) {
-//        percent = 1;
-//        [displayLink invalidate];
-//    }
-//
-//    percent = [self easeIn:percent];
-//
-//    CGFloat x = [self _interpolateFrom:fromPoint.x to:toPoint.x percent:percent];
-//    CGFloat y = [self _interpolateFrom:fromPoint.y to:toPoint.y percent:percent];
-//}
-
-- (CGFloat)_interpolateFrom:(CGFloat)from to:(CGFloat)to percent:(CGFloat)percent
-{
-    return from + (to - from) * percent;
+#pragma mark - HomeDrawDelegate
+/// 点击了内三角形
+- (void)homeDraw:(HomeDraw *)draw didClickInTriangle:(CAShapeLayer *)triangle {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didClickInTriangle:)]) {
+        [self.delegate homeHeader:self didClickInTriangle:triangle];
+    }
 }
-- (CGFloat)easeIn:(CGFloat)p
-{
-    return p * p;
+/// 点击了三个按钮
+- (void)homeDraw:(HomeDraw *)draw didTapButton:(HomePushButton *)speed {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didTapButton:)]) {
+        [self.delegate homeHeader:self didTapButton:speed];
+    }
 }
+/// 点击速率按钮
+- (void)homeDraw:(HomeDraw *)draw didTapSpeed:(UIButton *)speed {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didTapSpeed:)]) {
+        [self.delegate homeHeader:self didTapSpeed:speed];
+    }
+}
+/// 点击控制按钮
+- (void)homeDraw:(HomeDraw *)draw didTapControl:(UIButton *)control {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didTapControl:)]) {
+        [self.delegate homeHeader:self didTapControl:control];
+    }
+}
+
 
 
 
 
 
 @end
+

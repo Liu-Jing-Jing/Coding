@@ -84,10 +84,10 @@
             // 右边
             else if (position == HomePushButtonTriangleRight) {
                 if (button == HomePushBtnOne) {
-                    point = CGPointMake(20, -40);
+                    point = CGPointMake(-40, -20);
                 }
                 else if (button == HomePushBtnTwo) {
-                    point = CGPointMake(-40, -20);
+                    point = CGPointMake(20, -40);
                 }
                 name = kCAMediaTimingFunctionEaseInEaseOut;
             }
@@ -175,12 +175,16 @@
 
 // 创建比例动画
 - (void)createScale:(CGPoint)scale name:(NSString *)name duration:(NSTimeInterval)duration {
+    [self createScale:scale name:name duration:duration complete:nil];
+}
+- (void)createScale:(CGPoint)scale name:(NSString *)name duration:(NSTimeInterval)duration complete:(HomeAnimationBlock)complete {
     POPBasicAnimation *scaleA = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    //    scaleA.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.1, 0.1)];
     scaleA.toValue = [NSValue valueWithCGPoint:scale];
-    scaleA.duration = 0.3;
-    // kCAMediaTimingFunctionEaseInEaseOut
+    scaleA.duration = duration;
     scaleA.timingFunction = [CAMediaTimingFunction functionWithName:name];
+    if (complete) {
+        scaleA.completionBlock = complete;
+    }
     [self.layer pop_addAnimation:scaleA forKey:@"scaleXY"];
 }
 

@@ -9,10 +9,10 @@
 #import "HomeDraw.h"
 #import "BaseView+HomeHeader.h"
 #import "DisplayLinkUtil.h"
-#import "HomePushButton.h"
+#import "BaseView+MMPulseView.h"
 
 #pragma mark - 声明
-@interface HomeDraw()<UIGestureRecognizerDelegate> {
+@interface HomeDraw()<UIGestureRecognizerDelegate, HomePushButtonDelegate> {
     CGFloat aaa;
 }
 
@@ -40,13 +40,13 @@
     [self chooses];
     [self pushs];
     
-    [DisplayLinkUtil initWithBlock:^{
-        aaa += 0.005;
-        if (aaa >= 1) {
-            aaa = 0;
-        }
-        _moveTriangle.path = [self createTriangleWithPercent1:aaa / 2 percent2:aaa / 3 percent3:aaa];
-    }];
+//    [DisplayLinkUtil initWithBlock:^{
+//        aaa += 0.005;
+//        if (aaa >= 1) {
+//            aaa = 0;
+//        }
+//        _moveTriangle.path = [self createTriangleWithPercent1:aaa / 2 percent2:aaa / 3 percent3:aaa];
+//    }];
 }
 - (CAShapeLayer *)bgTriangle {
     if (!_bgTriangle) {
@@ -62,7 +62,7 @@
     if (!_moveTriangle) {
         _moveTriangle = [CAShapeLayer layer];
         _moveTriangle.frame = [self bounds];
-        _moveTriangle.path = [self createTriangleWithPercent1:0.2 percent2:0.9 percent3:0.1];
+//        _moveTriangle.path = [self createTriangleWithPercent1:0.2 percent2:0.9 percent3:0.1];
         _moveTriangle.fillColor = [[UIColor greenColor] colorWithAlphaComponent:0.5].CGColor;
         [self.layer addSublayer:_moveTriangle];
     }
@@ -105,6 +105,8 @@
             [choose setBackgroundColor:[UIColor redColor]];
             [choose setUserInteractionEnabled:YES];
             [choose setTag:i];
+            [choose.layer setCornerRadius:choose.height / 2];
+            [choose.layer setMasksToBounds:YES];
             [self addSubview:choose];
             [_chooses addObject:choose];
         }
@@ -116,7 +118,9 @@
         _pushs = [[NSMutableArray alloc] init];
         for (int i=0; i<3; i++) {
             HomePushButton *button = [HomePushButton loadCode:self.chooses[i].frame];
+            [button setDelegate:self];
             [button setType:i];
+            [button setTag:i];
             [self addSubview:button];
             [_pushs addObject:button];
         }
@@ -130,25 +134,50 @@
 }
 
 
-#pragma mark - 点击
-- (void)chooseTapClick:(UIGestureRecognizer *)gestrue {
-    NSLog(@"1231232");
+#pragma mark - HomePushButtonDelegate
+// 点击了三个圆圈
+- (void)pushButtonDidTap:(HomePushButton *)button {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeDraw:didTapButton:)]) {
+        [self.delegate homeDraw:self didTapButton:button];
+    }
 }
-- (void)chooseLongClick:(UIGestureRecognizer *)gestrue {
-    if (gestrue.state == UIGestureRecognizerStateBegan) {
-        [self.pushs[gestrue.view.tag] show];
-        
+// 点击速率按钮
+- (void)pushButton:(HomePushButton *)button didTapSpeed:(UIButton *)speed {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeDraw:didTapSpeed:)]) {
+        [self.delegate homeDraw:self didTapSpeed:speed];
     }
-    else if (gestrue.state == UIGestureRecognizerStateChanged) {
-        NSLog(@"123");
-    }
-    else if (gestrue.state == UIGestureRecognizerStateEnded) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.pushs[gestrue.view.tag] hide];
-        });
+}
+// 点击控制按钮
+- (void)pushButton:(HomePushButton *)button didTapControl:(UIButton *)control {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeDraw:didTapControl:)]) {
+        [self.delegate homeDraw:self didTapControl:control];
     }
 }
 
+#pragma mark - 点击
+//- (void)chooseLongClick:(UIGestureRecognizer *)gestrue {
+//    if (gestrue.state == UIGestureRecognizerStateBegan) {
+//        [self.pushs[gestrue.view.tag] show];
+//    }
+//    else if (gestrue.state == UIGestureRecognizerStateChanged) {
+//        NSLog(@"123");
+//    }
+//    else if (gestrue.state == UIGestureRecognizerStateEnded) {
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self.pushs[gestrue.view.tag] hide];
+//        });
+//    }
+//}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    CGPoint point = [[touches anyObject] locationInView:self];
+    // 点击在内三角上
+    if (CGPathContainsPoint(self.triangle.path, NULL, point, NO)) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(homeDraw:didClickInTriangle:)]) {
+            [self.delegate homeDraw:self didClickInTriangle:_triangle];
+        }
+    }
+}
 
 
 
