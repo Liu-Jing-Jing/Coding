@@ -13,7 +13,6 @@
 @interface HomeControl()
 
 @property (nonatomic, strong) HomeCell *cell;
-@property (nonatomic, strong) UIView *<#name#>;
 
 @end
 
