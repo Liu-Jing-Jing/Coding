@@ -74,7 +74,8 @@
         _speed = [HomeHeaderSpeed loadCode:CGRectMake(0, 0, ScreenWidth, 100)];
         _speed.delegate = self;
         _speed.centerY = self.centerY;
-        _speed.top += [_speed createHeightWithWidth:HomeBgTriangleW + 60];
+        _speed.top += [_speed createHeightWithWidth:HomeBgTriangleW + countcoordinatesX(50)];
+//        _speed.top += [_speed createHeightWithWidth:HomeBgTriangleW];
         [self addSubview:_speed];
     }
     return _speed;
