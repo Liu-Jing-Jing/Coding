@@ -20,6 +20,8 @@
 		0450063E20C8CD6E00E56AC6 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450063D20C8CD6E00E56AC6 /* HomeView.m */; };
 		04554F452089B1C800BEC435 /* KKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04554F442089B1C800BEC435 /* KKEmptyView.m */; };
 		0478B2C02087588100213353 /* UIViewController+LLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478B2BE2087588100213353 /* UIViewController+LLAdd.m */; };
+		0482438E20CF4C420038026C /* HomeDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 0482438B20CF4C420038026C /* HomeDraw.m */; };
+		0482438F20CF4C420038026C /* HomePushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0482438D20CF4C420038026C /* HomePushButton.m */; };
 		0495ABCA2092B69800BC963E /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABC92092B69700BC963E /* UIView+Visuals.m */; };
 		0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD52092C7DA00BC963E /* UITextField+Extension.m */; };
 		0495ABDA2092C7E800BC963E /* NSAttributedString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495ABD92092C7E800BC963E /* NSAttributedString+Size.m */; };
@@ -46,7 +48,6 @@
 		04DD0C1720B4F27800DF2E0F /* OpenShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD0C1120B4F27800DF2E0F /* OpenShareView.m */; };
 		04DD0C1B20B4F34600DF2E0F /* OpenShareContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD0C1A20B4F34600DF2E0F /* OpenShareContent.m */; };
 		4B332E6420CABF9C009AED3D /* HomeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B332E6320CABF9C009AED3D /* HomeBar.m */; };
-		4B332E6820CABFC1009AED3D /* HomeDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B332E6720CABFC1009AED3D /* HomeDraw.m */; };
 		4B332E6B20CAD121009AED3D /* HomeCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B332E6A20CAD121009AED3D /* HomeCircle.m */; };
 		4B332E7120CAD5F5009AED3D /* BaseView+HomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B332E7020CAD5F5009AED3D /* BaseView+HomeHeader.m */; };
 		4B37B4B520CCC367004A12DD /* MMPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B37B4B420CCC367004A12DD /* MMPulseView.m */; };
@@ -65,7 +66,6 @@
 		4B7D750120CD6031005ACAD0 /* HomeHeaderSpeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D750020CD6031005ACAD0 /* HomeHeaderSpeed.m */; };
 		4B7D750520CD605B005ACAD0 /* HomeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D750420CD605B005ACAD0 /* HomeControl.m */; };
 		4BAC3A2420CC17B60000F4E3 /* UIButton+HomeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC3A2320CC17B60000F4E3 /* UIButton+HomeAnimation.m */; };
-		4BAC3A2720CC1B0B0000F4E3 /* HomePushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC3A2620CC1B0B0000F4E3 /* HomePushButton.m */; };
 		4BB1E4022087838D0066B80A /* MJRefreshNormalHeader+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1E4012087838D0066B80A /* MJRefreshNormalHeader+Extension.m */; };
 		4BB1E4172087893D0066B80A /* SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1E4162087893D0066B80A /* SectionHeader.m */; };
 		4BB1E41D20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1E41C20878C7A0066B80A /* MJRefreshBackNormalFooter+Extension.m */; };
@@ -136,6 +136,10 @@
 		0478B2BD2087588100213353 /* UIViewController+LLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLAdd.h"; sourceTree = "<group>"; };
 		0478B2BE2087588100213353 /* UIViewController+LLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLAdd.m"; sourceTree = "<group>"; };
 		0478B2BF2087588100213353 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
+		0482438A20CF4C420038026C /* HomeDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDraw.h; sourceTree = "<group>"; };
+		0482438B20CF4C420038026C /* HomeDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDraw.m; sourceTree = "<group>"; };
+		0482438C20CF4C420038026C /* HomePushButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePushButton.h; sourceTree = "<group>"; };
+		0482438D20CF4C420038026C /* HomePushButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePushButton.m; sourceTree = "<group>"; };
 		0495ABC82092B69700BC963E /* UIView+Visuals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visuals.h"; sourceTree = "<group>"; };
 		0495ABC92092B69700BC963E /* UIView+Visuals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Visuals.m"; sourceTree = "<group>"; };
 		0495ABD42092C7DA00BC963E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
@@ -191,8 +195,6 @@
 		17D8745DF5456539CEBD9B92 /* Pods-coding-ios-master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coding-ios-master.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coding-ios-master/Pods-coding-ios-master.debug.xcconfig"; sourceTree = "<group>"; };
 		4B332E6220CABF9C009AED3D /* HomeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBar.h; sourceTree = "<group>"; };
 		4B332E6320CABF9C009AED3D /* HomeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBar.m; sourceTree = "<group>"; };
-		4B332E6620CABFC1009AED3D /* HomeDraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDraw.h; sourceTree = "<group>"; };
-		4B332E6720CABFC1009AED3D /* HomeDraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDraw.m; sourceTree = "<group>"; };
 		4B332E6920CAD121009AED3D /* HomeCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCircle.h; sourceTree = "<group>"; };
 		4B332E6A20CAD121009AED3D /* HomeCircle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCircle.m; sourceTree = "<group>"; };
 		4B332E6F20CAD5F5009AED3D /* BaseView+HomeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseView+HomeHeader.h"; sourceTree = "<group>"; };
@@ -227,8 +229,6 @@
 		4B7D750420CD605B005ACAD0 /* HomeControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeControl.m; sourceTree = "<group>"; };
 		4BAC3A2220CC17B60000F4E3 /* UIButton+HomeAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HomeAnimation.h"; sourceTree = "<group>"; };
 		4BAC3A2320CC17B60000F4E3 /* UIButton+HomeAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HomeAnimation.m"; sourceTree = "<group>"; };
-		4BAC3A2520CC1B0B0000F4E3 /* HomePushButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePushButton.h; sourceTree = "<group>"; };
-		4BAC3A2620CC1B0B0000F4E3 /* HomePushButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePushButton.m; sourceTree = "<group>"; };
 		4BB1E4002087838D0066B80A /* MJRefreshNormalHeader+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MJRefreshNormalHeader+Extension.h"; sourceTree = "<group>"; };
 		4BB1E4012087838D0066B80A /* MJRefreshNormalHeader+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MJRefreshNormalHeader+Extension.m"; sourceTree = "<group>"; };
 		4BB1E4152087893D0066B80A /* SectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionHeader.h; sourceTree = "<group>"; };
@@ -349,10 +349,7 @@
 				4B37B4C320CD14D5004A12DD /* Bg */,
 				4B37B4C420CD14DF004A12DD /* Speed */,
 				4B7D750220CD6048005ACAD0 /* Control */,
-				4B332E6620CABFC1009AED3D /* HomeDraw.h */,
-				4B332E6720CABFC1009AED3D /* HomeDraw.m */,
-				4BAC3A2520CC1B0B0000F4E3 /* HomePushButton.h */,
-				4BAC3A2620CC1B0B0000F4E3 /* HomePushButton.m */,
+				0482438920CF4C420038026C /* Draw */,
 				4B332E6920CAD121009AED3D /* HomeCircle.h */,
 				4B332E6A20CAD121009AED3D /* HomeCircle.m */,
 			);
@@ -451,6 +448,17 @@
 				0478B2BE2087588100213353 /* UIViewController+LLAdd.m */,
 			);
 			path = LLNavigationBar;
+			sourceTree = "<group>";
+		};
+		0482438920CF4C420038026C /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				0482438A20CF4C420038026C /* HomeDraw.h */,
+				0482438B20CF4C420038026C /* HomeDraw.m */,
+				0482438C20CF4C420038026C /* HomePushButton.h */,
+				0482438D20CF4C420038026C /* HomePushButton.m */,
+			);
+			path = Draw;
 			sourceTree = "<group>";
 		};
 		0495ABD12092C75800BC963E /* Third */ = {
@@ -1225,7 +1233,6 @@
 				0495ABD62092C7DA00BC963E /* UITextField+Extension.m in Sources */,
 				04DD0C0420B4F0F500DF2E0F /* OpenShare+Renren.m in Sources */,
 				4BE9FD0E20862FCA0020B755 /* main.m in Sources */,
-				4B332E6820CABFC1009AED3D /* HomeDraw.m in Sources */,
 				4BE9FDFB208630070020B755 /* SaveUtils.m in Sources */,
 				4B332E6B20CAD121009AED3D /* HomeCircle.m in Sources */,
 				04DD0C0C20B4F0F500DF2E0F /* TWSNSRequest.m in Sources */,
@@ -1235,6 +1242,7 @@
 				4B7D750520CD605B005ACAD0 /* HomeControl.m in Sources */,
 				04BA9E3D20AAD6CA00678BE1 /* Music.m in Sources */,
 				4BD2B1F120863EEA00E31A21 /* UICollectionViewCell+Extension.m in Sources */,
+				0482438E20CF4C420038026C /* HomeDraw.m in Sources */,
 				04BA9E2820AABFC300678BE1 /* TimerUtil.m in Sources */,
 				4B37B4C720CD50BF004A12DD /* HomeHeaderSlider.m in Sources */,
 				4BE9FDFD208630070020B755 /* StatusUtils.m in Sources */,
@@ -1246,7 +1254,6 @@
 				4B4DDE8320A096F8001A5132 /* LRLChannelUnitModel.m in Sources */,
 				4BE9FDEC208630070020B755 /* UIView+Snapshot.m in Sources */,
 				4B6594EC208E18A0005CF75C /* UIView+BlockGesture.m in Sources */,
-				4BAC3A2720CC1B0B0000F4E3 /* HomePushButton.m in Sources */,
 				4BD2B2002086453900E31A21 /* UICollectionReusableView+Extension.m in Sources */,
 				04BBD348208DBCC900968BF8 /* UILabel+Commonly.m in Sources */,
 				4BE9FDF3208630070020B755 /* NSString+Extension.m in Sources */,
@@ -1261,6 +1268,7 @@
 				04C03D01208AD2B400BD0995 /* NSString+API.m in Sources */,
 				04A85D3020AE59B50052D312 /* KMTagListView.m in Sources */,
 				4BE8DE31209DEEBB00A79ECD /* BaseTableCell.m in Sources */,
+				0482438F20CF4C420038026C /* HomePushButton.m in Sources */,
 				4BE9FDEA208630070020B755 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				4BE9FDF4208630070020B755 /* UITableView+Extension.m in Sources */,
 				4BE9FDFA208630070020B755 /* HelperUtil.m in Sources */,

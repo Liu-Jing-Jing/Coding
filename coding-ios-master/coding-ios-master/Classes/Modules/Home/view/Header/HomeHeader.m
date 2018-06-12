@@ -106,15 +106,15 @@
     _bg.type = type;
     if (_type == HomeHeaderBgTypeDefault) {
         [self.speed show:0];
-        [self.control setAlpha:0];
+        [self.control show:0];
     }
     else if (_type == HomeHeaderBgTypeSpeed) {
         [self.speed show:1];
-        [self.control setAlpha:0];
+        [self.control show:0];
     }
     else if (_type == HomeHeaderBgTypeControl) {
         [self.speed show:0];
-        [self.control setAlpha:1];
+        [self.control show:1];
     }
 }
 

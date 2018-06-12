@@ -78,7 +78,7 @@
 #pragma mark - HomeHeaderDelegate
 // 点击了内三角, 更改高度
 - (void)homeHeader:(HomeHeader *)header didClickInTriangle:(CAShapeLayer *)triangle {
-    CGFloat headerH = self.header.height != ScreenWidth / 750.f * 1030 ? ScreenWidth / 750.f * 1030 : ScreenWidth;
+    CGFloat headerH = self.header.height < ScreenWidth / 750.f * 1030 ? ScreenWidth / 750.f * 1030 : ScreenWidth;
     CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
     [_header setType:headerH == ScreenWidth / 750.f * 1030 ? HomeHeaderBgTypeSpeed : HomeHeaderBgTypeDefault];
     [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -95,7 +95,7 @@
 }
 /// 点击速率按钮
 - (void)homeHeader:(HomeHeader *)header didTapSpeed:(UIButton *)speed {
-    CGFloat headerH = self.header.height != ScreenWidth / 750.f * 1030 ? ScreenWidth / 750.f * 1030 : ScreenWidth;
+    CGFloat headerH = self.header.height < ScreenWidth / 750.f * 1030 ? ScreenWidth / 750.f * 1030 : ScreenWidth;
     CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
     [_header setType:headerH == ScreenWidth / 750.f * 1030 ? HomeHeaderBgTypeSpeed : HomeHeaderBgTypeDefault];
     [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{

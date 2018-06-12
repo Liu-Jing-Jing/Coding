@@ -10,4 +10,6 @@
 
 @interface HomeControl : BaseView
 
+- (void)show:(CGFloat)alpha;
+
 @end
