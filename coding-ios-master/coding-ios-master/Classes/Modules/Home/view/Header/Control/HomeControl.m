@@ -28,6 +28,9 @@
     [self setUserInteractionEnabled:NO];
     [self cell];
     [self arc];
+    
+    
+    
 }
 - (HomeCell *)cell {
     if (!_cell) {
@@ -42,15 +45,21 @@
         _arc = [CAShapeLayer layer];
         _arc.frame = self.bounds;
         _arc.path = ({
-            UIBezierPath *path = [UIBezierPath bezierPath];
-            [path addArcWithCenter:CGPointMake(self.width / 2, self.height / 2) radius:40 startAngle:0 endAngle:M_PI clockwise:YES];
+            UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height / 2) radius:self.width / 3 startAngle:0 endAngle:M_PI / 180 clockwise:YES];
+            [path addLineToPoint:CGPointMake(self.width / 2, self.height / 2)];
             path.CGPath;
         });
-        _arc.fillColor = [UIColor redColor].CGColor;
+        _arc.strokeStart = 0.1;
+        _arc.strokeEnd = 0.2;
+        _arc.lineWidth = 1.0f;
+        _arc.masksToBounds = YES;
+        _arc.fillColor = [UIColor clearColor].CGColor;
+        _arc.strokeColor = [UIColor redColor].CGColor;
         [self.layer addSublayer:_arc];
     }
     return _arc;
 }
+
 
 #pragma mark - 设置
 - (void)show:(CGFloat)alpha {
@@ -61,6 +70,9 @@
         } completion:^(BOOL finished) {
             
         }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            _arc.strokeStart = 0.01;
+        });
     }
     // 隐藏
     else {
