@@ -8,7 +8,21 @@
 
 #import "BaseView.h"
 
+#pragma mark - 代理
+@class HomeHeaderSlider;
+@protocol HomeHeaderSliderDelegate<NSObject>
+
+@optional
+// 值改变了
+- (void)headerSlider:(HomeHeaderSlider *)slider valueDidChange:(CGFloat)percentage;
+
+@end
+
+#pragma mark - 声明
 @interface HomeHeaderSlider : BaseView
+
+//
+@property (nonatomic, weak  ) id<HomeHeaderSliderDelegate> delegate;
 
 - (void)show:(CGFloat)alpha;
 

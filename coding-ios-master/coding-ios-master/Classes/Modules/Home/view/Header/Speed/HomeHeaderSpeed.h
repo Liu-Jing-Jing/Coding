@@ -22,8 +22,10 @@
 #pragma mark - 声明
 @interface HomeHeaderSpeed : BaseView
 
+// 代理
 @property (nonatomic, weak  ) id<HomeHeaderSpeedDelegate> delegate;
 
+// 显示
 - (void)show:(CGFloat)alpha;
 
 @end
