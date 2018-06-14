@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>iOS端</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -44,6 +46,22 @@
 			</array>
 		</dict>
 	</array>
+    <!-- iOS9 http请求 -->
+    <key>NSAppTransportSecurity</key>
+    
+    
+    <dict>
+        
+        
+        <key>NSAllowsArbitraryLoads</key>
+        
+        
+        <true/>
+        
+        
+    </dict>
+    <!-- iOS9 http请求结束 -->
+
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -12,7 +12,6 @@
 @interface HomeHeaderSlider()
 
 @property (nonatomic, strong) UIImageView *icon;
-@property (nonatomic, strong) UISlider *slider;
 @property (nonatomic, strong) UIImageView *menu;
 
 @end
@@ -45,6 +44,7 @@
         _slider.minimumTrackTintColor = [UIColor lightTextColor];
         _slider.maximumTrackTintColor = [UIColor lightGrayColor];
         [_slider setThumbImage:[UIImage imageNamed:@"home_circle"] forState:UIControlStateNormal];
+        [_slider addTarget:self action:@selector(sliderChange:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:_slider];
     }
     return _slider;
@@ -58,6 +58,14 @@
         [self addSubview:_menu];
     }
     return _menu;
+}
+
+#pragma mark - 点击
+// 值改变
+- (void)sliderChange:(UISlider *)slider {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(headerSlider:valueDidChange:)]) {
+        [self.delegate headerSlider:self valueDidChange:slider.value];
+    }
 }
 
 #pragma mark - 设置

@@ -25,8 +25,6 @@
 @property (nonatomic, strong) NSMutableArray<CAShapeLayer *> *scale_small;
 // 刻度文本
 @property (nonatomic, strong) NSMutableArray<UILabel *> *scale_label;
-// back
-@property (nonatomic, strong) UIButton *back;
 
 @end
 
@@ -250,6 +248,7 @@
 - (void)show:(CGFloat)alpha {
     // 显示
     if (alpha == 1) {
+        [self setUserInteractionEnabled:YES];
         [UIView animateWithDuration:.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             _cell.top = 0;
             _back.top = [self getPostionX:self.width / 2 withPostionY:self.height / 2 withRadius:self.width / 4 + 17 withCirAngle: 360 / 8.f * 2].y + 20;
@@ -319,6 +318,7 @@
     }
     // 隐藏
     else {
+        [self setUserInteractionEnabled:NO];
         __weak typeof(self) weak = self;
         [UIView animateWithDuration:.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             weak.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, weak.height);

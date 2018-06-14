@@ -10,10 +10,13 @@
 #import "BaseView+HomeHeader.h"
 #import "DisplayLinkUtil.h"
 #import "BaseView+MMPulseView.h"
+#import "HomeHeaderSlider.h"
 
 #pragma mark - 声明
 @interface HomeDraw()<UIGestureRecognizerDelegate, HomePushButtonDelegate> {
-    CGFloat aaa;
+    CGFloat value1;
+    CGFloat value2;
+    CGFloat value3;
 }
 
 /// 背景三角形
@@ -40,6 +43,8 @@
     [self chooses];
     [self pushs];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sliderValueChange:) name:@"HomeDrawNSNotification" object:nil];
+    
 //    [DisplayLinkUtil initWithBlock:^{
 //        aaa += 0.005;
 //        if (aaa >= 1) {
@@ -53,7 +58,7 @@
         _bgTriangle = [CAShapeLayer layer];
         _bgTriangle.frame = [self bounds];
         _bgTriangle.path = [self createTriangleWithWidth:HomeBgTriangleW];
-        _bgTriangle.fillColor = [UIColor redColor].CGColor;
+        _bgTriangle.fillColor = ColorTextMedium.CGColor;
         [self.layer addSublayer:_bgTriangle];
     }
     return _bgTriangle;
@@ -62,8 +67,7 @@
     if (!_moveTriangle) {
         _moveTriangle = [CAShapeLayer layer];
         _moveTriangle.frame = [self bounds];
-//        _moveTriangle.path = [self createTriangleWithPercent1:0.2 percent2:0.9 percent3:0.1];
-        _moveTriangle.fillColor = [[UIColor greenColor] colorWithAlphaComponent:0.5].CGColor;
+        _moveTriangle.fillColor = [ColorTextBold colorWithAlphaComponent:0.5].CGColor;
         [self.layer addSublayer:_moveTriangle];
     }
     return _moveTriangle;
@@ -73,7 +77,7 @@
         _triangle = [CAShapeLayer layer];
         _triangle.frame = [self bounds];
         _triangle.path = [self createTriangleWithWidth:HomeTriangleW];
-        _triangle.fillColor = [UIColor orangeColor].CGColor;
+        _triangle.fillColor = ColorTextBold.CGColor;
         [self.layer addSublayer:_triangle];
     }
     return _triangle;
@@ -102,11 +106,12 @@
         for (int i=0; i<rects.count; i++) {
             UIImageView *choose = [[UIImageView alloc] init];
             [choose setFrame:CGRectFromString(rects[i])];
-            [choose setBackgroundColor:[UIColor redColor]];
             [choose setUserInteractionEnabled:YES];
+            [choose setImage:[UIImage imageNamed:@"灰_包菜"]];
             [choose setTag:i];
             [choose.layer setCornerRadius:choose.height / 2];
             [choose.layer setMasksToBounds:YES];
+            [choose setAlpha:0.5];
             [self addSubview:choose];
             [_chooses addObject:choose];
         }
@@ -155,6 +160,19 @@
 }
 
 #pragma mark - 点击
+- (void)sliderValueChange:(NSNotification *)not {
+    HomeHeaderSlider *slider = (HomeHeaderSlider *)not.object;
+    if (slider.tag == 0) {
+        value1 = slider.slider.value;
+    }
+    else if (slider.tag == 1) {
+        value2 = slider.slider.value;
+    }
+    else if (slider.tag == 2) {
+        value3 = slider.slider.value;
+    }
+    _moveTriangle.path = [self createTriangleWithPercent1:value1 percent2:value2 percent3:value3];
+}
 //- (void)chooseLongClick:(UIGestureRecognizer *)gestrue {
 //    if (gestrue.state == UIGestureRecognizerStateBegan) {
 //        [self.pushs[gestrue.view.tag] show];
@@ -177,6 +195,11 @@
             [self.delegate homeDraw:self didClickInTriangle:_triangle];
         }
     }
+}
+
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

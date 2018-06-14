@@ -45,7 +45,7 @@
         for (int i=0; i<10; i++) {
             CAShapeLayer *shape = [CAShapeLayer layer];
             shape.frame = [self bounds];
-            shape.fillColor = [[UIColor grayColor] colorWithAlphaComponent:0.1].CGColor;
+            shape.fillColor = [ColorTextMedium colorWithAlphaComponent:0.1].CGColor;
             [self.layer addSublayer:shape];
             [_shape addObject:shape];
         }

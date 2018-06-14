@@ -53,12 +53,17 @@
     if (!_scroll) {
         _scroll = [[UIScrollView alloc] initWithFrame:ScreenBounds];
         _scroll.contentInset = UIEdgeInsetsMake(self.header.height, 0, 0, 0);
+        _scroll.showsVerticalScrollIndicator = NO;
         [self addSubview:_scroll];
     }
     return _scroll;
 }
 - (void)createScrollView {
-    for (int i=0; i<30; i++) {
+    NSArray *arr = @[@"包菜",@"冬瓜",@"冬笋",@"红薯",@"胡萝卜",
+                     @"花菜",@"黄瓜",@"茄子",@"辣椒",@"南瓜",
+                     @"藕",@"秋葵",@"山药",@"蔬菜集",@"土豆",
+                     @"豌豆",@"西红柿",@"西蓝花",@"洋葱",@"玉米"];
+    for (int i=0; i<arr.count; i++) {
         NSInteger count = 4;
         NSInteger row = i / count;
         NSInteger col = i % count;
@@ -69,6 +74,7 @@
             CGFloat top = row * height;
             CGRectMake(left, top, width, height);
         })];
+        [cell setData:arr[i]];
         [cell setShapeColor:[UIColor orangeColor]];
         [self.scroll addSubview:cell];
         [self.scroll setContentSize:CGSizeMake(ScreenWidth, CGRectGetMaxY(cell.frame))];
@@ -124,6 +130,20 @@
     CGFloat headerH = ScreenWidth;
     CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
     [_header setType:HomeHeaderBgTypeDefault];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [_header setHeight:headerH];
+        [_scroll setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];
+        [_scroll setContentOffset:CGPointMake(0, moveH) animated:NO];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+/// 点击音量调节
+- (void)homeHeader:(HomeHeader *)header didClickMusic:(UIButton *)music {
+    CGFloat headerH = ScreenWidth / 750.f * 1030;
+    CGFloat moveH = _scroll.contentOffset.y - (headerH - _header.height);
+    [_header setType:HomeHeaderBgTypeSpeed];
     [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [_header setHeight:headerH];
         [_scroll setContentInset:UIEdgeInsetsMake(headerH, 0, 0, 0)];

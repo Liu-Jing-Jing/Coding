@@ -25,6 +25,8 @@
 - (void)homeHeader:(HomeHeader *)header didTapControl:(UIButton *)control;
 /// 点击了关闭按钮
 - (void)homeHeader:(HomeHeader *)header didTapClose:(UIButton *)close;
+/// 点击音量调节
+- (void)homeHeader:(HomeHeader *)header didClickMusic:(UIButton *)music;
 
 @end
 

@@ -12,4 +12,5 @@ target 'coding-ios-master' do
   pod 'SDCycleScrollView', '~>1.75'
   pod 'TTTAttributedLabel', '~>2.0.0'
   pod 'SDCycleScrollView', '~>1.75'
+  pod 'Realm', '~> 3.5.0'
 end

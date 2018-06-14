@@ -68,7 +68,7 @@
     else if (status == HomeShapeStatusDownloaded) {
         [self.timer timerInvalidate];
         _timer = [DisplayLinkUtil initWithBlock:^{
-            _progress -= 0.01;
+            _progress -= 0.05;
             _progress = _progress <= 0 ? 0 : _progress;
             // 小于0 结束定时器
             if (_progress <= 0) {

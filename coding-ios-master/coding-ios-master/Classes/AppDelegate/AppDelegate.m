@@ -24,6 +24,7 @@
         
     }
     [self setRootWindow];
+    
     return YES;
 }
 /// 跟控制器

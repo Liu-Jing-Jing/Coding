@@ -20,6 +20,5 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <SDWebImage/SDWebImageDownloader.h>
-#import "TLSegmentedControl.h"
 #import <SDCycleScrollView/SDCycleScrollView.h>
 

@@ -21,8 +21,10 @@
 #pragma mark - 声明
 @interface HomeHeaderSlider : BaseView
 
-//
+// 代理
 @property (nonatomic, weak  ) id<HomeHeaderSliderDelegate> delegate;
+// 滑条
+@property (nonatomic, strong) UISlider *slider;
 
 - (void)show:(CGFloat)alpha;
 

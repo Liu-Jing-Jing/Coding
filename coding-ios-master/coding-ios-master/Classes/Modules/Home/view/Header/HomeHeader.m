@@ -15,15 +15,15 @@
 #import "HomeControl.h"
 
 #pragma mark - 声明
-@interface HomeHeader()<HomeDrawDelegate, HomeHeaderSpeedDelegate>
+@interface HomeHeader()<HomeDrawDelegate, HomeHeaderSpeedDelegate, HomeHeaderSpeedDelegate>
 
 @property (nonatomic, strong) HomeDraw *draw;
 @property (nonatomic, strong) HomeCircle *circle;
 /// 背景层
 @property (nonatomic, strong) HomeHeaderBg *bg;
-/// 控制
+/// 音量
 @property (nonatomic, strong) HomeHeaderSpeed *speed;
-///
+/// 控制
 @property (nonatomic, strong) HomeControl *control;
 
 @end
@@ -37,7 +37,7 @@
     [self draw];
     [self speed];
     [self control];
-//    [self circle];
+    [self circle];
     [self setBackgroundColor:[UIColor whiteColor]];
     [self setClipsToBounds:YES];
 }
@@ -68,7 +68,7 @@
     }
     return _circle;
 }
-// 控制
+// 音量
 - (HomeHeaderSpeed *)speed {
     if (!_speed) {
         _speed = [HomeHeaderSpeed loadCode:CGRectMake(0, 0, ScreenWidth, 100)];
@@ -84,7 +84,8 @@
 - (HomeControl *)control {
     if (!_control) {
         _control = [HomeControl loadCode:CGRectMake(0, 0, ScreenWidth, self.height)];
-        _control.top = _speed.top;
+        [_control setTop:_speed.top];
+        [_control.back addTarget:self action:@selector(homeMusicClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_control];
     }
     return _control;
@@ -123,8 +124,16 @@
     _bgColor = [UIColor colorWithRed:random() % 255 / 255.f green:random() % 255 / 255.f blue:random() % 255 / 255.f alpha:1];
 }
 
+#pragma mark - 点击
+/// 点击返回音量
+- (void)homeMusicClick {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didClickMusic:)]) {
+        [self.delegate homeHeader:self didClickMusic:_control.back];
+    }
+}
+
 #pragma mark - HomeHeaderSpeedDelegate
-/// 点击了关闭按钮
+// 点击了关闭按钮
 - (void)homeControl:(HomeHeaderSpeed *)view didTapClose:(UIButton *)close {
     if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didTapClose:)]) {
         [self.delegate homeHeader:self didTapClose:close];

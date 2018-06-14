@@ -13,11 +13,11 @@ typedef void (^HomeCellBlock)(void);
 #pragma mark - 声明
 @interface HomeCell ()
 
-@property (nonatomic, strong) UIImageView *icon;
-@property (nonatomic, strong) UILabel *desc;
 @property (nonatomic, strong) HomeShapeView *shape;
 @property (nonatomic, strong) CADisplayLink *timer;
 @property (nonatomic, copy  ) HomeCellBlock block;
+@property (nonatomic, strong) UIImageView *icon;
+@property (nonatomic, strong) UILabel *desc;
 
 @end
 
@@ -33,7 +33,6 @@ typedef void (^HomeCellBlock)(void);
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width / 3, self.width / 3)];
-        _icon.backgroundColor = [UIColor redColor];
         _icon.center = CGPointMake(self.width / 2, self.height / 2);
         [self addSubview:_icon];
     }
@@ -77,13 +76,11 @@ typedef void (^HomeCellBlock)(void);
     _shape.status = status;
     if (status == HomeShapeStatusNotDownload) {
         _desc.textColor = ColorTextMedium;
-        _icon.backgroundColor = [UIColor redColor];
         _shape.hidden = YES;
         [self timerInvalidate];
     }
     else if (status == HomeShapeStatusDownloading) {
         _desc.textColor = ColorTextMedium;
-        _icon.backgroundColor = [UIColor redColor];
         _shape.hidden = NO;
         [self timer:^{
             [self setProgress:_progress + 0.005];
@@ -91,8 +88,8 @@ typedef void (^HomeCellBlock)(void);
     }
     else if (status == HomeShapeStatusDownloaded) {
         _desc.textColor = ColorTextBold;
-        _icon.backgroundColor = [UIColor greenColor];
         _shape.hidden = NO;
+        _icon.image = [UIImage imageNamed:_data];
         [self timerInvalidate];
     }
 }
@@ -100,6 +97,12 @@ typedef void (^HomeCellBlock)(void);
 - (void)setShapeColor:(UIColor *)shapeColor {
     _shapeColor = shapeColor;
     _shape.shapeColor = shapeColor;
+}
+// 数据
+- (void)setData:(NSString *)data {
+    _data = data;
+    _icon.image = [UIImage imageNamed:[NSString stringWithFormat:@"灰_%@",data]];
+    _desc.text = data;
 }
 
 #pragma mark - 操作

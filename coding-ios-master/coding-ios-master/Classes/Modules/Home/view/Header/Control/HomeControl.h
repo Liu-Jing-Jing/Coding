@@ -10,6 +10,9 @@
 
 @interface HomeControl : BaseView
 
+// back
+@property (nonatomic, strong) UIButton *back;
+
 - (void)show:(CGFloat)alpha;
 
 @end

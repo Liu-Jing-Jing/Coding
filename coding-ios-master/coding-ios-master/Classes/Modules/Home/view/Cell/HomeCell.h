@@ -17,5 +17,7 @@
 @property (nonatomic, assign) HomeShapeStatus status;
 /// 圆圈颜色
 @property (nonatomic, strong) UIColor *shapeColor;
+/// 数据
+@property (nonatomic, strong) NSString *data;
 
 @end

@@ -10,11 +10,9 @@
 #import "HomeHeaderSlider.h"
 
 #pragma mark - 声明
-@interface HomeHeaderSpeed()
+@interface HomeHeaderSpeed()<HomeHeaderSliderDelegate>
 
-@property (nonatomic, strong) HomeHeaderSlider *slider1;
-@property (nonatomic, strong) HomeHeaderSlider *slider2;
-@property (nonatomic, strong) HomeHeaderSlider *slider3;
+@property (nonatomic, strong) NSMutableArray<HomeHeaderSlider *> *sliders;
 @property (nonatomic, strong) UIButton *close;
 
 @end
@@ -26,40 +24,31 @@
 - (void)initUI {
     [self setAlpha:0];
     [self setUserInteractionEnabled:NO];
-    [self slider1];
-    [self slider2];
-    [self slider3];
     [self close];
     [self setHeight:CGRectGetMaxY(_close.frame)];
 }
-- (HomeHeaderSlider *)slider1 {
-    if (!_slider1) {
-        _slider1 = [HomeHeaderSlider loadCode:CGRectMake(0, 0, ScreenWidth, 0)];
-        [self addSubview:_slider1];
+- (NSMutableArray<HomeHeaderSlider *> *)sliders {
+    if (!_sliders) {
+        _sliders = [[NSMutableArray alloc] init];
+        for (int i=0; i<3; i++) {
+            HomeHeaderSlider *slider = [HomeHeaderSlider loadCode:CGRectMake(0, 25 * i, ScreenWidth, 25)];
+            [slider setTag:i];
+            [slider setDelegate:self];
+            [self addSubview:slider];
+            [_sliders addObject:slider];
+        }
     }
-    return _slider1;
-}
-- (HomeHeaderSlider *)slider2 {
-    if (!_slider2) {
-        _slider2 = [HomeHeaderSlider loadCode:CGRectMake(0, CGRectGetMaxY(_slider1.frame) + 5, ScreenWidth, 0)];
-        [self addSubview:_slider2];
-    }
-    return _slider2;
-}
-- (HomeHeaderSlider *)slider3 {
-    if (!_slider3) {
-        _slider3 = [HomeHeaderSlider loadCode:CGRectMake(0, CGRectGetMaxY(_slider2.frame) + 5, ScreenWidth, 0)];
-        [self addSubview:_slider3];
-    }
-    return _slider3;
+    return _sliders;
 }
 - (UIButton *)close {
     if (!_close) {
         __weak typeof(self) weak = self;
         _close = [UIButton buttonWithType:UIButtonTypeCustom];
-        _close.backgroundColor = [UIColor redColor];
-        _close.frame = CGRectMake(0, CGRectGetMaxY(_slider3.frame) +countcoordinatesX(20), 25, 25);
-        _close.centerX = self.centerX;
+        [_close setFrame:CGRectMake(0, CGRectGetMaxY([self.sliders lastObject].frame) +countcoordinatesX(20), 25, 25)];
+        [_close setCenterX:self.centerX];
+        [_close setAlpha:0.7];
+        [_close setImage:[UIImage imageNamed:@"cha_message"] forState:UIControlStateNormal];
+        [_close setImage:[UIImage imageNamed:@"cha_message"] forState:UIControlStateHighlighted];
         [_close addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
             if (weak.delegate && [weak.delegate respondsToSelector:@selector(homeControl:didTapClose:)]) {
                 [weak.delegate homeControl:weak didTapClose:weak.close];
@@ -77,6 +66,11 @@
     } completion:^(BOOL finished) {
         [self setUserInteractionEnabled:YES];
     }];
+}
+
+#pragma mark - HomeHeaderSliderDelegate
+- (void)headerSlider:(HomeHeaderSlider *)slider valueDidChange:(CGFloat)percentage {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HomeDrawNSNotification" object:slider];
 }
 
 @end

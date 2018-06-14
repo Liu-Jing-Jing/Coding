@@ -45,10 +45,10 @@
     if (!_speed) {
         _speed = [UIButton buttonWithType:UIButtonTypeCustom];
         _speed.frame = CGRectMake(0, 0, 30, 30);
-        _speed.backgroundColor = [UIColor blackColor];
         _speed.layer.cornerRadius = 30 / 2;
         _speed.layer.masksToBounds = YES;
         _speed.alpha = 0;
+        [_speed setImage:[UIImage imageNamed:@"menu_message_icon_more"] forState:UIControlStateNormal];
         __weak typeof(self) weak = self;
         [_speed addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
             [weak enlarge:weak.speed complete:^(POPAnimation *anim, BOOL finished) {
@@ -66,10 +66,10 @@
     if (!_control) {
         _control = [UIButton buttonWithType:UIButtonTypeCustom];
         _control.frame = CGRectMake(0, 0, 30, 30);
-        _control.backgroundColor = [UIColor blueColor];
         _control.layer.cornerRadius = 30 / 2;
         _control.layer.masksToBounds = YES;
         _control.alpha = 0;
+        [_control setImage:[UIImage imageNamed:@"cosleep_message_icon_more"] forState:UIControlStateNormal];
         __weak typeof(self) weak = self;
         [_control addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
             [weak enlarge:weak.control complete:^(POPAnimation *anim, BOOL finished) {

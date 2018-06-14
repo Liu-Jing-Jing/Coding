@@ -14,7 +14,7 @@
     MMPulseView *pulseView = [MMPulseView new];
     pulseView.frame = frame;
     pulseView.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    pulseView.colors = @[(__bridge id)[UIColor whiteColor].CGColor, (__bridge id)[UIColor whiteColor].CGColor];
+    pulseView.colors = @[(__bridge id)[[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor, (__bridge id)[[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor];
     pulseView.startPoint = CGPointMake(0, 0.5);
     pulseView.endPoint = CGPointMake(1, 0.5);
     pulseView.minRadius = minRadius;
