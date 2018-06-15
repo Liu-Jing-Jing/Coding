@@ -13,22 +13,20 @@
 #import "HomeHeaderSlider.h"
 
 #pragma mark - 声明
-@interface HomeDraw()<UIGestureRecognizerDelegate, HomePushButtonDelegate> {
-    CGFloat value1;
-    CGFloat value2;
-    CGFloat value3;
-}
+@interface HomeDraw()<UIGestureRecognizerDelegate, HomePushButtonDelegate>
 
-/// 背景三角形
+// 背景三角形
 @property (nonatomic, strong) CAShapeLayer *bgTriangle;
-/// 移动三角形
+// 移动三角形
 @property (nonatomic, strong) CAShapeLayer *moveTriangle;
-/// 内置三角形
+// 内置三角形
 @property (nonatomic, strong) CAShapeLayer *triangle;
-/// 按钮
+// 按钮
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *chooses;
-/// 弹出视图
+// 弹出视图
 @property (nonatomic, strong) NSMutableArray<HomePushButton *> *pushs;
+// 定时器
+@property (nonatomic, strong) DisplayLinkUtil *link;
 
 @end
 
@@ -163,16 +161,18 @@
 - (void)sliderValueChange:(NSNotification *)not {
     HomeHeaderSlider *slider = (HomeHeaderSlider *)not.object;
     if (slider.tag == 0) {
-        value1 = slider.slider.value;
+        _value1 = slider.slider.value;
     }
     else if (slider.tag == 1) {
-        value2 = slider.slider.value;
+        _value2 = slider.slider.value;
     }
     else if (slider.tag == 2) {
-        value3 = slider.slider.value;
+        _value3 = slider.slider.value;
     }
-    _moveTriangle.path = [self createTriangleWithPercent1:value1 percent2:value2 percent3:value3];
+    _moveTriangle.path = [self createTriangleWithPercent1:_value1 percent2:_value2 percent3:_value3];
 }
+
+
 //- (void)chooseLongClick:(UIGestureRecognizer *)gestrue {
 //    if (gestrue.state == UIGestureRecognizerStateBegan) {
 //        [self.pushs[gestrue.view.tag] show];

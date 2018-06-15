@@ -30,8 +30,8 @@
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
         _icon.frame = CGRectMake(_slider.left - 40, 0, 25, 25);
-        _icon.backgroundColor = [UIColor redColor];
         _icon.centerY = self.height / 2;
+        _icon.image = [UIImage imageNamed:@"灰_包菜"];
         [self addSubview:_icon];
     }
     return _icon;
@@ -53,8 +53,8 @@
     if (!_menu) {
         _menu = [[UIImageView alloc] init];
         _menu.frame = CGRectMake(_slider.right + 20, 0, 25, 25);
-        _menu.backgroundColor = [UIColor redColor];
         _menu.centerY = self.height / 2;
+        _menu.image = [UIImage imageNamed:@"btn_menu_white"];
         [self addSubview:_menu];
     }
     return _menu;

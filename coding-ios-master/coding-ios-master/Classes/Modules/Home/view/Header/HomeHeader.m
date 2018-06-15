@@ -143,9 +143,11 @@
 #pragma mark - HomeDrawDelegate
 /// 点击了内三角形
 - (void)homeDraw:(HomeDraw *)draw didClickInTriangle:(CAShapeLayer *)triangle {
+    // 回调
     if (self.delegate && [self.delegate respondsToSelector:@selector(homeHeader:didClickInTriangle:)]) {
         [self.delegate homeHeader:self didClickInTriangle:triangle];
     }
+    //
 }
 /// 点击了三个按钮
 - (void)homeDraw:(HomeDraw *)draw didTapButton:(HomePushButton *)speed {

@@ -31,4 +31,8 @@
 /// 代理
 @property (nonatomic, weak  ) id<HomeDrawDelegate> delegate;
 
+@property (nonatomic, assign) CGFloat value1;
+@property (nonatomic, assign) CGFloat value2;
+@property (nonatomic, assign) CGFloat value3;
+
 @end
